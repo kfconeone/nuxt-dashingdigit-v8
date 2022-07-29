@@ -1,11 +1,13 @@
 <script setup lang="ts">
-const isMenuOpen = ref(false);
+const isMenuOpen = inject("isMenuOpen");
 function onClickToggle() {
   if (isMenuOpen.value) {
-    console.log("close");
+    //移除 body overflow:hidden
+    document.body.classList.remove("disabled-scroll");
     menuService.closeMenu();
   } else {
-    console.log("open");
+    //加入 body overflow:hidden
+    window.document.body.classList.add("disabled-scroll");
     menuService.openMenu();
   }
   isMenuOpen.value = !isMenuOpen.value;

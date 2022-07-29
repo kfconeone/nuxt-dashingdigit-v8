@@ -6,50 +6,113 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
-    <div class="pl-11 mt-20">
-      <p class="font-black text-4xl text-[#41443B]" style="font-family: arial-black">
-        JUST CALL ME <br />
-        WE’VE GOT YOUR BACK!
-      </p>
-      <div class="relative w-fit mt-16">
-        <img class="absolute w-32 right-5 top-9" src="~assets/imgs/letsgtw.png" />
-        <img class="w-96" src="~assets/imgs/nokia.png" />
+  <div class="hidden 3xl:block">
+    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 gap-40">
+      <div class="pl-11 mt-20">
+        <p class="font-black text-[40px] text-[#41443B]" style="font-family: arial-black">
+          JUST CALL ME <br />
+          WE’VE GOT YOUR BACK!
+        </p>
+        <div class="relative w-fit mt-16">
+          <img class="absolute w-32 right-5 top-9" src="~assets/imgs/letsgtw.png" />
+          <img class="w-96" src="~assets/imgs/nokia.png" />
+        </div>
+        <div class="flex gap-3 mt-44">
+          <img class="w-8" alt="instagram icon" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-8" alt="facebook icon" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-8" alt="behance icon" src="~assets/imgs/social-media-icon.svg" />
+        </div>
       </div>
-      <div class="flex gap-3 mt-44">
-        <img class="w-8" alt="instagram icon" src="~assets/imgs/social-media-icon.svg" />
-        <img class="w-8" alt="facebook icon" src="~assets/imgs/social-media-icon.svg" />
-        <img class="w-8" alt="behance icon" src="~assets/imgs/social-media-icon.svg" />
+      <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
+        <p class="text-xl">
+          請填寫下列表單詢問案件<br />
+          我們會以Email回覆或是電話聯絡
+        </p>
+        <div class="mt-36 text-2xl">
+          <div class="flex gap-12">
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+          </div>
+          <div class="flex gap-12 mt-16">
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+          </div>
+          <div class="mt-16">
+            <input :style="`background-color:${props.color}`" class="py-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
+          </div>
+          <div class="mt-32 flex justify-end w-full">
+            <button class="border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button">送~出~</button>
+          </div>
+          <div class="mt-24">
+            <p class="underline underline-offset-[7px] leading-[58px] font-normal text-[40px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
+          </div>
+          <div class="mt-10 flex gap-8 text-[#41443B]">
+            <p>04 2262 7773</p>
+            <p>402台中市南區美村路二段186號3F-1</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
-      <p class="text-base">
-        請填寫下列表單詢問案件<br />
-        我們會以Email回覆或是電話聯絡
-      </p>
-      <div class="mt-36 text-xl">
-        <div class="flex gap-12">
-          <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
-          <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+  </div>
+
+  <div class="hidden xl:block 3xl:hidden">
+    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
+      <div class="pl-11 mt-20">
+        <p class="font-black text-4xl text-[#41443B]" style="font-family: arial-black">
+          JUST CALL ME <br />
+          WE’VE GOT YOUR BACK!
+        </p>
+        <div class="relative w-fit mt-16">
+          <img class="absolute w-32 right-5 top-9" src="~assets/imgs/letsgtw.png" />
+          <img class="w-96" src="~assets/imgs/nokia.png" />
         </div>
-        <div class="flex gap-12 mt-16">
-          <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
-          <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
-        </div>
-        <div class="mt-16">
-          <input :style="`background-color:${props.color}`" class="py-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
-        </div>
-        <div class="mt-32 flex justify-end w-full">
-          <button class="border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button">送~出~</button>
-        </div>
-        <div class="mt-24">
-          <p class="underline underline-offset-[7px] leading-[46px] font-normal text-[32px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
-        </div>
-        <div class="mt-10 flex gap-8 text-[#41443B]">
-          <p>04 2262 7773</p>
-          <p>402台中市南區美村路二段186號3F-1</p>
+        <div class="flex gap-3 mt-44">
+          <img class="w-8" alt="instagram icon" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-8" alt="facebook icon" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-8" alt="behance icon" src="~assets/imgs/social-media-icon.svg" />
         </div>
       </div>
+      <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
+        <p class="text-base">
+          請填寫下列表單詢問案件<br />
+          我們會以Email回覆或是電話聯絡
+        </p>
+        <div class="mt-36 text-xl">
+          <div class="flex gap-12">
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+          </div>
+          <div class="flex gap-12 mt-16">
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
+            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+          </div>
+          <div class="mt-16">
+            <input :style="`background-color:${props.color}`" class="py-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
+          </div>
+          <div class="mt-32 flex justify-end w-full">
+            <button class="border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button">送~出~</button>
+          </div>
+          <div class="mt-24">
+            <p class="underline underline-offset-[7px] leading-[46px] font-normal text-[32px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
+          </div>
+          <div class="mt-10 flex gap-8 text-[#41443B]">
+            <p>04 2262 7773</p>
+            <p>402台中市南區美村路二段186號3F-1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="md:hidden">
+    <div class="py-5">
+      <div class="text-[18px] font-black" style="font-family: arial-black">
+        <p>JUST CALL ME</p>
+        <p>WE'VE GOT YOUR BACK!</p>
+      </div>
+
+      <p>請填寫下列表單詢問案件<br />我們會以Email回覆或是電話聯絡</p>
+      <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="公司名稱" />
     </div>
   </div>
 </template>

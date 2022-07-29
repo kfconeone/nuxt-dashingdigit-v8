@@ -22,3 +22,7 @@
   font-family: "corbel-bold-italic";
   src: local("corbel-bold-italic"), url(~/assets/fonts/corbel-bold-italic.ttf) format("truetype");
 }
+
+.disabled-scroll {
+  overflow: hidden;
+}

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const isMenuOpen = ref(false);
+provide("isMenuOpen", isMenuOpen);
+
 onMounted(() => {});
 </script>
 
