@@ -20,35 +20,83 @@ function onClickToggle() {
 </script>
 
 <template>
-  <div class="menu w-screen h-screen top-0 z-40 fixed origin-top translate-y-[-100%]" style="background: linear-gradient(90deg, #d3e741 42.69%, #ffffff 104.03%)">
-    <div class="flex w-full h-full items-center gap-48 justify-center">
-      <div>
+  <div class="hidden 3xl:block">
+    <div class="menu w-screen h-screen top-0 z-40 fixed origin-top translate-y-[-100%]" style="background: linear-gradient(90deg, #d3e741 42.69%, #ffffff 104.03%)">
+      <div class="flex w-full h-full items-center gap-48 justify-center">
         <div>
-          <p class="text-black font-bold text-base" style="font-family: arial-bd">WHERE YOU WANNA GO?</p>
-          <NuxtLink to="/" target="_top" @click="onClickToggle">
-            <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">HOME</p>
-          </NuxtLink>
+          <div>
+            <p class="text-black font-bold text-base" style="font-family: arial-bd">WHERE YOU WANNA GO?</p>
+            <NuxtLink to="/" target="_top" @click="onClickToggle">
+              <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">HOME</p>
+            </NuxtLink>
+          </div>
+          <div class="mt-20">
+            <p class="text-black font-bold text-base" style="font-family: arial-bd">WHAT WE DO?</p>
+            <NuxtLink to="/work" target="_top" @click="onClickToggle">
+              <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">WORK</p>
+            </NuxtLink>
+          </div>
         </div>
-        <div class="mt-20">
-          <p class="text-black font-bold text-base" style="font-family: arial-bd">WHAT WE DO?</p>
-          <NuxtLink to="/work" target="_top" @click="onClickToggle">
-            <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">WORK</p>
-          </NuxtLink>
+        <div>
+          <div>
+            <p class="text-black font-bold text-base" style="font-family: arial-bd">WHO WE ARE?</p>
+            <NuxtLink to="/about" target="_top" @click="onClickToggle">
+              <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">ABOUT</p>
+            </NuxtLink>
+          </div>
+          <div class="mt-20">
+            <p class="text-black font-bold text-base" style="font-family: arial-bd">HOW WE DO?</p>
+            <NuxtLink to="/services" target="_top" @click="onClickToggle">
+              <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">SERVICES</p>
+            </NuxtLink>
+          </div>
         </div>
       </div>
-      <div>
+    </div>
+  </div>
+  <div class="hidden md:block xl:hidden">mmmm</div>
+
+  <div class="md:hidden">
+    <div class="menu w-screen h-screen top-0 z-40 fixed origin-top translate-y-[-100%] pt-[35%]" style="background: linear-gradient(90deg, #d3e741 42.69%, #ffffff 104.03%)">
+      <div class="pl-14">
         <div>
-          <p class="text-black font-bold text-base" style="font-family: arial-bd">WHO WE ARE?</p>
+          <NuxtLink to="/" target="_top" @click="onClickToggle">
+            <p class="text-white text-[30px] leading-none tracking-wider w-fit" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">HOME</p>
+          </NuxtLink>
+        </div>
+        <div class="mt-10">
           <NuxtLink to="/about" target="_top" @click="onClickToggle">
-            <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">ABOUT</p>
+            <p class="text-white text-[30px] leading-none tracking-wider w-fit" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">ABOUT</p>
           </NuxtLink>
         </div>
-        <div class="mt-20">
-          <p class="text-black font-bold text-base" style="font-family: arial-bd">HOW WE DO?</p>
+        <div class="mt-10">
+          <NuxtLink to="/work" target="_top" @click="onClickToggle">
+            <p class="text-white text-[30px] leading-none tracking-wider w-fit" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">WORK</p>
+          </NuxtLink>
+        </div>
+        <div class="mt-10">
           <NuxtLink to="/services" target="_top" @click="onClickToggle">
-            <p class="text-white text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">SERVICES</p>
+            <p class="text-white text-[30px] leading-none tracking-wider w-fit" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">SERVICES</p>
           </NuxtLink>
         </div>
+
+        <div class="flex gap-3 mt-16">
+          <img class="w-5 h-5" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-5 h-5" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-5 h-5" src="~assets/imgs/social-media-icon.svg" />
+        </div>
+      </div>
+      <div class="bg-white fixed bottom-0 w-full whitespace-nowrap overflow-hidden py-3">
+        <p class="text-[#D3E741] text-base">
+          Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.
+        </p>
       </div>
     </div>
   </div>

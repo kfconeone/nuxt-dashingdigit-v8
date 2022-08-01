@@ -143,7 +143,56 @@ onMounted(() => {});
   </div>
 
   <div class="md:hidden">
-    <div>320</div>
+    <div class="bg-gray-700 h-screen w-full flex justify-center items-end pb-[25vh] px-4" style="">
+      <div class="text-white" style="font-family: dgo">
+        <p class="text-xl">WE DON'T<br />WORK FOR YOU</p>
+        <p class="text-2xl whitespace-nowrap">WE WORK WITH YOU</p>
+      </div>
+    </div>
+
+    <div class="bg-gray-700">
+      <div class="flex text-white justify-center gap-12 px-6">
+        <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
+          <img class="w-full" w src="~assets/imgs/demo.png" />
+          <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
+            <div class="">
+              <h1 class="text-[28px]" style="font-family: arial-bd">MIA TREASURE</h1>
+              <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+            </div>
+            <img class="self-start w-7" src="~assets/imgs/social-media-icon.svg" />
+          </div>
+          <div class="px-3 flex justify-end py-5"><button class="w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">More</button></div>
+        </div>
+      </div>
+      <div class="flex text-white justify-center gap-12 px-6 mt-20">
+        <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
+          <img class="w-full" w src="~assets/imgs/demo.png" />
+          <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
+            <div class="">
+              <h1 class="text-[28px]" style="font-family: arial-bd">BELLA UNO</h1>
+              <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+            </div>
+            <img class="self-start w-7" src="~assets/imgs/social-media-icon.svg" />
+          </div>
+          <div class="px-3 flex justify-end py-5"><button class="w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">More</button></div>
+        </div>
+      </div>
+      <div class="flex text-white justify-center gap-12 px-6 mt-20">
+        <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
+          <img class="w-full" w src="~assets/imgs/demo.png" />
+          <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
+            <div class="">
+              <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>
+              <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+            </div>
+            <img class="self-start w-7" src="~assets/imgs/social-media-icon.svg" />
+          </div>
+          <div class="px-3 flex justify-end py-5"><button class="w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">More</button></div>
+        </div>
+      </div>
+
+      <DashingFooter></DashingFooter>
+    </div>
   </div>
 </template>
 <style>

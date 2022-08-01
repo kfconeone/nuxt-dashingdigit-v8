@@ -6,6 +6,7 @@ import { EffectCoverflow, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import backgroundImagePath from "~/assets/imgs/bg-hero-sm.png";
 useHead({
   title: "Dashing",
   // or, instead:
@@ -20,7 +21,7 @@ onMounted(() => {});
 </script>
 <template>
   <div class="hidden 3xl:block">
-    <div class="min-w-[1920px] mx-auto relative">
+    <div class="mx-auto relative">
       <div class="w-full h-screen grid grid-cols-12 pl-11 pr-9 pb-24 bg-gray-700 overflow-hidden">
         <div class="pl-14 col-start-3 col-span-8 w-full gap-[7.3vw]">
           <div class="pt-64 text-white" style="font-family: dgo">
@@ -160,54 +161,57 @@ onMounted(() => {});
   </div>
 
   <div class="md:hidden">
-    <div class="bg-gray-700 w-full h-screen flex justify-center items-center">
-      <div class="text-white" style="font-family: dgo">
-        <p class="text-xs">We create</p>
-        <p class="text-[#D3E741] text-[24px]">INSANE</p>
-        <p class="text-xl">Digital experience</p>
-        <div class="mt-8">
-          <p class="text-xs font-bold leading-[18px]" style="font-family: arial-reg">
-            專注於新奇的互動設計<br />
-            打造迷人的使用者體驗
-          </p>
+    <div class="relative bg-red-400">
+      <!-- <div class="w-full h-full fixed top-0 flex justify-center items-center z-0" style="background-position: center; background-repeat: no-repeat; background-size: cover" :style="{ backgroundImage: `url(${backgroundImagePath})` }"></div> -->
+      <div class="w-full flex justify-center items-center py-64 relative z-10">
+        <div class="text-white" style="font-family: dgo">
+          <p class="text-xs">We create</p>
+          <p class="text-[#D3E741] text-[24px]">INSANE</p>
+          <p class="text-xl">Digital experience</p>
+          <div class="mt-8">
+            <p class="text-xs font-bold leading-[18px]" style="font-family: arial-reg">
+              專注於新奇的互動設計<br />
+              打造迷人的使用者體驗
+            </p>
+          </div>
+          <div class="ml-auto bg-[#6372C6] rounded-full w-16 h-16 mt-11"></div>
         </div>
-        <div class="ml-auto bg-[#6372C6] rounded-full w-16 h-16 mt-11"></div>
       </div>
-    </div>
 
-    <div class="bg-gray-700 w-full h-fit flex justify-center items-center">
-      <swiper
-        :effect="'coverflow'"
-        :grabCursor="true"
-        :centeredSlides="true"
-        :slidesPerView="1.5"
-        :coverflowEffect="{
-          rotate: 0,
-          stretch: 0,
-          depth: 300,
-          modifier: 3,
-          slideShadows: true,
-        }"
-        :loop="true"
-        :modules="[EffectCoverflow, Pagination]"
-        class="mySwiper"
-      >
-        <swiper-slide>
-          <div>
-            <img src="~assets/imgs/project1-320.jpg" />
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div>
-            <img src="~assets/imgs/project2-320.jpg" />
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div>
-            <img src="~assets/imgs/project3-320.jpg" />
-          </div>
-        </swiper-slide>
-      </swiper>
+      <div class="w-full h-fit flex justify-center items-center z-10 relative">
+        <swiper
+          :effect="'coverflow'"
+          :grabCursor="true"
+          :centeredSlides="true"
+          :slidesPerView="1.5"
+          :coverflowEffect="{
+            rotate: 0,
+            stretch: 0,
+            depth: 300,
+            modifier: 3,
+            slideShadows: true,
+          }"
+          :loop="true"
+          :modules="[EffectCoverflow, Pagination]"
+          class="mySwiper"
+        >
+          <swiper-slide>
+            <div>
+              <img src="~assets/imgs/project1-320.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <img src="~assets/imgs/project2-320.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <img src="~assets/imgs/project3-320.jpg" />
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
     </div>
 
     <DashingFooter color="#D3E741" />
