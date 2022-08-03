@@ -3,7 +3,7 @@
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-
+import { gsap } from "gsap";
 useHead({
   title: "Work",
   // or, instead:
@@ -139,7 +139,7 @@ onMounted(() => {});
   </div>
 
   <div class="hidden md:block xl:hidden">
-    <div>768</div>
+    <div class="bg-gray-700"></div>
   </div>
 
   <div class="md:hidden">
@@ -153,7 +153,7 @@ onMounted(() => {});
     <div class="bg-gray-700">
       <div class="flex text-white justify-center gap-12 px-6">
         <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
-          <img class="w-full" w src="~assets/imgs/demo.png" />
+          <img class="w-full" src="~assets/imgs/work-mia-sm.jpg" />
           <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
             <div class="">
               <h1 class="text-[28px]" style="font-family: arial-bd">MIA TREASURE</h1>
@@ -166,7 +166,7 @@ onMounted(() => {});
       </div>
       <div class="flex text-white justify-center gap-12 px-6 mt-20">
         <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
-          <img class="w-full" w src="~assets/imgs/demo.png" />
+          <img class="w-full" src="~assets/imgs/work-bella-sm.jpg" />
           <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
             <div class="">
               <h1 class="text-[28px]" style="font-family: arial-bd">BELLA UNO</h1>
@@ -179,7 +179,7 @@ onMounted(() => {});
       </div>
       <div class="flex text-white justify-center gap-12 px-6 mt-20">
         <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
-          <img class="w-full" w src="~assets/imgs/demo.png" />
+          <img class="w-full" src="~assets/imgs/work-ancient-sm.jpg" />
           <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
             <div class="">
               <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>

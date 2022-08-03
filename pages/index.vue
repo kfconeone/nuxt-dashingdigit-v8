@@ -157,7 +157,60 @@ onMounted(() => {});
   </div>
 
   <div class="hidden md:block xl:hidden">
-    <div>768</div>
+    <div class="relative bg-red-400">
+      <!-- <div class="w-full h-full fixed top-0 flex justify-center items-center z-0" style="background-position: center; background-repeat: no-repeat; background-size: cover" :style="{ backgroundImage: `url(${backgroundImagePath})` }"></div> -->
+      <div class="w-full flex justify-center items-center py-64 relative z-10">
+        <div class="text-white" style="font-family: dgo">
+          <p class="text-4xl">We create</p>
+          <p class="text-[#D3E741] text-[68px]">INSANE</p>
+          <p class="text-[40px]">Digital experience</p>
+          <div class="mt-8">
+            <p class="text-xl font-bold leading-[30px]" style="font-family: arial-reg">
+              專注於新奇的互動設計<br />
+              打造迷人的使用者體驗
+            </p>
+          </div>
+          <div class="ml-auto bg-[#6372C6] rounded-full w-32 h-32 mt-32"></div>
+        </div>
+      </div>
+
+      <div class="w-9/12 h-fit flex justify-center items-center z-10 relative mx-auto">
+        <swiper
+          :effect="'coverflow'"
+          :grabCursor="true"
+          :centeredSlides="true"
+          :slidesPerView="1.5"
+          :coverflowEffect="{
+            rotate: 0,
+            stretch: 0,
+            depth: 300,
+            modifier: 3,
+            slideShadows: true,
+          }"
+          :loop="true"
+          :modules="[EffectCoverflow, Pagination]"
+          class="mySwiper"
+        >
+          <swiper-slide>
+            <div>
+              <img src="~assets/imgs/project1-320.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <img src="~assets/imgs/project2-320.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <img src="~assets/imgs/project3-320.jpg" />
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
+
+    <DashingFooter color="#D3E741" />
   </div>
 
   <div class="md:hidden">

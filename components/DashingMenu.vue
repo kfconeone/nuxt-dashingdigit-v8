@@ -54,7 +54,7 @@ function onClickToggle() {
       </div>
     </div>
   </div>
-  <div class="hidden md:block xl:hidden">mmmm</div>
+  <div class="hidden md:block xl:hidden"></div>
 
   <div class="md:hidden">
     <div class="menu w-screen h-screen top-0 z-40 fixed origin-top translate-y-[-100%] pt-[35%]" style="background: linear-gradient(90deg, #d3e741 42.69%, #ffffff 104.03%)">

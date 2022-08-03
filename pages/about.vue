@@ -27,6 +27,20 @@ onMounted(() => {
       anticipatePin: 1,
     },
   });
+  gsap.to(".trait-sm", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-sm",
+      start: "top top",
+      end: () => innerWidth * 3,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
 });
 </script>
 <template>
@@ -167,9 +181,90 @@ onMounted(() => {
   </div>
 
   <div class="md:hidden">
-    <div>320</div>
+    <div class="max-w-[400px] mx-auto relative">
+      <div class="w-full overflow-x-hidden">
+        <div class="flex bg-gray-700 py-40">
+          <div class="px-6 w-full">
+            <div>
+              <p style="font-family: dgo" class="text-white text-3xl whitespace-nowrap">
+                As nimble<br />
+                as the shark
+              </p>
+            </div>
+
+            <div class="flex w-full justify-end">
+              <div class="text-xs text-white mt-24">
+                <div>
+                  <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的產業</p>
+                  <p class="bg-black w-fit my-1">狀況快速做出反應</p>
+                </div>
+                <div class="mt-8">
+                  <p class="bg-black w-fit my-1">我們針對你的品牌進行深度訪談與分析</p>
+                  <p class="bg-black w-fit my-1">跳脫你的舊有框架，挖掘品牌特色並融合現</p>
+                  <p class="bg-black w-fit my-1">代設計元素，幫助你在產業前端擁有讓人瘋</p>
+                  <p class="bg-black w-fit my-1">狂的線上與現下體驗</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trait-sm h-screen w-fit flex text-[#6372C6] items-center">
+          <div class="flex gap-12">
+            <div class="">
+              <div class="relative w-full">
+                <div class="absolute w-[120%] -left-11">
+                  <img class="w-full" src="~assets/imgs/about-neverbg-sm.gif" />
+                </div>
+                <p class="ml-6 text-4xl leading-[40px] whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
+              </div>
+              <div class="w-60 ml-14 mb-5">
+                <img class="w-full" src="~assets/imgs/about-mac-sm.gif" />
+              </div>
+              <p class="ml-6 text-xs mb-10 leading-4">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
+              <p class="ml-6 text-xs leading-[20px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
+            </div>
+            <div class="">
+              <div class="relative w-full flex gap-3">
+                <p class="ml-6 text-4xl leading-[40px] whitespace-nowrap" style="font-family: dgo">QUICK<br />TEST</p>
+                <div class="w-12">
+                  <img class="w-full" src="~assets/imgs/about-question.gif" />
+                </div>
+              </div>
+              <div class="w-60 ml-14 mb-5">
+                <img class="w-full" src="~assets/imgs/about-light.gif" />
+              </div>
+              <p class="ml-6 text-xs leading-[20px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
+            </div>
+            <div class="pr-6">
+              <div class="relative w-full">
+                <div class="absolute w-16 right-[30%] top-[-15%]">
+                  <img class="w-full" src="~assets/imgs/about-analyze.gif" />
+                </div>
+                <p class="text-4xl leading-[40px]" style="font-family: dgo">HIGH<br /><span class="text-[28px]">PERFORMANCE</span></p>
+              </div>
+              <div class="w-60 mb-5">
+                <img class="w-full" src="~assets/imgs/about-shark.gif" />
+              </div>
+              <p class="text-xs leading-[20px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-700 text-white text-base font-black tracking-[0.095em] flex justify-center" style="font-family: arial-black">
+          <p class="w-fit">MEET OUR TEAM</p>
+          <button class="rounded-[76px] flex" style="box-shadow: 1px 4px 8px #577fcd">
+            <img src="" />
+          </button>
+        </div>
+
+        <div class="flex"></div>
+        <DashingFooter color="#D3E741" />
+      </div>
+    </div>
   </div>
 </template>
+
 <style>
 body {
   font-family: arial-reg;
