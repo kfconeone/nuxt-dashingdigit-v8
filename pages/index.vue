@@ -22,7 +22,9 @@ onMounted(() => {});
 <template>
   <div class="hidden 3xl:block">
     <div class="mx-auto relative">
-      <div class="w-full h-screen grid grid-cols-12 pl-11 pr-9 pb-24 bg-gray-700 overflow-hidden">
+      <img class="bg-hero w-full h-full fixed top-0 z-0" src="~/assets/imgs/bg-hero-sm.png" />
+
+      <div class="w-full h-screen grid grid-cols-12 pl-11 pr-9 pb-24 overflow-hidden relative z-10">
         <div class="pl-14 col-start-3 col-span-8 w-full gap-[7.3vw]">
           <div class="pt-64 text-white" style="font-family: dgo">
             <p class="font-normal text-[70px] leading-[110.8%]">We Create</p>
@@ -39,9 +41,9 @@ onMounted(() => {});
         </div>
       </div>
 
-      <div class="w-full h-screen bg-blue-400 flex justify-center items-center">
+      <div class="w-full h-screen flex justify-center items-center relative z-10">
         <div>
-          <div class="w-[960px]">
+          <div class="w-[1350px] text-white text-sm leading-7">
             <swiper
               :effect="'coverflow'"
               :grabCursor="true"
@@ -49,8 +51,8 @@ onMounted(() => {});
               :slidesPerView="1.5"
               :coverflowEffect="{
                 rotate: 0,
-                stretch: -50,
-                depth: 500,
+                stretch: 0,
+                depth: 300,
                 modifier: 3,
                 slideShadows: true,
               }"
@@ -59,37 +61,53 @@ onMounted(() => {});
               class="mySwiper"
             >
               <swiper-slide>
-                <div>
-                  <img src="~assets/imgs/kgold-demo.png" />
-                  <p class="text-sm">一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p>
+                <div class="relative">
+                  <div class="w-56 absolute -right-7 bottom-8">
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
+                  </div>
+                  <div>
+                    <img src="~assets/imgs/hero-mia-pc.jpg" />
+                  </div>
+                  <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
                 </div>
               </swiper-slide>
               <swiper-slide>
-                <div>
-                  <img src="~assets/imgs/kgold-demo.png" />
-                  <p class="text-sm">一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p>
+                <div class="relative">
+                  <div class="w-56 absolute -right-7 bottom-8">
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
+                  </div>
+                  <div>
+                    <img src="~assets/imgs/hero-bella-pc.png" />
+                  </div>
+                  <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
                 </div>
               </swiper-slide>
               <swiper-slide>
-                <div>
-                  <img src="~assets/imgs/kgold-demo.png" />
-                  <p class="text-sm">一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p>
+                <div class="relative">
+                  <div class="w-56 absolute -right-7 bottom-8">
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
+                  </div>
+                  <div>
+                    <img src="~assets/imgs/hero-ancient-pc.jpg" />
+                  </div>
+                  <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
                 </div>
               </swiper-slide>
             </swiper>
           </div>
-          <div class="flex justify-center mt-20 text-[#D3E741] mx-auto py-3" style="width: 149px; background: #262723; border: 2px solid #d3e741; border-radius: 44px">
-            <p>MORE</p>
-          </div>
+          <div class="flex justify-center mt-20 text-[#D3E741]">MORE</div>
         </div>
       </div>
-      <DashingFooter color="#D3E741" />
+      <div class="w-full h-screen flex justify-center items-center relative z-10 text-white">sss</div>
     </div>
+    <DashingFooter color="#D3E741" />
   </div>
 
   <div class="hidden xl:block 3xl:hidden">
     <div class="relative">
-      <div class="w-full h-screen grid grid-cols-12 pl-11 pr-9 pb-24 bg-red-400">
+      <img class="w-full h-full fixed top-0 z-0" src="~/assets/imgs/bg-hero-sm.png" />
+
+      <div class="w-full h-screen grid grid-cols-12 pl-11 pr-9 pb-24 relative z-10 text-white">
         <!-- <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing</p> -->
         <div class="pl-14 col-start-3 col-span-8 w-full gap-[7.3vw]">
           <div class="pt-48" style="font-family: dgo">
@@ -108,18 +126,18 @@ onMounted(() => {});
         </div>
       </div>
 
-      <div class="w-full h-screen bg-blue-400 flex justify-center items-center">
+      <div class="w-full h-screen flex justify-center items-center relative z-10">
         <div>
-          <div class="w-[960px]">
+          <div class="w-[960px] text-white text-sm leading-7">
             <swiper
               :effect="'coverflow'"
               :grabCursor="true"
               :centeredSlides="true"
-              :slidesPerView="2"
+              :slidesPerView="1.5"
               :coverflowEffect="{
                 rotate: 0,
                 stretch: 0,
-                depth: 200,
+                depth: 300,
                 modifier: 3,
                 slideShadows: true,
               }"
@@ -128,21 +146,36 @@ onMounted(() => {});
               class="mySwiper"
             >
               <swiper-slide>
-                <div>
-                  <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                  <p class="text-sm">一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p>
+                <div class="relative">
+                  <div class="w-56 absolute -right-7 bottom-8">
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
+                  </div>
+                  <div>
+                    <img src="~assets/imgs/hero-mia-pc.jpg" />
+                  </div>
+                  <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
                 </div>
               </swiper-slide>
               <swiper-slide>
-                <div>
-                  <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                  <p class="text-sm">一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p>
+                <div class="relative">
+                  <div class="w-56 absolute -right-7 bottom-8">
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
+                  </div>
+                  <div>
+                    <img src="~assets/imgs/hero-bella-pc.png" />
+                  </div>
+                  <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
                 </div>
               </swiper-slide>
               <swiper-slide>
-                <div>
-                  <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                  <p class="text-sm">一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p>
+                <div class="relative">
+                  <div class="w-56 absolute -right-7 bottom-8">
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
+                  </div>
+                  <div>
+                    <img src="~assets/imgs/hero-ancient-pc.jpg" />
+                  </div>
+                  <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
                 </div>
               </swiper-slide>
             </swiper>
@@ -151,14 +184,14 @@ onMounted(() => {});
         </div>
       </div>
 
-      <div class="w-full h-screen bg-orange-400 flex justify-center items-center">sss</div>
-      <DashingFooter color="#D3E741" />
+      <div class="w-full h-screen flex justify-center items-center relative z-10 text-white">sss</div>
     </div>
+    <DashingFooter color="#D3E741" />
   </div>
 
   <div class="hidden md:block xl:hidden">
-    <div class="relative bg-red-400">
-      <!-- <div class="w-full h-full fixed top-0 flex justify-center items-center z-0" style="background-position: center; background-repeat: no-repeat; background-size: cover" :style="{ backgroundImage: `url(${backgroundImagePath})` }"></div> -->
+    <div class="relative">
+      <img class="w-full h-full fixed top-0 z-0" src="~/assets/imgs/bg-hero-sm.png" />
       <div class="w-full flex justify-center items-center py-64 relative z-10">
         <div class="text-white" style="font-family: dgo">
           <p class="text-4xl">We create</p>
@@ -209,15 +242,15 @@ onMounted(() => {});
         </swiper>
       </div>
     </div>
-
     <DashingFooter color="#D3E741" />
   </div>
 
   <div class="md:hidden">
-    <div class="relative bg-red-400">
-      <!-- <div class="w-full h-full fixed top-0 flex justify-center items-center z-0" style="background-position: center; background-repeat: no-repeat; background-size: cover" :style="{ backgroundImage: `url(${backgroundImagePath})` }"></div> -->
-      <div class="w-full flex justify-center items-center py-64 relative z-10">
-        <div class="text-white" style="font-family: dgo">
+    <div class="relative">
+      <img class="w-full h-full fixed top-0 z-10" src="~/assets/imgs/bg-hero-sm.png" />
+
+      <div class="w-full flex justify-center items-center pb-64 relative z-10">
+        <div class="text-white mt-48" style="font-family: dgo">
           <p class="text-xs">We create</p>
           <p class="text-[#D3E741] text-[24px]">INSANE</p>
           <p class="text-xl">Digital experience</p>

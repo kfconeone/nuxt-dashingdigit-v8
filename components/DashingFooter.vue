@@ -6,7 +6,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="hidden 3xl:block">
+  <div class="hidden 3xl:block relative z-10">
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 gap-40">
       <div class="pl-11 mt-20">
         <p class="font-black text-[40px] text-[#41443B]" style="font-family: arial-black">
@@ -55,7 +55,7 @@ const props = defineProps({
     </div>
   </div>
 
-  <div class="hidden xl:block 3xl:hidden">
+  <div class="hidden xl:block 3xl:hidden relative z-10">
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
       <div class="pl-11 mt-20">
         <p class="font-black text-4xl text-[#41443B]" style="font-family: arial-black">
@@ -104,7 +104,7 @@ const props = defineProps({
     </div>
   </div>
 
-  <div class="hidden md:block xl:hidden">
+  <div class="hidden md:block xl:hidden relative z-10">
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
       <div>
         <div class="flex justify-center gap-20 mt-8">
@@ -162,33 +162,35 @@ const props = defineProps({
     </div>
   </div>
 
-  <div class="md:hidden">
-    <div class="py-5 z-10 relative pl-5">
-      <div class="text-[18px] font-black" style="font-family: arial-black">
-        <p>JUST CALL ME</p>
-        <p>WE'VE GOT YOUR BACK!</p>
-      </div>
+  <div class="md:hidden relative z-10">
+    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
+      <div class="py-5 z-10 relative pl-5">
+        <div class="text-[18px] font-black" style="font-family: arial-black">
+          <p>JUST CALL ME</p>
+          <p>WE'VE GOT YOUR BACK!</p>
+        </div>
 
-      <p class="mt-4 text-xs">請填寫下列表單詢問案件<br />我們會以Email回覆或是電話聯絡</p>
-      <div class="mt-12 text-xs">
-        <input class="w-48 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="公司名稱" />
-        <input class="w-48 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="EMAIL" />
-        <input class="w-48 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡人(先生/小姐)" />
-        <input class="w-48 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡電話" />
-        <input class="w-60 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
-        <button class="mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest" type="button">送~出~</button>
-      </div>
+        <p class="mt-4 text-xs">請填寫下列表單詢問案件<br />我們會以Email回覆或是電話聯絡</p>
+        <div class="mt-12 text-xs">
+          <input :style="`background-color:${props.color}`" class="w-48 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="公司名稱" />
+          <input :style="`background-color:${props.color}`" class="w-48 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="EMAIL" />
+          <input :style="`background-color:${props.color}`" class="w-48 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡人(先生/小姐)" />
+          <input :style="`background-color:${props.color}`" class="w-48 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡電話" />
+          <input :style="`background-color:${props.color}`" class="w-60 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
+          <button class="mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest" type="button">送~出~</button>
+        </div>
 
-      <div class="mt-32 text-[#41443B]">
-        <p class="text-[18px] underline underline-offset-[7px] leading-[27px]" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
-        <p class="text-xs mt-6 leading-5">04 2262 7773<br />402台中市南區美村路二段186號3F-1</p>
-      </div>
+        <div class="mt-32 text-[#41443B]">
+          <p class="text-[18px] underline underline-offset-[7px] leading-[27px]" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
+          <p class="text-xs mt-6 leading-5">04 2262 7773<br />402台中市南區美村路二段186號3F-1</p>
+        </div>
 
-      <div class="flex gap-4 mt-12">
-        <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
-        <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
-        <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
-        <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
+        <div class="flex gap-4 mt-12">
+          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
+        </div>
       </div>
     </div>
   </div>

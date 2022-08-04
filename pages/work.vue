@@ -139,7 +139,84 @@ onMounted(() => {});
   </div>
 
   <div class="hidden md:block xl:hidden">
-    <div class="bg-gray-700"></div>
+    <div class="bg-white">
+      <div class="bg-[#262723]">
+        <div class="flex justify-center">
+          <div class="text-white">
+            <div style="font-family: dgo" class="mt-[345px] flex justify-between">
+              <p class="text-4xl">
+                WE DONT’T<br />
+                WORK FOR YOU
+              </p>
+              <div class="w-28">
+                <img class="w-full" src="~assets/imgs/greetinghand.gif" />
+              </div>
+            </div>
+            <div style="font-family: dgo">
+              <p class="text-5xl whitespace-nowrap">WE WORK WITH YOU</p>
+            </div>
+            <div class="mt-10 text-xl">
+              <div class="bg-black w-fit">
+                <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
+              </div>
+              <div class="bg-black w-fit mt-12">
+                <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當</p>
+              </div>
+              <div class="bg-black w-fit mt-3">
+                <p class="" style="font-family: arial-reg">一個可以與你密切溝通，且能始終如一交付高品質成果的</p>
+              </div>
+              <div class="bg-black w-fit mt-3">
+                <p class="" style="font-family: arial-reg">夥伴，你就擁有了顯著的競爭優勢</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex text-white justify-center">
+          <div class="">
+            <div class="flex gap-3">
+              <div class="w-[320px] h-fit relative">
+                <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                  <img class="w-full" w src="~assets/imgs/work-mia-sm.jpg" />
+                </div>
+                <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                  <div class="pb-12">
+                    <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
+                    <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                  </div>
+                  <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+                </div>
+              </div>
+              <div class="w-[320px] h-fit relative mt-64">
+                <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                  <img class="w-full" w src="~assets/imgs/work-bella-sm.jpg" />
+                </div>
+                <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                  <div class="pb-12">
+                    <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
+                    <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                  </div>
+                  <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+                </div>
+              </div>
+            </div>
+
+            <div class="w-[320px] h-fit mx-auto relative mt-3">
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                <img class="w-full" w src="~assets/imgs/work-ancient-sm.jpg" />
+              </div>
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                <div class="pb-12">
+                  <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
+                  <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                </div>
+                <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <DashingFooter color="#FFFFFF" />
+    </div>
   </div>
 
   <div class="md:hidden">

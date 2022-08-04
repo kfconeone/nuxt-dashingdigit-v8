@@ -27,6 +27,37 @@ onMounted(() => {
       anticipatePin: 1,
     },
   });
+
+  gsap.to(".trait-xl", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-xl",
+      start: "top top",
+      end: () => innerWidth,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+
+  gsap.to(".trait-md", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-md",
+      start: "top top",
+      end: () => innerWidth * 3,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+
   gsap.to(".trait-sm", {
     xPercent: -100,
     x: () => innerWidth,
@@ -135,7 +166,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <div class="trait h-screen w-fit flex text-[#6372C6] items-center px-40">
+      <div class="trait-xl h-screen w-fit flex text-[#6372C6] items-center px-40">
         <div class="flex gap-[500px]">
           <div>
             <p class="text-[64px] leading-[76.8px] mb-32 whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
@@ -177,7 +208,89 @@ onMounted(() => {
   </div>
 
   <div class="hidden md:block xl:hidden">
-    <div>768</div>
+    <div class="w-full mx-auto relative bg-gray-700">
+      <div class="w-full max-w-[640px] overflow-x-hidden mx-auto">
+        <div class="flex py-40">
+          <div class="px-6 w-full">
+            <div>
+              <p style="font-family: dgo" class="text-white text-6xl whitespace-nowrap">
+                As nimble<br />
+                as the shark
+              </p>
+            </div>
+
+            <div class="flex w-full justify-end">
+              <div class="text-xl text-white mt-24">
+                <div>
+                  <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的</p>
+                  <p class="bg-black w-fit my-1">產業狀況快速做出反應</p>
+                </div>
+                <div class="mt-8">
+                  <p class="bg-black w-fit my-1">我們針對你的品牌進行深度訪談與分析</p>
+                  <p class="bg-black w-fit my-1">跳脫你的舊有框架，挖掘品牌特色並融</p>
+                  <p class="bg-black w-fit my-1">合現代設計元素，幫助你在產業前端擁</p>
+                  <p class="bg-black w-fit my-1">有讓人瘋狂的線上與現下體驗</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trait-md h-screen w-fit flex text-[#6372C6] items-center pr-40">
+          <div class="flex gap-48">
+            <div class="">
+              <div class="relative w-full">
+                <div class="absolute w-[120%] -left-11 -top-11">
+                  <img class="w-full" src="~assets/imgs/about-neverbg-sm.gif" />
+                </div>
+                <p class="ml-6 text-[40px] leading-[50px] whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
+              </div>
+
+              <div class="w-[490px] ml-14 mb-14">
+                <img class="w-full" src="~assets/imgs/about-mac-sm.gif" />
+              </div>
+
+              <p class="ml-6 text-base mb-10 leading-[22px]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果不一樣，是不是更好”<br /></p>
+              <p class="ml-6 text-base leading-[22px]">創新做事也讓我們更有活力，思考如何能讓顧客跳脱制約框<br />架，達到耳目一新的感官衝擊。</p>
+            </div>
+
+            <div class="">
+              <div class="relative w-full flex gap-3">
+                <p class="ml-6 text-[40px] leading-[50px] whitespace-nowrap" style="font-family: dgo">QUICK<br />TEST</p>
+                <div class="w-12">
+                  <img class="w-full" src="~assets/imgs/about-question.gif" />
+                </div>
+              </div>
+              <div class="w-[490px] ml-14 mb-14 mt-10">
+                <img class="w-full" src="~assets/imgs/about-light.gif" />
+              </div>
+              <p class="ml-6 text-base leading-[22px]">持續的提出假設，然後透過快速的小型測試來驗證，這樣的方<br />式讓我們創造更多可能性，這也意味天馬行空的想法成為實際<br />的可能也隨之增加。</p>
+            </div>
+
+            <div class="">
+              <div class="relative w-full">
+                <div class="absolute w-16 left-[125px] top-[-15%]">
+                  <img class="w-full" src="~assets/imgs/about-analyze.gif" />
+                </div>
+                <p class="text-[40px] leading-[50px]" style="font-family: dgo">HIGH<br /><span class="">PERFORMANCE</span></p>
+              </div>
+              <div class="w-[490px] mb-14 mt-10">
+                <img class="w-full" src="~assets/imgs/about-shark.gif" />
+              </div>
+              <p class="text-base leading-[22px]">我們專注於高效率的製作與高效能的產出，通過將<br />工作內容顆粒化，並解析出各項工作流程，分類優<br />先順序，來簡化複雜的工作，這樣的方式可以更快<br />速的產出高質量的服務與產品。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-700 text-white text-base font-black tracking-[0.095em] flex justify-center" style="font-family: arial-black">
+          <p class="w-fit">MEET OUR TEAM</p>
+          <button class="rounded-[76px] flex" style="box-shadow: 1px 4px 8px #577fcd">
+            <img src="" />
+          </button>
+        </div>
+      </div>
+      <DashingFooter color="#D3E741" />
+    </div>
   </div>
 
   <div class="md:hidden">
