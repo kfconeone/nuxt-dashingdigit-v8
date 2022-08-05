@@ -12,4 +12,12 @@ onMounted(() => {});
     <router-view></router-view>
   </div>
 </template>
-<style></style>
+<style>
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+-ms-overflow-style: none; /* IE and Edge */
+scrollbar-width: none; /* Firefox */
+</style>

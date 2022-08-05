@@ -2,7 +2,14 @@
 import { gsap } from "gsap";
 const isMenuOpen = inject("isMenuOpen");
 
-onMounted(() => {});
+onMounted(() => {
+  gsap.to(".menu-vertical-track", {
+    ease: "none",
+    y: -10000,
+    duration: 1000,
+    repeat: -1,
+  });
+});
 
 function onClickToggle() {
   console.log("onClickToggle");
@@ -41,7 +48,7 @@ function onClickToggle() {
           <div>
             <p class="text-black font-bold text-base" style="font-family: arial-bd">WHO WE ARE?</p>
             <NuxtLink to="/about" target="_top" @click="onClickToggle">
-              <p class="text-white 3xl:text-[64px] text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">ABOUT</p>
+              <p class="text-white 3xl:text-[64px] text-[40px] leading-none tracking-wider w-fit ml-8" style="font-family: dgo; text-shadow: -5px 4px 0px transparent; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">ABOUT</p>
             </NuxtLink>
           </div>
           <div class="mt-20">
@@ -51,6 +58,18 @@ function onClickToggle() {
             </NuxtLink>
           </div>
         </div>
+      </div>
+      <div class="bg-white fixed top-0 w-fit h-full whitespace-nowrap overflow-hidden py-3 sm:py-5">
+        <p class="text-[#D3E741] text-base sm:text-4xl menu-vertical-track" style="writing-mode: vertical-lr">
+          Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
+          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.
+        </p>
       </div>
     </div>
   </div>
@@ -65,7 +84,7 @@ function onClickToggle() {
         </div>
         <div class="mt-10 sm:mt-20">
           <NuxtLink to="/about" target="_top" @click="onClickToggle">
-            <p style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">ABOUT</p>
+            <p class="" style="font-family: dgo; text-shadow: -5px 4px 0px #6372c6; text-border: 1px solid #6372c6; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #6372c6">ABOUT</p>
           </NuxtLink>
         </div>
         <div class="mt-10 sm:mt-20">

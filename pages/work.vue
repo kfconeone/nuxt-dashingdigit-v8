@@ -14,7 +14,22 @@ useHead({
   script: [{ src: "https://unpkg.com/spacingjs", async: true }],
 });
 
-onMounted(() => {});
+onMounted(() => {
+  console.log("work");
+
+  animation();
+});
+
+function animation() {
+  let tl = gsap.timeline();
+  tl.to([".work-text-3xl", ".work-greeting"], {
+    delay: 2,
+    duration: 1.5,
+    y: 0,
+    ease: "power4",
+    stagger: 0.3,
+  });
+}
 </script>
 <template>
   <div class="hidden 3xl:block">
@@ -22,11 +37,20 @@ onMounted(() => {});
       <div class="bg-[#262723]">
         <div class="grid grid-cols-12 pl-10">
           <div style="font-family: dgo" class="col-start-3 col-span-full text-white mt-[345px]">
-            <p class="text-[64px] leading-[78px]">
-              WE DONT’T<br />
-              WORK FOR YOU
-            </p>
-            <p class="text-[100px]">WE WORK WITH YOU</p>
+            <div class="work-text1-3xl-trigger overflow-hidden">
+              <p class="work-text-3xl text-[64px] leading-[78px] w-fit translate-y-full">WE DONT’T</p>
+            </div>
+            <div class="flex items-end gap-10">
+              <div class="work-text2-3xl-trigger overflow-hidden">
+                <p class="work-text-3xl text-[64px] leading-[78px] w-fit translate-y-full">WORK FOR YOU</p>
+              </div>
+              <div class="w-44 work-text3-3xl-trigger overflow-hidden">
+                <img class="w-full work-greeting translate-y-full" src="~assets/imgs/greetinghand.gif" />
+              </div>
+            </div>
+            <div class="work-text3-3xl-trigger overflow-hidden">
+              <p class="text-[100px] work-text-3xl translate-y-full">WE WORK WITH YOU</p>
+            </div>
             <div class="bg-black w-fit mt-6 text-xl">
               <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
             </div>
@@ -38,10 +62,14 @@ onMounted(() => {});
             </div>
           </div>
         </div>
+
         <div class="flex text-white justify-center gap-12 mt-64">
-          <div class="w-[500px] border-[5px] border-[#D3E741] rounded-[5px] h-fit">
-            <img class="w-full" w src="~assets/imgs/demo.png" />
-            <div class="border-t-[5px] border-[#D3E741] pl-8 pr-5 pt-5 flex justify-between">
+          <div class="w-[500px] h-fit relative work-mia-pc">
+            <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+              <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.jpg" />
+            </div>
+
+            <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
               <div class="pb-12">
                 <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
                 <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
@@ -49,11 +77,14 @@ onMounted(() => {});
               <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
             </div>
           </div>
-          <div class="w-[500px] border-[5px] border-[#D3E741] rounded-[5px] h-fit mt-40">
-            <img class="w-full" w src="~assets/imgs/demo.png" />
-            <div class="border-t-[5px] border-[#D3E741] pl-8 pr-5 pt-5 flex justify-between">
+          <div class="w-[500px] h-fit relative mt-48">
+            <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+              <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.png" />
+            </div>
+
+            <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
               <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">BELLA UNO</h1>
+                <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
                 <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
               </div>
               <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
@@ -61,11 +92,14 @@ onMounted(() => {});
           </div>
         </div>
         <div class="flex text-white justify-center gap-12 mt-16">
-          <div class="w-[500px] border-[5px] border-[#D3E741] rounded-[5px] h-fit mr-80">
-            <img class="w-full" w src="~assets/imgs/demo.png" />
-            <div class="border-t-[5px] border-[#D3E741] pl-8 pr-5 pt-5 flex justify-between">
+          <div class="w-[500px] h-fit relative">
+            <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+              <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.jpg" />
+            </div>
+
+            <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
               <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">全國古蹟日</h1>
+                <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
                 <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
               </div>
               <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
@@ -159,6 +193,7 @@ onMounted(() => {});
               <div class="bg-black w-fit">
                 <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
               </div>
+
               <div class="bg-black w-fit mt-12">
                 <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當</p>
               </div>

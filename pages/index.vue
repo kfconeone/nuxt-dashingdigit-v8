@@ -98,7 +98,11 @@ onMounted(() => {});
           <div class="flex justify-center mt-20 text-[#D3E741]">MORE</div>
         </div>
       </div>
-      <div class="w-full h-screen flex justify-center items-center relative z-10 text-white">sss</div>
+      <div class="w-full h-screen flex justify-center items-center relative z-10 text-white">
+        <div class="treat-wrapper">
+          <button class="treat-button">Treats!</button>
+        </div>
+      </div>
     </div>
     <DashingFooter color="#D3E741" />
   </div>
@@ -184,7 +188,7 @@ onMounted(() => {});
         </div>
       </div>
 
-      <div class="w-full h-screen flex justify-center items-center relative z-10 text-white">sss</div>
+      <div class="w-full h-screen flex justify-center items-center relative z-10 text-white"></div>
     </div>
     <DashingFooter color="#D3E741" />
   </div>
