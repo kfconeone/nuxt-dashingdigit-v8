@@ -1,9 +1,14 @@
 <script setup lang="ts">
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
+//gsap
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+//gsap
+
+//smooth scrollbar
+import Scrollbar from "smooth-scrollbar";
+//smooth scrollbar
+
+gsap.registerPlugin(ScrollTrigger);
 useHead({
   title: "Work",
   // or, instead:
@@ -11,16 +16,88 @@ useHead({
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
   meta: [{ name: "description", content: "達訊數位專案" }],
-  script: [{ src: "https://unpkg.com/spacingjs", async: true }],
 });
 
 onMounted(() => {
   console.log("work");
+  //smooth scrollbar//
+  const workScroller: any = document.querySelector(".work-scroll");
+  const myScroller = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+  ScrollTrigger.scrollerProxy(".work-scroll", {
+    scrollTop(value) {
+      if (arguments.length) {
+        myScroller.scrollTop = value;
+      }
+      return myScroller.scrollTop;
+    },
+  });
+  myScroller.addListener(ScrollTrigger.update);
+  ScrollTrigger.defaults({ scroller: workScroller });
+  //smooth scrollbar//
 
-  animation();
+  animateText();
+  scaleCenter();
+  animateWiggle();
 });
 
-function animation() {
+function scaleCenter() {
+  gsap.to(".center", {
+    scrollTrigger: {
+      trigger: ".footer-tri",
+      start: "20% bottom",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.5,
+    borderRadius: "30px",
+    ease: "power4.easeOut",
+    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+  });
+  gsap.to(".center", {
+    transformOrigin: "center center",
+    scale: 0.95,
+    ease: "Power2.easeIn",
+    "--bottom": "180px",
+    "--left": "180px",
+    scrollTrigger: {
+      trigger: ".footer-tri",
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: 1,
+      pin: ".center",
+    },
+  });
+}
+
+function animateWiggle() {
+  let animatedArray = [".work-mia-pc", ".work-bella-pc", ".work-ancient-pc"];
+  for (let i = 0; i < animatedArray.length; i++) {
+    var radius = Math.floor(Math.random() * 70) + 30;
+
+    var xRandom = (Math.floor(Math.random() * 5) + 5) * (Math.floor(Math.random() * 2) + 1);
+    var yRandom = (Math.floor(Math.random() * 5) + 5) * (Math.floor(Math.random() * 2) + 1);
+
+    gsap.to(animatedArray[i], {
+      duration: 4,
+      yPercent: radius / yRandom,
+      ease: "Sine.easeInOut",
+      repeat: -1,
+      yoyo: true,
+    });
+
+    gsap
+      .to(animatedArray[i], {
+        duration: 4,
+        xPercent: radius / xRandom,
+        ease: "Sine.easeInOut",
+        repeat: -1,
+        yoyo: true,
+      })
+      .progress(0.5);
+  }
+}
+
+function animateText() {
   let tl = gsap.timeline();
   tl.to([".work-text-3xl", ".work-greeting"], {
     delay: 2,
@@ -33,81 +110,85 @@ function animation() {
 </script>
 <template>
   <div class="hidden 3xl:block">
-    <div class="bg-white">
-      <div class="bg-[#262723]">
-        <div class="grid grid-cols-12 pl-10">
-          <div style="font-family: dgo" class="col-start-3 col-span-full text-white mt-[345px]">
-            <div class="work-text1-3xl-trigger overflow-hidden">
-              <p class="work-text-3xl text-[64px] leading-[78px] w-fit translate-y-full">WE DONT’T</p>
-            </div>
-            <div class="flex items-end gap-10">
-              <div class="work-text2-3xl-trigger overflow-hidden">
-                <p class="work-text-3xl text-[64px] leading-[78px] w-fit translate-y-full">WORK FOR YOU</p>
+    <div class="bg-white work-scroll h-screen">
+      <div class="bg-[#262723] center pb-48 relative">
+        <div>
+          <div class="grid grid-cols-12 pl-10">
+            <div style="font-family: dgo" class="col-start-3 col-span-full text-white mt-[345px]">
+              <div class="work-text1-3xl-trigger overflow-hidden">
+                <p class="work-text-3xl text-[64px] leading-[78px] w-fit translate-y-full">WE DON’T</p>
               </div>
-              <div class="w-44 work-text3-3xl-trigger overflow-hidden">
-                <img class="w-full work-greeting translate-y-full" src="~assets/imgs/greetinghand.gif" />
+              <div class="flex items-end gap-10">
+                <div class="work-text2-3xl-trigger overflow-hidden">
+                  <p class="work-text-3xl text-[64px] leading-[78px] w-fit translate-y-full">WORK FOR YOU</p>
+                </div>
+                <div class="w-44 work-text3-3xl-trigger overflow-hidden">
+                  <img class="w-full work-greeting translate-y-full" src="~assets/imgs/greetinghand.gif" />
+                </div>
               </div>
-            </div>
-            <div class="work-text3-3xl-trigger overflow-hidden">
-              <p class="text-[100px] work-text-3xl translate-y-full">WE WORK WITH YOU</p>
-            </div>
-            <div class="bg-black w-fit mt-6 text-xl">
-              <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
-            </div>
-            <div class="bg-black w-fit mt-12 text-xl">
-              <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當一個</p>
-            </div>
-            <div class="bg-black w-fit mt-3 text-xl">
-              <p class="" style="font-family: arial-reg">可以與你密切溝通，且能始終如一交付高品質成果的夥伴</p>
+              <div class="work-text3-3xl-trigger overflow-hidden">
+                <p class="text-[100px] work-text-3xl translate-y-full">WE WORK WITH YOU</p>
+              </div>
+              <div class="bg-black w-fit mt-6 text-xl">
+                <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
+              </div>
+              <div class="bg-black w-fit mt-12 text-xl">
+                <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當一個</p>
+              </div>
+              <div class="bg-black w-fit mt-3 text-xl">
+                <p class="" style="font-family: arial-reg">可以與你密切溝通，且能始終如一交付高品質成果的夥伴</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex text-white justify-center gap-12 mt-64">
-          <div class="w-[500px] h-fit relative work-mia-pc">
-            <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-              <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.jpg" />
-            </div>
-
-            <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-              <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+          <div class="flex text-white justify-center mt-64">
+            <div class="w-[500px] h-fit relative work-mia-pc">
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.jpg" />
               </div>
-              <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                <div class="pb-12">
+                  <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
+                  <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                </div>
+                <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+              </div>
+            </div>
+            <div class="work-bella-pc w-[500px] h-fit relative mt-48">
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.png" />
+              </div>
+
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                <div class="pb-12">
+                  <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
+                  <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                </div>
+                <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+              </div>
             </div>
           </div>
-          <div class="w-[500px] h-fit relative mt-48">
-            <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-              <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.png" />
-            </div>
-
-            <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-              <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+          <div class="flex text-white justify-center gap-12 mt-5">
+            <div class="work-ancient-pc w-[500px] h-fit relative">
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.jpg" />
               </div>
-              <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
-            </div>
-          </div>
-        </div>
-        <div class="flex text-white justify-center gap-12 mt-16">
-          <div class="w-[500px] h-fit relative">
-            <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-              <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.jpg" />
-            </div>
 
-            <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-              <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+              <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                <div class="pb-12">
+                  <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
+                  <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                </div>
+                <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
               </div>
-              <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
             </div>
           </div>
         </div>
       </div>
-      <DashingFooter color="#FFFFFF" />
+      <div class="footer-tri">
+        <DashingFooter color="#FFFFFF" />
+      </div>
     </div>
   </div>
 
@@ -307,8 +388,20 @@ function animation() {
     </div>
   </div>
 </template>
-<style>
-body {
-  font-family: arial-reg;
+<style scoped>
+.center {
+  --left: 0px;
+  --bottom: 0px;
+  &::after {
+    border-bottom: var(--bottom) solid white;
+    border-left: var(--left) solid transparent;
+    border-right: 0px solid transparent;
+    content: "";
+    height: 0;
+    right: -2px;
+    position: absolute;
+    bottom: -1px;
+    width: 0;
+  }
 }
 </style>

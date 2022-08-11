@@ -277,8 +277,3 @@ onMounted(() => {
     <DashingFooter color="#D3E741" />
   </div>
 </template>
-<style>
-body {
-  font-family: arial-reg;
-}
-</style>

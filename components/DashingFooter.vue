@@ -1,9 +1,45 @@
 <script setup lang="ts">
+import { gsap } from "gsap";
+
+const footerBtnSendPc = ref();
 const props = defineProps({
   color: {
     type: String,
   },
 });
+onMounted(() => {
+  animateSwipeBtn();
+});
+
+function animateSwipeBtn() {
+  footerBtnSendPc.value.addEventListener("mouseleave", (e) => {
+    console.log("mouseout");
+    gsap.to(".swipe-span", {
+      scaleX: 0,
+      duration: 0.4,
+      ease: "power2.inout",
+    });
+    gsap.to(".swipe-text", {
+      duration: 0.4,
+      ease: "power2.inout",
+      color: "black",
+    });
+  });
+
+  footerBtnSendPc.value.addEventListener("mouseover", (e) => {
+    console.log("mouseover");
+    gsap.to(".swipe-span", {
+      scaleX: 1,
+      duration: 0.4,
+      ease: "power2.inout",
+    });
+    gsap.to(".swipe-text", {
+      duration: 0.4,
+      ease: "power2.inout",
+      color: "white",
+    });
+  });
+}
 </script>
 <template>
   <div class="hidden 3xl:block relative z-10">
@@ -15,12 +51,18 @@ const props = defineProps({
         </p>
         <div class="relative w-fit mt-16">
           <img class="absolute w-32 right-5 top-9" src="~assets/imgs/letsgtw.png" />
-          <img class="w-96" src="~assets/imgs/nokia.png" />
+          <img class="w-96" src="~assets/imgs/ufo.gif" />
         </div>
         <div class="flex gap-3 mt-44">
-          <img class="w-8" alt="instagram icon" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-8" alt="facebook icon" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-8" alt="behance icon" src="~assets/imgs/social-media-icon.svg" />
+          <a href="google.com">
+            <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-behance.png" />
+          </a>
+          <a href="google.com">
+            <img class="w-8" alt="facebook icon" src="~assets/imgs/icon-facebook.png" />
+          </a>
+          <a href="google.com">
+            <img class="w-8" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
+          </a>
         </div>
       </div>
       <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
@@ -41,7 +83,14 @@ const props = defineProps({
             <input :style="`background-color:${props.color}`" class="py-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
           </div>
           <div class="mt-32 flex justify-end w-full">
-            <button class="border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button">送~出~</button>
+            <!-- <button ref="footerBtnSendPc" class="border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button"></button> -->
+
+            <button ref="footerBtnSendPc" class="relative overflow-hidden border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest w-fit h-fit">
+              <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
+              <div class="relative z-10 flex items-center gap-2.5">
+                <p class="swipe-text">送~出~</p>
+              </div>
+            </button>
           </div>
           <div class="mt-24">
             <p class="underline underline-offset-[7px] leading-[58px] font-normal text-[40px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
@@ -67,9 +116,9 @@ const props = defineProps({
           <img class="w-96" src="~assets/imgs/nokia.png" />
         </div>
         <div class="flex gap-3 mt-44">
-          <img class="w-8" alt="instagram icon" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-8" alt="facebook icon" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-8" alt="behance icon" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-instagram.png" />
+          <img class="w-8" alt="facebook icon" src="~assets/imgs/icon-instagram.png" />
+          <img class="w-8" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
         </div>
       </div>
       <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
@@ -144,9 +193,9 @@ const props = defineProps({
 
         <div class="flex justify-between items-end mt-24">
           <div class="flex gap-3">
-            <img class="w-8" alt="instagram icon" src="~assets/imgs/social-media-icon.svg" />
-            <img class="w-8" alt="facebook icon" src="~assets/imgs/social-media-icon.svg" />
-            <img class="w-8" alt="behance icon" src="~assets/imgs/social-media-icon.svg" />
+            <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-instagram.png" />
+            <img class="w-8" alt="facebook icon" src="~assets/imgs/icon-instagram.png" />
+            <img class="w-8" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
           </div>
           <div>
             <div class="">
@@ -186,10 +235,10 @@ const props = defineProps({
         </div>
 
         <div class="flex gap-4 mt-12">
-          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-6 h-6" src="~assets/imgs/social-media-icon.svg" />
+          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
+          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
+          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
+          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
         </div>
       </div>
     </div>

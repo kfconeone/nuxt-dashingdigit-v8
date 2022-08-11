@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/three": "^0.142.0",
     "gsap": "npm:@gsap/shockingly",
+    "smooth-scrollbar": "^8.7.5",
     "swiper": "^8.3.2",
     "three": "^0.142.0"
   }

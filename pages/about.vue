@@ -377,9 +377,3 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
-<style>
-body {
-  font-family: arial-reg;
-}
-</style>
