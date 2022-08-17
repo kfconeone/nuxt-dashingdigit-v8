@@ -17,9 +17,20 @@ useHead({
   charset: "utf-8",
   meta: [{ name: "description", content: "達訊數位專案" }],
 });
+const onLoadedEvents = inject("onLoadedEvents");
 
 onMounted(() => {
-  console.log("work");
+  onLoadedEvents.value["work"] = () => {
+    console.log("work");
+
+    initSmoothScrollbar();
+    animateText();
+    scaleCenter();
+    animateWiggle();
+  };
+});
+
+function initSmoothScrollbar() {
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".work-scroll");
   const myScroller = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
@@ -34,11 +45,7 @@ onMounted(() => {
   myScroller.addListener(ScrollTrigger.update);
   ScrollTrigger.defaults({ scroller: workScroller });
   //smooth scrollbar//
-
-  animateText();
-  scaleCenter();
-  animateWiggle();
-});
+}
 
 function scaleCenter() {
   gsap.to(".center", {

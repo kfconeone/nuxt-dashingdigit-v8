@@ -23,6 +23,8 @@ gsap.registerPlugin(ScrollTrigger, CustomEase, ScrollToPlugin);
 
 const btnSwipe = ref();
 const svgGit = ref();
+const onLoadedEvents = inject("onLoadedEvents");
+
 useHead({
   title: "Dashing",
   // or, instead:
@@ -34,30 +36,92 @@ useHead({
 });
 
 onMounted(() => {
+  onLoadedEvents.value["index"] = () => {
+    initSmoothScrollbar();
+
+    scaleCenter();
+
+    revealTitle();
+
+    animateSwipeBtn();
+
+    marquee();
+
+    animtePolygon();
+
+    addListenerOnSvgCircle();
+  };
+});
+
+function scaleCenter() {
+  gsap.to(".pc-index-center", {
+    scrollTrigger: {
+      trigger: ".index-footer-tri-pc",
+      start: "20% bottom",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.5,
+    borderRadius: "30px",
+    ease: "power4.easeOut",
+    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+  });
+  gsap.to(".pc-index-center", {
+    transformOrigin: "center center",
+    scale: 0.95,
+    ease: "Power2.easeIn",
+    "--bottom": "180px",
+    "--left": "180px",
+    scrollTrigger: {
+      trigger: ".index-footer-tri-pc",
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: 1,
+      pin: ".pc-index-center",
+    },
+  });
+}
+
+function initSmoothScrollbar() {
   //smooth scrollbar//
   const indexScroller: any = document.querySelector(".index-scroll");
   const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
 
   ScrollTrigger.scrollerProxy(".index-scroll", {
     scrollTop(value) {
+      console.log("scrollTop");
       if (arguments.length) {
         myScroller.scrollTop = value;
       }
       return myScroller.scrollTop;
     },
+    scrollLeft(value) {
+      if (arguments.length) {
+        myScroller.scrollLeft = value; // setter
+      }
+      return myScroller.scrollLeft; // getter
+    },
   });
-  myScroller.addListener(ScrollTrigger.update);
+  myScroller.addListener(({ offset }) => {
+    var fixedElem = document.getElementById("bg-hero");
+
+    ScrollTrigger.update();
+    fixedElem.style.top = offset.y + "px";
+    fixedElem.style.left = offset.x + "px";
+  });
   ScrollTrigger.defaults({ scroller: indexScroller });
   //smooth scrollbar//
+}
 
-  animateSwipeBtn();
-
-  marquee();
-
-  animtePolygon();
-
-  addListenerOnSvgCircle();
-});
+function revealTitle() {
+  console.log("revealTitle");
+  gsap.from(".pc-wecreate", {
+    yPercent: 100,
+    ease: "Power4.easeOut",
+    stagger: 0.1,
+    duration: 1.5,
+  });
+}
 
 function addListenerOnSvgCircle() {
   svgGit.value.addEventListener("mouseenter", () => {
@@ -93,23 +157,24 @@ function addListenerOnSvgCircle() {
   });
 }
 
-function onClickSvgCircle() {
-  gsap.to(window, { duration: 1, ease: "power3.easeInOut", scrollTo: ".index-footer-tri-pc" });
-}
-
 function animateSwipeBtn() {
   btnSwipe.value.addEventListener("mouseleave", (e) => {
     console.log("mouseout");
     gsap.to(".swipe-span", {
       scaleX: 0,
       duration: 0.4,
-      ease: "power2.inout",
+      ease: "Power2.InOut",
     });
     gsap.to(".swipe-text", {
       duration: 0.4,
-      ease: "power2.inout",
+      ease: "Power2.InOut",
       stroke: "#D3E741",
       color: "#D3E741",
+    });
+    gsap.to(".btnSwipe", {
+      duration: 0.4,
+      ease: "Power2.InOut",
+      borderColor: "#D3E741",
     });
   });
 
@@ -118,13 +183,18 @@ function animateSwipeBtn() {
     gsap.to(".swipe-span", {
       scaleX: 1,
       duration: 0.4,
-      ease: "power2.inout",
+      ease: "Power2.InOut",
     });
     gsap.to(".swipe-text", {
       duration: 0.4,
-      ease: "power2.inout",
+      ease: "Power2.InOut",
       stroke: "black",
       color: "black",
+    });
+    gsap.to(".btnSwipe", {
+      duration: 0.4,
+      ease: "Power2.InOut",
+      borderColor: "black",
     });
   });
 }
@@ -136,7 +206,7 @@ function onSlideChange() {
 function marquee() {
   gsap.to(".front", {
     x: -1000,
-    ease: "power2.inout",
+    ease: "Power2.InOut",
     scrollTrigger: {
       trigger: ".mar-tri",
       start: "top bottom",
@@ -147,7 +217,7 @@ function marquee() {
   gsap.to(".back", {
     x: 1000,
     duration: 5,
-    ease: "power2.inout",
+    ease: "Power2.InOut",
     scrollTrigger: {
       trigger: ".mar-tri",
       start: "top bottom",
@@ -201,19 +271,31 @@ function animtePolygon() {
 </script>
 <template>
   <div class="hidden 3xl:block">
-    <div class="mx-auto relative bg-[#D3E741]">
-      <img class="bg-hero w-full h-full fixed top-0" src="~/assets/imgs/bg-hero-sm.png" />
-      <div class="index-scroll h-screen relative">
+    <div class="index-scroll h-screen relative bg-[#D3E741]">
+      <div class="bg-[#262723] pc-index-center relative overflow-hidden">
+        <img id="bg-hero" class="bg-hero w-full h-screen fixed top-0" src="~/assets/imgs/bg-hero-sm.png" />
+
         <div class="index-center-pc">
           <div class="w-full h-screen min-h-screen grid grid-cols-12 pl-11 pr-9 pb-24 overflow-hidden relative z-10">
+            <div class="w-full h-full flex justify-center items-center absolute">
+              <EmojiBackground />
+            </div>
             <div class="pl-14 col-start-3 col-span-8 w-full gap-[7.3vw]">
               <div class="pt-64 text-white" style="font-family: dgo">
-                <p class="font-normal text-[70px] leading-[110.8%]">We Create</p>
-                <p class="text-[#D3E741] text-[130px] leading-[143px]">INSANELY</p>
-                <p class="text-[80px] leading-[116px]">Digital experience</p>
+                <div class="overflow-hidden">
+                  <p class="pc-wecreate font-normal text-[70px] leading-[110.8%]">We Create</p>
+                </div>
+                <div class="overflow-hidden">
+                  <p class="pc-wecreate text-[#D3E741] text-[130px] leading-[143px]">INSANELY</p>
+                </div>
+                <p class="pc-wecreate text-[80px] leading-[116px]">Digital experience</p>
                 <div style="font-family: arial-bd" class="font-bold text-2xl tracking-[0.08em] mt-5">
-                  <p>專注於新奇的互動設計</p>
-                  <p>打造迷人的使用者體驗</p>
+                  <div class="overflow-hidden">
+                    <p class="pc-wecreate">專注於新奇的互動設計</p>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="pc-wecreate">打造迷人的使用者體驗</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -332,7 +414,7 @@ function animtePolygon() {
               </div>
 
               <div class="flex justify-center mt-20 text-[#D3E741] text-xl font-bold" style="font-family: arial-black">
-                <button ref="btnSwipe" class="overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-2.5 px-10 relative w-fit h-fit">
+                <button ref="btnSwipe" class="btnSwipe overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-2.5 px-10 relative w-fit h-fit">
                   <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
                   <div class="relative z-10 flex items-center gap-2.5">
                     <p class="swipe-text">MORE</p>
@@ -522,9 +604,10 @@ function animtePolygon() {
             </div>
           </div>
         </div>
-        <div class="index-footer-tri-pc">
-          <DashingFooter color="#D3E741" />
-        </div>
+      </div>
+
+      <div class="index-footer-tri-pc">
+        <DashingFooter color="#D3E741" />
       </div>
     </div>
   </div>

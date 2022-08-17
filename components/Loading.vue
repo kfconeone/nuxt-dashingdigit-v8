@@ -58,7 +58,6 @@ function emojiBackground() {
     width: window.innerWidth,
     height: window.innerHeight,
   };
-  console.log(sizes);
 
   // Camera
   const camera = new THREE.PerspectiveCamera(120, sizes.width / sizes.height);
@@ -103,7 +102,6 @@ function emojiBackground() {
 }
 
 function animateLoading(mesh, mesh2) {
-  console.log("document.body:", document.body);
   document.body.style.overflow = "hidden";
   gsap.to(mesh.rotation, {
     x: 1,
