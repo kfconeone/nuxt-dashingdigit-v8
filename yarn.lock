@@ -687,6 +687,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.5.tgz#f1c1d4b7d8231c0278962347163656f9c36f3e83"
   integrity sha512-NcKK6Ts+9LqdHJaW6HQmgr7dT/i3GOHG+pt6BiWv++5SnjtRd4NXeiuN2kA153SjhXPR/AhHIPHPbrsbpUVOww==
 
+"@types/node@^14.11.8":
+  version "14.18.25"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.25.tgz#57c72455af0a658da5b59aa062b2f89e73df0a61"
+  integrity sha512-9pLfceRSrKIsv/MISN6RoFWTIzka36Uk2Uuf5a8cHyDYhEgl5Hm5dXoe621KULeBjt+cFsY18mILsWWtJeG80w==
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -1227,6 +1232,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001370, caniuse-lite@^1.0.30001373:
   version "1.0.30001376"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001376.tgz#af2450833e5a06873fbb030a9556ca9461a2736d"
   integrity sha512-I27WhtOQ3X3v3it9gNs/oTpoE5KpwmqKR5oKPA8M0G7uMXh9Ty81Q904HpKUrM30ei7zfcL5jE7AXefgbOfMig==
+
+cannon-es@^0.20.0:
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/cannon-es/-/cannon-es-0.20.0.tgz#bf2f62a674701f37e3d861c90668a32d4d32f082"
+  integrity sha512-eZhWTZIkFOnMAJOgfXJa9+b3kVlvG+FX4mdkpePev/w/rP5V8NRquGyEozcjPfEoXUlb+p7d9SUcmDSn14prOA==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -2283,6 +2293,13 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
+flag-waiter@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/flag-waiter/-/flag-waiter-1.0.5.tgz#7f1cf15760e94a25a4e85ce5e631365ff4c856f4"
+  integrity sha512-gog44l+z9EY2PWN+tDiZhuySksGQEN5x2i+ZhAKNzbgixlUREXYOiqpwB823hS63E24oYHv0EvAXkGjtUb7bxQ==
+  dependencies:
+    "@types/node" "^14.11.8"
+
 flat@^5.0.0:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/flat/-/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
@@ -2481,9 +2498,9 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4, 
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
 
 "gsap@npm:@gsap/shockingly":
-  version "3.10.4"
-  resolved "https://npm.greensock.com/@gsap%2fshockingly/-/shockingly-3.10.4.tgz#a8a785b23b83cdc62cb8bc70b8b26163e22499e8"
-  integrity sha512-yHI7bywPYdLEAue7m7bhD7ZYY54OzIq1Hu34yjFyKzVxHqZc1F/fEHlRMl8W9bHbb89f3JXq12Ih3U7g4vowQQ==
+  version "3.11.0"
+  resolved "https://npm.greensock.com/@gsap%2fshockingly/-/shockingly-3.11.0.tgz#12163b574c228786e36e421d002ae17a6570701d"
+  integrity sha512-1EeF2zov6PTDpW8dQI0NdWkhukowHOWV93IhX8vZDUFtf9xh+P54JfCNTa1kBCEQQYkBNRGqCgI9IEcRh25ZVw==
 
 gzip-size@^7.0.0:
   version "7.0.0"

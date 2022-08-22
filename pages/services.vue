@@ -19,14 +19,75 @@ const onLoadedEvents = inject("onLoadedEvents");
 onMounted(() => {
   onLoadedEvents.value["service"] = () => {
     console.log("service init");
-    // gsap.to(".bg-service-pc", {
-    //   opacity: 0,
-    //   scrollTrigger: {
-    //     trigger: ".web-trigger",
-    //     start: "top bottom",
-    //   },
-    // });
+
     initSmoothScrollbar();
+
+    gsap.to(".pc-text-wedesign", {
+      y: -300,
+      ease: "Power2.easeInOut",
+      scrollTrigger: {
+        trigger: ".web-design-tri",
+        start: "15% bottom",
+        end: "+=200%",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".pc-webdesign", {
+      y: -900,
+      ease: "Power2.easeInOut",
+      scrollTrigger: {
+        trigger: ".web-design-tri",
+        start: "15% bottom",
+        end: "+=200%",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".pc-img-wedesign", {
+      y: -550,
+      ease: "Power2.easeInOut",
+      scrollTrigger: {
+        trigger: ".web-design-tri",
+        start: "15% bottom",
+        end: "+=200%",
+
+        scrub: true,
+      },
+    });
+
+    gsap.to(".pc-text-landing", {
+      y: -150,
+      ease: "Power2.easeInOut",
+      scrollTrigger: {
+        trigger: ".web-landing-tri",
+        start: "15% bottom",
+        end: "+=200%",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".pc-landing", {
+      y: -350,
+      ease: "Power2.easeInOut",
+      scrollTrigger: {
+        trigger: ".web-landing-tri",
+        start: "15% bottom",
+        end: "+=200%",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".pc-img-landing", {
+      y: -400,
+      ease: "Power2.easeInOut",
+      scrollTrigger: {
+        trigger: ".web-landing-tri",
+        start: "15% bottom",
+        end: "+=200%",
+        scrub: true,
+      },
+    });
   };
 });
 
@@ -34,7 +95,7 @@ function initSmoothScrollbar() {
   console.log("service smooth init");
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".service-scroll");
-  const myScroller = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+  const myScroller = Scrollbar.init(workScroller, { damping: 0.05, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
 
   ScrollTrigger.scrollerProxy(".service-scroll", {
     scrollTop(value) {
@@ -66,29 +127,33 @@ function initSmoothScrollbar() {
       </div>
 
       <div class="mb-44">
-        <div class="web-trigger flex justify-center text-[#6372C6] mx-auto mt-36 border-[3px] border-[#6372C6] w-[1317px] items-center gap-10 py-7 px-10">
-          <div>
-            <p class="text-5xl" style="font-family: dgo">WEB DESIGN</p>
-            <p class="text-2xl font-black mt-6" style="font-family: arial-black">#品牌形象網站 #使用者介面<br />#網站後臺建置 #資料庫建置</p>
-            <p class="text-xl leading-[32px] mt-14">網站設計不僅只是數位化的展現，也包括品牌性的延伸，達訊<br />團隊致力於製作富含品牌視覺與互動元素的網站，使品牌在百<br />家爭鳴的線上時代也能具有強烈的識別性，使人印象深刻。</p>
-          </div>
-          <div class="w-[550px]">
-            <img class="w-full" src="~assets/imgs/web-design.gif" />
-          </div>
-        </div>
-
-        <div class="flex justify-center text-[#6372C6] w-[1317px] mx-auto mt-16 border-[3px] border-[#6372C6] items-center gap-10 py-7 px-10">
-          <div class="w-[550px]">
-            <img class="w-full" src="~assets/imgs/landing-page.gif" />
-          </div>
-          <div>
-            <p class="text-5xl" style="font-family: dgo">LANDING PAGE</p>
-            <p class="text-2xl font-black mt-6" style="font-family: arial-black">#UI / UX 設計 #icon 設計<br />#動畫設計 #插圖設計</p>
-            <p class="text-xl leading-[32px] mt-14">具有強烈目的性的著陸頁頁面，有更良好的導購效果<br />，達訊團隊提供強烈識別性的著陸頁面，與流暢的使<br />用者互動體驗，能大幅增加著陸頁的導流效果，轉換<br />效果也將隨之增加。</p>
+        <div class="web-design-tri">
+          <div class="min-h-[650px] pc-webdesign flex justify-center text-[#6372C6] mx-auto mt-36 border-[3px] border-[#6372C6] w-[1317px] items-center gap-10 py-7 px-10">
+            <div class="pc-text-wedesign">
+              <p class="text-5xl" style="font-family: dgo">WEB DESIGN</p>
+              <p class="text-2xl font-black mt-6" style="font-family: arial-black">#品牌形象網站 #使用者介面<br />#網站後臺建置 #資料庫建置</p>
+              <p class="text-xl leading-[32px] mt-14">網站設計不僅只是數位化的展現，也包括品牌性的延伸，達訊<br />團隊致力於製作富含品牌視覺與互動元素的網站，使品牌在百<br />家爭鳴的線上時代也能具有強烈的識別性，使人印象深刻。</p>
+            </div>
+            <div class="w-[550px] pc-img-wedesign">
+              <img class="w-full" src="~assets/imgs/web-design.gif" />
+            </div>
           </div>
         </div>
 
-        <div class="flex justify-center text-[#6372C6] w-[1317px] mx-auto mt-16 border-[3px] border-[#6372C6] items-center gap-10 py-7 px-10">
+        <div class="web-landing-tri">
+          <div class="min-h-[650px] pc-landing flex justify-center text-[#6372C6] w-[1317px] mx-auto mt-12 border-[3px] border-[#6372C6] items-center gap-10 py-7 px-10">
+            <div class="w-[550px] pc-img-landing">
+              <img class="w-full" src="~assets/imgs/landing-page.gif" />
+            </div>
+            <div class="pc-text-landing">
+              <p class="text-5xl" style="font-family: dgo">LANDING PAGE</p>
+              <p class="text-2xl font-black mt-6" style="font-family: arial-black">#UI / UX 設計 #icon 設計<br />#動畫設計 #插圖設計</p>
+              <p class="text-xl leading-[32px] mt-14">具有強烈目的性的著陸頁頁面，有更良好的導購效果<br />，達訊團隊提供強烈識別性的著陸頁面，與流暢的使<br />用者互動體驗，能大幅增加著陸頁的導流效果，轉換<br />效果也將隨之增加。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="min-h-[650px] flex justify-center text-[#6372C6] w-[1317px] mx-auto mt-12 border-[3px] border-[#6372C6] items-center gap-10 py-7 px-10">
           <div>
             <p class="text-5xl" style="font-family: dgo">GRAPHIC& MOTION</p>
             <p class="text-2xl font-black mt-6" style="font-family: arial-black">#插圖設計 #動畫設計 #社群貼文設計<br />#廣告設計 #EMAIL設計</p>
@@ -99,7 +164,7 @@ function initSmoothScrollbar() {
           </div>
         </div>
 
-        <div class="flex justify-center text-[#6372C6] w-[1317px] mx-auto mt-16 border-[3px] border-[#6372C6] items-center gap-10 py-7 px-10">
+        <div class="min-h-[650px] flex justify-center text-[#6372C6] w-[1317px] mx-auto mt-12 border-[3px] border-[#6372C6] items-center gap-10 py-7 px-10">
           <div class="w-[550px]">
             <img class="w-full" src="~assets/imgs/web-app.gif" />
           </div>

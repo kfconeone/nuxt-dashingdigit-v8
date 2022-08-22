@@ -64,8 +64,7 @@ function scaleCenter() {
     transformOrigin: "center center",
     scale: 0.95,
     ease: "Power2.easeIn",
-    "--bottom": "180px",
-    "--left": "180px",
+
     scrollTrigger: {
       trigger: ".footer-tri",
       start: "top bottom",
@@ -395,20 +394,3 @@ function animateText() {
     </div>
   </div>
 </template>
-<style scoped>
-.center {
-  --left: 0px;
-  --bottom: 0px;
-  &::after {
-    border-bottom: var(--bottom) solid white;
-    border-left: var(--left) solid transparent;
-    border-right: 0px solid transparent;
-    content: "";
-    height: 0;
-    right: -2px;
-    position: absolute;
-    bottom: -1px;
-    width: 0;
-  }
-}
-</style>

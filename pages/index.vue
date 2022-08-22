@@ -273,9 +273,9 @@ function animtePolygon() {
   <div class="hidden 3xl:block">
     <div class="index-scroll h-screen relative bg-[#D3E741]">
       <div class="bg-[#262723] pc-index-center relative overflow-hidden">
-        <img id="bg-hero" class="bg-hero w-full h-screen fixed top-0" src="~/assets/imgs/bg-hero-sm.png" />
+        <img id="bg-hero" class="bg-hero w-full h-screen sticky top-0" src="~/assets/imgs/bg-hero-sm.png" />
 
-        <div class="index-center-pc">
+        <div class="index-center-pc mt-[-100vh]">
           <div class="w-full h-screen min-h-screen grid grid-cols-12 pl-11 pr-9 pb-24 overflow-hidden relative z-10">
             <div class="w-full h-full flex justify-center items-center absolute">
               <EmojiBackground />

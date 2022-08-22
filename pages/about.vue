@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+//smooth scrollbar
+import Scrollbar from "smooth-scrollbar";
+//smooth scrollbar
+const meetourteamRef = ref();
 gsap.registerPlugin(ScrollTrigger);
+
+const onLoadedEvents = inject("onLoadedEvents");
+
 useHead({
   title: "About",
   // or, instead:
@@ -11,74 +19,194 @@ useHead({
   meta: [{ name: "description", content: "關於達訊數位" }],
   script: [{ src: "https://unpkg.com/spacingjs", async: true }],
 });
-
+// linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6
 onMounted(() => {
-  gsap.to(".trait", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait",
-      start: "top top",
-      end: () => innerWidth,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
+  onLoadedEvents.value["about"] = () => {
+    nextTick(() => {
+      initSmoothScrollbar();
+      ScrollTrigger.create({
+        trigger: ".whitebg-tri",
+        start: "40% bottom",
+        end: "+=150%",
+        toggleActions: "play none none reverse",
 
-  gsap.to(".trait-xl", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait-xl",
-      start: "top top",
-      end: () => innerWidth,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
+        onEnter: () => {
+          gsap.to(".testbg", {
+            backgroundColor: "white",
+            duration: 0.4,
+            ease: "Power2.easeInOut",
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(".testbg", {
+            backgroundColor: "black",
+            duration: 0.4,
+            ease: "Power2.easeInOut",
+          });
+        },
+      });
 
-  gsap.to(".trait-md", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait-md",
-      start: "top top",
-      end: () => innerWidth * 3,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
+      gsap.to(".trait", {
+        xPercent: -100,
+        x: () => innerWidth,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".trait",
+          start: "top top",
+          end: () => innerWidth,
+          scrub: true,
+          pin: true,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+        },
+      });
 
-  gsap.to(".trait-sm", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait-sm",
-      start: "top top",
-      end: () => innerWidth * 3,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
+      gsap.to(".trait-xl", {
+        xPercent: -100,
+        x: () => innerWidth,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".trait-xl",
+          start: "top top",
+          end: () => innerWidth,
+          scrub: true,
+          pin: true,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+        },
+      });
+
+      gsap.to(".trait-md", {
+        xPercent: -100,
+        x: () => innerWidth,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".trait-md",
+          start: "top top",
+          end: () => innerWidth * 3,
+          scrub: true,
+          pin: true,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+        },
+      });
+
+      gsap.to(".trait-sm", {
+        xPercent: -100,
+        x: () => innerWidth,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".trait-sm",
+          start: "top top",
+          end: () => innerWidth * 3,
+          scrub: true,
+          pin: true,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+        },
+      });
+
+      gsap.from(".three-bg-pc", {
+        delay: 3,
+        duration: 1,
+        background: "white",
+      });
+
+      ScrollTrigger.create({
+        trigger: ".purplebg-tri",
+        start: "-10% bottom",
+        end: "bottom top",
+        onEnter: () => {
+          meetourteamRef.value.resetIconsPosition();
+        },
+      });
+      scaleCenter();
+      // ScrollTrigger.create({
+      //   trigger: ".purplebg-tri",
+      //   start: "center bottom",
+      //   end: "bottom bottom",
+
+      //   onEnter: () => {
+      //     gsap.to(".testbg", {
+      //       backgroundColor: "#6372C6",
+      //       duration: 0.4,
+      //       ease: "Power2.easeInOut",
+      //     });
+      //   },
+      //   onLeaveBack: () => {
+      //     gsap.to(".testbg", {
+      //       backgroundColor: "white",
+      //       duration: 0.4,
+      //       ease: "Power2.easeInOut",
+      //     });
+      //   },
+      // });
+    });
+  };
 });
+
+function initSmoothScrollbar() {
+  //smooth scrollbar//
+  const indexScroller: any = document.querySelector(".about-scroll");
+  const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+
+  ScrollTrigger.scrollerProxy(".about-scroll", {
+    scrollTop(value) {
+      if (arguments.length) {
+        myScroller.scrollTop = value;
+      }
+      return myScroller.scrollTop;
+    },
+    scrollLeft(value) {
+      if (arguments.length) {
+        myScroller.scrollLeft = value; // setter
+      }
+      return myScroller.scrollLeft; // getter
+    },
+  });
+  myScroller.addListener(({ offset }) => {
+    // var fixedElem = document.getElementById("bg-hero");
+
+    ScrollTrigger.update();
+    // fixedElem.style.top = offset.y + "px";
+    // fixedElem.style.left = offset.x + "px";
+  });
+  ScrollTrigger.defaults({ scroller: indexScroller });
+  //smooth scrollbar//
+}
+
+function scaleCenter() {
+  gsap.to(".pc-about-center", {
+    scrollTrigger: {
+      trigger: ".about-footer-tri-pc",
+      start: "20% bottom",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.5,
+    borderRadius: "30px",
+    ease: "power4.easeOut",
+    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+  });
+  gsap.to(".pc-about-center", {
+    transformOrigin: "center center",
+    scale: 0.95,
+    ease: "Power2.easeIn",
+    scrollTrigger: {
+      trigger: ".about-footer-tri-pc",
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: 1,
+      pin: ".pc-about-center",
+    },
+  });
+}
 </script>
 <template>
   <div class="hidden 3xl:block">
-    <div class="max-w-[1920px] mx-auto relative">
-      <div class="w-full overflow-x-hidden">
-        <div class="flex justify-center bg-gray-700 py-40 gap-20">
+    <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
+      <div class="w-full overflow-x-hidden bg-black testbg pc-about-center">
+        <div class="flex justify-center py-40 gap-20 min-h-screen">
           <div>
             <p style="font-family: dgo" class="text-white text-8xl">
               As nimble<br />
@@ -100,43 +228,66 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="trait h-screen w-fit flex text-[#6372C6] items-center px-40">
-          <div class="flex gap-[500px]">
-            <div>
-              <p class="text-[80px] leading-[96px] mb-32 whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
-              <p class="text-xl mb-10 leading-[33px]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
-              <p class="text-xl leading-[33px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
-            </div>
-            <div>
-              <p class="text-[80px] leading-[96px] mb-32" style="font-family: dgo">QUICK<br />TEST</p>
-              <p class="text-xl leading-[33px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
-            </div>
-            <div>
-              <p class="text-[80px] leading-[96px] mb-32" style="font-family: dgo">HIGH<br />PERFORMANCE</p>
-              <p class="text-xl leading-[33px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex">
-          <div class="w-full min-h-[855px] relative" style="background: linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6">
-            <img class="w-56 absolute" src="~assets/imgs/profile/r1.png" />
-            <img class="w-56 absolute" src="~assets/imgs/profile/r2.png" />
-            <img class="w-56 absolute" src="~assets/imgs/profile/r3.png" />
-            <img class="w-56 absolute" src="~assets/imgs/profile/r2.png" />
-            <img class="w-56 absolute" src="~assets/imgs/profile/r3.png" />
-            <p style="font-family: arial-black" class="text-white text-4xl font-black tracking-widest mx-auto w-fit">MEET OUR TEAM</p>
-            <div class="bg-white rounded-[76px] w-[550px] py-9 mx-auto mt-5" stlye="box-shadow: 1px 4px 8px #577FCD;">
-              <div class="flex justify-center gap-8">
-                <img class="w-20" src="~assets/imgs/profile/r1.png" />
-                <div class="text-[#292F33] text-4xl tracking-widest font-black" style="font-family: arial-black">
-                  <p>RINRAN</p>
-                  <p class="text-2xl">VISUAL DESIGNER</p>
+        <div class="trait whitebg-tri h-screen w-fit flex text-[#6372C6] items-center px-40">
+          <div class="flex gap-[250px] pr-[500px]">
+            <div class="flex">
+              <div>
+                <div class="relative">
+                  <div class="w-[700px] absolute left-[-10%]">
+                    <img class="w-full" src="~assets/imgs/about-neverbg-sm.gif" />
+                  </div>
+                  <p class="text-[80px] leading-[96px] mb-32 whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
                 </div>
+                <p class="text-xl mb-10 leading-[33px]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
+                <p class="text-xl leading-[33px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
+              </div>
+              <div class="w-[600px]">
+                <img src="~assets/imgs/about-mac-sm.gif" />
+              </div>
+            </div>
+            <div class="flex">
+              <div>
+                <div class="relative flex">
+                  <p class="text-[80px] leading-[96px] mb-32" style="font-family: dgo">QUICK<br />TEST</p>
+                  <div class="w-[70px]">
+                    <img class="w-full" src="~assets/imgs/about-question.gif" />
+                  </div>
+                </div>
+                <p class="text-xl leading-[33px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
+              </div>
+              <div class="w-[600px]">
+                <img src="~assets/imgs/about-light.gif" />
+              </div>
+            </div>
+
+            <div class="flex">
+              <div>
+                <div class="relative flex">
+                  <p class="text-[80px] leading-[96px] mb-32" style="font-family: dgo">HIGH<br />PERFORMANCE</p>
+
+                  <div class="w-[85px] absolute left-[31%]">
+                    <img class="w-full" src="~assets/imgs/about-analyze.gif" />
+                  </div>
+                </div>
+
+                <p class="text-xl leading-[33px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
+              </div>
+
+              <div class="w-[787px]">
+                <img src="~assets/imgs/about-shark.gif" />
               </div>
             </div>
           </div>
         </div>
+
+        <div class="flex relative h-screen purplebg-tri bg-[#6372C6]">
+          <div class="three-bg-pc w-full min-h-[855px] relative"></div>
+          <div class="absolute w-full h-full">
+            <MeetOurTeam ref="meetourteamRef" />
+          </div>
+        </div>
+      </div>
+      <div class="about-footer-tri-pc">
         <DashingFooter color="#D3E741" />
       </div>
     </div>

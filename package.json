@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@types/three": "^0.142.0",
+    "cannon-es": "^0.20.0",
+    "flag-waiter": "^1.0.5",
     "gsap": "npm:@gsap/shockingly",
     "lil-gui": "^0.17.0",
     "smooth-scrollbar": "^8.7.5",
