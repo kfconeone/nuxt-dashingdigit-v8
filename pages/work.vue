@@ -41,8 +41,20 @@ function initSmoothScrollbar() {
       }
       return myScroller.scrollTop;
     },
+    scrollLeft(value) {
+      if (arguments.length) {
+        myScroller.scrollLeft = value; // setter
+      }
+      return myScroller.scrollLeft; // getter
+    },
   });
-  myScroller.addListener(ScrollTrigger.update);
+  myScroller.addListener(({ offset }) => {
+    var fixedElem = document.getElementById("bg-work-pc");
+
+    ScrollTrigger.update();
+    fixedElem.style.top = offset.y + "px";
+    fixedElem.style.left = offset.x + "px";
+  });
   ScrollTrigger.defaults({ scroller: workScroller });
   //smooth scrollbar//
 }
@@ -106,7 +118,6 @@ function animateWiggle() {
 function animateText() {
   let tl = gsap.timeline();
   tl.to([".work-text-3xl", ".work-greeting"], {
-    delay: 2,
     duration: 1.5,
     y: 0,
     ease: "power4",
@@ -116,9 +127,11 @@ function animateText() {
 </script>
 <template>
   <div class="hidden 3xl:block">
-    <div class="bg-white work-scroll h-screen">
-      <div class="bg-[#262723] center pb-48 relative">
-        <div>
+    <div class="bg-white work-scroll h-screen relative">
+      <div class="bg-[#262723] center relative overflow-hidden">
+        <img id="bg-work-pc" class="bg-work-pc w-full h-screen sticky top-0" src="~/assets/imgs/bg-workabout-1280.png" />
+
+        <div class="mt-[-100vh]">
           <div class="grid grid-cols-12 pl-10">
             <div style="font-family: dgo" class="col-start-3 col-span-full text-white mt-[345px]">
               <div class="work-text1-3xl-trigger overflow-hidden">
@@ -135,13 +148,13 @@ function animateText() {
               <div class="work-text3-3xl-trigger overflow-hidden">
                 <p class="text-[100px] work-text-3xl translate-y-full">WE WORK WITH YOU</p>
               </div>
-              <div class="bg-black w-fit mt-6 text-xl">
+              <div class="w-fit mt-6 text-xl">
                 <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
               </div>
-              <div class="bg-black w-fit mt-12 text-xl">
+              <div class="w-fit mt-12 text-xl">
                 <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當一個</p>
               </div>
-              <div class="bg-black w-fit mt-3 text-xl">
+              <div class="w-fit mt-3 text-xl">
                 <p class="" style="font-family: arial-reg">可以與你密切溝通，且能始終如一交付高品質成果的夥伴</p>
               </div>
             </div>
@@ -175,7 +188,7 @@ function animateText() {
               </div>
             </div>
           </div>
-          <div class="flex text-white justify-center gap-12 mt-5">
+          <div class="flex text-white justify-center gap-12 mt-5 pb-64">
             <div class="work-ancient-pc w-[500px] h-fit relative">
               <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                 <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.jpg" />

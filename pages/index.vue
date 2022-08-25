@@ -89,7 +89,6 @@ function initSmoothScrollbar() {
 
   ScrollTrigger.scrollerProxy(".index-scroll", {
     scrollTop(value) {
-      console.log("scrollTop");
       if (arguments.length) {
         myScroller.scrollTop = value;
       }

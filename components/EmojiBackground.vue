@@ -20,6 +20,37 @@ function emojiBackground() {
   const handTexture = textureLoader.load("/hand.png");
   const purplePlanetTexture = textureLoader.load("/purple-planet.png");
   const etsmileTexture = textureLoader.load("/etsmile.png");
+  const starTexture = textureLoader.load("/star.png");
+
+  const starGeometry = new THREE.PlaneGeometry(0.075, 0.075);
+  var starArr = [];
+  for (let i = 0; i < 15; i++) {
+    const starMaterial = new THREE.MeshBasicMaterial({ map: starTexture, transparent: true });
+    const star = new THREE.Mesh(starGeometry, starMaterial);
+    starArr.push(star);
+    scene.add(star);
+    star.position.x = Math.random() * 6 - 4;
+    star.position.y = Math.random() * 3 - 2;
+    star.position.z = Math.random() * 0.5 + 5;
+    star.material.opacity = 0;
+  }
+
+  for (let i = 0; i < starArr.length; i++) {
+    gsap.fromTo(
+      starArr[i].material,
+      {
+        opacity: 0,
+      },
+      {
+        duration: 2,
+        delay: "random(0,5)",
+        opacity: 1,
+        repeat: -1,
+        repeatRefresh: true,
+      }
+    );
+  }
+
   // Object
   const geometry = new THREE.PlaneGeometry(0.1, 0.1);
   // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
@@ -49,7 +80,7 @@ function emojiBackground() {
   });
 
   var arr = [];
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 12; i++) {
     const mesh = new THREE.Mesh(geometry, material);
     const purplePlanet = new THREE.Mesh(geometry, purplePlanetMaterial);
     const etsmile = new THREE.Mesh(geometry, etsmileMaterial);

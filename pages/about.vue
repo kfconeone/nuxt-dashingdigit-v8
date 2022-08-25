@@ -17,7 +17,6 @@ useHead({
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
   meta: [{ name: "description", content: "關於達訊數位" }],
-  script: [{ src: "https://unpkg.com/spacingjs", async: true }],
 });
 // linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6
 onMounted(() => {
@@ -31,14 +30,14 @@ onMounted(() => {
         toggleActions: "play none none reverse",
 
         onEnter: () => {
-          gsap.to(".testbg", {
+          gsap.to(".pc-about-bg-color", {
             backgroundColor: "white",
             duration: 0.4,
             ease: "Power2.easeInOut",
           });
         },
         onLeaveBack: () => {
-          gsap.to(".testbg", {
+          gsap.to(".pc-about-bg-color", {
             backgroundColor: "black",
             duration: 0.4,
             ease: "Power2.easeInOut",
@@ -46,72 +45,53 @@ onMounted(() => {
         },
       });
 
-      gsap.to(".trait", {
-        xPercent: -100,
-        x: () => innerWidth,
+      gsap.to(".pc-about-shark", {
+        x: 150,
+        y: 300,
         ease: "none",
         scrollTrigger: {
-          trigger: ".trait",
+          trigger: ".test-tri",
           start: "top top",
-          end: () => innerWidth,
+          end: "30% top",
           scrub: true,
-          pin: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
+        },
+      });
+      gsap.to(".pc-about-shark", {
+        scale: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".test-tri",
+          start: "25% top",
+          end: "30% top",
+          scrub: true,
+        },
+      });
+      gsap.to(".pc-about-fuck-smile", {
+        x: 150,
+        y: 250,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".test-tri",
+          start: "top top",
+          end: "30% top",
+          scrub: true,
         },
       });
 
-      gsap.to(".trait-xl", {
-        xPercent: -100,
-        x: () => innerWidth,
+      gsap.to(".pc-about-fuck-smile", {
+        scale: 1,
         ease: "none",
         scrollTrigger: {
-          trigger: ".trait-xl",
-          start: "top top",
-          end: () => innerWidth,
+          trigger: ".test-tri",
+          start: "25% top",
+          end: "30% top",
           scrub: true,
-          pin: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
         },
       });
 
-      gsap.to(".trait-md", {
-        xPercent: -100,
-        x: () => innerWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".trait-md",
-          start: "top top",
-          end: () => innerWidth * 3,
-          scrub: true,
-          pin: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        },
-      });
+      initHorizontalScroll();
 
-      gsap.to(".trait-sm", {
-        xPercent: -100,
-        x: () => innerWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".trait-sm",
-          start: "top top",
-          end: () => innerWidth * 3,
-          scrub: true,
-          pin: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        },
-      });
-
-      gsap.from(".three-bg-pc", {
-        delay: 3,
-        duration: 1,
-        background: "white",
-      });
-
+      //偵測進入 icons Canvas 進入重置 icons 位置
       ScrollTrigger.create({
         trigger: ".purplebg-tri",
         start: "-10% bottom",
@@ -121,29 +101,71 @@ onMounted(() => {
         },
       });
       scaleCenter();
-      // ScrollTrigger.create({
-      //   trigger: ".purplebg-tri",
-      //   start: "center bottom",
-      //   end: "bottom bottom",
-
-      //   onEnter: () => {
-      //     gsap.to(".testbg", {
-      //       backgroundColor: "#6372C6",
-      //       duration: 0.4,
-      //       ease: "Power2.easeInOut",
-      //     });
-      //   },
-      //   onLeaveBack: () => {
-      //     gsap.to(".testbg", {
-      //       backgroundColor: "white",
-      //       duration: 0.4,
-      //       ease: "Power2.easeInOut",
-      //     });
-      //   },
-      // });
     });
   };
 });
+
+function initHorizontalScroll() {
+  gsap.to(".trait", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait",
+      start: "top top",
+      end: () => innerWidth,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+
+  gsap.to(".trait-xl", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-xl",
+      start: "top top",
+      end: () => innerWidth,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+
+  gsap.to(".trait-md", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-md",
+      start: "top top",
+      end: () => innerWidth * 3,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+
+  gsap.to(".trait-sm", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-sm",
+      start: "top top",
+      end: () => innerWidth * 3,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+}
 
 function initSmoothScrollbar() {
   //smooth scrollbar//
@@ -205,13 +227,22 @@ function scaleCenter() {
 <template>
   <div class="hidden 3xl:block">
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
-      <div class="w-full overflow-x-hidden bg-black testbg pc-about-center">
-        <div class="flex justify-center py-40 gap-20 min-h-screen">
-          <div>
-            <p style="font-family: dgo" class="text-white text-8xl">
-              As nimble<br />
-              as the shark
-            </p>
+      <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
+        <div class="flex justify-center py-40 gap-20 min-h-screen test-tri">
+          <div style="font-family: dgo" class="text-white text-8xl">
+            <div class="flex items-center gap-10">
+              <p>As nimble</p>
+              <div class="relative">
+                <div class="w-24 pc-about-shark origin-center">
+                  <img src="~assets/imgs/emoji-shark.png" />
+                </div>
+                <div class="w-24 pc-about-fuck-smile absolute top-0 left-0 scale-0 origin-center">
+                  <img class=" " src="~assets/imgs/emoji-fuck-smile.png" />
+                </div>
+              </div>
+            </div>
+            <br />
+            <p>as the shark</p>
           </div>
 
           <div class="text-2xl text-white mt-96">
@@ -281,7 +312,6 @@ function scaleCenter() {
         </div>
 
         <div class="flex relative h-screen purplebg-tri bg-[#6372C6]">
-          <div class="three-bg-pc w-full min-h-[855px] relative"></div>
           <div class="absolute w-full h-full">
             <MeetOurTeam ref="meetourteamRef" />
           </div>
