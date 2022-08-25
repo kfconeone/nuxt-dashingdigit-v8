@@ -84,15 +84,14 @@ function animateSwipeBtn() {
 </script>
 
 <template>
-  <div class="hidden 3xl:block relative z-10">
-    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 gap-40">
+  <div class="hidden xl:block relative z-10">
+    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 3xl:gap-40">
       <div class="pl-11 mt-20">
-        <p class="font-black text-[40px] text-[#41443B]" style="font-family: arial-black">
+        <p class="font-black text-[38px] 3xl:text-[40px] text-[#41443B] whitespace-nowrap" style="font-family: arial-black">
           JUST CALL ME <br />
           WE’VE GOT YOUR BACK!
         </p>
         <div class="relative w-fit mt-16">
-          <!-- <img class="absolute w-32 right-5 top-9" src="~assets/imgs/letsgtw.png" /> -->
           <div ref="footerLtsgtwSvgPc" class="absolute w-32 right-5 top-9 flex justify-center items-center">
             <div v-show="isLtsgtwSvgPcShow" class="absolute w-full h-[75px]">
               <MailMarquee />
@@ -150,7 +149,7 @@ function animateSwipeBtn() {
           </div>
           <img class="w-96" src="~assets/imgs/ufo.gif" />
         </div>
-        <div class="flex gap-3 mt-44">
+        <div class="flex gap-3 mt-[150px] 3xl:mt-44">
           <a href="google.com">
             <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-behance.png" />
           </a>
@@ -163,11 +162,11 @@ function animateSwipeBtn() {
         </div>
       </div>
       <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
-        <p class="text-xl">
+        <p class="text-base 3xl:text-xl mt-[1.6rem] 3xl:mt-0">
           請填寫下列表單詢問案件<br />
           我們會以Email回覆或是電話聯絡
         </p>
-        <div class="mt-36 text-2xl">
+        <div class="mt-36 text-xl 3xl:text-2xl">
           <div class="flex gap-12">
             <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
             <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
@@ -184,14 +183,14 @@ function animateSwipeBtn() {
             <button ref="footerBtnSendPc" class="footerBtnSendPc relative overflow-hidden border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest w-fit h-fit">
               <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
               <div class="relative z-10 flex items-center gap-2.5">
-                <p class="swipe-text">送~出~</p>
+                <p class="swipe-text text-base 3xl:text-xl">送~出~</p>
               </div>
             </button>
           </div>
           <div class="mt-24">
-            <p class="underline underline-offset-[7px] leading-[58px] font-normal text-[40px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
+            <p class="underline underline-offset-[7px] leading-[58px] font-normal text-[32px] 3xl:text-[40px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
           </div>
-          <div class="mt-10 flex gap-8 text-[#41443B]">
+          <div class="mt-10 flex gap-8 text-[#41443B] self-end">
             <p>04 2262 7773</p>
             <p>402台中市南區美村路二段186號3F-1</p>
           </div>
@@ -200,7 +199,7 @@ function animateSwipeBtn() {
     </div>
   </div>
 
-  <div class="hidden xl:block 3xl:hidden relative z-10">
+  <!-- <div class="hidden xl:block 3xl:hidden relative z-10">
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
       <div class="pl-11 mt-20">
         <p class="font-black text-4xl text-[#41443B]" style="font-family: arial-black">
@@ -247,7 +246,7 @@ function animateSwipeBtn() {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="hidden md:block xl:hidden relative z-10">
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
