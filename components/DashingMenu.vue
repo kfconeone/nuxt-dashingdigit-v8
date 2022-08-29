@@ -3,12 +3,22 @@ import { gsap } from "gsap";
 const isMenuOpen = inject("isMenuOpen");
 
 onMounted(() => {
-  // gsap.to(".menu-vertical-track", {
-  //   ease: "none",
-  //   y: -10000,
-  //   duration: 1000,
-  //   repeat: -1,
-  // });
+  if (document.querySelector(".menu-vertical-track")) {
+    gsap.to(".menu-vertical-track", {
+      ease: "none",
+      y: -10000,
+      duration: 1000,
+      repeat: -1,
+    });
+  }
+  if (document.querySelector(".menu-horizontal-track")) {
+    gsap.to(".menu-horizontal-track", {
+      ease: "none",
+      x: -10000,
+      duration: 1000,
+      repeat: -1,
+    });
+  }
 });
 
 function onClickToggle() {
@@ -27,13 +37,25 @@ function onClickToggle() {
 </script>
 
 <template>
-  <div class="hidden lg:block">
+  <div class="hidden xl:block">
     <div class="menu w-screen h-screen top-0 z-40 fixed origin-top translate-y-[-100%]" style="background: linear-gradient(90deg, #d3e741 42.69%, #ffffff 104.03%)">
+      <div class="bg-white fixed top-0 w-fit h-full whitespace-nowrap overflow-hidden py-3 sm:py-5">
+        <p class="text-[#D3E741] text-base sm:text-4xl menu-vertical-track" style="writing-mode: vertical-lr">
+          Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right
+          reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all
+          right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright
+          all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022
+          copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit
+          ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing
+          digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right
+          reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.
+        </p>
+      </div>
       <DashingMenuAnimate />
     </div>
   </div>
 
-  <div class="lg:hidden">
+  <div class="xl:hidden">
     <div class="menu w-screen h-screen top-0 z-40 fixed origin-top translate-y-[-100%] pt-[35%] sm:pt-[25%]" style="background: linear-gradient(90deg, #d3e741 42.69%, #ffffff 104.03%)">
       <div class="pl-14 sm:pl-36 text-white text-[30px] sm:text-[40px] leading-none tracking-wider w-fit">
         <div>
@@ -64,15 +86,15 @@ function onClickToggle() {
         </div>
       </div>
       <div class="bg-white fixed bottom-0 w-full whitespace-nowrap overflow-hidden py-3 sm:py-5">
-        <p class="text-[#D3E741] text-base sm:text-4xl">
-          Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
-          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
-          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
-          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
-          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
-          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
-          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right
-          reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.Dashing digt ©2022 copyright all right reserved.
+        <p class="text-[#D3E741] text-base sm:text-4xl menu-horizontal-track">
+          Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right
+          reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all
+          right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright
+          all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022
+          copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit
+          ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing
+          digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right
+          reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.
         </p>
       </div>
     </div>

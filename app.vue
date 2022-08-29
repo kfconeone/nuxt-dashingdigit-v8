@@ -39,7 +39,7 @@ onMounted(() => {
     <Loading v-show="!isLoaded" />
 
     <div v-show="isLoaded">
-      <div class="mouse-normal w-12 h-12 fixed top-0 left-0 z-50 pointer-events-none" style="mix-blend-mode: difference">
+      <div class="hidden xl:block mouse-normal w-12 h-12 fixed top-0 left-0 z-50 pointer-events-none" style="mix-blend-mode: difference">
         <svg viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" />
         </svg>

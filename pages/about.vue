@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { WindowSize, getCurrentWindowSize } from "~~/composables/windowSizeService";
 
 //smooth scrollbar
 import Scrollbar from "smooth-scrollbar";
 //smooth scrollbar
 const meetourteamRef = ref();
+const meetourteamSmRef = ref();
 gsap.registerPlugin(ScrollTrigger);
 
 const onLoadedEvents = inject("onLoadedEvents");
@@ -19,93 +21,192 @@ useHead({
   meta: [{ name: "description", content: "關於達訊數位" }],
 });
 // linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6
+var currentWindowSize: WindowSize = WindowSize.Mobile;
+
 onMounted(() => {
+  currentWindowSize = getCurrentWindowSize();
+  window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
+
   onLoadedEvents.value["about"] = () => {
     nextTick(() => {
-      initSmoothScrollbar();
-      ScrollTrigger.create({
-        trigger: ".whitebg-tri",
-        start: "40% bottom",
-        end: "+=150%",
-        toggleActions: "play none none reverse",
+      switch (currentWindowSize) {
+        case WindowSize.Desktop:
+        case WindowSize.Laptop:
+          itSmoothScrollbarForDesktopAndLaptop();
+          slideSharkForDesktopAndLaptop();
+          ScrollTrigger.create({
+            trigger: ".whitebg-tri",
+            start: "40% bottom",
+            end: "+=150%",
+            toggleActions: "play none none reverse",
 
-        onEnter: () => {
-          gsap.to(".pc-about-bg-color", {
-            backgroundColor: "white",
-            duration: 0.4,
-            ease: "Power2.easeInOut",
+            onEnter: () => {
+              gsap.to(".pc-about-bg-color", {
+                backgroundColor: "white",
+                duration: 0.4,
+                ease: "Power2.easeInOut",
+              });
+            },
+            onLeaveBack: () => {
+              gsap.to(".pc-about-bg-color", {
+                backgroundColor: "black",
+                duration: 0.4,
+                ease: "Power2.easeInOut",
+              });
+            },
           });
-        },
-        onLeaveBack: () => {
-          gsap.to(".pc-about-bg-color", {
-            backgroundColor: "black",
-            duration: 0.4,
-            ease: "Power2.easeInOut",
+
+          initHorizontalScrollForDesktopAndLaptop();
+
+          //偵測進入 icons Canvas 進入重置 icons 位置
+          ScrollTrigger.create({
+            trigger: ".purplebg-tri",
+            start: "-10% bottom",
+            end: "bottom top",
+            onEnter: () => {
+              meetourteamRef.value.resetIconsPosition();
+            },
           });
-        },
-      });
+          shrinkCenterForDesktopAndLaptop();
+          break;
+        case WindowSize.Tablet:
+        case WindowSize.Mobile:
+          console.log("hello tablet & mobile");
+          itSmoothScrollbarForMobileAndTablet();
+          slideSharkForMobileAndTablet();
+          ScrollTrigger.create({
+            trigger: ".sm-whitebg-tri",
+            start: "20% bottom",
+            end: "+=150%",
+            toggleActions: "play none none reverse",
 
-      gsap.to(".pc-about-shark", {
-        x: 150,
-        y: 300,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".test-tri",
-          start: "top top",
-          end: "30% top",
-          scrub: true,
-        },
-      });
-      gsap.to(".pc-about-shark", {
-        scale: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".test-tri",
-          start: "25% top",
-          end: "30% top",
-          scrub: true,
-        },
-      });
-      gsap.to(".pc-about-fuck-smile", {
-        x: 150,
-        y: 250,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".test-tri",
-          start: "top top",
-          end: "30% top",
-          scrub: true,
-        },
-      });
+            onEnter: () => {
+              gsap.to(".sm-about-bg-color", {
+                backgroundColor: "white",
+                duration: 0.4,
+                ease: "Power2.easeInOut",
+              });
+            },
+            onLeaveBack: () => {
+              gsap.to(".sm-about-bg-color", {
+                backgroundColor: "black",
+                duration: 0.4,
+                ease: "Power2.easeInOut",
+              });
+            },
+          });
+          initHorizontalScrollForMobileAndTablet();
+          ScrollTrigger.create({
+            trigger: ".sm-purplebg-tri",
+            start: "-10% bottom",
+            end: "bottom top",
+            onEnter: () => {
+              meetourteamSmRef.value.resetIconsPosition();
+            },
+          });
 
-      gsap.to(".pc-about-fuck-smile", {
-        scale: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".test-tri",
-          start: "25% top",
-          end: "30% top",
-          scrub: true,
-        },
-      });
+          shrinkCenterForMobileAndTablet();
 
-      initHorizontalScroll();
-
-      //偵測進入 icons Canvas 進入重置 icons 位置
-      ScrollTrigger.create({
-        trigger: ".purplebg-tri",
-        start: "-10% bottom",
-        end: "bottom top",
-        onEnter: () => {
-          meetourteamRef.value.resetIconsPosition();
-        },
-      });
-      scaleCenter();
+          break;
+        default:
+          break;
+      }
     });
   };
 });
 
-function initHorizontalScroll() {
+function slideSharkForDesktopAndLaptop() {
+  gsap.to(".pc-about-shark", {
+    x: 150,
+    y: 300,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".test-tri",
+      start: "top top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+  gsap.to(".pc-about-shark", {
+    scale: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".test-tri",
+      start: "25% top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+  gsap.to(".pc-about-fuck-smile", {
+    x: 150,
+    y: 250,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".test-tri",
+      start: "top top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".pc-about-fuck-smile", {
+    scale: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".test-tri",
+      start: "25% top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+}
+function slideSharkForMobileAndTablet() {
+  gsap.to(".sm-about-shark", {
+    x: -125,
+    y: 115,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "top top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+  gsap.to(".sm-about-shark", {
+    scale: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "25% top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+  gsap.to(".sm-about-fuck-smile", {
+    x: -125,
+    y: 115,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "top top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".sm-about-fuck-smile", {
+    scale: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "25% top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+}
+
+function initHorizontalScrollForDesktopAndLaptop() {
   gsap.to(".trait", {
     xPercent: -100,
     x: () => innerWidth,
@@ -120,37 +221,8 @@ function initHorizontalScroll() {
       anticipatePin: 1,
     },
   });
-
-  gsap.to(".trait-xl", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait-xl",
-      start: "top top",
-      end: () => innerWidth,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
-
-  gsap.to(".trait-md", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait-md",
-      start: "top top",
-      end: () => innerWidth * 3,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
-
+}
+function initHorizontalScrollForMobileAndTablet() {
   gsap.to(".trait-sm", {
     xPercent: -100,
     x: () => innerWidth,
@@ -167,7 +239,36 @@ function initHorizontalScroll() {
   });
 }
 
-function initSmoothScrollbar() {
+function itSmoothScrollbarForMobileAndTablet() {
+  //smooth scrollbar//
+  const indexScroller: any = document.querySelector(".sm-about-scroll");
+  const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+
+  ScrollTrigger.scrollerProxy(".sm-about-scroll", {
+    scrollTop(value) {
+      if (arguments.length) {
+        myScroller.scrollTop = value;
+      }
+      return myScroller.scrollTop;
+    },
+    scrollLeft(value) {
+      if (arguments.length) {
+        myScroller.scrollLeft = value; // setter
+      }
+      return myScroller.scrollLeft; // getter
+    },
+  });
+  myScroller.addListener(({ offset }) => {
+    // var fixedElem = document.getElementById("bg-hero");
+
+    ScrollTrigger.update();
+    // fixedElem.style.top = offset.y + "px";
+    // fixedElem.style.left = offset.x + "px";
+  });
+  ScrollTrigger.defaults({ scroller: indexScroller });
+  //smooth scrollbar//
+}
+function itSmoothScrollbarForDesktopAndLaptop() {
   //smooth scrollbar//
   const indexScroller: any = document.querySelector(".about-scroll");
   const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
@@ -197,7 +298,7 @@ function initSmoothScrollbar() {
   //smooth scrollbar//
 }
 
-function scaleCenter() {
+function shrinkCenterForDesktopAndLaptop() {
   gsap.to(".pc-about-center", {
     scrollTrigger: {
       trigger: ".about-footer-tri-pc",
@@ -223,9 +324,35 @@ function scaleCenter() {
     },
   });
 }
+function shrinkCenterForMobileAndTablet() {
+  gsap.to(".sm-about-center", {
+    scrollTrigger: {
+      trigger: ".about-footer-tri-sm",
+      start: "20% bottom",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.5,
+    borderRadius: "30px",
+    ease: "power4.easeOut",
+    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+  });
+  gsap.to(".sm-about-center", {
+    transformOrigin: "center center",
+    scale: 0.95,
+    ease: "Power2.easeIn",
+    scrollTrigger: {
+      trigger: ".about-footer-tri-sm",
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: 1,
+      pin: ".sm-about-center",
+    },
+  });
+}
 </script>
 <template>
-  <div class="hidden 3xl:block">
+  <div class="hidden xl:block">
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
         <div class="flex justify-center py-40 gap-20 min-h-screen test-tri">
@@ -233,19 +360,18 @@ function scaleCenter() {
             <div class="flex items-center gap-10">
               <p>As nimble</p>
               <div class="relative">
-                <div class="w-24 pc-about-shark origin-center">
+                <div class="w-20 3xl:w-24 pc-about-shark origin-center">
                   <img src="~assets/imgs/emoji-shark.png" />
                 </div>
-                <div class="w-24 pc-about-fuck-smile absolute top-0 left-0 scale-0 origin-center">
+                <div class="w-20 3xl:w-24 pc-about-fuck-smile absolute top-0 left-0 scale-0 origin-center">
                   <img class=" " src="~assets/imgs/emoji-fuck-smile.png" />
                 </div>
               </div>
             </div>
-            <br />
             <p>as the shark</p>
           </div>
 
-          <div class="text-2xl text-white mt-96">
+          <div class="text-base 3xl:text-2xl text-white mt-96">
             <div>
               <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的產業</p>
               <p class="bg-black w-fit my-1">狀況快速做出反應</p>
@@ -260,51 +386,51 @@ function scaleCenter() {
         </div>
 
         <div class="trait whitebg-tri h-screen w-fit flex text-[#6372C6] items-center px-40">
-          <div class="flex gap-[250px] pr-[500px]">
+          <div class="flex gap-[250px] pr-[400px]">
             <div class="flex">
-              <div>
+              <div class="relative z-0">
                 <div class="relative">
-                  <div class="w-[700px] absolute left-[-10%]">
+                  <div class="w-[700px] 3xl:w-[900px] absolute left-[-20%] top-0">
                     <img class="w-full" src="~assets/imgs/about-neverbg-sm.gif" />
                   </div>
-                  <p class="text-[80px] leading-[96px] mb-32 whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
+                  <p class="text-[64px] 3xl:text-[80px] leading-[1.2] mb-32 whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
                 </div>
-                <p class="text-xl mb-10 leading-[33px]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
-                <p class="text-xl leading-[33px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
+                <p class="text-base 3xl:text-xl mb-10 leading-[1.42]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
+                <p class="text-base 3xl:text-xl leading-[1.42]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
               </div>
-              <div class="w-[600px]">
+              <div class="w-[370px] 3xl:w-[600px] relative z-10">
                 <img src="~assets/imgs/about-mac-sm.gif" />
               </div>
             </div>
             <div class="flex">
               <div>
                 <div class="relative flex">
-                  <p class="text-[80px] leading-[96px] mb-32" style="font-family: dgo">QUICK<br />TEST</p>
-                  <div class="w-[70px]">
+                  <p class="text-[64px] 3xl:text-[80px] leading-[1.2] mb-32" style="font-family: dgo">QUICK<br />TEST</p>
+                  <div class="w-14 3xl:w-[70px]">
                     <img class="w-full" src="~assets/imgs/about-question.gif" />
                   </div>
                 </div>
-                <p class="text-xl leading-[33px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
+                <p class="text-base 3xl:text-xl leading-[1.42]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
               </div>
-              <div class="w-[600px]">
+              <div class="w-[370px] 3xl:w-[600px]">
                 <img src="~assets/imgs/about-light.gif" />
               </div>
             </div>
 
-            <div class="flex">
+            <div class="flex gap-5 3xl:gap-0">
               <div>
                 <div class="relative flex">
-                  <p class="text-[80px] leading-[96px] mb-32" style="font-family: dgo">HIGH<br />PERFORMANCE</p>
+                  <p class="text-[64px] 3xl:text-[80px] leading-[1.2] mb-32" style="font-family: dgo">HIGH<br />PERFORMANCE</p>
 
-                  <div class="w-[85px] absolute left-[31%]">
+                  <div class="w-[60px] 3xl:w-[85px] absolute left-[31%]">
                     <img class="w-full" src="~assets/imgs/about-analyze.gif" />
                   </div>
                 </div>
 
-                <p class="text-xl leading-[33px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
+                <p class="text-base 3xl:text-xl leading-[1.42]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
               </div>
 
-              <div class="w-[787px]">
+              <div class="w-[400px] 3xl:w-[787px]">
                 <img src="~assets/imgs/about-shark.gif" />
               </div>
             </div>
@@ -323,7 +449,7 @@ function scaleCenter() {
     </div>
   </div>
 
-  <div class="hidden xl:block 3xl:hidden">
+  <!-- <div class="hidden xl:block 3xl:hidden">
     <div class="w-full overflow-x-hidden">
       <div class="flex justify-center bg-gray-700 py-40">
         <div>
@@ -386,9 +512,9 @@ function scaleCenter() {
       </div>
       <DashingFooter color="#D3E741" />
     </div>
-  </div>
+  </div> -->
 
-  <div class="hidden md:block xl:hidden">
+  <!-- <div class="hidden md:block xl:hidden">
     <div class="w-full mx-auto relative bg-gray-700">
       <div class="w-full max-w-[640px] overflow-x-hidden mx-auto">
         <div class="flex py-40">
@@ -472,22 +598,30 @@ function scaleCenter() {
       </div>
       <DashingFooter color="#D3E741" />
     </div>
-  </div>
+  </div> -->
 
-  <div class="md:hidden">
-    <div class="max-w-[400px] mx-auto relative">
-      <div class="w-full overflow-x-hidden">
-        <div class="flex bg-gray-700 py-40">
-          <div class="px-6 w-full">
-            <div>
-              <p style="font-family: dgo" class="text-white text-3xl whitespace-nowrap">
-                As nimble<br />
-                as the shark
-              </p>
+  <div class="xl:hidden">
+    <div class="w-full mx-auto relative sm-about-scroll h-screen bg-[#D3E741]">
+      <div class="w-full overflow-x-hidden bg-black sm-about-bg-color sm-about-center">
+        <div class="flex justify-center min-h-screen py-40 md:px-14 sm-test-tri">
+          <div class="w-full">
+            <div class="pl-5 md:mr-auto text-white text-3xl md:text-6xl whitespace-nowrap w-full" style="font-family: dgo">
+              <div class="flex items-center gap-2.5 md:gap-5">
+                <p>As nimble</p>
+                <div class="relative">
+                  <div class="w-10 md:w-24 sm-about-shark origin-center">
+                    <img src="~assets/imgs/emoji-shark.png" />
+                  </div>
+                  <div class="w-10 md:w-24 sm-about-fuck-smile absolute top-0 left-0 scale-0 origin-center">
+                    <img class=" " src="~assets/imgs/emoji-fuck-smile.png" />
+                  </div>
+                </div>
+              </div>
+              <p>As the shark</p>
             </div>
 
-            <div class="flex w-full justify-end">
-              <div class="text-xs text-white mt-24">
+            <div class="flex w-full justify-end pr-2 self-end">
+              <div class="text-xs md:text-xl text-white w-fit mt-24 whitespace-nowrap">
                 <div>
                   <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的產業</p>
                   <p class="bg-black w-fit my-1">狀況快速做出反應</p>
@@ -503,7 +637,7 @@ function scaleCenter() {
           </div>
         </div>
 
-        <div class="trait-sm h-screen w-fit flex text-[#6372C6] items-center">
+        <div class="trait-sm sm-whitebg-tri h-screen w-fit flex text-[#6372C6] items-center">
           <div class="flex gap-12">
             <div class="">
               <div class="relative w-full">
@@ -545,14 +679,13 @@ function scaleCenter() {
           </div>
         </div>
 
-        <div class="bg-gray-700 text-white text-base font-black tracking-[0.095em] flex justify-center" style="font-family: arial-black">
-          <p class="w-fit">MEET OUR TEAM</p>
-          <button class="rounded-[76px] flex" style="box-shadow: 1px 4px 8px #577fcd">
-            <img src="" />
-          </button>
+        <div class="flex relative h-screen sm-purplebg-tri bg-[#6372C6]">
+          <div class="absolute w-full h-full">
+            <MeetOurTeamSm ref="meetourteamSmRef" />
+          </div>
         </div>
-
-        <div class="flex"></div>
+      </div>
+      <div class="about-footer-tri-sm">
         <DashingFooter color="#D3E741" />
       </div>
     </div>
