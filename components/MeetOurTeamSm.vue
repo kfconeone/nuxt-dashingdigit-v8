@@ -130,19 +130,20 @@ onMounted(async () => {
 
   try {
     // const sphereGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 32, 32);
-    const sphereGeometry = new THREE.PlaneGeometry(85, 100, 32, 32);
+    var aspect = window.innerWidth / 600;
+
+    const sphereGeometry = new THREE.PlaneGeometry(85 * aspect, 100, 32, 32);
 
     initThree();
 
     let positionX = Math.random() * 200 - 200;
-
-    createWorldObject(50, sphereGeometry, new THREE.Vector3(positionX, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50, sphereGeometry, new THREE.Vector3(positionX + 50, -220, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX + 50, -220, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50, sphereGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50, sphereGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     // await WaitMilliseconds(300);
     // createWorldObject(50, sphereGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     // await WaitMilliseconds(300);
@@ -315,22 +316,27 @@ function initThree() {
 
 const onClickTextBtn = () => {
   console.log("onClick");
-  if (currentMemberIndex.value < 6) {
-    currentMemberIndex.value++;
-  } else {
-    currentMemberIndex.value = 0;
-  }
 
-  for (let i = 0; i < 6; i++) {
-    worldObjectsToUpdate.value[i].body.applyForce(new CANNON.Vec3(Math.random() * 100000 - 50000, -(Math.random() * 60000 + 37000), 0), new CANNON.Vec3(0, 0, 0));
+  try {
+    if (currentMemberIndex.value < 6) {
+      currentMemberIndex.value++;
+    } else {
+      currentMemberIndex.value = 0;
+    }
 
-    worldObjectsToUpdate.value[i].mesh.material.map = members.value[Object.keys(members.value)[currentMemberIndex.value]].getIconTextures()[Math.floor(Math.random() * 3)];
+    for (let i = 0; i < 4; i++) {
+      worldObjectsToUpdate.value[i].body.applyForce(new CANNON.Vec3(Math.random() * 100000 - 50000, -(Math.random() * 60000 + 37000), 0), new CANNON.Vec3(0, 0, 0));
+
+      worldObjectsToUpdate.value[i].mesh.material.map = members.value[Object.keys(members.value)[currentMemberIndex.value]].getIconTextures()[Math.floor(Math.random() * 3)];
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
 const resetIconsPosition = () => {
   // let positionX = Math.random() * 600 - 300;
-
+  console.log("meetourteamsm init");
   worldObjectsToUpdate.value.forEach((d, i) => {
     d.body.position.x = (window.innerWidth / 20) * (i - 2) + (Math.floor(Math.random() * 2) - 1) * 25;
     d.body.position.y = -100;
@@ -351,21 +357,21 @@ defineExpose({
     <canvas ref="myCanvas"> </canvas>
     <!-- <div class="absolute top-10 text-white text-5xl z-[1000]">wqdqwdqwqwdqdqwd</div> -->
     <div class="absolute bottom-1/4 tracking-[0.095em] font-black" style="font-family: arial-black">
-      <p class="w-fit mx-auto text-base text-white">MEET OUR TEAM</p>
-      <button class="shadow-sm active:shadow-2xl active:translate-y-0.5 active:bg-slate-100 mt-5 w-[235px] h-[60px] text-[#292F33] text-base z-[1000] border-white border-2 rounded-full grid grid-cols-12 bg-white justify-center items-center" @click="onClickTextBtn">
-        <div class="w-6 h-6 my-auto col-start-2 col-span-3">
+      <p class="w-fit mx-auto text-base md:text-xl text-white">MEET OUR TEAM</p>
+      <button class="shadow-sm active:shadow-2xl active:translate-y-0.5 active:bg-slate-100 mt-5 w-[235px] md:w-[300px] h-[60px] md:h-[90px] text-[#292F33] text-base z-[1000] border-white border-2 rounded-full grid grid-cols-12 bg-white justify-center items-center" @click="onClickTextBtn">
+        <div class="w-6 h-6 md:w-9 md:h-9 my-auto col-start-2 col-span-3">
           <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberIconImgSrc" />
         </div>
         <div class="text-start col-span-8 relative w-[130px]">
           <div class="flex items-end gap-5 justify-between w-full">
-            <p class="text-base leading-[1.75rem]">{{ memberBtnDatas[currentMemberIndex].name }}</p>
+            <p class="text-base md:text-xl leading-[1.75rem]">{{ memberBtnDatas[currentMemberIndex].name }}</p>
             <div class="flex gap-2.5 self-center pt-1">
-              <div class="w-2.5 h-2" v-for="n in 3">
+              <div class="w-2.5 h-2 md:w-4 md:h-2.5" v-for="n in 3">
                 <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberEmojiImgSrcs[n - 1]" />
               </div>
             </div>
           </div>
-          <p class="text-xs whitespace-nowrap">{{ memberBtnDatas[currentMemberIndex].companyPosition }}</p>
+          <p class="text-xs md:text-sm whitespace-nowrap">{{ memberBtnDatas[currentMemberIndex].companyPosition }}</p>
         </div>
       </button>
     </div>

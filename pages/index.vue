@@ -27,6 +27,10 @@ const svgGit = ref();
 const svgGitSm = ref();
 const onLoadedEvents: any = inject("onLoadedEvents");
 
+const scrollbarRef = ref();
+
+provide("scrollbarRef", scrollbarRef);
+
 useHead({
   title: "Dashing",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
@@ -39,7 +43,6 @@ var currentWindowSize: WindowSize = WindowSize.Mobile;
 onMounted(() => {
   currentWindowSize = getCurrentWindowSize();
   window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
-
   onLoadedEvents.value["index"] = () => {
     switch (currentWindowSize) {
       case WindowSize.Desktop:
@@ -67,6 +70,17 @@ onMounted(() => {
     addListenerOnSvgCircle();
   };
 });
+
+function slideNextSwiper() {
+  const swiper = document.getElementById("myPcSwiper").swiper;
+
+  swiper.slideNext();
+}
+function slidePrevSwiper() {
+  const swiper = document.getElementById("myPcSwiper").swiper;
+
+  swiper.slidePrev();
+}
 
 function shrinkCenterForDesktopAndLaptop() {
   gsap.to(".pc-index-center", {
@@ -122,24 +136,24 @@ function shrinkCenterForMobileAndTablet() {
 function initSmoothScrollbarForDeskTopAndLapTop() {
   if (document.querySelector(".index-scroll")) {
     const indexScroller: any = document.querySelector(".index-scroll");
-    const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+    scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
 
     ScrollTrigger.scrollerProxy(".index-scroll", {
       scrollTop(value) {
         if (arguments.length) {
-          myScroller.scrollTop = value;
+          scrollbarRef.value.scrollTop = value;
         }
-        return myScroller.scrollTop;
+        return scrollbarRef.value.scrollTop;
       },
       scrollLeft(value) {
         if (arguments.length) {
-          myScroller.scrollLeft = value; // setter
+          scrollbarRef.value.scrollLeft = value; // setter
         }
-        return myScroller.scrollLeft; // getter
+        return scrollbarRef.value.scrollLeft; // getter
       },
     });
 
-    myScroller.addListener(({ offset }) => {
+    scrollbarRef.value.addListener(({ offset }) => {
       var fixedElem = document.getElementById("bg-hero");
 
       ScrollTrigger.update();
@@ -153,24 +167,24 @@ function initSmoothScrollbarForDeskTopAndLapTop() {
 function initSmoothScrollbarForMobileAndTablet() {
   if (document.querySelector(".sm-index-scroll")) {
     const indexScroller: any = document.querySelector(".sm-index-scroll");
-    const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+    scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
 
     ScrollTrigger.scrollerProxy(".sm-index-scroll", {
       scrollTop(value) {
         if (arguments.length) {
-          myScroller.scrollTop = value;
+          scrollbarRef.value.scrollTop = value;
         }
-        return myScroller.scrollTop;
+        return scrollbarRef.value.scrollTop;
       },
       scrollLeft(value) {
         if (arguments.length) {
-          myScroller.scrollLeft = value; // setter
+          scrollbarRef.value.scrollLeft = value; // setter
         }
-        return myScroller.scrollLeft; // getter
+        return scrollbarRef.value.scrollLeft; // getter
       },
     });
 
-    myScroller.addListener(({ offset }) => {
+    scrollbarRef.value.addListener(({ offset }) => {
       var fixedElem = document.getElementById("bg-hero-sm");
 
       ScrollTrigger.update();
@@ -404,8 +418,13 @@ function onClickSvgCircle() {
                 <div class="overflow-hidden">
                   <p class="pc-wecreate font-normal text-[36px] 3xl:text-[70px] leading-none 3xl:leading-[110.8%]">We Create</p>
                 </div>
-                <div class="overflow-hidden">
-                  <p class="pc-wecreate text-[#D3E741] text-[80px] 3xl:text-[130px] leading-[88px] 3xl:leading-[143px]">INSANELY</p>
+                <div class="flex gap-3 items-end">
+                  <div class="overflow-hidden">
+                    <p class="pc-wecreate text-[#D3E741] text-[80px] 3xl:text-[130px] leading-[88px] 3xl:leading-[143px]">INSANELY</p>
+                  </div>
+                  <div class="w-16 3xl:w-24 rotate-[13.15deg]">
+                    <img src="~assets/imgs/emoji-ethand.png" />
+                  </div>
                 </div>
                 <p class="pc-wecreate text-[64px] 3xl:text-[80px] leading-[82px] 3xl:leading-[116px]">Digital experience</p>
                 <div style="font-family: arial-bd" class="font-bold text-2xl tracking-[0.08em] mt-10 3xl:mt-5">
@@ -419,7 +438,7 @@ function onClickSvgCircle() {
               </div>
             </div>
             <div class="h-full col-start-11 flex items-end">
-              <div ref="svgGit" class="cursor-pointer w-24 flex justify-center items-center relative" @click="onClickSvgCircle">
+              <div ref="svgGit" class="pointer-detected w-24 flex justify-center items-center relative" @click="onClickSvgCircle">
                 <svg class="svg-git" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle class="svg-git-circle fill-[#6372C6]" cx="50.5" cy="50.5" r="50.5" />
                   <path
@@ -478,7 +497,9 @@ function onClickSvgCircle() {
 
           <div class="w-full h-screen flex justify-center items-center relative z-10 min-h-[800px]">
             <div>
-              <div class="w-[900px] 3xl:w-[1350px] text-white text-sm leading-7">
+              <div class="relative w-[900px] 3xl:w-[1350px] text-white text-sm leading-7">
+                <div @click="slidePrevSwiper" class="r absolute left-0 top-24 z-10 text-4xl w-32 h-60 3xl:w-48 3xl:h-72"></div>
+                <div @click="slideNextSwiper" class="r absolute right-0 top-24 z-10 text-4xl w-32 h-60 3xl:w-48 3xl:h-72"></div>
                 <swiper
                   :effect="'coverflow'"
                   :grabCursor="true"
@@ -493,7 +514,7 @@ function onClickSvgCircle() {
                   }"
                   :loop="true"
                   :modules="[EffectCoverflow, Pagination]"
-                  class="mySwiper"
+                  id="myPcSwiper"
                   @slideChange="onSlideChange()"
                 >
                   <swiper-slide>
@@ -737,13 +758,13 @@ function onClickSvgCircle() {
         <img id="bg-hero-sm" class="bg-hero-sm w-full h-screen sticky top-0 z-0" src="~/assets/imgs/bg-hero-sm.png" />
 
         <div class="relative mt-[-100vh]">
-          <div class="w-full flex justify-center items-center pb-64 relative z-10">
+          <div class="w-full h-screen min-h-screen flex justify-center items-center relative z-10">
             <div class="w-full h-full flex justify-center items-center absolute z-0">
               <EmojiBackground />
             </div>
             <div class="text-white mt-48 relative z-10" style="font-family: dgo">
               <p class="text-sm md:text-4xl">We create</p>
-              <p class="text-[#D3E741] text-2xl md:text-[68px] md:leading-[1]">INSANELY</p>
+              <p class="text-[#D3E741] text-2xl md:text-[68px] md:leading-[1.25]">INSANELY</p>
               <p class="text-xl md:text-[40px] md:leading-[1]">Digital experience</p>
               <div class="mt-8">
                 <p class="text-xs md:text-xl font-bold leading-[18px]" style="font-family: arial-reg">
@@ -753,7 +774,7 @@ function onClickSvgCircle() {
               </div>
 
               <div class="flex w-full justify-end mt-12 md:mt-[180px]">
-                <div ref="svgGitSm" class="cursor-pointer w-16 h-16 md:w-[120px] md:h-[120px] flex justify-center items-center relative" @click="onClickSvgCircle">
+                <div ref="svgGitSm" class="pointer-detected w-16 h-16 md:w-[120px] md:h-[120px] flex justify-center items-center relative" @click="onClickSvgCircle">
                   <svg class="svg-git" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle class="svg-git-circle fill-[#6372C6]" cx="50.5" cy="50.5" r="50.5" />
                     <path

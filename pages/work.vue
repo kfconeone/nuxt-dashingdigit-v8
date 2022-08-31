@@ -19,6 +19,10 @@ useHead({
 });
 const onLoadedEvents: any = inject("onLoadedEvents");
 var currentWindowSize: WindowSize = WindowSize.Mobile;
+
+const scrollbarRef = ref();
+provide("scrollbarRef", scrollbarRef);
+
 onMounted(() => {
   currentWindowSize = getCurrentWindowSize();
   window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
@@ -53,22 +57,22 @@ onMounted(() => {
 function initSmoothScrollbarForDesktopAndLaptop() {
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".work-scroll");
-  const myScroller = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+  scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
   ScrollTrigger.scrollerProxy(".work-scroll", {
     scrollTop(value) {
       if (arguments.length) {
-        myScroller.scrollTop = value;
+        scrollbarRef.value.scrollTop = value;
       }
-      return myScroller.scrollTop;
+      return scrollbarRef.value.scrollTop;
     },
     scrollLeft(value) {
       if (arguments.length) {
-        myScroller.scrollLeft = value; // setter
+        scrollbarRef.value.scrollLeft = value; // setter
       }
-      return myScroller.scrollLeft; // getter
+      return scrollbarRef.value.scrollLeft; // getter
     },
   });
-  myScroller.addListener(({ offset }) => {
+  scrollbarRef.value.addListener(({ offset }) => {
     var fixedElem = document.getElementById("bg-work-pc");
 
     ScrollTrigger.update();
@@ -82,22 +86,22 @@ function initSmoothScrollbarForDesktopAndLaptop() {
 function initSmoothScrollbarForTablet() {
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".md-work-scroll");
-  const myScroller = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+  scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
   ScrollTrigger.scrollerProxy(".md-work-scroll", {
     scrollTop(value) {
       if (arguments.length) {
-        myScroller.scrollTop = value;
+        scrollbarRef.value.scrollTop = value;
       }
-      return myScroller.scrollTop;
+      return scrollbarRef.value.scrollTop;
     },
     scrollLeft(value) {
       if (arguments.length) {
-        myScroller.scrollLeft = value; // setter
+        scrollbarRef.value.scrollLeft = value; // setter
       }
-      return myScroller.scrollLeft; // getter
+      return scrollbarRef.value.scrollLeft; // getter
     },
   });
-  myScroller.addListener(({ offset }) => {
+  scrollbarRef.value.addListener(({ offset }) => {
     var fixedElem = document.getElementById("bg-work-md");
 
     ScrollTrigger.update();
@@ -110,22 +114,22 @@ function initSmoothScrollbarForTablet() {
 function initSmoothScrollbarForMobile() {
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".sm-work-scroll");
-  const myScroller = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+  scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
   ScrollTrigger.scrollerProxy(".sm-work-scroll", {
     scrollTop(value) {
       if (arguments.length) {
-        myScroller.scrollTop = value;
+        scrollbarRef.value.scrollTop = value;
       }
-      return myScroller.scrollTop;
+      return scrollbarRef.value.scrollTop;
     },
     scrollLeft(value) {
       if (arguments.length) {
-        myScroller.scrollLeft = value; // setter
+        scrollbarRef.value.scrollLeft = value; // setter
       }
-      return myScroller.scrollLeft; // getter
+      return scrollbarRef.value.scrollLeft; // getter
     },
   });
-  myScroller.addListener(({ offset }) => {
+  scrollbarRef.value.addListener(({ offset }) => {
     var fixedElem = document.getElementById("bg-work-sm");
 
     ScrollTrigger.update();

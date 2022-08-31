@@ -10,7 +10,7 @@ const meetourteamRef = ref();
 const meetourteamSmRef = ref();
 gsap.registerPlugin(ScrollTrigger);
 
-const onLoadedEvents = inject("onLoadedEvents");
+const onLoadedEvents: any = inject("onLoadedEvents");
 
 useHead({
   title: "About",
@@ -22,6 +22,8 @@ useHead({
 });
 // linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6
 var currentWindowSize: WindowSize = WindowSize.Mobile;
+const scrollbarRef = ref();
+provide("scrollbarRef", scrollbarRef);
 
 onMounted(() => {
   currentWindowSize = getCurrentWindowSize();
@@ -70,13 +72,12 @@ onMounted(() => {
           shrinkCenterForDesktopAndLaptop();
           break;
         case WindowSize.Tablet:
-        case WindowSize.Mobile:
-          console.log("hello tablet & mobile");
           itSmoothScrollbarForMobileAndTablet();
-          slideSharkForMobileAndTablet();
+
+          slideSharkForTablet();
           ScrollTrigger.create({
-            trigger: ".sm-whitebg-tri",
-            start: "20% bottom",
+            trigger: ".md-whitebg-tri",
+            start: "35% bottom",
             end: "+=150%",
             toggleActions: "play none none reverse",
 
@@ -95,7 +96,47 @@ onMounted(() => {
               });
             },
           });
-          initHorizontalScrollForMobileAndTablet();
+          initHorizontalScrollForTablet();
+
+          ScrollTrigger.create({
+            trigger: ".sm-purplebg-tri",
+            start: "-10% bottom",
+            end: "bottom top",
+            onEnter: () => {
+              meetourteamSmRef.value.resetIconsPosition();
+            },
+          });
+
+          shrinkCenterForMobileAndTablet();
+
+          break;
+        case WindowSize.Mobile:
+          console.log("hello tablet & mobile");
+          itSmoothScrollbarForMobileAndTablet();
+          slideSharkForMobile();
+          ScrollTrigger.create({
+            trigger: ".sm-whitebg-tri",
+            start: "30% bottom",
+            end: "+=150%",
+            toggleActions: "play none none reverse",
+
+            onEnter: () => {
+              gsap.to(".sm-about-bg-color", {
+                backgroundColor: "white",
+                duration: 0.4,
+                ease: "Power2.easeInOut",
+              });
+            },
+            onLeaveBack: () => {
+              gsap.to(".sm-about-bg-color", {
+                backgroundColor: "black",
+                duration: 0.4,
+                ease: "Power2.easeInOut",
+              });
+            },
+          });
+          initHorizontalScrollForMobile();
+
           ScrollTrigger.create({
             trigger: ".sm-purplebg-tri",
             start: "-10% bottom",
@@ -160,10 +201,10 @@ function slideSharkForDesktopAndLaptop() {
     },
   });
 }
-function slideSharkForMobileAndTablet() {
+function slideSharkForTablet() {
   gsap.to(".sm-about-shark", {
     x: -125,
-    y: 115,
+    y: 375,
     ease: "none",
     scrollTrigger: {
       trigger: ".sm-test-tri",
@@ -172,6 +213,7 @@ function slideSharkForMobileAndTablet() {
       scrub: true,
     },
   });
+
   gsap.to(".sm-about-shark", {
     scale: 0,
     ease: "none",
@@ -182,8 +224,56 @@ function slideSharkForMobileAndTablet() {
       scrub: true,
     },
   });
+
   gsap.to(".sm-about-fuck-smile", {
     x: -125,
+    y: 375,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "top top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".sm-about-fuck-smile", {
+    scale: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "25% top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+}
+function slideSharkForMobile() {
+  gsap.to(".sm-about-shark", {
+    x: window.innerWidth * -0.15,
+    y: 115,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "top top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".sm-about-shark", {
+    scale: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sm-test-tri",
+      start: "25% top",
+      end: "30% top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".sm-about-fuck-smile", {
+    x: window.innerWidth * -0.15,
     y: 115,
     ease: "none",
     scrollTrigger: {
@@ -222,7 +312,7 @@ function initHorizontalScrollForDesktopAndLaptop() {
     },
   });
 }
-function initHorizontalScrollForMobileAndTablet() {
+function initHorizontalScrollForMobile() {
   gsap.to(".trait-sm", {
     xPercent: -100,
     x: () => innerWidth,
@@ -238,27 +328,43 @@ function initHorizontalScrollForMobileAndTablet() {
     },
   });
 }
+function initHorizontalScrollForTablet() {
+  gsap.to(".trait-md", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-md",
+      start: "top top",
+      end: () => innerWidth * 3,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+}
 
 function itSmoothScrollbarForMobileAndTablet() {
   //smooth scrollbar//
   const indexScroller: any = document.querySelector(".sm-about-scroll");
-  const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+  scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
 
   ScrollTrigger.scrollerProxy(".sm-about-scroll", {
     scrollTop(value) {
       if (arguments.length) {
-        myScroller.scrollTop = value;
+        scrollbarRef.value.scrollTop = value;
       }
-      return myScroller.scrollTop;
+      return scrollbarRef.value.scrollTop;
     },
     scrollLeft(value) {
       if (arguments.length) {
-        myScroller.scrollLeft = value; // setter
+        scrollbarRef.value.scrollLeft = value; // setter
       }
-      return myScroller.scrollLeft; // getter
+      return scrollbarRef.value.scrollLeft; // getter
     },
   });
-  myScroller.addListener(({ offset }) => {
+  scrollbarRef.value.addListener(({ offset }) => {
     // var fixedElem = document.getElementById("bg-hero");
 
     ScrollTrigger.update();
@@ -271,23 +377,23 @@ function itSmoothScrollbarForMobileAndTablet() {
 function itSmoothScrollbarForDesktopAndLaptop() {
   //smooth scrollbar//
   const indexScroller: any = document.querySelector(".about-scroll");
-  const myScroller = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+  scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
 
   ScrollTrigger.scrollerProxy(".about-scroll", {
     scrollTop(value) {
       if (arguments.length) {
-        myScroller.scrollTop = value;
+        scrollbarRef.value.scrollTop = value;
       }
-      return myScroller.scrollTop;
+      return scrollbarRef.value.scrollTop;
     },
     scrollLeft(value) {
       if (arguments.length) {
-        myScroller.scrollLeft = value; // setter
+        scrollbarRef.value.scrollLeft = value; // setter
       }
-      return myScroller.scrollLeft; // getter
+      return scrollbarRef.value.scrollLeft; // getter
     },
   });
-  myScroller.addListener(({ offset }) => {
+  scrollbarRef.value.addListener(({ offset }) => {
     // var fixedElem = document.getElementById("bg-hero");
 
     ScrollTrigger.update();
@@ -355,7 +461,10 @@ function shrinkCenterForMobileAndTablet() {
   <div class="hidden xl:block">
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
-        <div class="flex justify-center py-40 gap-20 min-h-screen test-tri">
+        <div class="relative flex justify-center py-40 gap-20 min-h-screen test-tri">
+          <div class="absolute w-full h-full z-10 pointer-events-none">
+            <img class="w-full h-full" src="~assets/imgs/bg-workabout.png" />
+          </div>
           <div style="font-family: dgo" class="text-white text-8xl">
             <div class="flex items-center gap-10">
               <p>As nimble</p>
@@ -449,101 +558,89 @@ function shrinkCenterForMobileAndTablet() {
     </div>
   </div>
 
-  <!-- <div class="hidden xl:block 3xl:hidden">
-    <div class="w-full overflow-x-hidden">
-      <div class="flex justify-center bg-gray-700 py-40">
-        <div>
-          <p style="font-family: dgo" class="text-white text-8xl">
-            As nimble<br />
-            as the shark
-          </p>
-        </div>
-
-        <div class="text-base text-white mt-96">
-          <div>
-            <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的產業</p>
-            <p class="bg-black w-fit my-1">狀況快速做出反應</p>
+  <div class="xl:hidden">
+    <div class="w-full mx-auto relative sm-about-scroll h-screen bg-[#D3E741]">
+      <div class="w-full overflow-x-hidden bg-black sm-about-bg-color sm-about-center">
+        <div class="flex justify-center items-center min-h-screen py-40 md:px-14 sm-test-tri relative">
+          <div class="absolute w-full h-full z-10 pointer-events-none">
+            <img class="w-full h-full" src="~assets/imgs/bg-work-about-sm.png" />
           </div>
-          <div class="mt-8">
-            <p class="bg-black w-fit my-1">我們針對你的品牌進行深度訪談與分析</p>
-            <p class="bg-black w-fit my-1">跳脫你的舊有框架，挖掘品牌特色並融合現</p>
-            <p class="bg-black w-fit my-1">代設計元素，幫助你在產業前端擁有讓人瘋</p>
-            <p class="bg-black w-fit my-1">狂的線上與現下體驗</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="trait-xl h-screen w-fit flex text-[#6372C6] items-center px-40">
-        <div class="flex gap-[500px]">
-          <div>
-            <p class="text-[64px] leading-[76.8px] mb-32 whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
-            <p class="text-base mb-10 leading-[22.7px]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
-            <p class="text-base leading-[22.7px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
-          </div>
-          <div>
-            <p class="text-[64px] mb-32 leading-[76.8px]" style="font-family: dgo">QUICK<br />TEST</p>
-            <p class="text-base leading-[22.7px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
-          </div>
-          <div>
-            <p class="text-[64px] mb-32 leading-[76.8px]" style="font-family: dgo">HIGH<br />PERFORMANCE</p>
-            <p class="text-base leading-[22.7px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex">
-        <div class="w-full min-h-[855px] relative" style="background: linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6">
-          <img class="w-56 absolute" src="~assets/imgs/profile/r1.png" />
-          <img class="w-56 absolute" src="~assets/imgs/profile/r2.png" />
-          <img class="w-56 absolute" src="~assets/imgs/profile/r3.png" />
-          <img class="w-56 absolute" src="~assets/imgs/profile/r2.png" />
-          <img class="w-56 absolute" src="~assets/imgs/profile/r3.png" />
-          <p style="font-family: arial-black" class="text-white text-4xl font-black tracking-widest mx-auto w-fit">MEET OUR TEAM</p>
-          <div class="bg-white rounded-[76px] w-[550px] py-9 mx-auto mt-5" stlye="box-shadow: 1px 4px 8px #577FCD;">
-            <div class="flex justify-center gap-8">
-              <img class="w-20" src="~assets/imgs/profile/r1.png" />
-              <div class="text-[#292F33] text-4xl tracking-widest font-black" style="font-family: arial-black">
-                <p>RINRAN</p>
-                <p class="text-2xl">VISUAL DESIGNER</p>
+          <div class="w-full">
+            <div class="pl-5 md:mr-auto text-white text-3xl md:text-6xl whitespace-nowrap w-full" style="font-family: dgo">
+              <div class="flex items-center gap-2.5 md:gap-5">
+                <p>As nimble</p>
+                <div class="relative">
+                  <div class="w-10 md:w-24 sm-about-shark origin-center">
+                    <img src="~assets/imgs/emoji-shark.png" />
+                  </div>
+                  <div class="w-10 md:w-24 sm-about-fuck-smile absolute top-0 left-0 scale-0 origin-center">
+                    <img class=" " src="~assets/imgs/emoji-fuck-smile.png" />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <DashingFooter color="#D3E741" />
-    </div>
-  </div> -->
-
-  <!-- <div class="hidden md:block xl:hidden">
-    <div class="w-full mx-auto relative bg-gray-700">
-      <div class="w-full max-w-[640px] overflow-x-hidden mx-auto">
-        <div class="flex py-40">
-          <div class="px-6 w-full">
-            <div>
-              <p style="font-family: dgo" class="text-white text-6xl whitespace-nowrap">
-                As nimble<br />
-                as the shark
-              </p>
+              <p>As the shark</p>
             </div>
 
-            <div class="flex w-full justify-end">
-              <div class="text-xl text-white mt-24">
+            <div class="flex w-full justify-end pr-4 self-end md:mt-72">
+              <div class="text-xs md:text-xl text-white w-fit mt-24 whitespace-nowrap">
                 <div>
-                  <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的</p>
-                  <p class="bg-black w-fit my-1">產業狀況快速做出反應</p>
+                  <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的產業</p>
+                  <p class="bg-black w-fit my-1">狀況快速做出反應</p>
                 </div>
                 <div class="mt-8">
                   <p class="bg-black w-fit my-1">我們針對你的品牌進行深度訪談與分析</p>
-                  <p class="bg-black w-fit my-1">跳脫你的舊有框架，挖掘品牌特色並融</p>
-                  <p class="bg-black w-fit my-1">合現代設計元素，幫助你在產業前端擁</p>
-                  <p class="bg-black w-fit my-1">有讓人瘋狂的線上與現下體驗</p>
+                  <p class="bg-black w-fit my-1">跳脫你的舊有框架，挖掘品牌特色並融合現</p>
+                  <p class="bg-black w-fit my-1">代設計元素，幫助你在產業前端擁有讓人瘋</p>
+                  <p class="bg-black w-fit my-1">狂的線上與現下體驗</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="trait-md h-screen w-fit flex text-[#6372C6] items-center pr-40">
+        <div class="md:hidden trait-sm sm-whitebg-tri h-screen w-fit flex text-[#6372C6] items-center">
+          <div class="flex gap-12">
+            <div class="">
+              <div class="relative w-full">
+                <div class="absolute w-[120%] -left-11">
+                  <img class="w-full" src="~assets/imgs/about-neverbg-sm.gif" />
+                </div>
+                <p class="ml-6 text-4xl leading-[40px] whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
+              </div>
+              <div class="w-60 ml-14 mb-5">
+                <img class="w-full" src="~assets/imgs/about-mac-sm.gif" />
+              </div>
+              <p class="ml-6 text-xs mb-10 leading-4">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
+              <p class="ml-6 text-xs leading-[20px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
+            </div>
+            <div class="">
+              <div class="relative w-full flex gap-3">
+                <p class="ml-6 text-4xl leading-[40px] whitespace-nowrap" style="font-family: dgo">QUICK<br />TEST</p>
+                <div class="w-12">
+                  <img class="w-full" src="~assets/imgs/about-question.gif" />
+                </div>
+              </div>
+              <div class="w-60 ml-14 mb-5">
+                <img class="w-full" src="~assets/imgs/about-light.gif" />
+              </div>
+              <p class="ml-6 text-xs leading-[20px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
+            </div>
+            <div class="pr-20">
+              <div class="relative w-full">
+                <div class="absolute w-16 right-[30%] top-[-15%]">
+                  <img class="w-full" src="~assets/imgs/about-analyze.gif" />
+                </div>
+                <p class="text-4xl leading-[40px]" style="font-family: dgo">HIGH<br /><span class="text-[28px]">PERFORMANCE</span></p>
+              </div>
+              <div class="w-60 mb-5">
+                <img class="w-full" src="~assets/imgs/about-shark.gif" />
+              </div>
+              <p class="text-xs leading-[20px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden md:flex trait-md md-whitebg-tri h-screen w-fit text-[#6372C6] items-center pr-40">
           <div class="flex gap-48">
             <div class="">
               <div class="relative w-full">
@@ -585,96 +682,6 @@ function shrinkCenterForMobileAndTablet() {
                 <img class="w-full" src="~assets/imgs/about-shark.gif" />
               </div>
               <p class="text-base leading-[22px]">我們專注於高效率的製作與高效能的產出，通過將<br />工作內容顆粒化，並解析出各項工作流程，分類優<br />先順序，來簡化複雜的工作，這樣的方式可以更快<br />速的產出高質量的服務與產品。</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-gray-700 text-white text-base font-black tracking-[0.095em] flex justify-center" style="font-family: arial-black">
-          <p class="w-fit">MEET OUR TEAM</p>
-          <button class="rounded-[76px] flex" style="box-shadow: 1px 4px 8px #577fcd">
-            <img src="" />
-          </button>
-        </div>
-      </div>
-      <DashingFooter color="#D3E741" />
-    </div>
-  </div> -->
-
-  <div class="xl:hidden">
-    <div class="w-full mx-auto relative sm-about-scroll h-screen bg-[#D3E741]">
-      <div class="w-full overflow-x-hidden bg-black sm-about-bg-color sm-about-center">
-        <div class="flex justify-center min-h-screen py-40 md:px-14 sm-test-tri">
-          <div class="w-full">
-            <div class="pl-5 md:mr-auto text-white text-3xl md:text-6xl whitespace-nowrap w-full" style="font-family: dgo">
-              <div class="flex items-center gap-2.5 md:gap-5">
-                <p>As nimble</p>
-                <div class="relative">
-                  <div class="w-10 md:w-24 sm-about-shark origin-center">
-                    <img src="~assets/imgs/emoji-shark.png" />
-                  </div>
-                  <div class="w-10 md:w-24 sm-about-fuck-smile absolute top-0 left-0 scale-0 origin-center">
-                    <img class=" " src="~assets/imgs/emoji-fuck-smile.png" />
-                  </div>
-                </div>
-              </div>
-              <p>As the shark</p>
-            </div>
-
-            <div class="flex w-full justify-end pr-2 self-end">
-              <div class="text-xs md:text-xl text-white w-fit mt-24 whitespace-nowrap">
-                <div>
-                  <p class="bg-black w-fit my-1">達訊團隊的工作哲學即是能因應不同的產業</p>
-                  <p class="bg-black w-fit my-1">狀況快速做出反應</p>
-                </div>
-                <div class="mt-8">
-                  <p class="bg-black w-fit my-1">我們針對你的品牌進行深度訪談與分析</p>
-                  <p class="bg-black w-fit my-1">跳脫你的舊有框架，挖掘品牌特色並融合現</p>
-                  <p class="bg-black w-fit my-1">代設計元素，幫助你在產業前端擁有讓人瘋</p>
-                  <p class="bg-black w-fit my-1">狂的線上與現下體驗</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="trait-sm sm-whitebg-tri h-screen w-fit flex text-[#6372C6] items-center">
-          <div class="flex gap-12">
-            <div class="">
-              <div class="relative w-full">
-                <div class="absolute w-[120%] -left-11">
-                  <img class="w-full" src="~assets/imgs/about-neverbg-sm.gif" />
-                </div>
-                <p class="ml-6 text-4xl leading-[40px] whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
-              </div>
-              <div class="w-60 ml-14 mb-5">
-                <img class="w-full" src="~assets/imgs/about-mac-sm.gif" />
-              </div>
-              <p class="ml-6 text-xs mb-10 leading-4">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
-              <p class="ml-6 text-xs leading-[20px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
-            </div>
-            <div class="">
-              <div class="relative w-full flex gap-3">
-                <p class="ml-6 text-4xl leading-[40px] whitespace-nowrap" style="font-family: dgo">QUICK<br />TEST</p>
-                <div class="w-12">
-                  <img class="w-full" src="~assets/imgs/about-question.gif" />
-                </div>
-              </div>
-              <div class="w-60 ml-14 mb-5">
-                <img class="w-full" src="~assets/imgs/about-light.gif" />
-              </div>
-              <p class="ml-6 text-xs leading-[20px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
-            </div>
-            <div class="pr-6">
-              <div class="relative w-full">
-                <div class="absolute w-16 right-[30%] top-[-15%]">
-                  <img class="w-full" src="~assets/imgs/about-analyze.gif" />
-                </div>
-                <p class="text-4xl leading-[40px]" style="font-family: dgo">HIGH<br /><span class="text-[28px]">PERFORMANCE</span></p>
-              </div>
-              <div class="w-60 mb-5">
-                <img class="w-full" src="~assets/imgs/about-shark.gif" />
-              </div>
-              <p class="text-xs leading-[20px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
             </div>
           </div>
         </div>

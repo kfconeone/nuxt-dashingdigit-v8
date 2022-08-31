@@ -39,6 +39,18 @@ function onClickToggle() {
 <template>
   <div class="hidden xl:block">
     <div class="menu w-screen h-screen top-0 z-40 fixed origin-top translate-y-[-100%]" style="background: linear-gradient(90deg, #d3e741 42.69%, #ffffff 104.03%)">
+      <div class="flex gap-3.5 mt-16 absolute right-[7.5%] bottom-[7.5%]">
+        <NuxtLink href="https://www.behance.net/dashing" target="_blank">
+          <img class="w-9 h-9" alt="instagram icon" src="~assets/imgs/icon-behance.png" />
+        </NuxtLink>
+        <NuxtLink href="https://www.facebook.com/dashingdigitTW" target="_blank">
+          <img class="w-9 h-9" alt="facebook icon" src="~assets/imgs/icon-facebook.png" />
+        </NuxtLink>
+        <NuxtLink href="https://www.instagram.com/dashing_digit/?igshid=YmMyMTA2M2Y%3D" target="_blank">
+          <img class="w-9 h-9" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
+        </NuxtLink>
+      </div>
+
       <div class="bg-white fixed top-0 w-fit h-full whitespace-nowrap overflow-hidden py-3 sm:py-5">
         <p class="text-[#D3E741] text-base sm:text-4xl menu-vertical-track" style="writing-mode: vertical-lr">
           Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right
@@ -80,9 +92,15 @@ function onClickToggle() {
         </div>
 
         <div class="flex gap-3 mt-16">
-          <img class="w-5 h-5" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-5 h-5" src="~assets/imgs/social-media-icon.svg" />
-          <img class="w-5 h-5" src="~assets/imgs/social-media-icon.svg" />
+          <NuxtLink href="https://www.behance.net/dashing" target="_blank">
+            <img class="w-5 h-5" alt="instagram icon" src="~assets/imgs/icon-behance.png" />
+          </NuxtLink>
+          <NuxtLink href="https://www.facebook.com/dashingdigitTW" target="_blank">
+            <img class="w-5 h-5" alt="facebook icon" src="~assets/imgs/icon-facebook.png" />
+          </NuxtLink>
+          <NuxtLink href="https://www.instagram.com/dashing_digit/?igshid=YmMyMTA2M2Y%3D" target="_blank">
+            <img class="w-5 h-5" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
+          </NuxtLink>
         </div>
       </div>
       <div class="bg-white fixed bottom-0 w-full whitespace-nowrap overflow-hidden py-3 sm:py-5">

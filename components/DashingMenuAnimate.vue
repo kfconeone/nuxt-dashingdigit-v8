@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger, CustomEase);
 
 const menuCanvas = ref();
 const isMenuOpen = inject("isMenuOpen");
+const isPointer = inject("isPointer");
 
 const menuObjects = ref([]);
 const router = useRouter();
@@ -105,36 +106,37 @@ function emojiBackground(routeName) {
     raycaster.setFromCamera(pointer, camera);
 
     var isIntersected = raycaster.intersectObjects(intersectedObjects);
+    if (isMenuOpen.value) {
+      if (isIntersected.length > 0) {
+        console.log("Mesh clicked!");
+        if (isIntersected[0].object == menuObjects.value[0]) {
+          const route = router.resolve({
+            name: "index",
+          });
 
-    if (isIntersected.length > 0) {
-      console.log("Mesh clicked!");
-      if (isIntersected[0].object == menuObjects.value[0]) {
-        const route = router.resolve({
-          name: "index",
-        });
+          window.open(route.href, "_top");
+        }
+        if (isIntersected[0].object == menuObjects.value[1]) {
+          const route = router.resolve({
+            name: "work",
+          });
 
-        window.open(route.href, "_top");
-      }
-      if (isIntersected[0].object == menuObjects.value[1]) {
-        const route = router.resolve({
-          name: "work",
-        });
+          window.open(route.href, "_top");
+        }
+        if (isIntersected[0].object == menuObjects.value[2]) {
+          const route = router.resolve({
+            name: "about",
+          });
 
-        window.open(route.href, "_top");
-      }
-      if (isIntersected[0].object == menuObjects.value[2]) {
-        const route = router.resolve({
-          name: "about",
-        });
+          window.open(route.href, "_top");
+        }
+        if (isIntersected[0].object == menuObjects.value[3]) {
+          const route = router.resolve({
+            name: "services",
+          });
 
-        window.open(route.href, "_top");
-      }
-      if (isIntersected[0].object == menuObjects.value[3]) {
-        const route = router.resolve({
-          name: "services",
-        });
-
-        window.open(route.href, "_top");
+          window.open(route.href, "_top");
+        }
       }
     }
   };
@@ -175,11 +177,11 @@ function emojiBackground(routeName) {
       if (intersects.length) {
         if (!currentIntersect) {
           currentIntersect = intersects[0];
-          document.body.style.cursor = "pointer";
+          isPointer.value = true;
         }
       } else {
         if (currentIntersect) {
-          document.body.style.cursor = "default";
+          isPointer.value = false;
         }
         currentIntersect = null;
       }

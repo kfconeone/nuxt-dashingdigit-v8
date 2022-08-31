@@ -2,22 +2,46 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Scrollbar from "smooth-scrollbar";
+import { WaitMilliseconds } from "flag-waiter";
 gsap.registerPlugin(ScrollTrigger);
 
 const isMenuOpen = ref(false);
 const isLoaded = ref(false);
 const onLoadedEvents = ref({});
-
+const isPointer = ref(false);
+provide("isPointer", isPointer);
 provide("isMenuOpen", isMenuOpen);
 provide("onLoadedEvents", onLoadedEvents);
 
 onMounted(() => {
-  // Setup
+  var matches = [];
+  const buttons = document.querySelectorAll("button");
+  const inputs = document.querySelectorAll("input");
+  const elementAs = document.querySelectorAll("a");
+  const pointerDetected = document.querySelectorAll(".pointer-detected");
+  matches = [...buttons, ...inputs, ...elementAs, ...pointerDetected];
 
+  matches.forEach((d) => {
+    d.addEventListener("mouseover", async () => {
+      console.log("ggg");
+
+      isPointer.value = true;
+    });
+    d.addEventListener("mouseleave", () => {
+      isPointer.value = false;
+    });
+  });
+
+  // Setup
   addEventListener("mousemove", (event) => {
     gsap.to(".mouse-normal", {
-      x: event.clientX - 20,
-      y: event.clientY - 15,
+      x: event.clientX - 10,
+      y: event.clientY - 10,
+    });
+    gsap.to(".mouse-default", {
+      x: event.clientX,
+      y: event.clientY,
+      ease: "Power3.easeOut",
     });
   });
 
@@ -44,6 +68,10 @@ onMounted(() => {
           <circle cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" />
         </svg>
       </div>
+      <div alt="cursor icon" :class="isPointer ? 'cursor-icon-pointer' : ''" class="hidden xl:block mouse-default w-7 h-7 fixed top-0 left-0 z-[60] pointer-events-none" style="mix-blend-mode: difference">
+        <img :src="isPointer ? '/mouse-pointer.png' : '/mouse-default.png'" />
+      </div>
+
       <!-- <img class="mouse-normal w-12 h-12 fixed top-0 left-0 z-50" src="~assets/imgs/mouse-normal.png" style="-webkit-filter: invert(1); filter: invert(1)" /> -->
       <DashingHeader />
       <!-- <DashingMenuAnimate /> -->
@@ -54,10 +82,17 @@ onMounted(() => {
 </template>
 <style>
 html {
-  .pointer {
-    cursor: url(/new-mouse-arrow.png), pointer;
-  }
+  cursor: none !important;
   scroll-behavior: smooth;
+}
+button {
+  cursor: none !important;
+}
+input {
+  cursor: none !important;
+}
+a {
+  cursor: none !important;
 }
 body {
   font-family: arial-reg;
@@ -65,6 +100,9 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.cursor-icon-pointer {
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */

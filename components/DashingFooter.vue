@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
-import { getHeapSpaceStatistics } from "v8";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
+
+const scrollbar: any = inject("scrollbarRef");
+
 const isLtsgtwSvgPcShow = ref(false);
 const footerBtnSendPc = ref();
 const footerLtsgtwSvgPc = ref();
@@ -9,6 +14,7 @@ const props = defineProps({
     type: String,
   },
 });
+
 onMounted(() => {
   animateSwipeBtn();
   animateFooterLtsgtwSvgPc();
@@ -52,10 +58,8 @@ function animateSwipeBtn() {
       color: "black",
     });
 
-    gsap.to(".footerBtnSendPc", {
+    gsap.set(".footerBtnSendPc", {
       borderColor: "#262723",
-      duration: 0.4,
-      ease: "Power2.InOut",
     });
   });
 
@@ -74,18 +78,39 @@ function animateSwipeBtn() {
       color: "white",
     });
 
-    gsap.to(".footerBtnSendPc", {
+    gsap.set(".footerBtnSendPc", {
       borderColor: props.color,
-      duration: 0.4,
-      ease: "Power2.InOut",
     });
   });
+}
+
+function scrollToPageTop() {
+  try {
+    scrollbar.value.scrollTo(0, 0, 600);
+  } catch (error) {
+    console.log("error:", error);
+  }
 }
 </script>
 
 <template>
   <div class="hidden xl:block relative z-10">
-    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 3xl:gap-40">
+    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 3xl:gap-40 relative">
+      <div class="pointer-detected w-fit absolute bottom-0" @click="scrollToPageTop">
+        <div class="w-[150px] 3xl:w-[200px] relative flex justify-center items-center">
+          <div class="absolute w-8 3xl:w-12">
+            <svg viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25.895 1.00044C28.4516 9.58336 36.8519 26.3109 50.0002 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M26.0122 1.00044C23.4556 9.58336 15.0553 26.3109 1.90698 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M25.8949 1V50.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 0C44.7715 0 0 44.7715 0 100H200C200 44.7715 155.228 0 100 0Z" :fill="props.color == '#FFFFFF' ? '#D3E741' : '#FFFFFF'" />
+          </svg>
+        </div>
+      </div>
+
       <div class="pl-11 mt-20">
         <p class="font-black text-[38px] 3xl:text-[40px] text-[#41443B] whitespace-nowrap" style="font-family: arial-black">
           JUST CALL ME <br />
@@ -150,15 +175,15 @@ function animateSwipeBtn() {
           <img class="w-96" src="~assets/imgs/ufo.gif" />
         </div>
         <div class="flex gap-3 mt-[150px] 3xl:mt-44">
-          <a href="google.com">
+          <NuxtLink href="https://www.behance.net/dashing" target="_blank">
             <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-behance.png" />
-          </a>
-          <a href="google.com">
+          </NuxtLink>
+          <NuxtLink href="https://www.facebook.com/dashingdigitTW" target="_blank">
             <img class="w-8" alt="facebook icon" src="~assets/imgs/icon-facebook.png" />
-          </a>
-          <a href="google.com">
+          </NuxtLink>
+          <NuxtLink href="https://www.instagram.com/dashing_digit/?igshid=YmMyMTA2M2Y%3D" target="_blank">
             <img class="w-8" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
-          </a>
+          </NuxtLink>
         </div>
       </div>
       <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
@@ -186,10 +211,10 @@ function animateSwipeBtn() {
               <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
             </button>
           </div>
-          <div class="mt-24">
+          <div class="mt-24 flex justify-end w-full">
             <p class="underline underline-offset-[7px] leading-[58px] font-normal text-[32px] 3xl:text-[40px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
           </div>
-          <div class="mt-10 flex gap-8 text-[#41443B] self-end">
+          <div class="mt-10 flex gap-8 text-[#41443B] self-end justify-end">
             <p>04 2262 7773</p>
             <p>402台中市南區美村路二段186號3F-1</p>
           </div>
@@ -200,6 +225,20 @@ function animateSwipeBtn() {
 
   <div class="hidden md:block xl:hidden relative z-10">
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
+      <div class="w-fit absolute bottom-0" @click="scrollToPageTop">
+        <div class="w-[150px] relative flex justify-center items-center">
+          <div class="absolute w-8 3xl:w-12">
+            <svg viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25.895 1.00044C28.4516 9.58336 36.8519 26.3109 50.0002 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M26.0122 1.00044C23.4556 9.58336 15.0553 26.3109 1.90698 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M25.8949 1V50.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 0C44.7715 0 0 44.7715 0 100H200C200 44.7715 155.228 0 100 0Z" :fill="props.color == '#FFFFFF' ? '#D3E741' : '#FFFFFF'" />
+          </svg>
+        </div>
+      </div>
       <div>
         <div class="flex justify-center gap-20 mt-8">
           <p class="font-black text-[24px] text-[#41443B] whitespace-nowrap" style="font-family: arial-black">
@@ -238,15 +277,21 @@ function animateSwipeBtn() {
 
         <div class="flex justify-between items-end mt-24">
           <div class="flex gap-3">
-            <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-instagram.png" />
-            <img class="w-8" alt="facebook icon" src="~assets/imgs/icon-instagram.png" />
-            <img class="w-8" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
+            <NuxtLink href="https://www.behance.net/dashing" target="_blank">
+              <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-behance.png" />
+            </NuxtLink>
+            <NuxtLink href="https://www.facebook.com/dashingdigitTW" target="_blank">
+              <img class="w-8" alt="facebook icon" src="~assets/imgs/icon-facebook.png" />
+            </NuxtLink>
+            <NuxtLink href="https://www.instagram.com/dashing_digit/?igshid=YmMyMTA2M2Y%3D" target="_blank">
+              <img class="w-8" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
+            </NuxtLink>
           </div>
           <div>
-            <div class="">
+            <div class="flex justify-end">
               <p class="underline underline-offset-[7px] leading-[35px] font-normal text-[24px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
             </div>
-            <div class="mt-10 flex gap-8 text-[#41443B]">
+            <div class="mt-10 flex gap-8 text-xs text-[#41443B]">
               <p>04 2262 7773</p>
               <p>402台中市南區美村路二段186號3F-1</p>
             </div>
@@ -257,7 +302,22 @@ function animateSwipeBtn() {
   </div>
 
   <div class="md:hidden relative z-10">
-    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20">
+    <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-14 relative">
+      <div class="w-fit absolute right-0 bottom-0" @click="scrollToPageTop">
+        <div class="w-[75px] relative flex justify-center items-center">
+          <div class="absolute w-6 bottom-[25%] right-[25%]">
+            <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.2956 1.00021C14.6061 5.39961 18.9119 13.9738 25.6514 13.0752" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M13.3557 1.00021C12.0453 5.39961 7.7395 13.9738 1 13.0752" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M13.2954 1V26.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <svg viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M75 0C33.5786 0 0 33.5786 0 75H75V0Z" :fill="props.color == '#FFFFFF' ? '#D3E741' : '#FFFFFF'" />
+          </svg>
+        </div>
+      </div>
+
       <div class="py-5 z-10 pl-5 relative w-full">
         <div class="absolute w-32 right-0 top-28">
           <img src="~assets/imgs/ufo.gif" />
@@ -289,10 +349,15 @@ function animateSwipeBtn() {
         </div>
 
         <div class="flex gap-4 mt-12">
-          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
-          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
-          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
-          <img class="w-6 h-6" src="~assets/imgs/icon-instagram.png" />
+          <NuxtLink href="https://www.behance.net/dashing" target="_blank">
+            <img class="w-8" alt="instagram icon" src="~assets/imgs/icon-behance.png" />
+          </NuxtLink>
+          <NuxtLink href="https://www.facebook.com/dashingdigitTW" target="_blank">
+            <img class="w-8" alt="facebook icon" src="~assets/imgs/icon-facebook.png" />
+          </NuxtLink>
+          <NuxtLink href="https://www.instagram.com/dashing_digit/?igshid=YmMyMTA2M2Y%3D" target="_blank">
+            <img class="w-8" alt="behance icon" src="~assets/imgs/icon-instagram.png" />
+          </NuxtLink>
         </div>
       </div>
     </div>
