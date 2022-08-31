@@ -63,12 +63,12 @@ onMounted(() => {
     <Loading v-show="!isLoaded" />
 
     <div v-show="isLoaded">
-      <div class="hidden xl:block mouse-normal w-12 h-12 fixed top-0 left-0 z-50 pointer-events-none" style="mix-blend-mode: difference">
+      <div class="hidden xl:block mouse-normal w-12 h-12 fixed top-0 left-0 z-[999] pointer-events-none" style="mix-blend-mode: difference">
         <svg viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" />
         </svg>
       </div>
-      <div alt="cursor icon" :class="isPointer ? 'cursor-icon-pointer' : ''" class="hidden xl:block mouse-default w-7 h-7 fixed top-0 left-0 z-[60] pointer-events-none" style="mix-blend-mode: difference">
+      <div alt="cursor icon" :class="isPointer ? 'cursor-icon-pointer' : ''" class="hidden xl:block mouse-default w-7 h-7 fixed top-0 left-0 z-[999] pointer-events-none" style="mix-blend-mode: difference">
         <img :src="isPointer ? '/mouse-pointer.png' : '/mouse-default.png'" />
       </div>
 
@@ -81,19 +81,15 @@ onMounted(() => {
   </div>
 </template>
 <style>
-html {
+html,
+button,
+input,
+a,
+.swiper-wrapper {
   cursor: none !important;
   scroll-behavior: smooth;
 }
-button {
-  cursor: none !important;
-}
-input {
-  cursor: none !important;
-}
-a {
-  cursor: none !important;
-}
+
 body {
   font-family: arial-reg;
 }

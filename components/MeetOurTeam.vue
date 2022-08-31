@@ -141,11 +141,11 @@ onMounted(async () => {
     await WaitMilliseconds(300);
     createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
-    await WaitMilliseconds(300);
-    createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
-    await WaitMilliseconds(300);
-    createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 300, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    // createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    // await WaitMilliseconds(300);
+    // createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    // await WaitMilliseconds(300);
+    // createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 300, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
   } catch (error) {
     console.log("error:", error);
   }
@@ -348,7 +348,6 @@ defineExpose({
 <template>
   <div class="relative w-full flex justify-center">
     <canvas ref="myCanvas"> </canvas>
-    <!-- <div class="absolute top-10 text-white text-5xl z-[1000]">wqdqwdqwqwdqdqwd</div> -->
     <div class="absolute bottom-1/4 tracking-[0.095em] font-black" style="font-family: arial-black">
       <p class="w-fit mx-auto text-4xl text-white">MEET OUR TEAM</p>
       <button class="shadow-sm active:shadow-2xl active:translate-y-0.5 active:bg-slate-100 mt-5 py-8 px-16 w-[549px] h-[152px] text-[#292F33] text-5xl z-[1000] border-white border-2 rounded-full grid grid-cols-12 bg-white justify-center items-center" @click="onClickTextBtn">

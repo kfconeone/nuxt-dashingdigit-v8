@@ -2,7 +2,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { WindowSize, getCurrentWindowSize } from "~~/composables/windowSizeService";
-
 //smooth scrollbar
 import Scrollbar from "smooth-scrollbar";
 //smooth scrollbar
@@ -25,7 +24,21 @@ var currentWindowSize: WindowSize = WindowSize.Mobile;
 const scrollbarRef = ref();
 provide("scrollbarRef", scrollbarRef);
 
+// const fps = ref(0);
 onMounted(() => {
+  // let requestTime;
+
+  // function loop(time) {
+  //   if (requestTime) {
+  //     fps.value = Math.round(1000 / (performance.now() - requestTime));
+  //   }
+
+  //   requestTime = time;
+  //   window.requestAnimationFrame((timeRes) => loop(timeRes));
+  // }
+
+  // window.requestAnimationFrame((timeRes) => loop(timeRes));
+
   currentWindowSize = getCurrentWindowSize();
   window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
 
@@ -459,6 +472,7 @@ function shrinkCenterForMobileAndTablet() {
 </script>
 <template>
   <div class="hidden xl:block">
+    <div id="fps" class="fixed top-5 right-5 text-red-400 text-5xl z-[900]">{{ fps }}</div>
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
         <div class="relative flex justify-center py-40 gap-20 min-h-screen test-tri">
