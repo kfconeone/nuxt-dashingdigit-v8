@@ -12,10 +12,16 @@ function onClickToggle() {
   }
   isMenuOpen.value = !isMenuOpen.value;
 }
+function testggg() {
+  console.log("tttt");
+}
 </script>
 <template>
   <div class="w-full flex justify-between px-5 xl:px-20 fixed top-0 z-50" style="mix-blend-mode: difference">
-    <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing</p>
+    <NuxtLink to="/" target="_top">
+      <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing</p>
+    </NuxtLink>
+
     <!-- <div class="text-white mt-8">
       <div @click="onClickToggle">X</div>
     </div> -->

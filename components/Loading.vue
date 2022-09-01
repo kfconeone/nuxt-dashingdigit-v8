@@ -50,6 +50,7 @@ function emojiBackground() {
   mesh.rotation.reorder("ZXY");
   mesh.rotation.z = -0.25;
   mesh.rotation.x = -0.25;
+  mesh.rotation.y = -1.5;
 
   scene.add(mesh, mesh2);
 

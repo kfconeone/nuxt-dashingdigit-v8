@@ -107,6 +107,7 @@ function shrinkCenterForDesktopAndLaptop() {
     },
   });
 }
+
 function shrinkCenterForMobileAndTablet() {
   gsap.to(".sm-index-center", {
     scrollTrigger: {
@@ -331,6 +332,7 @@ function marqueeForDesktopAndLaptop() {
     },
   });
 }
+
 function marqueeForMobileAndTablet() {
   gsap.to(".front-sm", {
     x: -400,
@@ -420,7 +422,7 @@ function onClickSvgCircle() {
                 </div>
                 <div class="flex gap-3 items-end">
                   <div class="overflow-hidden">
-                    <p class="pc-wecreate text-[#D3E741] text-[80px] 3xl:text-[130px] leading-[88px] 3xl:leading-[143px]">INSANELY</p>
+                    <p class="pc-wecreate text-[#D3E741] text-[80px] 3xl:text-[130px] leading-[88px] 3xl:leading-[143px]">INSANE</p>
                   </div>
                   <div class="w-16 3xl:w-24 rotate-[13.15deg]">
                     <img src="~assets/imgs/emoji-ethand.png" />
@@ -520,34 +522,43 @@ function onClickSvgCircle() {
                   <swiper-slide>
                     <div class="relative">
                       <div class="w-56 absolute -right-7 bottom-8">
+                        <div class="w-8 ml-auto">
+                          <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                        </div>
                         <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
                       </div>
                       <div>
                         <img src="~assets/imgs/hero-mia-pc.jpg" />
                       </div>
-                      <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
+                      <div class="w-[335px]"><p>MIA TREASURE 為來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
                       <div class="w-56 absolute -right-7 bottom-8">
+                        <div class="w-8 ml-auto">
+                          <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                        </div>
                         <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                       </div>
                       <div>
                         <img src="~assets/imgs/hero-bella-pc.png" />
                       </div>
-                      <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
+                      <div class="w-[335px]"><p>Bella Uno是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
                       <div class="w-56 absolute -right-7 bottom-8">
+                        <div class="w-8 ml-auto">
+                          <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                        </div>
                         <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                       </div>
                       <div>
                         <img src="~assets/imgs/hero-ancient-pc.jpg" />
                       </div>
-                      <div class="w-[335px]"><p>一些關於MIA TREASURE的介紹內文一些關於 MIA TREASURE的介紹內文一些關於MIA TREASURE 的介紹內文一些關於MIA TREASURE的介紹內文</p></div>
+                      <div class="w-[335px]"><p>全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p></div>
                     </div>
                   </swiper-slide>
                 </swiper>
@@ -763,11 +774,17 @@ function onClickSvgCircle() {
               <EmojiBackground />
             </div>
             <div class="text-white mt-48 relative z-10" style="font-family: dgo">
-              <p class="text-sm md:text-4xl">We create</p>
-              <p class="text-[#D3E741] text-2xl md:text-[68px] md:leading-[1.25]">INSANELY</p>
-              <p class="text-xl md:text-[40px] md:leading-[1]">Digital experience</p>
-              <div class="mt-8">
-                <p class="text-xs md:text-xl font-bold leading-[18px]" style="font-family: arial-reg">
+              <p class="text-2xl md:text-5xl">We create</p>
+              <div class="flex gap-2 items-end">
+                <p class="text-[#D3E741] text-5xl md:text-8xl leading-[1.5] md:leading-[1.25]">INSANE</p>
+                <div class="w-9 md:w-20 rotate-[13.15deg] md:pb-1.5">
+                  <img src="~assets/imgs/emoji-ethand.png" />
+                </div>
+              </div>
+
+              <p class="text-3xl md:text-[45px] md:leading-[1]">Digital experience</p>
+              <div class="mt-8 md:mt-20">
+                <p class="text-md md:text-2xl font-bold leading-[1.5]" style="font-family: arial-reg">
                   專注於新奇的互動設計<br />
                   打造迷人的使用者體驗
                 </p>

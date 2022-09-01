@@ -72,9 +72,7 @@ onMounted(() => {
         <img :src="isPointer ? '/mouse-pointer.png' : '/mouse-default.png'" />
       </div>
 
-      <!-- <img class="mouse-normal w-12 h-12 fixed top-0 left-0 z-50" src="~assets/imgs/mouse-normal.png" style="-webkit-filter: invert(1); filter: invert(1)" /> -->
       <DashingHeader />
-      <!-- <DashingMenuAnimate /> -->
       <DashingMenu />
       <router-view></router-view>
     </div>

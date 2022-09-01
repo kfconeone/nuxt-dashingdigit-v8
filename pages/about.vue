@@ -472,7 +472,7 @@ function shrinkCenterForMobileAndTablet() {
 </script>
 <template>
   <div class="hidden xl:block">
-    <div id="fps" class="fixed top-5 right-5 text-red-400 text-5xl z-[900]">{{ fps }}</div>
+    <!-- <div id="fps" class="fixed top-5 right-5 text-red-400 text-5xl z-[900]">{{ fps }}</div> -->
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
         <div class="relative flex justify-center py-40 gap-20 min-h-screen test-tri">
