@@ -777,7 +777,7 @@ function onClickSvgCircle() {
               <p class="text-2xl md:text-5xl">We create</p>
               <div class="flex gap-2 items-end">
                 <p class="text-[#D3E741] text-5xl md:text-8xl leading-[1.5] md:leading-[1.25]">INSANE</p>
-                <div class="w-9 md:w-20 rotate-[13.15deg] md:pb-1.5">
+                <div class="w-9 md:w-20 rotate-[13.15deg] pb-2.5 md:pb-1.5">
                   <img src="~assets/imgs/emoji-ethand.png" />
                 </div>
               </div>
@@ -792,7 +792,7 @@ function onClickSvgCircle() {
 
               <div class="flex w-full justify-end mt-12 md:mt-[180px]">
                 <div ref="svgGitSm" class="pointer-detected w-16 h-16 md:w-[120px] md:h-[120px] flex justify-center items-center relative" @click="onClickSvgCircle">
-                  <svg class="svg-git" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="svg-git" width="64" height="64" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle class="svg-git-circle fill-[#6372C6]" cx="50.5" cy="50.5" r="50.5" />
                     <path
                       class="svg-git-circle-path"
