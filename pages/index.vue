@@ -779,15 +779,20 @@ function scrollToPageFooter() {
               <EmojiBackground />
             </div>
             <div class="text-white mt-48 relative z-10" style="font-family: dgo">
-              <p class="text-2xl md:text-5xl">We create</p>
+              <div class="overflow-hidden">
+                <p class="pc-wecreate text-2xl md:text-5xl">We create</p>
+              </div>
               <div class="flex gap-2 items-end">
-                <p class="text-[#D3E741] text-5xl md:text-8xl leading-[1.5] md:leading-[1.25]">INSANE</p>
+                <div class="overflow-hidden">
+                  <p class="pc-wecreate text-[#D3E741] text-5xl md:text-8xl leading-[1.5] md:leading-[1.25]">INSANE</p>
+                </div>
                 <div class="w-9 md:w-20 rotate-[13.15deg] pb-2.5 md:pb-1.5">
                   <img src="~assets/imgs/emoji-ethand.png" />
                 </div>
               </div>
-
-              <p class="text-3xl md:text-[45px] md:leading-[1]">Digital experience</p>
+              <div class="overflow-hidden">
+                <p class="pc-wecreate text-3xl md:text-[45px] md:leading-[1]">Digital experience</p>
+              </div>
               <div class="mt-8 md:mt-20">
                 <p class="text-md md:text-2xl font-bold leading-[1.5]" style="font-family: arial-reg">
                   專注於新奇的互動設計<br />
