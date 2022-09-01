@@ -15,7 +15,7 @@ function emojiBackground() {
   const textureLoader = new THREE.TextureLoader();
   const handTexture = textureLoader.load("/endmap.png");
   // Object
-  const geometry = new THREE.CylinderGeometry(2, 2, 0.5, 32);
+  const geometry = new THREE.CylinderGeometry(2, 2, 0.5, 64);
   // handTexture.minFilter = THREE.filter;
 
   const materials = [

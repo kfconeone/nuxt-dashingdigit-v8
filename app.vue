@@ -52,12 +52,13 @@ onMounted(() => {
     nextTick(() => {
       ScrollTrigger.refresh();
     });
-  }, 1000);
+  }, 5000);
 });
 </script>
 
 <template>
   <div id="container" class="relative">
+    <!-- <Loading /> -->
     <Loading v-show="!isLoaded" />
 
     <div v-show="isLoaded">
