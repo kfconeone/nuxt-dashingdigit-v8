@@ -98,21 +98,14 @@ function scrollToPageTop() {
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 3xl:gap-40 relative">
       <div class="pointer-detected w-fit absolute bottom-0" @click="scrollToPageTop">
         <div class="w-[150px] 3xl:w-[200px] relative flex justify-center items-center">
-          <div class="absolute hidden 3xl:block w-12">
-            <svg viewBox="0 0 51 52" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="absolute w-8 3xl:w-12">
+            <svg viewBox="0 0 51 52" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M25.895 1.00044C28.4516 9.58336 36.8519 26.3109 50.0002 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M26.0122 1.00044C23.4556 9.58336 15.0553 26.3109 1.90698 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M25.8949 1V50.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
             </svg>
           </div>
-          <div class="absolute w-8 3xl:hidden">
-            <svg viewBox="0 0 51 52" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M25.895 1.00044C28.4516 9.58336 36.8519 26.3109 50.0002 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
-              <path d="M26.0122 1.00044C23.4556 9.58336 15.0553 26.3109 1.90698 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
-              <path d="M25.8949 1V50.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 200 100" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 0C44.7715 0 0 44.7715 0 100H200C200 44.7715 155.228 0 100 0Z" :fill="props.color == '#FFFFFF' ? '#D3E741' : '#FFFFFF'" />
           </svg>
         </div>
@@ -128,7 +121,7 @@ function scrollToPageTop() {
             <div v-show="isLtsgtwSvgPcShow" class="absolute w-full h-[75px]">
               <MailMarquee />
             </div>
-            <svg viewBox="0 0 131 139" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 131 139" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
               <mask id="path-1-outside-1_301_761" maskUnits="userSpaceOnUse" x="0" y="0" width="131" height="133" fill="black">
                 <rect fill="white" width="131" height="133" />
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M65.5 128C100.018 128 128 100.018 128 65.5C128 30.9822 100.018 3 65.5 3C30.9822 3 3 30.9822 3 65.5C3 85.1632 12.0803 102.705 26.2765 114.162L14.4849 127.729L38.7341 121.995C46.8474 125.846 55.9221 128 65.5 128Z" />
@@ -235,13 +228,13 @@ function scrollToPageTop() {
       <div class="w-fit absolute bottom-0" @click="scrollToPageTop">
         <div class="w-[150px] relative flex justify-center items-center">
           <div class="absolute w-8 3xl:w-12">
-            <svg viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 51 52" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M25.895 1.00044C28.4516 9.58336 36.8519 26.3109 50.0002 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M26.0122 1.00044C23.4556 9.58336 15.0553 26.3109 1.90698 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M25.8949 1V50.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
             </svg>
           </div>
-          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 200 100" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 0C44.7715 0 0 44.7715 0 100H200C200 44.7715 155.228 0 100 0Z" :fill="props.color == '#FFFFFF' ? '#D3E741' : '#FFFFFF'" />
           </svg>
         </div>
@@ -313,13 +306,13 @@ function scrollToPageTop() {
       <div class="w-fit absolute right-0 bottom-0" @click="scrollToPageTop">
         <div class="w-[75px] relative flex justify-center items-center">
           <div class="absolute w-6 bottom-[25%] right-[25%]">
-            <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="100%" height="100%" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M13.2956 1.00021C14.6061 5.39961 18.9119 13.9738 25.6514 13.0752" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M13.3557 1.00021C12.0453 5.39961 7.7395 13.9738 1 13.0752" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M13.2954 1V26.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
             </svg>
           </div>
-          <svg viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 75 75" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M75 0C33.5786 0 0 33.5786 0 75H75V0Z" :fill="props.color == '#FFFFFF' ? '#D3E741' : '#FFFFFF'" />
           </svg>
         </div>

@@ -441,7 +441,7 @@ function onClickSvgCircle() {
             </div>
             <div class="h-full col-start-11 flex items-end">
               <div ref="svgGit" class="pointer-detected w-24 flex justify-center items-center relative" @click="onClickSvgCircle">
-                <svg class="svg-git" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="svg-git" width="100%" height="100%" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle class="svg-git-circle fill-[#6372C6]" cx="50.5" cy="50.5" r="50.5" />
                   <path
                     class="svg-git-circle-path"
@@ -570,7 +570,7 @@ function onClickSvgCircle() {
                   <div class="relative z-10 flex items-center gap-2.5">
                     <p class="swipe-text">MORE</p>
                     <div class="w-2.5 3xl:w-4">
-                      <svg viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
                         <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
                         <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
@@ -733,7 +733,7 @@ function onClickSvgCircle() {
 
           <div class="">
             <div class="w-[144px] 3xl:w-[169px] flex justify-center relative p-5 overflow-hidden">
-              <svg class="polygon-star" viewBox="0 0 129 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="polygon-star" width="100%" height="100%" viewBox="0 0 129 129" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M89.8646 3.76639C91.1378 2.74635 93.031 3.59785 93.1125 5.22728L94.4877 32.696C94.5858 34.6567 96.0924 36.2563 98.0437 36.4718L125.381 39.4903C127.002 39.6694 127.739 41.6101 126.644 42.82L108.193 63.2156C106.876 64.6715 106.81 66.8679 108.038 68.4L125.234 89.8646C126.254 91.1378 125.402 93.031 123.773 93.1125L96.3041 94.4877C94.3434 94.5858 92.7437 96.0924 92.5282 98.0437L89.5097 125.381C89.3307 127.002 87.3899 127.739 86.1801 126.644L65.7844 108.193C64.3286 106.876 62.1321 106.81 60.6 108.038L39.1355 125.234C37.8622 126.254 35.9691 125.402 35.8875 123.773L34.5124 96.304C34.4142 94.3434 32.9077 92.7437 30.9564 92.5282L3.61942 89.5097C1.9978 89.3307 1.26126 87.3899 2.35576 86.1801L20.8067 65.7844C22.1237 64.3286 22.1896 62.1321 20.9621 60.6L3.7664 39.1355C2.74636 37.8622 3.59786 35.9691 5.22729 35.8875L32.696 34.5123C34.6567 34.4142 36.2564 32.9077 36.4718 30.9564L39.4903 3.61941C39.6694 1.9978 41.6101 1.26126 42.82 2.35576L63.2156 20.8067C64.6715 22.1237 66.8679 22.1896 68.4 20.9621L89.8646 3.76639Z"
                   stroke="#D3E741"
@@ -741,13 +741,13 @@ function onClickSvgCircle() {
                 />
               </svg>
               <div class="w-[23px] 3xl:w-[27px] absolute top-[-75px] polygon-arrow">
-                <svg viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 27 48" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.5124 1.10547V47.2874C12.2738 43.1292 8.20411 35.0253 1.8342 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                   <path d="M13.7778 1.10547V47.2874C15.0164 43.1292 19.0861 35.0253 25.456 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                 </svg>
               </div>
               <div class="w-[23px] 3xl:w-[27px] absolute top-[-75px] polygon-arrow-back">
-                <svg viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 27 48" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.5124 1.10547V47.2874C12.2738 43.1292 8.20411 35.0253 1.8342 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                   <path d="M13.7778 1.10547V47.2874C15.0164 43.1292 19.0861 35.0253 25.456 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                 </svg>
@@ -889,7 +889,7 @@ function onClickSvgCircle() {
               <div class="relative z-10 flex items-center gap-1">
                 <p class="tracking-[0.13em]">MORE</p>
                 <div class="w-2 flex h-full items-center">
-                  <svg viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line class="stroke-[#D3E741]" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
                     <line class="stroke-[#D3E741]" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
                     <line class="stroke-[#D3E741]" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
@@ -1050,7 +1050,7 @@ function onClickSvgCircle() {
 
           <div class="mb-[-150px] md:mb-[-250px]">
             <div class="w-[120px] flex justify-center relative p-5 overflow-hidden">
-              <svg class="polygon-star" viewBox="0 0 129 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="polygon-star" width="100%" height="100%" viewBox="0 0 129 129" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M89.8646 3.76639C91.1378 2.74635 93.031 3.59785 93.1125 5.22728L94.4877 32.696C94.5858 34.6567 96.0924 36.2563 98.0437 36.4718L125.381 39.4903C127.002 39.6694 127.739 41.6101 126.644 42.82L108.193 63.2156C106.876 64.6715 106.81 66.8679 108.038 68.4L125.234 89.8646C126.254 91.1378 125.402 93.031 123.773 93.1125L96.3041 94.4877C94.3434 94.5858 92.7437 96.0924 92.5282 98.0437L89.5097 125.381C89.3307 127.002 87.3899 127.739 86.1801 126.644L65.7844 108.193C64.3286 106.876 62.1321 106.81 60.6 108.038L39.1355 125.234C37.8622 126.254 35.9691 125.402 35.8875 123.773L34.5124 96.304C34.4142 94.3434 32.9077 92.7437 30.9564 92.5282L3.61942 89.5097C1.9978 89.3307 1.26126 87.3899 2.35576 86.1801L20.8067 65.7844C22.1237 64.3286 22.1896 62.1321 20.9621 60.6L3.7664 39.1355C2.74636 37.8622 3.59786 35.9691 5.22729 35.8875L32.696 34.5123C34.6567 34.4142 36.2564 32.9077 36.4718 30.9564L39.4903 3.61941C39.6694 1.9978 41.6101 1.26126 42.82 2.35576L63.2156 20.8067C64.6715 22.1237 66.8679 22.1896 68.4 20.9621L89.8646 3.76639Z"
                   stroke="#D3E741"
@@ -1058,13 +1058,13 @@ function onClickSvgCircle() {
                 />
               </svg>
               <div class="w-[17px] absolute top-[-75px] polygon-arrow">
-                <svg viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 27 48" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.5124 1.10547V47.2874C12.2738 43.1292 8.20411 35.0253 1.8342 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                   <path d="M13.7778 1.10547V47.2874C15.0164 43.1292 19.0861 35.0253 25.456 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                 </svg>
               </div>
               <div class="w-[17px] absolute top-[-75px] polygon-arrow-back">
-                <svg viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 27 48" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.5124 1.10547V47.2874C12.2738 43.1292 8.20411 35.0253 1.8342 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                   <path d="M13.7778 1.10547V47.2874C15.0164 43.1292 19.0861 35.0253 25.456 35.8746" stroke="#D3E741" stroke-width="2" stroke-linecap="round" />
                 </svg>
