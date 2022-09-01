@@ -98,8 +98,15 @@ function scrollToPageTop() {
     <div :style="`background-color:${props.color}`" class="w-full flex justify-center pb-20 3xl:gap-40 relative">
       <div class="pointer-detected w-fit absolute bottom-0" @click="scrollToPageTop">
         <div class="w-[150px] 3xl:w-[200px] relative flex justify-center items-center">
-          <div class="absolute w-8 3xl:w-12">
-            <svg viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="absolute hidden 3xl:block w-12">
+            <svg viewBox="0 0 51 52" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25.895 1.00044C28.4516 9.58336 36.8519 26.3109 50.0002 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M26.0122 1.00044C23.4556 9.58336 15.0553 26.3109 1.90698 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
+              <path d="M25.8949 1V50.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="absolute w-8 3xl:hidden">
+            <svg viewBox="0 0 51 52" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M25.895 1.00044C28.4516 9.58336 36.8519 26.3109 50.0002 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M26.0122 1.00044C23.4556 9.58336 15.0553 26.3109 1.90698 24.5578" stroke="black" stroke-width="2" stroke-linecap="round" />
               <path d="M25.8949 1V50.2384" stroke="black" stroke-width="2" stroke-linecap="round" />
