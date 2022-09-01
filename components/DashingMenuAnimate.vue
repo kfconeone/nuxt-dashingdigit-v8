@@ -24,7 +24,6 @@ const pointer = new THREE.Vector2();
 var text;
 var liltext;
 function emojiBackground(routeName) {
-  console.log(routeName);
   // Scene
   const scene = new THREE.Scene(); //建立場景
   const fontLoader = new FontLoader();

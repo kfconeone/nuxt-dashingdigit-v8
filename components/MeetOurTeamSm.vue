@@ -209,7 +209,6 @@ function initThree() {
     width: window.innerWidth,
     height: window.innerHeight,
   };
-  console.log(sizes);
   // Camera
   // const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
   const camera = new THREE.OrthographicCamera(sizes.width / -2, sizes.width / 2, sizes.height / 2, sizes.height / -2, 1, 1000);
@@ -292,8 +291,6 @@ function initThree() {
   //cannon floor
 
   window.addEventListener("resize", () => {
-    console.log("resize", -1530 / aspect);
-
     sizes.width = window.innerWidth;
     sizes.height = window.innerHeight;
     aspect = sizes.width / sizes.height;
@@ -315,8 +312,6 @@ function initThree() {
 }
 
 const onClickTextBtn = () => {
-  console.log("onClick");
-
   try {
     if (currentMemberIndex.value < 6) {
       currentMemberIndex.value++;
@@ -336,7 +331,6 @@ const onClickTextBtn = () => {
 
 const resetIconsPosition = () => {
   // let positionX = Math.random() * 600 - 300;
-  console.log("meetourteamsm init");
   worldObjectsToUpdate.value.forEach((d, i) => {
     d.body.position.x = (window.innerWidth / 20) * (i - 2) + (Math.floor(Math.random() * 2) - 1) * 25;
     d.body.position.y = -100;

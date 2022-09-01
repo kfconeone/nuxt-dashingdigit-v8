@@ -22,7 +22,6 @@ onMounted(() => {
 });
 
 function onClickToggle() {
-  console.log("onClickToggle");
   if (isMenuOpen.value) {
     //移除 body overflow:hidden
     document.body.classList.remove("disabled-scroll");

@@ -22,8 +22,6 @@ onMounted(() => {
 
 function animateFooterLtsgtwSvgPc() {
   footerLtsgtwSvgPc.value.addEventListener("mouseleave", (e) => {
-    console.log("mouseout");
-
     gsap.to(".svg-ltsgtw-circle-tip", {
       ease: "Power2.InOut",
       "--bg": "white",
@@ -33,7 +31,6 @@ function animateFooterLtsgtwSvgPc() {
   });
 
   footerLtsgtwSvgPc.value.addEventListener("mouseover", (e) => {
-    console.log("mouseover");
     gsap.to(".svg-ltsgtw-circle-tip", {
       "--bg": "#6372c6",
       duration: 0.4,
@@ -44,8 +41,6 @@ function animateFooterLtsgtwSvgPc() {
 }
 function animateSwipeBtn() {
   footerBtnSendPc.value.addEventListener("mouseleave", (e) => {
-    console.log("mouseout");
-
     gsap.to(".swipe-span", {
       scaleX: 0,
       duration: 0.4,
@@ -64,8 +59,6 @@ function animateSwipeBtn() {
   });
 
   footerBtnSendPc.value.addEventListener("mouseover", (e) => {
-    console.log("mouseover");
-
     gsap.to(".swipe-span", {
       scaleX: 1,
       duration: 0.4,

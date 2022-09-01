@@ -23,8 +23,6 @@ onMounted(() => {
 
   matches.forEach((d) => {
     d.addEventListener("mouseover", async () => {
-      console.log("ggg");
-
       isPointer.value = true;
     });
     d.addEventListener("mouseleave", () => {

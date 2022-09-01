@@ -12,9 +12,6 @@ function onClickToggle() {
   }
   isMenuOpen.value = !isMenuOpen.value;
 }
-function testggg() {
-  console.log("tttt");
-}
 </script>
 <template>
   <div class="w-full flex justify-between px-5 xl:px-20 fixed top-0 z-50" style="mix-blend-mode: difference">

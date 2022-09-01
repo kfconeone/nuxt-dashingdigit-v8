@@ -24,8 +24,6 @@ onMounted(() => {
   window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
 
   onLoadedEvents.value["service"] = () => {
-    console.log("service init");
-
     switch (currentWindowSize) {
       case WindowSize.Desktop:
       case WindowSize.Laptop:
@@ -36,7 +34,6 @@ onMounted(() => {
         break;
       case WindowSize.Tablet:
       case WindowSize.Mobile:
-        console.log("hello tablet & mobile");
         initSmoothScrollbarForMobileAndTablet();
         shrinkCenterForMobileAndTablet();
         initGsapParallaxForMobileAndTablet();
@@ -362,7 +359,6 @@ function shrinkCenterForMobileAndTablet() {
 }
 
 function initSmoothScrollbarForDesktopAndLaptop() {
-  console.log("service smooth init");
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".service-scroll");
   scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
@@ -386,7 +382,6 @@ function initSmoothScrollbarForDesktopAndLaptop() {
   //smooth scrollbar//
 }
 function initSmoothScrollbarForMobileAndTablet() {
-  console.log("service smooth init");
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".sm-service-scroll");
   scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });

@@ -124,7 +124,6 @@ onMounted(() => {
 
           break;
         case WindowSize.Mobile:
-          console.log("hello tablet & mobile");
           itSmoothScrollbarForMobileAndTablet();
           slideSharkForMobile();
           ScrollTrigger.create({

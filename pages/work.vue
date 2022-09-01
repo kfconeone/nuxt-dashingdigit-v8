@@ -28,7 +28,6 @@ onMounted(() => {
   window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
 
   onLoadedEvents.value["work"] = () => {
-    console.log("work");
     switch (currentWindowSize) {
       case WindowSize.Desktop:
       case WindowSize.Laptop:
@@ -44,7 +43,6 @@ onMounted(() => {
         wiggleImgsForTablet();
         break;
       case WindowSize.Mobile:
-        console.log("hello tablet & mobile");
         initSmoothScrollbarForMobile();
         shrinkCenterForMobile();
         break;
@@ -249,7 +247,6 @@ function animateWiggle() {
 }
 
 function wiggleImgsForTablet() {
-  console.log("wiggleImgsForTablet");
   let animatedArray = [".work-mia-sm", ".work-bella-sm", ".work-ancient-sm"];
   for (let i = 0; i < animatedArray.length; i++) {
     var radius = Math.floor(Math.random() * 70) + 30;

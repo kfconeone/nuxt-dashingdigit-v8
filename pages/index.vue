@@ -197,7 +197,6 @@ function initSmoothScrollbarForMobileAndTablet() {
 }
 
 function revealTitle() {
-  console.log("revealTitle");
   gsap.from(".pc-wecreate", {
     yPercent: 100,
     ease: "Power4.easeOut",
@@ -264,7 +263,6 @@ function addListenerOnSvgCircle() {
 
 function animateSwipeBtn() {
   btnSwipe.value.addEventListener("mouseleave", (e) => {
-    console.log("mouseout");
     gsap.to(".swipe-span", {
       scaleX: 0,
       duration: 0.4,
@@ -284,7 +282,6 @@ function animateSwipeBtn() {
   });
 
   btnSwipe.value.addEventListener("mouseover", (e) => {
-    console.log("mouseover");
     gsap.to(".swipe-span", {
       scaleX: 1,
       duration: 0.4,
@@ -304,9 +301,7 @@ function animateSwipeBtn() {
   });
 }
 
-function onSlideChange() {
-  console.log("onSlideChange");
-}
+function onSlideChange() {}
 
 function marqueeForDesktopAndLaptop() {
   gsap.to(".front", {
@@ -400,15 +395,19 @@ function animtePolygon() {
   });
 }
 
-function onClickSvgCircle() {
-  console.log("onClickSvgCircle");
+function scrollToPageFooter() {
+  try {
+    scrollbarRef.value.scrollTo(0, scrollbarRef.value.limit.y, 600);
+  } catch (error) {
+    console.log("error:", error);
+  }
 }
 </script>
 <template>
   <div class="hidden xl:block">
     <div class="index-scroll h-screen relative bg-[#D3E741]">
       <div class="bg-[#262723] pc-index-center relative overflow-hidden">
-        <img id="bg-hero" class="bg-hero w-full h-screen sticky top-0" src="~/assets/imgs/bg-hero-sm.png" />
+        <img id="bg-hero" class="bg-hero w-full h-screen sticky top-0" src="~/assets/imgs/bg-index-pc.png" />
 
         <div class="mt-[-100vh]">
           <div class="w-full h-screen min-h-screen grid grid-cols-12 pl-11 pr-9 pb-24 overflow-hidden relative z-10">
@@ -440,7 +439,7 @@ function onClickSvgCircle() {
               </div>
             </div>
             <div class="h-full col-start-11 flex items-end">
-              <div ref="svgGit" class="pointer-detected w-24 flex justify-center items-center relative" @click="onClickSvgCircle">
+              <div ref="svgGit" class="pointer-detected w-24 flex justify-center items-center relative" @click="scrollToPageFooter">
                 <svg class="svg-git" width="100%" height="100%" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle class="svg-git-circle fill-[#6372C6]" cx="50.5" cy="50.5" r="50.5" />
                   <path
@@ -521,50 +520,56 @@ function onClickSvgCircle() {
                 >
                   <swiper-slide>
                     <div class="relative">
-                      <div class="w-56 absolute -right-7 bottom-8">
-                        <div class="w-8 ml-auto">
-                          <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                      <div class="relative">
+                        <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
+                          <div class="w-10 absolute right-5 -top-14 z-10">
+                            <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                          </div>
+                          <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
                         </div>
-                        <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
+                        <div class="overflow-hidden relative z-0">
+                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.jpg" />
+                        </div>
                       </div>
-                      <div>
-                        <img src="~assets/imgs/hero-mia-pc.jpg" />
-                      </div>
-                      <div class="w-[335px]"><p>MIA TREASURE 為來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>MIA TREASURE 為來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
-                      <div class="w-56 absolute -right-7 bottom-8">
-                        <div class="w-8 ml-auto">
-                          <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                      <div class="relative">
+                        <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
+                          <div class="w-10 absolute right-5 -top-14 z-10">
+                            <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                          </div>
+                          <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                         </div>
-                        <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
+                        <div class="overflow-hidden relative z-0">
+                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.png" />
+                        </div>
                       </div>
-                      <div>
-                        <img src="~assets/imgs/hero-bella-pc.png" />
-                      </div>
-                      <div class="w-[335px]"><p>Bella Uno是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>Bella Uno是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
-                      <div class="w-56 absolute -right-7 bottom-8">
-                        <div class="w-8 ml-auto">
-                          <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                      <div class="relative">
+                        <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
+                          <div class="w-10 absolute right-5 -top-14 z-10">
+                            <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                          </div>
+                          <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                         </div>
-                        <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
+                        <div class="overflow-hidden relative z-0">
+                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.jpg" />
+                        </div>
                       </div>
-                      <div>
-                        <img src="~assets/imgs/hero-ancient-pc.jpg" />
-                      </div>
-                      <div class="w-[335px]"><p>全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p></div>
                     </div>
                   </swiper-slide>
                 </swiper>
               </div>
 
-              <div class="flex justify-center mt-20 text-[#D3E741] text-sm 3xl:text-xl font-bold" style="font-family: arial-black">
+              <div class="flex justify-center mt-20 text-[#D3E741] text-sm 3xl:text-xl font-bold" style="font-family: arial-bd">
                 <button ref="btnSwipe" class="btnSwipe overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-2.5 px-10 relative w-fit h-fit">
                   <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
                   <div class="relative z-10 flex items-center gap-2.5">
@@ -791,7 +796,7 @@ function onClickSvgCircle() {
               </div>
 
               <div class="flex w-full justify-end mt-12 md:mt-[180px]">
-                <div ref="svgGitSm" class="pointer-detected w-16 h-16 md:w-[120px] md:h-[120px] flex justify-center items-center relative" @click="onClickSvgCircle">
+                <div ref="svgGitSm" class="pointer-detected w-16 h-16 md:w-[120px] md:h-[120px] flex justify-center items-center relative" @click="scrollToPageFooter">
                   <svg class="svg-git" width="100%" height="100%" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle class="svg-git-circle fill-[#6372C6]" cx="50.5" cy="50.5" r="50.5" />
                     <path
@@ -867,24 +872,48 @@ function onClickSvgCircle() {
               class="mySwiper"
             >
               <swiper-slide>
-                <div>
+                <div class="relative">
+                  <div class="w-44 absolute -right-5 bottom-0 z-10">
+                    <div class="w-8 absolute right-0 -top-10 z-10">
+                      <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                    </div>
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
+                  </div>
                   <img src="~assets/imgs/project1-320.jpg" />
+                  <br />
+                  <br />
                 </div>
               </swiper-slide>
               <swiper-slide>
-                <div>
-                  <img src="~assets/imgs/project2-320.jpg" />
+                <div class="relative">
+                  <div class="w-44 absolute -right-5 bottom-0 z-10">
+                    <div class="w-8 absolute right-0 -top-10 z-10">
+                      <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                    </div>
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
+                  </div>
+                  <img src="~assets/imgs/project2.png" />
+                  <br />
+                  <br />
                 </div>
               </swiper-slide>
               <swiper-slide>
-                <div>
+                <div class="relative">
+                  <div class="w-44 absolute -right-5 bottom-0 z-10">
+                    <div class="w-8 absolute right-0 -top-10 z-10">
+                      <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                    </div>
+                    <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
+                  </div>
                   <img src="~assets/imgs/project3-320.jpg" />
+                  <br />
+                  <br />
                 </div>
               </swiper-slide>
             </swiper>
           </div>
 
-          <div class="flex justify-center mt-20 text-[#D3E741] text-xs font-bold mb-20" style="font-family: arial-bd">
+          <div class="flex justify-center mt-16 text-[#D3E741] text-xs font-bold mb-20" style="font-family: arial-bd">
             <button class="overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-1.5 px-5 relative w-fit h-fit">
               <div class="relative z-10 flex items-center gap-1">
                 <p class="tracking-[0.13em]">MORE</p>
