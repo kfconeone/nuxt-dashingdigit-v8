@@ -793,11 +793,13 @@ function scrollToPageFooter() {
               <div class="overflow-hidden">
                 <p class="pc-wecreate text-3xl md:text-[45px] md:leading-[1]">Digital experience</p>
               </div>
-              <div class="mt-8 md:mt-20">
-                <p class="text-md md:text-2xl font-bold leading-[1.5]" style="font-family: arial-reg">
-                  專注於新奇的互動設計<br />
-                  打造迷人的使用者體驗
-                </p>
+              <div class="mt-8 md:mt-20 text-md md:text-2xl font-bold leading-[1.5]" style="font-family: arial-reg">
+                <div class="overflow-hidden">
+                  <p class="pc-wecreate">專注於新奇的互動設計</p>
+                </div>
+                <div class="overflow-hidden">
+                  <p class="pc-wecreate">打造迷人的使用者體驗</p>
+                </div>
               </div>
 
               <div class="flex w-full justify-end mt-12 md:mt-[180px]">

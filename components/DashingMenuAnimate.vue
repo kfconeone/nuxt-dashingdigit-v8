@@ -29,7 +29,7 @@ function emojiBackground(routeName) {
   const fontLoader = new FontLoader();
   fontLoader.load("/fonts/dgo.json", (font) => {
     const textMaterial = new THREE.MeshBasicMaterial({});
-    const transparentTextMaterial = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 });
+    const transparentTextMaterial = new THREE.MeshBasicMaterial({ color: "#D3E741" });
     const textMaterial2 = new THREE.MeshBasicMaterial({ color: "#6372C6" });
     const textMaterial3 = new THREE.MeshBasicMaterial({ color: "black" });
 
