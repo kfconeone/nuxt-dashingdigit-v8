@@ -5,7 +5,13 @@ import { CustomEase } from "gsap/CustomEase";
 import * as THREE from "three";
 import * as CANNON from "cannon-es";
 import { WaitMilliseconds } from "flag-waiter";
+import { Ref } from "vue";
 gsap.registerPlugin(ScrollTrigger, CustomEase);
+
+class ThreeAndCannon {
+  mesh: THREE.Mesh;
+  body: CANNON.Body;
+}
 
 class Member {
   iconUrls: string[] = [];
@@ -45,7 +51,7 @@ const sphereBody = ref();
 //物理規則世界
 const world = ref();
 const worldNog = ref();
-const worldObjectsToUpdate: any = ref([]);
+const worldObjectsToUpdate: Ref<ThreeAndCannon[]> = ref([]);
 
 const objectsToUpdate: any = ref([]);
 
@@ -231,7 +237,7 @@ function initThree() {
   // Renderer
   const renderer = new THREE.WebGLRenderer({
     canvas: myCanvas.value,
-    antialias: true,
+    // antialias: true,
     alpha: true,
   });
 
@@ -245,14 +251,21 @@ function initThree() {
       memberTextures[j].anisotropy = renderer.capabilities.getMaxAnisotropy();
     }
   }
+
+  let tempTicks = 0;
   // Animate
   const tick = () => {
+    console.log(tempTicks);
+    tempTicks += clock.getDelta();
+    if (tempTicks < 1 / 19) return;
+    tempTicks = 0;
     world.value.fixedStep();
 
     worldObjectsToUpdate.value.forEach((d) => {
-      d.mesh.position.x = d.body.position.x;
-      d.mesh.position.y = d.body.position.y;
-      d.mesh.position.z = d.body.position.z;
+      d.mesh.position.set(d.body.position.x, d.body.position.y, d.body.position.z);
+      // d.mesh.position.x = d.body.position.x;
+      // d.mesh.position.y = d.body.position.y;
+      // d.mesh.position.z = d.body.position.z;
     });
 
     // Render
@@ -315,7 +328,7 @@ function initThree() {
     // Update renderer
     renderer.setSize(sizes.width, sizes.height);
   });
-  // renderer.setAnimationLoop(tick);
+  renderer.setAnimationLoop(tick);
 }
 
 const onClickTextBtn = () => {
