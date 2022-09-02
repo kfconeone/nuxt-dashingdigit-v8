@@ -110,7 +110,7 @@ onMounted(() => {
 
           break;
         case WindowSize.Mobile:
-          itSmoothScrollbarForMobileAndTablet();
+          // itSmoothScrollbarForMobileAndTablet();
           slideSharkForMobile();
           ScrollTrigger.create({
             trigger: ".sm-whitebg-tri",
