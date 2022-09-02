@@ -111,7 +111,7 @@ onMounted(() => {
           break;
         case WindowSize.Mobile:
           // itSmoothScrollbarForMobileAndTablet();
-          slideSharkForMobile();
+          // slideSharkForMobile();
           ScrollTrigger.create({
             trigger: ".sm-whitebg-tri",
             start: "30% bottom",
@@ -456,7 +456,7 @@ function shrinkCenterForMobileAndTablet() {
 }
 </script>
 <template>
-  <div class="hidden xl:block">
+  <div v-if="currentWindowSize == WindowSize.Laptop || currentWindowSize == WindowSize.Desktop" class="hidden xl:block">
     <!-- <div id="fps" class="fixed top-5 right-5 text-red-400 text-5xl z-[900]">{{ fps }}</div> -->
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
@@ -557,7 +557,7 @@ function shrinkCenterForMobileAndTablet() {
     </div>
   </div>
 
-  <div class="xl:hidden">
+  <div v-if="currentWindowSize == WindowSize.Mobile || currentWindowSize == WindowSize.Tablet" class="xl:hidden">
     <div class="w-full mx-auto relative sm-about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black sm-about-bg-color sm-about-center">
         <div class="flex justify-center items-center min-h-screen py-40 md:px-14 sm-test-tri relative">
