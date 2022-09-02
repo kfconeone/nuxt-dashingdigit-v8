@@ -315,7 +315,7 @@ function initThree() {
     // Update renderer
     renderer.setSize(sizes.width, sizes.height);
   });
-  renderer.setAnimationLoop(tick);
+  // renderer.setAnimationLoop(tick);
 }
 
 const onClickTextBtn = () => {
