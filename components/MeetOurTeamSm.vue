@@ -252,13 +252,8 @@ function initThree() {
     }
   }
 
-  let tempTicks = 0;
   // Animate
   const tick = () => {
-    console.log(tempTicks);
-    tempTicks += clock.getDelta();
-    if (tempTicks < 1 / 19) return;
-    tempTicks = 0;
     world.value.fixedStep();
 
     worldObjectsToUpdate.value.forEach((d) => {
