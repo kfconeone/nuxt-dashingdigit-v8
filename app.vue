@@ -52,7 +52,7 @@ onMounted(() => {
     nextTick(() => {
       ScrollTrigger.refresh();
     });
-  }, 5000);
+  }, 1000);
 });
 </script>
 

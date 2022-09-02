@@ -24,21 +24,7 @@ var currentWindowSize: WindowSize = WindowSize.Mobile;
 const scrollbarRef = ref();
 provide("scrollbarRef", scrollbarRef);
 
-// const fps = ref(0);
 onMounted(() => {
-  // let requestTime;
-
-  // function loop(time) {
-  //   if (requestTime) {
-  //     fps.value = Math.round(1000 / (performance.now() - requestTime));
-  //   }
-
-  //   requestTime = time;
-  //   window.requestAnimationFrame((timeRes) => loop(timeRes));
-  // }
-
-  // window.requestAnimationFrame((timeRes) => loop(timeRes));
-
   currentWindowSize = getCurrentWindowSize();
   window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
 

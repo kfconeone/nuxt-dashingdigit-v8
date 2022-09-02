@@ -360,7 +360,7 @@ defineExpose({
           <div class="flex items-end gap-5 justify-between w-full">
             <p class="text-base md:text-xl leading-[1.75rem]">{{ memberBtnDatas[currentMemberIndex].name }}</p>
             <div class="flex gap-2.5 self-center pt-1">
-              <div class="w-2.5 h-2 md:w-4 md:h-2.5" v-for="n in 3">
+              <div class="w-4 h-3 md:w-5 md:h-3.5" v-for="n in 3">
                 <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberEmojiImgSrcs[n - 1]" />
               </div>
             </div>

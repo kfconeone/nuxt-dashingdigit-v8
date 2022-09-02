@@ -141,11 +141,11 @@ onMounted(async () => {
     await WaitMilliseconds(300);
     createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    // createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
-    // await WaitMilliseconds(300);
-    // createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
-    // await WaitMilliseconds(300);
-    // createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 300, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    await WaitMilliseconds(300);
+    createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    await WaitMilliseconds(300);
+    createWorldObject(50 * 2.5, sphereGeometry, new THREE.Vector3(positionX - 300, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
   } catch (error) {
     console.log("error:", error);
   }

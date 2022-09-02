@@ -288,7 +288,7 @@ function animateText() {
   <div class="hidden xl:block">
     <div class="bg-white work-scroll h-screen relative">
       <div class="bg-[#262723] center relative overflow-hidden">
-        <img id="bg-work-pc" class="bg-work-pc w-full h-screen sticky top-0" src="~/assets/imgs/bg-workabout-1280.png" />
+        <img id="bg-work-pc" class="bg-work-pc w-full h-screen sticky top-0" src="~/assets/imgs/bg-workabout-1280.webp" />
 
         <div class="mt-[-100vh]">
           <div class="grid grid-cols-12 pl-10">
@@ -322,45 +322,46 @@ function animateText() {
           </div>
 
           <div class="flex text-white justify-center mt-64">
-            <div class="w-[500px] h-fit relative work-mia-pc">
+            <div class="w-[650px] h-fit relative work-mia-pc">
               <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.jpg" />
+                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
               </div>
 
-              <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+              <div class="border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
                 <div class="pb-12">
-                  <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                  <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                  <h1 class="text-[46px] w-fit" style="font-family: arial-bd">MIA TREASURE</h1>
+                  <p class="mt-4 text-xs w-[400px]">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                 </div>
-                <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+                <img class="self-start mt-5" src="~assets/imgs/work-mia-diamond.png" />
               </div>
             </div>
-            <div class="work-bella-pc w-[500px] h-fit relative mt-48">
+
+            <div class="work-bella-pc w-[650px] h-fit relative mt-48">
               <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.png" />
+                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
               </div>
 
-              <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+              <div class="border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
                 <div class="pb-12">
-                  <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                  <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                  <h1 class="text-[46px]" style="font-family: arial-bd">BELLA UNO</h1>
+                  <p class="mt-4 text-xs w-[400px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
                 </div>
-                <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+                <img class="self-start mt-5" src="~assets/imgs/work-bella-bee.png" />
               </div>
             </div>
           </div>
           <div class="flex text-white justify-center gap-12 mt-5 pb-64">
-            <div class="work-ancient-pc w-[500px] h-fit relative">
+            <div class="work-ancient-pc w-[650px] h-fit relative">
               <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.jpg" />
+                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
               </div>
 
-              <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+              <div class="border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
                 <div class="pb-12">
-                  <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                  <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                  <h1 class="text-[46px]" style="font-family: arial-bd">全國古蹟日</h1>
+                  <p class="mt-4 text-xs w-[400px]">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                 </div>
-                <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
+                <img class="self-start mt-5" src="~assets/imgs/work-ancient-tree.png" />
               </div>
             </div>
           </div>
@@ -371,67 +372,6 @@ function animateText() {
       </div>
     </div>
   </div>
-
-  <!-- <div class="hidden xl:block 3xl:hidden">
-    <div class="bg-white">
-      <div class="bg-[#262723]">
-        <div class="grid grid-cols-12 pl-10">
-          <p class="col-span-1 text-white" style="font-family: corbel-bold-italic">Dashing</p>
-          <div style="font-family: dgo" class="col-start-3 col-span-full text-white mt-[345px]">
-            <p class="text-[40px] leading-[54px]">
-              WE DONT’T<br />
-              WORK FOR YOU
-            </p>
-            <p class="text-[64px]">WE WORK WITH YOU</p>
-            <div class="bg-black w-fit mt-6">
-              <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
-            </div>
-            <div class="bg-black w-fit mt-12">
-              <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當一個</p>
-            </div>
-            <div class="bg-black w-fit mt-3">
-              <p class="" style="font-family: arial-reg">可以與你密切溝通，且能始終如一交付高品質成果的夥伴</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex text-white justify-center gap-12 mt-64">
-          <div class="w-[500px] border-[5px] border-[#D3E741] rounded-[5px] h-fit">
-            <img class="w-full" w src="~assets/imgs/demo.png" />
-            <div class="border-t-[5px] border-[#D3E741] pl-8 pr-5 pt-5 flex justify-between">
-              <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
-              </div>
-              <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
-            </div>
-          </div>
-          <div class="w-[500px] border-[5px] border-[#D3E741] rounded-[5px] h-fit mt-40">
-            <img class="w-full" w src="~assets/imgs/demo.png" />
-            <div class="border-t-[5px] border-[#D3E741] pl-8 pr-5 pt-5 flex justify-between">
-              <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">BELLA UNO</h1>
-                <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
-              </div>
-              <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
-            </div>
-          </div>
-        </div>
-        <div class="flex text-white justify-center gap-12 mt-16">
-          <div class="w-[500px] border-[5px] border-[#D3E741] rounded-[5px] h-fit mr-80">
-            <img class="w-full" w src="~assets/imgs/demo.png" />
-            <div class="border-t-[5px] border-[#D3E741] pl-8 pr-5 pt-5 flex justify-between">
-              <div class="pb-12">
-                <h1 class="text-[46px]" style="font-family: arial-bd">全國古蹟日</h1>
-                <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
-              </div>
-              <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <DashingFooter color="#FFFFFF" />
-    </div>
-  </div> -->
 
   <div class="hidden md:block xl:hidden">
     <div class="bg-white md-work-scroll h-screen relative">
@@ -475,26 +415,34 @@ function animateText() {
               <div class="flex gap-3">
                 <div class="w-[320px] h-fit relative work-mia-sm">
                   <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                    <img class="w-full" w src="~assets/imgs/work-mia-sm.jpg" />
+                    <img class="w-full" w src="~assets/imgs/work-mia-sm.webp" />
                   </div>
-                  <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                    <div class="pb-12">
-                      <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                      <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                  <div class="px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                    <div class="">
+                      <div class="flex justify-between items-center">
+                        <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
+                        <div class="w-5">
+                          <img src="~assets/imgs/work-mia-diamond.png" />
+                        </div>
+                      </div>
+                      <p class="mt-4 text-sm">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                     </div>
-                    <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
                   </div>
                 </div>
                 <div class="w-[320px] h-fit relative mt-64 work-bella-sm">
                   <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                    <img class="w-full" w src="~assets/imgs/work-bella-sm.jpg" />
+                    <img class="w-full" w src="~assets/imgs/work-bella-sm.webp" />
                   </div>
-                  <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                    <div class="pb-12">
-                      <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                      <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                  <div class="px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                    <div class="">
+                      <div class="flex justify-between items-center">
+                        <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
+                        <div class="w-5">
+                          <img src="~assets/imgs/work-bella-bee.png" />
+                        </div>
+                      </div>
+                      <p class="mt-4 text-sm">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
                     </div>
-                    <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
                   </div>
                 </div>
               </div>
@@ -503,12 +451,17 @@ function animateText() {
                 <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                   <img class="w-full" w src="~assets/imgs/work-ancient-sm.jpg" />
                 </div>
-                <div class="border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                  <div class="pb-12">
-                    <h1 class="text-[46px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                    <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+
+                <div class="px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                  <div class="">
+                    <div class="flex justify-between items-center">
+                      <h1 class="text-2xl" style="font-family: arial-bd">全國古蹟日</h1>
+                      <div class="w-5">
+                        <img src="~assets/imgs/work-ancient-tree.png" />
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                   </div>
-                  <img class="self-start mt-5" src="~assets/imgs/social-media-icon.svg" />
                 </div>
               </div>
             </div>
@@ -544,28 +497,51 @@ function animateText() {
           <div class="bg-gray-700 pb-12">
             <div class="flex text-white justify-center gap-12 px-6">
               <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
-                <img class="w-full" src="~assets/imgs/work-mia-sm.jpg" />
+                <img class="w-full" src="~assets/imgs/work-mia-sm.webp" />
                 <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                   <div class="">
-                    <h1 class="text-[28px]" style="font-family: arial-bd">MIA TREASURE</h1>
-                    <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                    <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
+                    <p class="mt-4 text-xs w-[240px]">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                   </div>
-                  <img class="self-start w-7" src="~assets/imgs/social-media-icon.svg" />
+                  <img class="self-start w-8" src="~assets/imgs/work-mia-diamond.png" />
                 </div>
-                <div class="px-3 flex justify-end py-5"><button class="w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">More</button></div>
+                <div class="px-3 flex justify-end py-5">
+                  <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
+                    More
+                    <div class="w-1.5">
+                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                        <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                        <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20">
               <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
-                <img class="w-full" src="~assets/imgs/work-bella-sm.jpg" />
+                <img class="w-full" src="~assets/imgs/work-bella-sm.webp" />
                 <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                   <div class="">
-                    <h1 class="text-[28px]" style="font-family: arial-bd">BELLA UNO</h1>
-                    <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                    <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
+                    <p class="mt-4 text-xs w-[240px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p>
                   </div>
-                  <img class="self-start w-7" src="~assets/imgs/social-media-icon.svg" />
+                  <img class="self-start w-7" src="~assets/imgs/work-bella-bee.png" />
                 </div>
-                <div class="px-3 flex justify-end py-5"><button class="w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">More</button></div>
+                <div class="px-3 flex justify-end py-5">
+                  <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
+                    More
+
+                    <div class="w-1.5">
+                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                        <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                        <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20">
@@ -574,11 +550,23 @@ function animateText() {
                 <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                   <div class="">
                     <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>
-                    <p class="mt-4 text-xs">人氣大生鮮蝦搭配藏壽司特製麻辣醬<br />絕妙搭配，顛覆你對壽司的想像!</p>
+                    <p class="mt-4 text-xs">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                   </div>
-                  <img class="self-start w-7" src="~assets/imgs/social-media-icon.svg" />
+                  <img class="self-start w-7" src="~assets/imgs/work-ancient-tree.png" />
                 </div>
-                <div class="px-3 flex justify-end py-5"><button class="w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">More</button></div>
+                <div class="px-3 flex justify-end py-5">
+                  <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
+                    More
+
+                    <div class="w-1.5">
+                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                        <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                        <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

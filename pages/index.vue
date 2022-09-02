@@ -200,7 +200,7 @@ function revealTitle() {
   gsap.from(".pc-wecreate", {
     yPercent: 100,
     ease: "Power4.easeOut",
-    stagger: 0.1,
+    stagger: 0.25,
     duration: 1.5,
   });
 }
@@ -416,25 +416,17 @@ function scrollToPageFooter() {
             </div>
             <div class="pl-14 col-start-3 col-span-8 w-full gap-[7.3vw]">
               <div class="pt-64 text-white" style="font-family: dgo">
-                <div class="overflow-hidden">
-                  <p class="pc-wecreate font-normal text-[36px] 3xl:text-[70px] leading-none 3xl:leading-[110.8%]">We Create</p>
-                </div>
+                <p class="pc-wecreate font-normal text-[36px] 3xl:text-[70px] leading-none 3xl:leading-[110.8%]">We Create</p>
                 <div class="flex gap-3 items-end">
-                  <div class="overflow-hidden">
-                    <p class="pc-wecreate text-[#D3E741] text-[80px] 3xl:text-[130px] leading-[88px] 3xl:leading-[143px]">INSANE</p>
-                  </div>
+                  <p class="pc-wecreate text-[#D3E741] text-[80px] 3xl:text-[130px] leading-[88px] 3xl:leading-[143px]">INSANE</p>
                   <div class="w-16 3xl:w-24 rotate-[13.15deg]">
                     <img src="~assets/imgs/emoji-ethand.png" />
                   </div>
                 </div>
                 <p class="pc-wecreate text-[64px] 3xl:text-[80px] leading-[82px] 3xl:leading-[116px]">Digital experience</p>
                 <div style="font-family: arial-bd" class="font-bold text-2xl tracking-[0.08em] mt-10 3xl:mt-5">
-                  <div class="overflow-hidden">
-                    <p class="pc-wecreate">專注於新奇的互動設計</p>
-                  </div>
-                  <div class="overflow-hidden">
-                    <p class="pc-wecreate">打造迷人的使用者體驗</p>
-                  </div>
+                  <p class="pc-wecreate">專注於新奇的互動設計</p>
+                  <p class="pc-wecreate">打造迷人的使用者體驗</p>
                 </div>
               </div>
             </div>
@@ -528,10 +520,10 @@ function scrollToPageFooter() {
                           <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
                         </div>
                         <div class="overflow-hidden relative z-0">
-                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.jpg" />
+                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
                         </div>
                       </div>
-                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>MIA TREASURE 為來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
@@ -544,10 +536,10 @@ function scrollToPageFooter() {
                           <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                         </div>
                         <div class="overflow-hidden relative z-0">
-                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.png" />
+                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
                         </div>
                       </div>
-                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>Bella Uno是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
@@ -560,7 +552,7 @@ function scrollToPageFooter() {
                           <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                         </div>
                         <div class="overflow-hidden relative z-0">
-                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.jpg" />
+                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
                         </div>
                       </div>
                       <div class="w-[335px] 3xl:w-[505px] mt-5"><p>全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p></div>
@@ -886,7 +878,7 @@ function scrollToPageFooter() {
                     </div>
                     <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                   </div>
-                  <img src="~assets/imgs/project1-320.jpg" />
+                  <img src="~assets/imgs/project1.webp" />
                   <br />
                   <br />
                 </div>
@@ -912,7 +904,7 @@ function scrollToPageFooter() {
                     </div>
                     <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                   </div>
-                  <img src="~assets/imgs/project3-320.jpg" />
+                  <img src="~assets/imgs/project3-320.webp" />
                   <br />
                   <br />
                 </div>
