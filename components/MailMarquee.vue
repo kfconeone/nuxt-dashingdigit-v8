@@ -14,7 +14,7 @@ function emojiBackground() {
   const mailTexture = textureLoader.load("/mail.png");
 
   // Object
-  const geometry = new THREE.PlaneGeometry(1.38, 1);
+  const geometry = new THREE.PlaneGeometry(1.38, 1, 1, 1);
 
   const materials = new THREE.MeshBasicMaterial({
     transparent: true,

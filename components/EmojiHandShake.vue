@@ -19,7 +19,7 @@ function emojiBackground() {
   const textureLoader = new THREE.TextureLoader();
   const handShakeTexture = textureLoader.load("/emoji-handshake.png");
   // Object
-  const geometry = new THREE.PlaneGeometry(0.173, 0.1);
+  const geometry = new THREE.PlaneGeometry(0.173, 0.1, 1, 1);
   const material = new THREE.RawShaderMaterial({
     vertexShader: particleVertex,
     fragmentShader: particleFragment,

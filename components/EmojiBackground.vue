@@ -22,7 +22,7 @@ function emojiBackground() {
   const etsmileTexture = textureLoader.load("/etsmile.png");
   const starTexture = textureLoader.load("/star.png");
 
-  const starGeometry = new THREE.PlaneGeometry(0.075, 0.075);
+  const starGeometry = new THREE.PlaneGeometry(0.075, 0.075, 1, 1);
   var starArr = [];
   for (let i = 0; i < 15; i++) {
     const starMaterial = new THREE.MeshBasicMaterial({ map: starTexture, transparent: true });
@@ -52,7 +52,7 @@ function emojiBackground() {
   }
 
   // Object
-  const geometry = new THREE.PlaneGeometry(0.1, 0.1);
+  const geometry = new THREE.PlaneGeometry(0.1, 0.1, 1, 1);
   // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
   const material = new THREE.RawShaderMaterial({
     vertexShader: particleVertex,

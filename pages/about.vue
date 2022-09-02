@@ -24,135 +24,135 @@ var currentWindowSize: WindowSize = WindowSize.Mobile;
 const scrollbarRef = ref();
 provide("scrollbarRef", scrollbarRef);
 
-onMounted(() => {
-  currentWindowSize = getCurrentWindowSize();
-  window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
+// onMounted(() => {
+//   currentWindowSize = getCurrentWindowSize();
+//   window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
 
-  onLoadedEvents.value["about"] = () => {
-    nextTick(() => {
-      switch (currentWindowSize) {
-        case WindowSize.Desktop:
-        case WindowSize.Laptop:
-          itSmoothScrollbarForDesktopAndLaptop();
-          slideSharkForDesktopAndLaptop();
-          ScrollTrigger.create({
-            trigger: ".whitebg-tri",
-            start: "40% bottom",
-            end: "+=150%",
-            toggleActions: "play none none reverse",
+//   onLoadedEvents.value["about"] = () => {
+//     nextTick(() => {
+//       switch (currentWindowSize) {
+//         case WindowSize.Desktop:
+//         case WindowSize.Laptop:
+//           itSmoothScrollbarForDesktopAndLaptop();
+//           slideSharkForDesktopAndLaptop();
+//           ScrollTrigger.create({
+//             trigger: ".whitebg-tri",
+//             start: "40% bottom",
+//             end: "+=150%",
+//             toggleActions: "play none none reverse",
 
-            onEnter: () => {
-              gsap.to(".pc-about-bg-color", {
-                backgroundColor: "white",
-                duration: 0.4,
-                ease: "Power2.easeInOut",
-              });
-            },
-            onLeaveBack: () => {
-              gsap.to(".pc-about-bg-color", {
-                backgroundColor: "black",
-                duration: 0.4,
-                ease: "Power2.easeInOut",
-              });
-            },
-          });
+//             onEnter: () => {
+//               gsap.to(".pc-about-bg-color", {
+//                 backgroundColor: "white",
+//                 duration: 0.4,
+//                 ease: "Power2.easeInOut",
+//               });
+//             },
+//             onLeaveBack: () => {
+//               gsap.to(".pc-about-bg-color", {
+//                 backgroundColor: "black",
+//                 duration: 0.4,
+//                 ease: "Power2.easeInOut",
+//               });
+//             },
+//           });
 
-          initHorizontalScrollForDesktopAndLaptop();
+//           initHorizontalScrollForDesktopAndLaptop();
 
-          //偵測進入 icons Canvas 進入重置 icons 位置
-          ScrollTrigger.create({
-            trigger: ".purplebg-tri",
-            start: "-10% bottom",
-            end: "bottom top",
-            onEnter: () => {
-              meetourteamRef.value.resetIconsPosition();
-            },
-          });
-          shrinkCenterForDesktopAndLaptop();
-          break;
-        case WindowSize.Tablet:
-          itSmoothScrollbarForMobileAndTablet();
+//           //偵測進入 icons Canvas 進入重置 icons 位置
+//           ScrollTrigger.create({
+//             trigger: ".purplebg-tri",
+//             start: "-10% bottom",
+//             end: "bottom top",
+//             onEnter: () => {
+//               meetourteamRef.value.resetIconsPosition();
+//             },
+//           });
+//           shrinkCenterForDesktopAndLaptop();
+//           break;
+//         case WindowSize.Tablet:
+//           itSmoothScrollbarForMobileAndTablet();
 
-          slideSharkForTablet();
-          ScrollTrigger.create({
-            trigger: ".md-whitebg-tri",
-            start: "35% bottom",
-            end: "+=150%",
-            toggleActions: "play none none reverse",
+//           slideSharkForTablet();
+//           ScrollTrigger.create({
+//             trigger: ".md-whitebg-tri",
+//             start: "35% bottom",
+//             end: "+=150%",
+//             toggleActions: "play none none reverse",
 
-            onEnter: () => {
-              gsap.to(".sm-about-bg-color", {
-                backgroundColor: "white",
-                duration: 0.4,
-                ease: "Power2.easeInOut",
-              });
-            },
-            onLeaveBack: () => {
-              gsap.to(".sm-about-bg-color", {
-                backgroundColor: "black",
-                duration: 0.4,
-                ease: "Power2.easeInOut",
-              });
-            },
-          });
-          initHorizontalScrollForTablet();
+//             onEnter: () => {
+//               gsap.to(".sm-about-bg-color", {
+//                 backgroundColor: "white",
+//                 duration: 0.4,
+//                 ease: "Power2.easeInOut",
+//               });
+//             },
+//             onLeaveBack: () => {
+//               gsap.to(".sm-about-bg-color", {
+//                 backgroundColor: "black",
+//                 duration: 0.4,
+//                 ease: "Power2.easeInOut",
+//               });
+//             },
+//           });
+//           initHorizontalScrollForTablet();
 
-          ScrollTrigger.create({
-            trigger: ".sm-purplebg-tri",
-            start: "-10% bottom",
-            end: "bottom top",
-            onEnter: () => {
-              meetourteamSmRef.value.resetIconsPosition();
-            },
-          });
+//           ScrollTrigger.create({
+//             trigger: ".sm-purplebg-tri",
+//             start: "-10% bottom",
+//             end: "bottom top",
+//             onEnter: () => {
+//               meetourteamSmRef.value.resetIconsPosition();
+//             },
+//           });
 
-          shrinkCenterForMobileAndTablet();
+//           shrinkCenterForMobileAndTablet();
 
-          break;
-        case WindowSize.Mobile:
-          itSmoothScrollbarForMobileAndTablet();
-          slideSharkForMobile();
-          ScrollTrigger.create({
-            trigger: ".sm-whitebg-tri",
-            start: "30% bottom",
-            end: "+=150%",
-            toggleActions: "play none none reverse",
+//           break;
+//         case WindowSize.Mobile:
+//           itSmoothScrollbarForMobileAndTablet();
+//           slideSharkForMobile();
+//           ScrollTrigger.create({
+//             trigger: ".sm-whitebg-tri",
+//             start: "30% bottom",
+//             end: "+=150%",
+//             toggleActions: "play none none reverse",
 
-            onEnter: () => {
-              gsap.to(".sm-about-bg-color", {
-                backgroundColor: "white",
-                duration: 0.4,
-                ease: "Power2.easeInOut",
-              });
-            },
-            onLeaveBack: () => {
-              gsap.to(".sm-about-bg-color", {
-                backgroundColor: "black",
-                duration: 0.4,
-                ease: "Power2.easeInOut",
-              });
-            },
-          });
-          initHorizontalScrollForMobile();
+//             onEnter: () => {
+//               gsap.to(".sm-about-bg-color", {
+//                 backgroundColor: "white",
+//                 duration: 0.4,
+//                 ease: "Power2.easeInOut",
+//               });
+//             },
+//             onLeaveBack: () => {
+//               gsap.to(".sm-about-bg-color", {
+//                 backgroundColor: "black",
+//                 duration: 0.4,
+//                 ease: "Power2.easeInOut",
+//               });
+//             },
+//           });
+//           initHorizontalScrollForMobile();
 
-          ScrollTrigger.create({
-            trigger: ".sm-purplebg-tri",
-            start: "-10% bottom",
-            end: "bottom top",
-            onEnter: () => {
-              meetourteamSmRef.value.resetIconsPosition();
-            },
-          });
+//           ScrollTrigger.create({
+//             trigger: ".sm-purplebg-tri",
+//             start: "-10% bottom",
+//             end: "bottom top",
+//             onEnter: () => {
+//               meetourteamSmRef.value.resetIconsPosition();
+//             },
+//           });
 
-          shrinkCenterForMobileAndTablet();
+//           shrinkCenterForMobileAndTablet();
 
-          break;
-        default:
-          break;
-      }
-    });
-  };
-});
+//           break;
+//         default:
+//           break;
+//       }
+//     });
+//   };
+// });
 
 function slideSharkForDesktopAndLaptop() {
   gsap.to(".pc-about-shark", {
@@ -691,6 +691,7 @@ function shrinkCenterForMobileAndTablet() {
           </div>
         </div>
       </div>
+
       <div class="about-footer-tri-sm">
         <DashingFooter color="#D3E741" />
       </div>

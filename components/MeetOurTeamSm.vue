@@ -61,7 +61,7 @@ const memberBtnDatas = ref([
   {
     name: "Pon",
     companyPosition: "CO_founder & CBO",
-    memberIconImgSrc: "member/p1.png",
+    memberIconImgSrc: "member/pon1.png",
     memberEmojiImgSrcs: ["member/emojis/p1.png", "member/emojis/p2.png", "member/emojis/p3.png"],
   },
   {
@@ -116,7 +116,7 @@ onMounted(async () => {
   members.value["kevin"] = new Member();
   members.value["kevin"].addIconUrls(["/member/k1.png", "/member/k2.png", "/member/k3.png"]);
   members.value["pon"] = new Member();
-  members.value["pon"].addIconUrls(["/member/p1.png", "/member/p2.png", "/member/p3.png"]);
+  members.value["pon"].addIconUrls(["/member/pon1.png", "/member/pon2.png", "/member/pon3.png"]);
   members.value["hank"] = new Member();
   members.value["hank"].addIconUrls(["/member/h1.png", "/member/h2.png", "/member/h3.png"]);
   members.value["rinran"] = new Member();
@@ -129,25 +129,24 @@ onMounted(async () => {
   members.value["vi"].addIconUrls(["/member/vivi01.png", "/member/vivi02.png", "/member/vivi03.png"]);
 
   try {
-    // const sphereGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 32, 32);
-    var aspect = window.innerWidth / 600;
+    // const faceGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 32, 32);
 
-    const sphereGeometry = new THREE.PlaneGeometry(85 * aspect, 100, 32, 32);
+    const faceGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 1, 1);
 
     initThree();
 
     let positionX = Math.random() * 200 - 200;
-    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX + 50, -220, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX + 50, -220, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50 * (aspect * 0.75), sphereGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     // await WaitMilliseconds(300);
-    // createWorldObject(50, sphereGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    // createWorldObject(50, faceGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     // await WaitMilliseconds(300);
-    // createWorldObject(50, sphereGeometry, new THREE.Vector3(positionX - 300, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    // createWorldObject(50, faceGeometry, new THREE.Vector3(positionX - 300, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
   } catch (error) {
     console.log("error:", error);
   }
@@ -238,9 +237,18 @@ function initThree() {
 
   renderer.setSize(sizes.width, sizes.height);
 
+  var membersArr = ["kevin", "pon", "hank", "rinran", "ma", "gp", "vi"];
+  for (let i = 0; i < membersArr.length; i++) {
+    var memberTextures = members.value[membersArr[i]].getIconTextures();
+    console.log(memberTextures);
+    for (let j = 0; j < memberTextures.length; j++) {
+      memberTextures[j].anisotropy = renderer.capabilities.getMaxAnisotropy();
+    }
+  }
   // Animate
   const tick = () => {
     world.value.fixedStep();
+
     worldObjectsToUpdate.value.forEach((d) => {
       d.mesh.position.x = d.body.position.x;
       d.mesh.position.y = d.body.position.y;
@@ -250,7 +258,6 @@ function initThree() {
     // Render
     renderer.render(scene, camera);
   };
-  var aspect = sizes.width / sizes.height;
 
   //cannon floor
   const floorShape = new CANNON.Plane();

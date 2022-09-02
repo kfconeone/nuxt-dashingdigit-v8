@@ -61,7 +61,7 @@ const memberBtnDatas = ref([
   {
     name: "Pon",
     companyPosition: "CO_founder & CBO",
-    memberIconImgSrc: "member/p1.png",
+    memberIconImgSrc: "member/pon1.png",
     memberEmojiImgSrcs: ["member/emojis/p1.png", "member/emojis/p2.png", "member/emojis/p3.png"],
   },
   {
@@ -116,7 +116,7 @@ onMounted(async () => {
   members.value["kevin"] = new Member();
   members.value["kevin"].addIconUrls(["/member/k1.png", "/member/k2.png", "/member/k3.png"]);
   members.value["pon"] = new Member();
-  members.value["pon"].addIconUrls(["/member/p1.png", "/member/p2.png", "/member/p3.png"]);
+  members.value["pon"].addIconUrls(["/member/pon1.png", "/member/pon2.png", "/member/pon3.png"]);
   members.value["hank"] = new Member();
   members.value["hank"].addIconUrls(["/member/h1.png", "/member/h2.png", "/member/h3.png"]);
   members.value["rinran"] = new Member();
@@ -129,7 +129,7 @@ onMounted(async () => {
   members.value["vi"].addIconUrls(["/member/vivi01.png", "/member/vivi02.png", "/member/vivi03.png"]);
 
   try {
-    const sphereGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 32, 32);
+    const sphereGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 1, 1);
 
     initThree();
 
