@@ -7,6 +7,7 @@ import { WindowSize, getCurrentWindowSize } from "~~/composables/windowSizeServi
 const scrollbarRef = ref();
 provide("scrollbarRef", scrollbarRef);
 gsap.registerPlugin(ScrollTrigger);
+
 useHead({
   title: "Services",
   // or, instead:
@@ -36,6 +37,50 @@ onMounted(() => {
       case WindowSize.Mobile:
         initSmoothScrollbarForMobileAndTablet();
         shrinkCenterForMobileAndTablet();
+        gsap.from(".sm-bounce-webdesign", {
+          y: 200,
+          x: "random(-50,50)",
+          duration: 1.5,
+          scale: 0,
+          ease: "Power2.easeOut",
+          scrollTrigger: {
+            trigger: ".sm-bounce-webdesign-tri",
+            start: "20% bottom",
+          },
+        });
+        gsap.from(".sm-bounce-landing", {
+          y: 200,
+          x: "random(-50,50)",
+          duration: 1.5,
+          scale: 0,
+          ease: "Power2.easeOut",
+          scrollTrigger: {
+            trigger: ".sm-bounce-landing-tri",
+            start: "20% bottom",
+          },
+        });
+        gsap.from(".sm-bounce-motion", {
+          y: 200,
+          x: "random(-50,50)",
+          duration: 1.5,
+          scale: 0,
+          ease: "Power2.easeOut",
+          scrollTrigger: {
+            trigger: ".sm-bounce-motion-tri",
+            start: "20% bottom",
+          },
+        });
+        gsap.from(".sm-bounce-webapp", {
+          y: 200,
+          x: "random(-50,50)",
+          duration: 1.5,
+          scale: 0,
+          ease: "Power2.easeOut",
+          scrollTrigger: {
+            trigger: ".sm-bounce-webapp-tri",
+            start: "20% bottom",
+          },
+        });
         initGsapParallaxForMobileAndTablet();
         break;
       default:
@@ -514,7 +559,7 @@ function initSmoothScrollbarForMobileAndTablet() {
   <div class="xl:hidden">
     <div class="bg-[#D3E741] sm-service-scroll h-screen relative">
       <div class="bg-white sm-service-center relative overflow-hidden">
-        <img id="bg-services-sm" class="bg-services-sm w-full h-screen sticky top-0" src="~/assets/imgs/bg-service-sm.png" />
+        <img id="bg-services-sm" class="bg-services-sm w-full h-screen sticky top-0 pointer-events-none z-0" src="~/assets/imgs/bg-service-sm.png" />
         <div class="mt-[-100vh]">
           <div class="flex justify-center h-screen items-end pb-[15%] text-[#6372C6] relative">
             <div class="absolute z-0">
@@ -535,47 +580,56 @@ function initSmoothScrollbarForMobileAndTablet() {
             </div>
           </div>
 
-          <div class="md:hidden flex justify-center mt-52 px-6 pb-24">
+          <div class="md:hidden flex justify-center mt-52 px-6 pb-24 relative z-10">
             <div class="pb-12">
-              <div class="border-[3px] border-[#6372C6] rounded-br-[40px] px-3 pb-9 relative w-[280px] mx-auto">
-                <div class="w-64">
-                  <img class="w-full" src="~assets/imgs/web-design.gif" />
+              <div class="sm-bounce-webdesign-tri">
+                <div class="sm-bounce-webdesign bg-white border-[3px] border-[#6372C6] rounded-br-[40px] px-3 pb-9 relative w-[280px] mx-auto">
+                  <div class="w-64">
+                    <img class="w-full" src="~assets/imgs/web-design.gif" />
+                  </div>
+                  <p class="text-2xl text-[#6372C6]" style="font-family: dgo">WEB DESIGN</p>
+                  <p class="text-xs text-[#6372C6] font-bold mt-2">#品牌形象網站 #使用者介面 #網站後臺建置 <br />#資料庫建置</p>
+                  <p class="text-sm text-[#6372C6] mt-8">網站設計不僅只是數位化的展現，也包括品牌性的延伸，達訊團隊致力於製作富含品牌視覺與互動元素的網站，使品牌在百家爭鳴的線上時代也能具有強烈的識別性，使人印象深刻。</p>
                 </div>
-                <p class="text-2xl text-[#6372C6]" style="font-family: dgo">WEB DESIGN</p>
-                <p class="text-xs text-[#6372C6] font-bold mt-2">#品牌形象網站 #使用者介面 #網站後臺建置 <br />#資料庫建置</p>
-                <p class="text-sm text-[#6372C6] font-bold mt-8">網站設計不僅只是數位化的展現，也包括品牌性的延伸，達訊團隊致力於製作富含品牌視覺與互動元素的網站，使品牌在百家爭鳴的線上時代也能具有強烈的識別性，使人印象深刻。</p>
               </div>
 
-              <div class="border-[3px] text-[#6372C6] border-[#6372C6] rounded-br-[40px] px-3 pb-9 mt-48 w-[280px] mx-auto">
-                <div class="w-64">
-                  <img class="w-full" src="~assets/imgs/landing-page.gif" />
+              <div class="sm-bounce-landing-tri">
+                <div class="sm-bounce-landing bg-white border-[3px] text-[#6372C6] border-[#6372C6] rounded-br-[40px] px-3 pb-9 mt-24 w-[280px] mx-auto">
+                  <div class="w-64">
+                    <img class="w-full" src="~assets/imgs/landing-page.gif" />
+                  </div>
+                  <p class="text-2xl" style="font-family: dgo">LANDING PAGE</p>
+                  <p class="text-xs font-bold mt-2">#UI / UX 設計 #icon 設計 #動畫設計 <br />#插圖設計</p>
+                  <p class="text-sm mt-8">具有強烈目的性的著陸頁頁面，有更良好的導購效果，達訊團隊提供強烈識別性的著陸頁面，與流暢的使用者互動體驗，能大幅增加著陸頁的導流效果，轉換效果也將隨之增加。</p>
                 </div>
-                <p class="text-2xl" style="font-family: dgo">LANDING PAGE</p>
-                <p class="text-xs font-bold mt-2">#UI / UX 設計 #icon 設計 #動畫設計 <br />#插圖設計</p>
-                <p class="mt-8">具有強烈目的性的著陸頁頁面，有更良好的導購效果，達訊團隊提供強烈識別性的著陸頁面，與流暢的使用者互動體驗，能大幅增加著陸頁的導流效果，轉換效果也將隨之增加。</p>
               </div>
 
-              <div class="border-[3px] border-[#6372C6] rounded-br-[40px] px-3 pb-9 mt-48 w-[280px] mx-auto">
-                <div class="w-64">
-                  <img class="w-full" src="~assets/imgs/motion.gif" />
+              <div class="sm-bounce-motion-tri">
+                <div class="sm-bounce-motion bg-white border-[3px] border-[#6372C6] rounded-br-[40px] px-3 pb-9 mt-24 w-[280px] mx-auto">
+                  <div class="w-64">
+                    <img class="w-full" src="~assets/imgs/motion.gif" />
+                  </div>
+                  <p class="text-2xl text-[#6372C6]" style="font-family: dgo">GRAPHIC &<br />MOTION</p>
+                  <p class="text-xs text-[#6372C6] font-bold mt-2">
+                    #插圖設計 #動畫設計 #社群貼文設計<br />
+                    #廣告設計 #EMAIL設計
+                  </p>
+                  <p class="text-sm text-[#6372C6] mt-8">隨著社群媒體的興起，圖像與動畫的觀看度與日俱增，達訊團隊以擅長的動畫特效與圖像設計合併，提供不僅使觀賞者驚艷的作品，也能提高品牌的關注度，創造更高的使用者黏著度。</p>
                 </div>
-                <p class="text-2xl text-[#6372C6]" style="font-family: dgo">GRAPHIC &<br />MOTION</p>
-                <p class="text-xs text-[#6372C6] font-bold mt-2">
-                  #插圖設計 #動畫設計 #社群貼文設計<br />
-                  #廣告設計 #EMAIL設計
-                </p>
-                <p class="text-sm text-[#6372C6] font-bold mt-8">隨著社群媒體的興起，圖像與動畫的觀看度與日俱增，達訊團隊以擅長的動畫特效與圖像設計合併，提供不僅使觀賞者驚艷的作品，也能提高品牌的關注度，創造更高的使用者黏著度。</p>
               </div>
-              <div class="border-[3px] border-[#6372C6] rounded-br-[40px] px-3 pb-9 mt-48 w-[280px] mx-auto">
-                <div class="w-64">
-                  <img class="w-full" src="~assets/imgs/web-app.gif" />
+
+              <div class="sm-bounce-webapp-tri">
+                <div class="sm-bounce-webapp bg-white border-[3px] border-[#6372C6] rounded-br-[40px] px-3 pb-9 mt-24 w-[280px] mx-auto">
+                  <div class="w-64">
+                    <img class="w-full" src="~assets/imgs/web-app.gif" />
+                  </div>
+                  <p class="text-2xl text-[#6372C6]" style="font-family: dgo">WEB APP</p>
+                  <p class="text-xs text-[#6372C6] font-bold mt-2">
+                    #UI / UX 設計 #報表設計 #資料庫建置<br />
+                    #多平台登陸 #API串接 #金流串接
+                  </p>
+                  <p class="text-sm text-[#6372C6] mt-8">Web app 比起原生應用程式，能更快速測試產品，有更多靈活運用的空間，達訊團隊也看上web app不限平台的多種優勢，並運用達訊團隊本身的設計強項，為客戶開發客製化且富含設計感的應用程式。</p>
                 </div>
-                <p class="text-2xl text-[#6372C6]" style="font-family: dgo">WEB APP</p>
-                <p class="text-xs text-[#6372C6] font-bold mt-2">
-                  #UI / UX 設計 #報表設計 #資料庫建置<br />
-                  #多平台登陸 #API串接 #金流串接
-                </p>
-                <p class="text-sm text-[#6372C6] font-bold mt-8">Web app 比起原生應用程式，能更快速測試產品，有更多靈活運用的空間，達訊團隊也看上web app不限平台的多種優勢，並運用達訊團隊本身的設計強項，為客戶開發客製化且富含設計感的應用程式。</p>
               </div>
             </div>
           </div>
