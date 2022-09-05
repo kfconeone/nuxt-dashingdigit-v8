@@ -438,66 +438,72 @@ function animateText() {
 
           <div class="flex text-white justify-center mt-96 gap-12">
             <div class="work-mia-pc-tri">
-              <div class="w-[500px] 3xl:w-[650px] h-fit relative work-mia-pc">
-                <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                  <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
-                </div>
-
-                <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                  <div class="py-6 w-full">
-                    <div class="flex justify-between items-center w-full">
-                      <h1 class="text-[46px] w-fit" style="font-family: arial-bd">MIA TREASURE</h1>
-                      <div class="w-9">
-                        <img src="~assets/imgs/work-mia-diamond.png" />
-                      </div>
-                    </div>
-                    <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="mt-48">
-              <div class="work-bella-pc-tri">
-                <div class="w-[500px] 3xl:w-[650px] h-fit relative work-bella-pc">
+              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                <div class="w-[500px] 3xl:w-[650px] h-fit relative work-mia-pc group">
                   <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                    <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
+                    <img class="w-full object-cover hero-mia-pc group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
                   </div>
 
                   <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
                     <div class="py-6 w-full">
                       <div class="flex justify-between items-center w-full">
-                        <h1 class="text-[46px] w-fit" style="font-family: arial-bd">BELLA UNO</h1>
+                        <h1 class="text-[46px] w-fit" style="font-family: arial-bd">MIA TREASURE</h1>
                         <div class="w-9">
-                          <img src="~assets/imgs/work-bella-bee.png" />
+                          <img src="~assets/imgs/work-mia-diamond.png" />
                         </div>
                       </div>
-                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
+                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
                     </div>
                   </div>
                 </div>
+              </NuxtLink>
+            </div>
+            <div class="mt-48">
+              <div class="work-bella-pc-tri">
+                <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                  <div class="w-[500px] 3xl:w-[650px] h-fit relative work-bella-pc group">
+                    <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                      <img class="w-full object-cover hero-mia-pc group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
+                    </div>
+
+                    <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                      <div class="py-6 w-full">
+                        <div class="flex justify-between items-center w-full">
+                          <h1 class="text-[46px] w-fit" style="font-family: arial-bd">BELLA UNO</h1>
+                          <div class="w-9">
+                            <img src="~assets/imgs/work-bella-bee.png" />
+                          </div>
+                        </div>
+                        <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
+                      </div>
+                    </div>
+                  </div>
+                </NuxtLink>
               </div>
             </div>
           </div>
 
           <div class="flex text-white justify-center gap-12 mt-5 pb-64">
             <div class="work-ancient-pc-tri">
-              <div class="w-[500px] 3xl:w-[650px] h-fit relative work-ancient-pc">
-                <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                  <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
-                </div>
+              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                <div class="w-[500px] 3xl:w-[650px] h-fit relative work-ancient-pc group">
+                  <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                    <img class="w-full object-cover hero-mia-pc group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
+                  </div>
 
-                <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                  <div class="py-6 w-full">
-                    <div class="flex justify-between items-center w-full">
-                      <h1 class="text-[46px] w-fit" style="font-family: arial-bd">全國古蹟日</h1>
-                      <div class="w-9">
-                        <img src="~assets/imgs/work-ancient-tree.png" />
+                  <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                    <div class="py-6 w-full">
+                      <div class="flex justify-between items-center w-full">
+                        <h1 class="text-[46px] w-fit" style="font-family: arial-bd">全國古蹟日</h1>
+                        <div class="w-9">
+                          <img src="~assets/imgs/work-ancient-tree.png" />
+                        </div>
                       </div>
+                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
                     </div>
-                    <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
                   </div>
                 </div>
-              </div>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -549,61 +555,67 @@ function animateText() {
             <div class="">
               <div class="flex gap-3">
                 <div class="md-work-mia-tri">
-                  <div class="w-[320px] h-fit relative md-work-mia">
-                    <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                      <img class="w-full" w src="~assets/imgs/work-mia-sm.webp" />
-                    </div>
-                    <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                      <div class="">
-                        <div class="flex justify-between items-center">
-                          <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
-                          <div class="w-5">
-                            <img src="~assets/imgs/work-mia-diamond.png" />
+                  <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                    <div class="w-[320px] h-fit relative md-work-mia">
+                      <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                        <img class="w-full" w src="~assets/imgs/work-mia-sm.webp" />
+                      </div>
+                      <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                        <div class="">
+                          <div class="flex justify-between items-center">
+                            <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
+                            <div class="w-5">
+                              <img src="~assets/imgs/work-mia-diamond.png" />
+                            </div>
                           </div>
+                          <p class="mt-4 text-sm">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                         </div>
-                        <p class="mt-4 text-sm">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                       </div>
                     </div>
-                  </div>
+                  </NuxtLink>
                 </div>
 
                 <div class="md-work-bella-tri">
-                  <div class="w-[320px] h-fit relative mt-64 md-work-bella">
-                    <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                      <img class="w-full" w src="~assets/imgs/work-bella-sm.webp" />
-                    </div>
-                    <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                      <div class="">
-                        <div class="flex justify-between items-center">
-                          <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
-                          <div class="w-5">
-                            <img src="~assets/imgs/work-bella-bee.png" />
+                  <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                    <div class="w-[320px] h-fit relative mt-64 md-work-bella">
+                      <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                        <img class="w-full" w src="~assets/imgs/work-bella-sm.webp" />
+                      </div>
+                      <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                        <div class="">
+                          <div class="flex justify-between items-center">
+                            <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
+                            <div class="w-5">
+                              <img src="~assets/imgs/work-bella-bee.png" />
+                            </div>
                           </div>
+                          <p class="mt-4 text-sm">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
                         </div>
-                        <p class="mt-4 text-sm">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
                       </div>
                     </div>
-                  </div>
+                  </NuxtLink>
                 </div>
               </div>
               <div class="md-work-ancient-tri">
-                <div class="w-[320px] h-fit mx-auto relative mt-3 md-work-ancient">
-                  <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                    <img class="w-full" w src="~assets/imgs/work-ancient-sm.jpg" />
-                  </div>
+                <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                  <div class="w-[320px] h-fit mx-auto relative mt-3 md-work-ancient">
+                    <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                      <img class="w-full" w src="~assets/imgs/work-ancient-sm.jpg" />
+                    </div>
 
-                  <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                    <div class="">
-                      <div class="flex justify-between items-center">
-                        <h1 class="text-2xl" style="font-family: arial-bd">全國古蹟日</h1>
-                        <div class="w-5">
-                          <img src="~assets/imgs/work-ancient-tree.png" />
+                    <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                      <div class="">
+                        <div class="flex justify-between items-center">
+                          <h1 class="text-2xl" style="font-family: arial-bd">全國古蹟日</h1>
+                          <div class="w-5">
+                            <img src="~assets/imgs/work-ancient-tree.png" />
+                          </div>
                         </div>
+                        <p class="mt-4 text-sm">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                       </div>
-                      <p class="mt-4 text-sm">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                     </div>
                   </div>
-                </div>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -655,78 +667,84 @@ function animateText() {
 
           <div class="pb-12 relative z-10">
             <div class="flex text-white justify-center gap-12 px-6 sm-work-mia-tri">
-              <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
-                <img class="w-full" src="~assets/imgs/work-mia-sm.webp" />
-                <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
-                  <div class="">
-                    <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
-                    <p class="mt-4 text-xs w-[220px]">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
-                  </div>
-                  <img class="self-start w-8" src="~assets/imgs/work-mia-diamond.png" />
-                </div>
-                <div class="px-3 flex justify-end py-5">
-                  <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
-                    More
-                    <div class="w-1.5">
-                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
-                      </svg>
+              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
+                  <img class="w-full" src="~assets/imgs/work-mia-sm.webp" />
+                  <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
+                    <div class="">
+                      <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
+                      <p class="mt-4 text-xs w-[220px]">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                     </div>
-                  </button>
+                    <img class="self-start w-8" src="~assets/imgs/work-mia-diamond.png" />
+                  </div>
+                  <div class="px-3 flex justify-end py-5">
+                    <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
+                      More
+                      <div class="w-1.5">
+                        <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                          <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                          <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </NuxtLink>
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-bella-tri">
-              <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
-                <img class="w-full" src="~assets/imgs/work-bella-sm.webp" />
-                <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
-                  <div class="">
-                    <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
-                    <p class="mt-4 text-xs w-[220px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p>
-                  </div>
-                  <img class="self-start w-7" src="~assets/imgs/work-bella-bee.png" />
-                </div>
-                <div class="px-3 flex justify-end py-5">
-                  <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
-                    More
-
-                    <div class="w-1.5">
-                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
-                      </svg>
+              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
+                  <img class="w-full" src="~assets/imgs/work-bella-sm.webp" />
+                  <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
+                    <div class="">
+                      <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
+                      <p class="mt-4 text-xs w-[220px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p>
                     </div>
-                  </button>
+                    <img class="self-start w-7" src="~assets/imgs/work-bella-bee.png" />
+                  </div>
+                  <div class="px-3 flex justify-end py-5">
+                    <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
+                      More
+
+                      <div class="w-1.5">
+                        <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                          <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                          <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </NuxtLink>
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-ancient-tri">
-              <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
-                <img class="w-full" src="~assets/imgs/work-ancient-sm.jpg" />
-                <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
-                  <div class="">
-                    <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>
-                    <p class="mt-4 text-xs w-[220px]">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
-                  </div>
-                  <img class="self-start w-7" src="~assets/imgs/work-ancient-tree.png" />
-                </div>
-                <div class="px-3 flex justify-end py-5">
-                  <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
-                    More
-
-                    <div class="w-1.5">
-                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
-                      </svg>
+              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
+                  <img class="w-full" src="~assets/imgs/work-ancient-sm.jpg" />
+                  <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
+                    <div class="">
+                      <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>
+                      <p class="mt-4 text-xs w-[220px]">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                     </div>
-                  </button>
+                    <img class="self-start w-7" src="~assets/imgs/work-ancient-tree.png" />
+                  </div>
+                  <div class="px-3 flex justify-end py-5">
+                    <button class="flex gap-1 items-center w-fit text-[#D3E741] text-xs border-[1px] rounded-[24px] py-0.5 px-4 border-[#D3E741]" type="button">
+                      More
+
+                      <div class="w-1.5">
+                        <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                          <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                          <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </NuxtLink>
             </div>
           </div>
         </div>
