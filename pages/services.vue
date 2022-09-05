@@ -428,8 +428,8 @@ function initSmoothScrollbarForMobileAndTablet() {
                   MAKE YOU SEXY!
                 </p>
                 <p class="text-xl 3xl:text-2xl 3xl:leading-[36px] mt-8">
-                  我們負責創造各式SEXY IDEAS並積極實現<br />
-                  目的是使你的品牌充滿新奇、趣味、優雅的互動體驗
+                  <span class="bg-white">我們負責創造各式SEXY IDEAS並積極實現</span><br />
+                  <span class="bg-white">目的是使你的品牌充滿新奇、趣味、優雅的互動體驗</span>
                 </p>
               </div>
             </div>
@@ -438,7 +438,7 @@ function initSmoothScrollbarForMobileAndTablet() {
           <div class="pb-[200px]">
             <div class="web-design-tri">
               <div class="relative">
-                <div class="bg-white min-h-[450px] 3xl:min-h-[650px] pc-webdesign mx-auto mt-36 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
+                <div class="bg-white min-h-[400px] 3xl:min-h-[550px] pc-webdesign mx-auto mt-36 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
 
                 <div class="absolute top-[2.5%] 3xl:top-[10%] left-0 w-full flex justify-center items-center gap-5 3xl:gap-10 py-7 px-10 text-[#6372C6]">
                   <div class="pc-text-wedesign">
@@ -454,7 +454,7 @@ function initSmoothScrollbarForMobileAndTablet() {
             </div>
             <div class="web-landing-tri">
               <div class="relative">
-                <div class="bg-white min-h-[450px] 3xl:min-h-[650px] pc-landing mx-auto mt-36 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
+                <div class="bg-white min-h-[400px] 3xl:min-h-[550px] pc-landing mx-auto mt-10 3xl:mt-20 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
 
                 <div class="absolute top-0 left-0 w-full flex justify-center items-center gap-5 3xl:gap-10 py-7 px-10 text-[#6372C6]">
                   <div class="w-[400px] 3xl:w-[550px] pc-img-landing">
@@ -471,7 +471,7 @@ function initSmoothScrollbarForMobileAndTablet() {
 
             <div class="web-gm-tri">
               <div class="relative">
-                <div class="bg-white min-h-[450px] 3xl:min-h-[650px] pc-gm mx-auto mt-36 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
+                <div class="bg-white min-h-[400px] 3xl:min-h-[550px] pc-gm mx-auto mt-10 3xl:mt-20 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
 
                 <div class="absolute top-[10%] left-0 w-full flex justify-center items-center gap-5 3xl:gap-10 py-7 px-10 text-[#6372C6]">
                   <div class="pc-text-gm">
@@ -488,7 +488,7 @@ function initSmoothScrollbarForMobileAndTablet() {
 
             <div class="web-webapp-tri">
               <div class="relative">
-                <div class="bg-white min-h-[450px] 3xl:min-h-[650px] pc-webapp mx-auto mt-36 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
+                <div class="bg-white min-h-[400px] 3xl:min-h-[550px] pc-webapp mx-auto mt-10 3xl:mt-20 border-[3px] border-[#6372C6] w-[950px] 3xl:w-[1317px]"></div>
 
                 <div class="absolute top-[5%] left-0 w-full flex justify-center items-center gap-5 3xl:gap-10 py-7 px-10 text-[#6372C6]">
                   <div class="w-[400px] 3xl:w-[550px] pc-img-webapp">
@@ -529,8 +529,8 @@ function initSmoothScrollbarForMobileAndTablet() {
                 MAKE YOU SEXY!
               </p>
               <p class="text-xs md:text-xl leading-[18px] w-fit mt-4">
-                我們負責創造各式SEXY IDEAS並積極實現<br />
-                目的是使你的品牌充滿新奇、趣味、優雅的互動體驗
+                <span class="bg-white">我們負責創造各式SEXY IDEAS並積極實現<br /></span>
+                <span class="bg-white">目的是使你的品牌充滿新奇、趣味、優雅的互動體驗</span>
               </p>
             </div>
           </div>

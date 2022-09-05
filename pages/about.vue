@@ -613,10 +613,10 @@ function shrinkCenterForMobileAndTablet() {
                 </div>
                 <p class="ml-6 text-4xl leading-[40px] whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
               </div>
-              <div class="w-60 ml-14 mb-5">
+              <div class="w-60 ml-14 mb-5 h-[210px]">
                 <img class="w-full" src="~assets/imgs/about-mac-sm.gif" />
               </div>
-              <p class="ml-6 text-xs mb-10 leading-4">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
+              <p class="ml-6 text-xs mb-2.5 leading-4">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
               <p class="ml-6 text-xs leading-[20px]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
             </div>
             <div class="">
@@ -626,7 +626,7 @@ function shrinkCenterForMobileAndTablet() {
                   <img class="w-full" src="~assets/imgs/about-question.gif" />
                 </div>
               </div>
-              <div class="w-60 ml-14 mb-5">
+              <div class="w-60 ml-14 mb-5 h-[210px]">
                 <img class="w-full" src="~assets/imgs/about-light.gif" />
               </div>
               <p class="ml-6 text-xs leading-[20px]">持續的提出假設，然後透過快速的小型<br />測試來驗證，這樣的方式讓我們創造更<br />多可能性，這也意味天馬行空的想法成<br />為實際的可能也隨之增加。</p>
@@ -638,7 +638,7 @@ function shrinkCenterForMobileAndTablet() {
                 </div>
                 <p class="text-4xl leading-[40px]" style="font-family: dgo">HIGH<br /><span class="text-[28px]">PERFORMANCE</span></p>
               </div>
-              <div class="w-60 mb-5">
+              <div class="w-60 mb-5 h-[210px]">
                 <img class="w-full" src="~assets/imgs/about-shark.gif" />
               </div>
               <p class="text-xs leading-[20px]">我們專注於高效率的製作與高效能的產<br />出，通過將工作內容顆粒化，並解析出<br />各項工作流程，分類優先順序，來簡化<br />複雜的工作，這樣的方式可以更快速的<br />產出高質量的服務與產品。</p>
