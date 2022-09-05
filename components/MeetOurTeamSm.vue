@@ -80,7 +80,7 @@ const memberBtnDatas = ref([
     name: "Rinran",
     companyPosition: "Visual designer",
     memberIconImgSrc: "member/r1.png",
-    memberEmojiImgSrcs: ["member/emojis/r1.png", "member/emojis/r2.svg", "member/emojis/r3.svg"],
+    memberEmojiImgSrcs: ["member/emojis/r1.png", "member/emojis/r2.png", "member/emojis/r3.png"],
   },
   {
     name: "MA",
@@ -368,13 +368,13 @@ defineExpose({
     <div class="absolute bottom-1/4 tracking-[0.095em] font-black" style="font-family: arial-black">
       <p class="w-fit mx-auto text-base md:text-xl text-white">MEET OUR TEAM</p>
       <button class="shadow-sm active:shadow-2xl active:translate-y-0.5 active:bg-slate-100 mt-5 w-[235px] md:w-[300px] h-[60px] md:h-[90px] text-[#292F33] text-base z-[1000] border-white border-2 rounded-full grid grid-cols-12 bg-white justify-center items-center" @click="onClickTextBtn">
-        <div class="w-6 h-6 md:w-9 md:h-9 my-auto col-start-2 col-span-3">
+        <div class="w-6 h-6 md:w-9 md:h-9 my-auto col-start-2 col-span-2">
           <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberIconImgSrc" />
         </div>
         <div class="text-start col-span-8 relative w-[130px]">
-          <div class="flex items-end gap-5 justify-between w-full">
-            <p class="text-base md:text-xl leading-[1.75rem]">{{ memberBtnDatas[currentMemberIndex].name }}</p>
-            <div class="flex gap-2.5 self-center pt-1">
+          <div class="items-end gap-5 justify-between w-full grid grid-cols-12">
+            <p class="col-span-4 text-base md:text-xl leading-[1.75rem]">{{ memberBtnDatas[currentMemberIndex].name }}</p>
+            <div class="flex col-span-4 gap-2.5 self-center pt-1">
               <div class="w-4 md:w-5" v-for="n in 3">
                 <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberEmojiImgSrcs[n - 1]" />
               </div>

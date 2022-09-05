@@ -47,7 +47,7 @@ function animateSwipeBtn() {
       ease: "Power2.InOut",
     });
 
-    gsap.to(".swipe-text", {
+    gsap.to(".footer-swipe-text", {
       duration: 0.4,
       ease: "Power2.InOut",
       color: "black",
@@ -65,7 +65,7 @@ function animateSwipeBtn() {
       ease: "Power2.InOut",
     });
 
-    gsap.to(".swipe-text", {
+    gsap.to(".footer-swipe-text", {
       duration: 0.4,
       ease: "Power2.InOut",
       color: "white",
@@ -179,27 +179,29 @@ function scrollToPageTop() {
           </NuxtLink>
         </div>
       </div>
+
       <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
         <p class="text-base 3xl:text-xl mt-[1.6rem] 3xl:mt-0">
           請填寫下列表單詢問案件<br />
           我們會以Email回覆或是電話聯絡
         </p>
-        <div class="mt-36 text-xl 3xl:text-2xl">
+        <div></div>
+        <div class="mt-36 text-xl 3xl:text-2xl text-[#262723]">
           <div class="flex gap-12">
-            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
-            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
+            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
           </div>
           <div class="flex gap-12 mt-16">
-            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
-            <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
+            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
           </div>
           <div class="mt-16">
-            <input :style="`background-color:${props.color}`" class="py-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
+            <input :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
           </div>
           <div class="mt-32 flex justify-end w-full">
             <button ref="footerBtnSendPc" class="text-black footerBtnSendPc relative overflow-hidden border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest w-fit h-fit">
               <div class="relative z-10 flex items-center gap-2.5">
-                <p class="swipe-text text-base 3xl:text-xl">送~出~</p>
+                <p class="footer-swipe-text text-base 3xl:text-xl">送~出~</p>
               </div>
               <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
             </button>
@@ -252,18 +254,18 @@ function scrollToPageTop() {
           </div>
           <div class="text-xs">
             <div class="flex gap-12">
-              <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
-              <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
+              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
             </div>
             <div class="flex gap-12 mt-12">
-              <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
-              <input :style="`background-color:${props.color}`" class="py-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
+              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
             </div>
             <div class="mt-12">
-              <input :style="`background-color:${props.color}`" class="py-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
+              <input :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
             </div>
             <div class="mt-12 flex justify-end w-full">
-              <button class="border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button">送~出~</button>
+              <button class="text-black border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button">送~出~</button>
             </div>
           </div>
         </div>
@@ -323,17 +325,17 @@ function scrollToPageTop() {
 
         <p class="mt-4 text-xs">請填寫下列表單詢問案件<br />我們會以Email回覆或是電話聯絡</p>
         <div class="mt-12 text-xs">
-          <input :style="`background-color:${props.color}`" class="w-32 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="公司名稱" />
+          <input :style="`background-color:${props.color}`" class="w-32 p-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="公司名稱" />
           <br />
-          <input :style="`background-color:${props.color}`" class="w-32 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="EMAIL" />
+          <input :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="EMAIL" />
           <br />
-          <input :style="`background-color:${props.color}`" class="w-32 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡人(先生/小姐)" />
+          <input :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡人(先生/小姐)" />
           <br />
-          <input :style="`background-color:${props.color}`" class="w-32 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡電話" />
+          <input :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="聯絡電話" />
           <br />
-          <input :style="`background-color:${props.color}`" class="w-52 mt-5 py-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
+          <input :style="`background-color:${props.color}`" class="w-52 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px]" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
           <br />
-          <button class="mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest" type="button">送~出~</button>
+          <button class="text-black mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest" type="button">送~出~</button>
         </div>
 
         <div class="mt-32 text-[#41443B]">

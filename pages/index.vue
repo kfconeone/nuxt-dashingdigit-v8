@@ -268,7 +268,7 @@ function animateSwipeBtn() {
       duration: 0.4,
       ease: "Power2.InOut",
     });
-    gsap.to(".swipe-text", {
+    gsap.to(".index-swipe-text", {
       duration: 0.4,
       ease: "Power2.InOut",
       stroke: "#D3E741",
@@ -287,7 +287,7 @@ function animateSwipeBtn() {
       duration: 0.4,
       ease: "Power2.InOut",
     });
-    gsap.to(".swipe-text", {
+    gsap.to(".index-swipe-text", {
       duration: 0.4,
       ease: "Power2.InOut",
       stroke: "black",
@@ -512,49 +512,57 @@ function scrollToPageFooter() {
                 >
                   <swiper-slide>
                     <div class="relative">
-                      <div class="relative">
-                        <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
-                          <div class="w-10 absolute right-5 -top-14 z-10">
-                            <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                      <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                        <div class="relative">
+                          <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
+                            <div class="w-10 absolute right-5 -top-14 z-10">
+                              <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                            </div>
+                            <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
                           </div>
-                          <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
+                          <div class="overflow-hidden relative z-0">
+                            <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
+                          </div>
                         </div>
-                        <div class="overflow-hidden relative z-0">
-                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
-                        </div>
-                      </div>
+                      </NuxtLink>
                       <div class="w-[335px] 3xl:w-[505px] mt-5"><p>MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
-                      <div class="relative">
-                        <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
-                          <div class="w-10 absolute right-5 -top-14 z-10">
-                            <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                      <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                        <div class="relative">
+                          <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
+                            <div class="w-10 absolute right-5 -top-14 z-10">
+                              <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                            </div>
+                            <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                           </div>
-                          <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
+                          <div class="overflow-hidden relative z-0">
+                            <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
+                          </div>
                         </div>
-                        <div class="overflow-hidden relative z-0">
-                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
-                        </div>
-                      </div>
+                      </NuxtLink>
+
                       <div class="w-[335px] 3xl:w-[505px] mt-5"><p>Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p></div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
-                      <div class="relative">
-                        <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
-                          <div class="w-10 absolute right-5 -top-14 z-10">
-                            <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                      <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                        <div class="relative">
+                          <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
+                            <div class="w-10 absolute right-5 -top-14 z-10">
+                              <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                            </div>
+                            <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                           </div>
-                          <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
+                          <div class="overflow-hidden relative z-0">
+                            <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
+                          </div>
                         </div>
-                        <div class="overflow-hidden relative z-0">
-                          <img class="object-cover hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
-                        </div>
-                      </div>
+                      </NuxtLink>
+
                       <div class="w-[335px] 3xl:w-[505px] mt-5"><p>全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p></div>
                     </div>
                   </swiper-slide>
@@ -562,19 +570,21 @@ function scrollToPageFooter() {
               </div>
 
               <div class="flex justify-center mt-20 text-[#D3E741] text-sm 3xl:text-xl font-bold" style="font-family: arial-bd">
-                <button ref="btnSwipe" class="btnSwipe overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-2.5 px-10 relative w-fit h-fit">
-                  <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
-                  <div class="relative z-10 flex items-center gap-2.5">
-                    <p class="swipe-text">MORE</p>
-                    <div class="w-2.5 3xl:w-4">
-                      <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line class="stroke-[#D3E741] swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
-                        <line class="stroke-[#D3E741] swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
-                      </svg>
+                <NuxtLink class="pointer" to="/work" target="_top">
+                  <button ref="btnSwipe" class="btnSwipe overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-2.5 px-10 relative w-fit h-fit">
+                    <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
+                    <div class="relative z-10 flex items-center gap-2.5">
+                      <p class="index-swipe-text">MORE</p>
+                      <div class="w-2.5 3xl:w-4">
+                        <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <line class="stroke-[#D3E741] index-swipe-text" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                          <line class="stroke-[#D3E741] index-swipe-text" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                          <line class="stroke-[#D3E741] index-swipe-text" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                </button>
+                  </button>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -871,60 +881,68 @@ function scrollToPageFooter() {
               class="mySwiper"
             >
               <swiper-slide>
-                <div class="relative">
-                  <div class="w-44 absolute -right-5 bottom-0 z-10">
-                    <div class="w-8 absolute right-0 -top-10 z-10">
-                      <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                <NuxtLink href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                  <div class="relative">
+                    <div class="w-44 absolute -right-5 bottom-0 z-10">
+                      <div class="w-8 absolute right-0 -top-10 z-10">
+                        <img class="w-full" src="~assets/imgs/bella-bee.gif" />
+                      </div>
+                      <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                     </div>
-                    <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
+                    <img src="~assets/imgs/project1.webp" />
+                    <br />
+                    <br />
                   </div>
-                  <img src="~assets/imgs/project1.webp" />
-                  <br />
-                  <br />
-                </div>
+                </NuxtLink>
               </swiper-slide>
               <swiper-slide>
-                <div class="relative">
-                  <div class="w-44 absolute -right-5 bottom-0 z-10">
-                    <div class="w-8 absolute right-0 -top-10 z-10">
-                      <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                <NuxtLink href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                  <div class="relative">
+                    <div class="w-44 absolute -right-5 bottom-0 z-10">
+                      <div class="w-8 absolute right-0 -top-10 z-10">
+                        <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
+                      </div>
+                      <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
                     </div>
-                    <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
+                    <img src="~assets/imgs/project2.png" />
+                    <br />
+                    <br />
                   </div>
-                  <img src="~assets/imgs/project2.png" />
-                  <br />
-                  <br />
-                </div>
+                </NuxtLink>
               </swiper-slide>
               <swiper-slide>
-                <div class="relative">
-                  <div class="w-44 absolute -right-5 bottom-0 z-10">
-                    <div class="w-8 absolute right-0 -top-10 z-10">
-                      <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                <NuxtLink href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                  <div class="relative">
+                    <div class="w-44 absolute -right-5 bottom-0 z-10">
+                      <div class="w-8 absolute right-0 -top-10 z-10">
+                        <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
+                      </div>
+                      <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                     </div>
-                    <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
+                    <img src="~assets/imgs/project3-320.webp" />
+                    <br />
+                    <br />
                   </div>
-                  <img src="~assets/imgs/project3-320.webp" />
-                  <br />
-                  <br />
-                </div>
+                </NuxtLink>
               </swiper-slide>
             </swiper>
           </div>
 
           <div class="flex justify-center mt-16 text-[#D3E741] text-xs font-bold mb-20" style="font-family: arial-bd">
-            <button class="overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-1.5 px-5 relative w-fit h-fit">
-              <div class="relative z-10 flex items-center gap-1">
-                <p class="tracking-[0.13em]">MORE</p>
-                <div class="w-2 flex h-full items-center">
-                  <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line class="stroke-[#D3E741]" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
-                    <line class="stroke-[#D3E741]" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
-                    <line class="stroke-[#D3E741]" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
-                  </svg>
+            <NuxtLink to="/work" target="_top">
+              <button class="overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-1.5 px-5 relative w-fit h-fit">
+                <div class="relative z-10 flex items-center gap-1">
+                  <p class="tracking-[0.13em]">MORE</p>
+                  <div class="w-2 flex h-full items-center">
+                    <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <line class="stroke-[#D3E741]" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                      <line class="stroke-[#D3E741]" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                      <line class="stroke-[#D3E741]" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </button>
+              </button>
+            </NuxtLink>
           </div>
 
           <div class="text-[33px] md:text-4xl leading-[1] 3xl:text-8xl w-full h-fit overflow-hidden mar-tri-sm text-white skew-y-[4.9deg] bg-[#30312D]" style="font-family: dgo">

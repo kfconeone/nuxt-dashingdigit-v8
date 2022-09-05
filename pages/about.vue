@@ -148,7 +148,7 @@ onMounted(() => {
             },
           });
 
-          // shrinkCenterForMobileAndTablet();
+          shrinkCenterForMobileAndTablet();
 
           break;
         default:

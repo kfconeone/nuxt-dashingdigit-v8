@@ -33,6 +33,18 @@ onMounted(() => {
       case WindowSize.Laptop:
         initSmoothScrollbarForDesktopAndLaptop();
         animateText();
+        gsap.from(".work-mia-pc", {
+          y: 200,
+          x: 100,
+          duration: 1,
+          scale: 0,
+          ease: "Power2.easeOut",
+          scrollTrigger: {
+            trigger: ".work-mia-pc-tri",
+            start: "20% bottom",
+            markers: true,
+          },
+        });
         shrinkCenterForDesktopAndLaptop();
         animateWiggle();
 
@@ -321,18 +333,24 @@ function animateText() {
             </div>
           </div>
 
-          <div class="flex text-white justify-center mt-64">
-            <div class="w-[650px] h-fit relative work-mia-pc">
-              <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
-              </div>
-
-              <div class="border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                <div class="pb-12">
-                  <h1 class="text-[46px] w-fit" style="font-family: arial-bd">MIA TREASURE</h1>
-                  <p class="mt-4 text-xs w-[400px]">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
+          <div class="flex text-white justify-center mt-96">
+            <div class="work-mia-pc-tri">
+              <div class="w-[500px] 3xl:w-[650px] h-fit relative work-mia-pc">
+                <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                  <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
                 </div>
-                <img class="self-start mt-5" src="~assets/imgs/work-mia-diamond.png" />
+
+                <div class="h-[300px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                  <div class="py-6 w-full">
+                    <div class="flex justify-between items-center w-full">
+                      <h1 class="text-[46px] w-fit" style="font-family: arial-bd">MIA TREASURE</h1>
+                      <div class="w-9">
+                        <img src="~assets/imgs/work-mia-diamond.png" />
+                      </div>
+                    </div>
+                    <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
+                  </div>
+                </div>
               </div>
             </div>
 
