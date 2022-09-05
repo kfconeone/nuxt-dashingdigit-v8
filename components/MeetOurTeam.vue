@@ -84,13 +84,13 @@ const memberBtnDatas = ref([
   },
   {
     name: "Gp",
-    companyPosition: "Sales",
+    companyPosition: "Project manager",
     memberIconImgSrc: "member/g1.png",
     memberEmojiImgSrcs: ["member/emojis/g1.png", "member/emojis/g2.png", "member/emojis/g3.png"],
   },
   {
     name: "Vivi",
-    companyPosition: "Sales",
+    companyPosition: "Social media manager",
     memberIconImgSrc: "member/vivi01.png",
     memberEmojiImgSrcs: ["member/emojis/vivi01.png", "member/emojis/vivi02.png", "member/emojis/vivi03.png"],
   },
@@ -350,8 +350,8 @@ defineExpose({
     <canvas ref="myCanvas"> </canvas>
     <div class="absolute bottom-1/4 tracking-[0.095em] font-black" style="font-family: arial-black">
       <p class="w-fit mx-auto text-4xl text-white">MEET OUR TEAM</p>
-      <button class="shadow-sm active:shadow-2xl active:translate-y-0.5 active:bg-slate-100 mt-5 py-8 px-16 w-[549px] h-[152px] text-[#292F33] text-5xl z-[1000] border-white border-2 rounded-full grid grid-cols-12 bg-white justify-center items-center" @click="onClickTextBtn">
-        <div class="w-16 my-auto col-start-2 col-span-3">
+      <button class="shadow-sm active:shadow-2xl active:translate-y-0.5 active:bg-slate-100 mt-5 py-8 px-12 w-[549px] h-[152px] text-[#292F33] text-5xl z-[1000] border-white border-2 rounded-full grid grid-cols-11 bg-white justify-center items-center" @click="onClickTextBtn">
+        <div class="w-16 my-auto col-start-2 col-span-2">
           <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberIconImgSrc" />
         </div>
         <div class="text-start col-span-8">
@@ -363,7 +363,7 @@ defineExpose({
               </div>
             </div>
           </div>
-          <p class="text-2xl">{{ memberBtnDatas[currentMemberIndex].companyPosition }}</p>
+          <p class="text-2xl mt-1">{{ memberBtnDatas[currentMemberIndex].companyPosition }}</p>
         </div>
       </button>
     </div>

@@ -90,13 +90,13 @@ const memberBtnDatas = ref([
   },
   {
     name: "Gp",
-    companyPosition: "Sales",
+    companyPosition: "Project manager",
     memberIconImgSrc: "member/g1.png",
     memberEmojiImgSrcs: ["member/emojis/g1.png", "member/emojis/g2.png", "member/emojis/g3.png"],
   },
   {
     name: "Vivi",
-    companyPosition: "Sales",
+    companyPosition: "Social media manager",
     memberIconImgSrc: "member/vivi01.png",
     memberEmojiImgSrcs: ["member/emojis/vivi01.png", "member/emojis/vivi02.png", "member/emojis/vivi03.png"],
   },

@@ -510,7 +510,7 @@ function shrinkCenterForMobileAndTablet() {
                   </div>
                   <p class="text-[64px] 3xl:text-[80px] leading-[1.2] mb-32 whitespace-nowrap" style="font-family: dgo">NEVER BE<br />THE SAME</p>
                 </div>
-                <p class="text-base 3xl:text-xl mb-10 leading-[1.42]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
+                <p class="text-base 3xl:text-xl mb-5 leading-[1.42]">達訊團隊擁有反骨的個性<br />我們脱離羊群，尋找藍海，想著“如果<br />不一樣，是不是更好”<br /></p>
                 <p class="text-base 3xl:text-xl leading-[1.42]">創新做事也讓我們更有活力，思考如何<br />能讓顧客跳脱制約框架，達到耳目一新<br />的感官衝擊。</p>
               </div>
               <div class="w-[370px] 3xl:w-[600px] relative z-10">
