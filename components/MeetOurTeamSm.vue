@@ -137,18 +137,18 @@ onMounted(async () => {
   try {
     // const faceGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 32, 32);
 
-    const faceGeometry = new THREE.PlaneGeometry(85 * 2.5, 100 * 2.5, 1, 1);
+    const faceGeometry = new THREE.PlaneGeometry(85 * 1.5, 100 * 1.5, 1, 1);
 
     initThree();
 
     let positionX = Math.random() * 200 - 200;
-    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 1.25, faceGeometry, new THREE.Vector3(positionX, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX + 50, -220, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 1.25, faceGeometry, new THREE.Vector3(positionX + 50, -220, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 1.25, faceGeometry, new THREE.Vector3(positionX + 100, -350, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     await WaitMilliseconds(300);
-    createWorldObject(50 * 2, faceGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
+    createWorldObject(50 * 1.25, faceGeometry, new THREE.Vector3(positionX - 200, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     // await WaitMilliseconds(300);
     // createWorldObject(50, faceGeometry, new THREE.Vector3(positionX - 400, -150, -400), { transparent: true, map: members.value["kevin"].getIconTextures()[Math.floor(Math.random() * 3)] });
     // await WaitMilliseconds(300);
@@ -279,9 +279,9 @@ function initThree() {
   topFloorBody.addShape(floorShape);
   topFloorBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), Math.PI / 2);
   topFloorBody.material = defaultMaterial;
-  topFloorBody.position.y = sizes.height * 0.5;
+  topFloorBody.position.y = sizes.height * 0.475;
 
-  leftFloorBody.position.x = sizes.width * -0.5;
+  leftFloorBody.position.x = sizes.width * -0.475;
   leftFloorBody.mass = 0;
   leftFloorBody.addShape(floorShape);
   leftFloorBody.quaternion.setFromAxisAngle(new CANNON.Vec3(0, 1, 0), Math.PI / 2);
@@ -375,7 +375,7 @@ defineExpose({
           <div class="flex items-end gap-5 justify-between w-full">
             <p class="text-base md:text-xl leading-[1.75rem]">{{ memberBtnDatas[currentMemberIndex].name }}</p>
             <div class="flex gap-2.5 self-center pt-1">
-              <div class="w-4 h-3 md:w-5 md:h-3.5" v-for="n in 3">
+              <div class="w-4 md:w-5" v-for="n in 3">
                 <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberEmojiImgSrcs[n - 1]" />
               </div>
             </div>

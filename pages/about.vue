@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { WindowSize, getCurrentWindowSize } from "~~/composables/windowSizeService";
 //smooth scrollbar
 import Scrollbar from "smooth-scrollbar";
+import { Ref } from "vue";
 //smooth scrollbar
 const meetourteamRef = ref();
 const meetourteamSmRef = ref();
@@ -20,20 +21,23 @@ useHead({
   meta: [{ name: "description", content: "關於達訊數位" }],
 });
 // linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6
-var currentWindowSize: WindowSize = WindowSize.Mobile;
+var currentWindowSize: Ref<WindowSize> = ref(WindowSize.Desktop);
 const scrollbarRef = ref();
 provide("scrollbarRef", scrollbarRef);
 
+onBeforeMount(() => {
+  currentWindowSize.value = getCurrentWindowSize();
+});
+
 onMounted(() => {
-  currentWindowSize = getCurrentWindowSize();
-  window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
+  window.addEventListener("resize", () => (currentWindowSize.value = getCurrentWindowSize()));
 
   onLoadedEvents.value["about"] = () => {
     nextTick(() => {
-      switch (currentWindowSize) {
+      switch (currentWindowSize.value) {
         case WindowSize.Desktop:
         case WindowSize.Laptop:
-          itSmoothScrollbarForDesktopAndLaptop();
+          initSmoothScrollbarForDesktopAndLaptop();
           slideSharkForDesktopAndLaptop();
           ScrollTrigger.create({
             trigger: ".whitebg-tri",
@@ -110,8 +114,8 @@ onMounted(() => {
 
           break;
         case WindowSize.Mobile:
-          // itSmoothScrollbarForMobileAndTablet();
-          // slideSharkForMobile();
+          itSmoothScrollbarForMobileAndTablet();
+          slideSharkForMobile();
           ScrollTrigger.create({
             trigger: ".sm-whitebg-tri",
             start: "30% bottom",
@@ -344,6 +348,8 @@ function initHorizontalScrollForTablet() {
 }
 
 function itSmoothScrollbarForMobileAndTablet() {
+  console.log("initSmoothScrollbarForDesktopAndLaptop", currentWindowSize.value, getCurrentWindowSize());
+
   //smooth scrollbar//
   const indexScroller: any = document.querySelector(".sm-about-scroll");
   scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
@@ -372,9 +378,11 @@ function itSmoothScrollbarForMobileAndTablet() {
   ScrollTrigger.defaults({ scroller: indexScroller });
   //smooth scrollbar//
 }
-function itSmoothScrollbarForDesktopAndLaptop() {
+function initSmoothScrollbarForDesktopAndLaptop() {
   //smooth scrollbar//
+  console.log("initSmoothScrollbarForDesktopAndLaptop", currentWindowSize.value, getCurrentWindowSize());
   const indexScroller: any = document.querySelector(".about-scroll");
+  console.log("indexScroller:", document.querySelector(".about-scroll"));
   scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
 
   ScrollTrigger.scrollerProxy(".about-scroll", {
@@ -456,7 +464,7 @@ function shrinkCenterForMobileAndTablet() {
 }
 </script>
 <template>
-  <div v-if="currentWindowSize == WindowSize.Laptop || currentWindowSize == WindowSize.Desktop" class="hidden xl:block">
+  <div v-if="currentWindowSize == WindowSize.Desktop || currentWindowSize == WindowSize.Laptop">
     <!-- <div id="fps" class="fixed top-5 right-5 text-red-400 text-5xl z-[900]">{{ fps }}</div> -->
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
@@ -557,7 +565,7 @@ function shrinkCenterForMobileAndTablet() {
     </div>
   </div>
 
-  <div v-if="currentWindowSize == WindowSize.Mobile || currentWindowSize == WindowSize.Tablet" class="xl:hidden">
+  <div v-else>
     <div class="w-full mx-auto relative sm-about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black sm-about-bg-color sm-about-center">
         <div class="flex justify-center items-center min-h-screen py-40 md:px-14 sm-test-tri relative">
