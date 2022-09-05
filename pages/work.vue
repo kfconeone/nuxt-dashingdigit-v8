@@ -33,29 +33,22 @@ onMounted(() => {
       case WindowSize.Laptop:
         initSmoothScrollbarForDesktopAndLaptop();
         animateText();
-        gsap.from(".work-mia-pc", {
-          y: 200,
-          x: 100,
-          duration: 1,
-          scale: 0,
-          ease: "Power2.easeOut",
-          scrollTrigger: {
-            trigger: ".work-mia-pc-tri",
-            start: "20% bottom",
-            markers: true,
-          },
-        });
+        bounceFrameForDesktopAndLaptop();
         shrinkCenterForDesktopAndLaptop();
         animateWiggle();
 
         break;
       case WindowSize.Tablet:
         initSmoothScrollbarForTablet();
+        bounceFrameForTablet();
+
         shrinkCenterForTablet();
         wiggleImgsForTablet();
         break;
       case WindowSize.Mobile:
         initSmoothScrollbarForMobile();
+        bounceFrameForMobile();
+
         shrinkCenterForMobile();
         break;
       default:
@@ -63,6 +56,116 @@ onMounted(() => {
     }
   };
 });
+
+function bounceFrameForMobile() {
+  gsap.from(".sm-work-mia", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-work-mia-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".sm-work-bella", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-work-bella-tri",
+      start: "20% bottom",
+    },
+  });
+
+  gsap.from(".sm-work-ancient", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-work-ancient-tri",
+      start: "20% bottom",
+    },
+  });
+}
+function bounceFrameForTablet() {
+  gsap.from(".md-work-mia", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".md-work-mia-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".md-work-bella", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".md-work-bella-tri",
+      start: "20% bottom",
+    },
+  });
+
+  gsap.from(".md-work-ancient", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".md-work-ancient-tri",
+      start: "20% bottom",
+    },
+  });
+}
+
+function bounceFrameForDesktopAndLaptop() {
+  gsap.from(".work-mia-pc", {
+    y: 400,
+    x: "random(-100,100)",
+    duration: 1,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".work-mia-pc-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".work-bella-pc", {
+    y: 400,
+    x: "random(-100,100)",
+    duration: 1,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".work-bella-pc-tri",
+      start: "20% bottom",
+    },
+  });
+
+  gsap.from(".work-ancient-pc", {
+    y: 400,
+    x: "random(-100,100)",
+    duration: 1,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".work-ancient-pc-tri",
+      start: "20% bottom",
+    },
+  });
+}
 
 function initSmoothScrollbarForDesktopAndLaptop() {
   //smooth scrollbar//
@@ -333,14 +436,14 @@ function animateText() {
             </div>
           </div>
 
-          <div class="flex text-white justify-center mt-96">
+          <div class="flex text-white justify-center mt-96 gap-12">
             <div class="work-mia-pc-tri">
               <div class="w-[500px] 3xl:w-[650px] h-fit relative work-mia-pc">
                 <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                   <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
                 </div>
 
-                <div class="h-[300px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
                   <div class="py-6 w-full">
                     <div class="flex justify-between items-center w-full">
                       <h1 class="text-[46px] w-fit" style="font-family: arial-bd">MIA TREASURE</h1>
@@ -353,33 +456,47 @@ function animateText() {
                 </div>
               </div>
             </div>
+            <div class="mt-48">
+              <div class="work-bella-pc-tri">
+                <div class="w-[500px] 3xl:w-[650px] h-fit relative work-bella-pc">
+                  <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                    <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
+                  </div>
 
-            <div class="work-bella-pc w-[650px] h-fit relative mt-48">
-              <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
-              </div>
-
-              <div class="border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                <div class="pb-12">
-                  <h1 class="text-[46px]" style="font-family: arial-bd">BELLA UNO</h1>
-                  <p class="mt-4 text-xs w-[400px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
+                  <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                    <div class="py-6 w-full">
+                      <div class="flex justify-between items-center w-full">
+                        <h1 class="text-[46px] w-fit" style="font-family: arial-bd">BELLA UNO</h1>
+                        <div class="w-9">
+                          <img src="~assets/imgs/work-bella-bee.png" />
+                        </div>
+                      </div>
+                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
+                    </div>
+                  </div>
                 </div>
-                <img class="self-start mt-5" src="~assets/imgs/work-bella-bee.png" />
               </div>
             </div>
           </div>
-          <div class="flex text-white justify-center gap-12 mt-5 pb-64">
-            <div class="work-ancient-pc w-[650px] h-fit relative">
-              <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
-              </div>
 
-              <div class="border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                <div class="pb-12">
-                  <h1 class="text-[46px]" style="font-family: arial-bd">全國古蹟日</h1>
-                  <p class="mt-4 text-xs w-[400px]">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
+          <div class="flex text-white justify-center gap-12 mt-5 pb-64">
+            <div class="work-ancient-pc-tri">
+              <div class="w-[500px] 3xl:w-[650px] h-fit relative work-ancient-pc">
+                <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                  <img class="w-full object-cover hero-mia-pc hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
                 </div>
-                <img class="self-start mt-5" src="~assets/imgs/work-ancient-tree.png" />
+
+                <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                  <div class="py-6 w-full">
+                    <div class="flex justify-between items-center w-full">
+                      <h1 class="text-[46px] w-fit" style="font-family: arial-bd">全國古蹟日</h1>
+                      <div class="w-9">
+                        <img src="~assets/imgs/work-ancient-tree.png" />
+                      </div>
+                    </div>
+                    <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -431,54 +548,60 @@ function animateText() {
           <div class="flex text-white justify-center pb-28">
             <div class="">
               <div class="flex gap-3">
-                <div class="w-[320px] h-fit relative work-mia-sm">
-                  <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                    <img class="w-full" w src="~assets/imgs/work-mia-sm.webp" />
-                  </div>
-                  <div class="px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                    <div class="">
-                      <div class="flex justify-between items-center">
-                        <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
-                        <div class="w-5">
-                          <img src="~assets/imgs/work-mia-diamond.png" />
+                <div class="md-work-mia-tri">
+                  <div class="w-[320px] h-fit relative md-work-mia">
+                    <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                      <img class="w-full" w src="~assets/imgs/work-mia-sm.webp" />
+                    </div>
+                    <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                      <div class="">
+                        <div class="flex justify-between items-center">
+                          <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
+                          <div class="w-5">
+                            <img src="~assets/imgs/work-mia-diamond.png" />
+                          </div>
                         </div>
+                        <p class="mt-4 text-sm">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                       </div>
-                      <p class="mt-4 text-sm">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                     </div>
                   </div>
                 </div>
-                <div class="w-[320px] h-fit relative mt-64 work-bella-sm">
-                  <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                    <img class="w-full" w src="~assets/imgs/work-bella-sm.webp" />
-                  </div>
-                  <div class="px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                    <div class="">
-                      <div class="flex justify-between items-center">
-                        <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
-                        <div class="w-5">
-                          <img src="~assets/imgs/work-bella-bee.png" />
+
+                <div class="md-work-bella-tri">
+                  <div class="w-[320px] h-fit relative mt-64 md-work-bella">
+                    <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                      <img class="w-full" w src="~assets/imgs/work-bella-sm.webp" />
+                    </div>
+                    <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                      <div class="">
+                        <div class="flex justify-between items-center">
+                          <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
+                          <div class="w-5">
+                            <img src="~assets/imgs/work-bella-bee.png" />
+                          </div>
                         </div>
+                        <p class="mt-4 text-sm">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
                       </div>
-                      <p class="mt-4 text-sm">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="md-work-ancient-tri">
+                <div class="w-[320px] h-fit mx-auto relative mt-3 md-work-ancient">
+                  <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
+                    <img class="w-full" w src="~assets/imgs/work-ancient-sm.jpg" />
+                  </div>
 
-              <div class="w-[320px] h-fit mx-auto relative mt-3 work-ancient-sm">
-                <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
-                  <img class="w-full" w src="~assets/imgs/work-ancient-sm.jpg" />
-                </div>
-
-                <div class="px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-                  <div class="">
-                    <div class="flex justify-between items-center">
-                      <h1 class="text-2xl" style="font-family: arial-bd">全國古蹟日</h1>
-                      <div class="w-5">
-                        <img src="~assets/imgs/work-ancient-tree.png" />
+                  <div class="bg-[#262723] px-5 py-4 border-[5px] border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                    <div class="">
+                      <div class="flex justify-between items-center">
+                        <h1 class="text-2xl" style="font-family: arial-bd">全國古蹟日</h1>
+                        <div class="w-5">
+                          <img src="~assets/imgs/work-ancient-tree.png" />
+                        </div>
                       </div>
+                      <p class="mt-4 text-sm">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                     </div>
-                    <p class="mt-4 text-sm">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                   </div>
                 </div>
               </div>
@@ -495,10 +618,10 @@ function animateText() {
   <div class="md:hidden">
     <div class="sm-work-scroll bg-white h-screen relative">
       <div class="bg-[#262723] sm-work-center relative overflow-hidden">
-        <img id="bg-work-sm" class="bg-work-sm w-full h-screen sticky top-0" src="~/assets/imgs/bg-work-about-sm.png" />
+        <img id="bg-work-sm" class="bg-work-sm w-full h-screen sticky top-0 z-0 pointer-events-none" src="~/assets/imgs/bg-work-about-sm.png" />
 
         <div class="mt-[-100vh]">
-          <div class="bg-gray-700 h-screen w-full flex justify-center items-end pb-[25vh] px-4">
+          <div class="h-screen w-full flex justify-center items-end pb-[25vh] px-4 z-10">
             <div class="text-white whitespace-nowrap" style="font-family: dgo">
               <div class="flex gap-5">
                 <div class="">
@@ -509,17 +632,35 @@ function animateText() {
                 </div>
               </div>
               <p class="text-2xl leading-[2]">WE WORK WITH YOU</p>
+
+              <div class="mt-10 text-xs" style="font-family: arial-reg">
+                <div class="bg-black w-fit">
+                  <p>達訊團隊以感同身受的角度了解你們</p>
+                </div>
+                <div class="bg-black w-fit my-1.5">
+                  <p>我們不為你們工作</p>
+                </div>
+                <div class="bg-black w-fit my-1.5">
+                  <p>我們與你們合作共同解決你們遭遇的所有問題與困難</p>
+                </div>
+                <div class="bg-black w-fit my-1.5">
+                  <p>當一個可以與你密切溝通</p>
+                </div>
+                <div class="bg-black w-fit">
+                  <p>且能始終如一交付高品質成果的</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="bg-gray-700 pb-12">
-            <div class="flex text-white justify-center gap-12 px-6">
-              <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
+          <div class="pb-12 relative z-10">
+            <div class="flex text-white justify-center gap-12 px-6 sm-work-mia-tri">
+              <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
                 <img class="w-full" src="~assets/imgs/work-mia-sm.webp" />
                 <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                   <div class="">
                     <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
-                    <p class="mt-4 text-xs w-[240px]">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
+                    <p class="mt-4 text-xs w-[220px]">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
                   </div>
                   <img class="self-start w-8" src="~assets/imgs/work-mia-diamond.png" />
                 </div>
@@ -537,13 +678,13 @@ function animateText() {
                 </div>
               </div>
             </div>
-            <div class="flex text-white justify-center gap-12 px-6 mt-20">
-              <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
+            <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-bella-tri">
+              <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
                 <img class="w-full" src="~assets/imgs/work-bella-sm.webp" />
                 <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                   <div class="">
                     <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
-                    <p class="mt-4 text-xs w-[240px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p>
+                    <p class="mt-4 text-xs w-[220px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p>
                   </div>
                   <img class="self-start w-7" src="~assets/imgs/work-bella-bee.png" />
                 </div>
@@ -562,13 +703,13 @@ function animateText() {
                 </div>
               </div>
             </div>
-            <div class="flex text-white justify-center gap-12 px-6 mt-20">
-              <div class="w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit">
+            <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-ancient-tri">
+              <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
                 <img class="w-full" src="~assets/imgs/work-ancient-sm.jpg" />
                 <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                   <div class="">
                     <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>
-                    <p class="mt-4 text-xs">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
+                    <p class="mt-4 text-xs w-[220px]">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
                   </div>
                   <img class="self-start w-7" src="~assets/imgs/work-ancient-tree.png" />
                 </div>
