@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const isMenuOpen = inject("isMenuOpen");
+const isMenuOpen: any = inject("isMenuOpen");
 function onClickToggle() {
   if (isMenuOpen.value) {
     //移除 body overflow:hidden
@@ -34,10 +34,6 @@ onMounted(() => {
     <NuxtLink to="/" target="_top">
       <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing{{ fps }}</p>
     </NuxtLink>
-
-    <!-- <div class="text-white mt-8">
-      <div @click="onClickToggle">X</div>
-    </div> -->
 
     <button class="w-10 h-10 relative text-white self-end" @click="onClickToggle">
       <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{ 'rotate-45': isMenuOpen, ' -translate-y-1.5': !isMenuOpen }"></span>

@@ -465,7 +465,6 @@ function shrinkCenterForMobileAndTablet() {
 </script>
 <template>
   <div v-if="currentWindowSize == WindowSize.Desktop || currentWindowSize == WindowSize.Laptop">
-    <!-- <div id="fps" class="fixed top-5 right-5 text-red-400 text-5xl z-[900]">{{ fps }}</div> -->
     <div class="w-full mx-auto relative about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black pc-about-bg-color pc-about-center">
         <div class="relative flex justify-center py-40 gap-20 min-h-screen test-tri">
@@ -565,7 +564,7 @@ function shrinkCenterForMobileAndTablet() {
     </div>
   </div>
 
-  <div v-else>
+  <div v-if="currentWindowSize == WindowSize.Mobile || currentWindowSize == WindowSize.Tablet">
     <div class="w-full mx-auto relative sm-about-scroll h-screen bg-[#D3E741]">
       <div class="w-full overflow-x-hidden bg-black sm-about-bg-color sm-about-center">
         <div class="flex justify-center items-center min-h-screen py-40 md:px-14 sm-test-tri relative">
