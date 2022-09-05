@@ -50,6 +50,8 @@ onMounted(() => {
         bounceFrameForMobile();
 
         shrinkCenterForMobile();
+        wiggleImgsForMobile();
+
         break;
       default:
         break;
@@ -224,6 +226,7 @@ function initSmoothScrollbarForTablet() {
   ScrollTrigger.defaults({ scroller: workScroller });
   //smooth scrollbar//
 }
+
 function initSmoothScrollbarForMobile() {
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".sm-work-scroll");
@@ -361,8 +364,35 @@ function animateWiggle() {
   }
 }
 
+function wiggleImgsForMobile() {
+  let animatedArray = [".sm-work-mia", ".sm-work-bella", ".sm-work-ancient"];
+  for (let i = 0; i < animatedArray.length; i++) {
+    var radius = Math.floor(Math.random() * 70) + 15;
+
+    var xRandom = (Math.floor(Math.random() * 5) + 5) * (Math.floor(Math.random() * 2) + 1);
+    var yRandom = (Math.floor(Math.random() * 5) + 5) * (Math.floor(Math.random() * 2) + 1);
+
+    gsap.to(animatedArray[i], {
+      duration: 4,
+      yPercent: radius / yRandom,
+      ease: "Sine.easeInOut",
+      repeat: -1,
+      yoyo: true,
+    });
+
+    gsap
+      .to(animatedArray[i], {
+        duration: 4,
+        xPercent: radius / xRandom,
+        ease: "Sine.easeInOut",
+        repeat: -1,
+        yoyo: true,
+      })
+      .progress(0.5);
+  }
+}
 function wiggleImgsForTablet() {
-  let animatedArray = [".work-mia-sm", ".work-bella-sm", ".work-ancient-sm"];
+  let animatedArray = [".md-work-mia", ".md-work-bella", ".md-work-ancient"];
   for (let i = 0; i < animatedArray.length; i++) {
     var radius = Math.floor(Math.random() * 70) + 30;
 
