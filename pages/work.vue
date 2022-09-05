@@ -95,6 +95,7 @@ function bounceFrameForMobile() {
     },
   });
 }
+
 function bounceFrameForTablet() {
   gsap.from(".md-work-mia", {
     y: 200,

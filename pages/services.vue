@@ -37,50 +37,7 @@ onMounted(() => {
       case WindowSize.Mobile:
         initSmoothScrollbarForMobileAndTablet();
         shrinkCenterForMobileAndTablet();
-        gsap.from(".sm-bounce-webdesign", {
-          y: 200,
-          x: "random(-50,50)",
-          duration: 1.5,
-          scale: 0,
-          ease: "Power2.easeOut",
-          scrollTrigger: {
-            trigger: ".sm-bounce-webdesign-tri",
-            start: "20% bottom",
-          },
-        });
-        gsap.from(".sm-bounce-landing", {
-          y: 200,
-          x: "random(-50,50)",
-          duration: 1.5,
-          scale: 0,
-          ease: "Power2.easeOut",
-          scrollTrigger: {
-            trigger: ".sm-bounce-landing-tri",
-            start: "20% bottom",
-          },
-        });
-        gsap.from(".sm-bounce-motion", {
-          y: 200,
-          x: "random(-50,50)",
-          duration: 1.5,
-          scale: 0,
-          ease: "Power2.easeOut",
-          scrollTrigger: {
-            trigger: ".sm-bounce-motion-tri",
-            start: "20% bottom",
-          },
-        });
-        gsap.from(".sm-bounce-webapp", {
-          y: 200,
-          x: "random(-50,50)",
-          duration: 1.5,
-          scale: 0,
-          ease: "Power2.easeOut",
-          scrollTrigger: {
-            trigger: ".sm-bounce-webapp-tri",
-            start: "20% bottom",
-          },
-        });
+        bounceFrameForMobile();
         initGsapParallaxForMobileAndTablet();
         break;
       default:
@@ -88,6 +45,53 @@ onMounted(() => {
     }
   };
 });
+
+function bounceFrameForMobile() {
+  gsap.from(".sm-bounce-webdesign", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-webdesign-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".sm-bounce-landing", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-landing-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".sm-bounce-motion", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-motion-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".sm-bounce-webapp", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-webapp-tri",
+      start: "20% bottom",
+    },
+  });
+}
 
 function initGsapParallaxForDesktopAndLaptop() {
   gsap.to(".pc-text-wedesign", {

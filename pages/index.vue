@@ -50,18 +50,18 @@ onMounted(() => {
         initSmoothScrollbarForDeskTopAndLapTop();
         shrinkCenterForDesktopAndLaptop();
         marqueeForDesktopAndLaptop();
+        revealTitle();
         break;
       case WindowSize.Tablet:
       case WindowSize.Mobile:
         initSmoothScrollbarForMobileAndTablet();
         shrinkCenterForMobileAndTablet();
         marqueeForMobileAndTablet();
+        revealTitleForMobile();
         break;
       default:
         break;
     }
-
-    revealTitle();
 
     animateSwipeBtn();
 
@@ -198,6 +198,14 @@ function initSmoothScrollbarForMobileAndTablet() {
 
 function revealTitle() {
   gsap.from(".pc-wecreate", {
+    yPercent: 100,
+    ease: "Power4.easeOut",
+    stagger: 0.25,
+    duration: 1.5,
+  });
+}
+function revealTitleForMobile() {
+  gsap.from(".sm-wecreate", {
     yPercent: 100,
     ease: "Power4.easeOut",
     stagger: 0.25,
@@ -782,25 +790,27 @@ function scrollToPageFooter() {
             </div>
             <div class="text-white mt-48 relative z-10" style="font-family: dgo">
               <div class="overflow-hidden">
-                <p class="pc-wecreate text-2xl md:text-5xl">We create</p>
+                <p class="sm-wecreate text-2xl md:text-5xl">We create</p>
               </div>
               <div class="flex gap-2 items-end">
                 <div class="overflow-hidden">
-                  <p class="pc-wecreate text-[#D3E741] text-5xl md:text-8xl leading-[1.5] md:leading-[1.25]">INSANE</p>
+                  <p class="sm-wecreate text-[#D3E741] text-5xl md:text-8xl leading-[1.5] md:leading-[1.25]">INSANE</p>
                 </div>
-                <div class="w-9 md:w-20 rotate-[13.15deg] pb-2.5 md:pb-1.5">
-                  <img src="~assets/imgs/emoji-ethand.png" />
+                <div class="overflow-hidden">
+                  <div class="sm-wecreate w-9 md:w-20 rotate-[13.15deg] pb-2.5 md:pb-1.5">
+                    <img src="~assets/imgs/emoji-ethand.png" />
+                  </div>
                 </div>
               </div>
               <div class="overflow-hidden">
-                <p class="pc-wecreate text-3xl md:text-[45px] md:leading-[1]">Digital experience</p>
+                <p class="sm-wecreate text-3xl md:text-[45px] md:leading-[1]">Digital experience</p>
               </div>
               <div class="mt-8 md:mt-20 text-md md:text-2xl font-bold leading-[1.5]" style="font-family: arial-reg">
                 <div class="overflow-hidden">
-                  <p class="pc-wecreate">專注於新奇的互動設計</p>
+                  <p class="sm-wecreate">專注於新奇的互動設計</p>
                 </div>
                 <div class="overflow-hidden">
-                  <p class="pc-wecreate">打造迷人的使用者體驗</p>
+                  <p class="sm-wecreate">打造迷人的使用者體驗</p>
                 </div>
               </div>
 
@@ -882,14 +892,16 @@ function scrollToPageFooter() {
             >
               <swiper-slide>
                 <NuxtLink href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
-                  <div class="relative">
+                  <div class="relative group">
                     <div class="w-44 absolute -right-5 bottom-0 z-10">
                       <div class="w-8 absolute right-0 -top-10 z-10">
                         <img class="w-full" src="~assets/imgs/bella-bee.gif" />
                       </div>
                       <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                     </div>
-                    <img src="~assets/imgs/project1.webp" />
+                    <div class="overflow-hidden relative">
+                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/project1.webp" />
+                    </div>
                     <br />
                     <br />
                   </div>
@@ -897,14 +909,16 @@ function scrollToPageFooter() {
               </swiper-slide>
               <swiper-slide>
                 <NuxtLink href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
-                  <div class="relative">
+                  <div class="relative group">
                     <div class="w-44 absolute -right-5 bottom-0 z-10">
                       <div class="w-8 absolute right-0 -top-10 z-10">
                         <img class="w-full" src="~assets/imgs/mia-diamond.gif" />
                       </div>
                       <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
                     </div>
-                    <img src="~assets/imgs/project2.png" />
+                    <div class="overflow-hidden relative">
+                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/project2.png" />
+                    </div>
                     <br />
                     <br />
                   </div>
@@ -912,14 +926,17 @@ function scrollToPageFooter() {
               </swiper-slide>
               <swiper-slide>
                 <NuxtLink href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
-                  <div class="relative">
+                  <div class="relative group">
                     <div class="w-44 absolute -right-5 bottom-0 z-10">
                       <div class="w-8 absolute right-0 -top-10 z-10">
                         <img class="w-full" src="~assets/imgs/ancient-tree.gif" />
                       </div>
                       <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                     </div>
-                    <img src="~assets/imgs/project3-320.webp" />
+                    <div class="overflow-hidden relative">
+                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/project3-320.webp" />
+                    </div>
+
                     <br />
                     <br />
                   </div>
@@ -1126,9 +1143,13 @@ function scrollToPageFooter() {
     </div>
   </div>
 </template>
-<style scoped>
-.swiper-slide-next,
+<style>
 .swiper-slide-prev {
+  --tw-blur: blur(12px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.swiper-slide-next {
   --tw-blur: blur(12px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
