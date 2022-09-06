@@ -258,9 +258,6 @@ function initThree() {
 
     worldObjectsToUpdate.value.forEach((d) => {
       d.mesh.position.set(d.body.position.x, d.body.position.y, d.body.position.z);
-      // d.mesh.position.x = d.body.position.x;
-      // d.mesh.position.y = d.body.position.y;
-      // d.mesh.position.z = d.body.position.z;
     });
 
     // Render
@@ -364,22 +361,22 @@ defineExpose({
 <template>
   <div class="relative w-full flex justify-center">
     <canvas ref="myCanvas"> </canvas>
-    <!-- <div class="absolute top-10 text-white text-5xl z-[1000]">wqdqwdqwqwdqdqwd</div> -->
     <div class="absolute bottom-1/4 tracking-[0.095em] font-black" style="font-family: arial-black">
       <p class="w-fit mx-auto text-base md:text-xl text-white">MEET OUR TEAM</p>
       <button class="shadow-sm active:shadow-2xl active:translate-y-0.5 active:bg-slate-100 mt-5 w-[235px] md:w-[300px] h-[60px] md:h-[90px] text-[#292F33] text-base z-[1000] border-white border-2 rounded-full grid grid-cols-12 bg-white justify-center items-center" @click="onClickTextBtn">
-        <div class="w-6 h-6 md:w-9 md:h-9 my-auto col-start-2 col-span-2">
+        <div class="w-8 h-8 md:w-9 md:h-9 my-auto col-start-2 col-span-2">
           <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberIconImgSrc" />
         </div>
         <div class="text-start col-span-8 relative w-[130px]">
           <div class="items-end gap-5 justify-between w-full grid grid-cols-12">
-            <p class="col-span-4 text-base md:text-xl leading-[1.75rem]">{{ memberBtnDatas[currentMemberIndex].name }}</p>
+            <p class="col-span-4 text-base md:text-xl leading-none">{{ memberBtnDatas[currentMemberIndex].name }}</p>
             <div class="flex col-span-4 gap-2.5 self-center pt-1">
               <div class="w-4 md:w-5" v-for="n in 3">
                 <img class="w-full h-full" :src="memberBtnDatas[currentMemberIndex].memberEmojiImgSrcs[n - 1]" />
               </div>
             </div>
           </div>
+          <div class="my-1"></div>
           <p class="text-xs md:text-sm whitespace-nowrap">{{ memberBtnDatas[currentMemberIndex].companyPosition }}</p>
         </div>
       </button>
