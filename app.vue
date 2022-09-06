@@ -39,7 +39,7 @@ onMounted(() => {
     gsap.to(".mouse-default", {
       x: event.clientX,
       y: event.clientY,
-      ease: "Power3.easeOut",
+      ease: "Power4.easeOut",
     });
   });
 

@@ -434,10 +434,10 @@ function animateText() {
   <div class="hidden xl:block">
     <div class="bg-white work-scroll h-screen relative">
       <div class="bg-[#262723] center relative overflow-hidden">
-        <img id="bg-work-pc" class="bg-work-pc w-full h-screen sticky top-0" src="~/assets/imgs/bg-workabout-1280.webp" />
+        <img id="bg-work-pc" class="bg-work-pc w-full h-screen sticky top-0 z-0 pointer-events-none" src="~/assets/imgs/bg-workabout-1280.webp" />
 
         <div class="mt-[-100vh]">
-          <div class="grid grid-cols-12 pl-10">
+          <div class="grid grid-cols-12 pl-10 relative z-10">
             <div style="font-family: dgo" class="col-start-3 col-span-full text-white mt-[345px]">
               <div class="flex items-end gap-10">
                 <div>
@@ -455,14 +455,14 @@ function animateText() {
               <div class="work-text3-3xl-trigger overflow-hidden">
                 <p class="text-[64px] 3xl:text-[100px] work-text-3xl translate-y-full">WE WORK WITH YOU</p>
               </div>
-              <div class="w-fit mt-6 text-xl bg-[#262723]">
-                <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
+              <div class="w-fit mt-6 text-xl">
+                <p class="bg-[#262723]" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
               </div>
-              <div class="w-fit mt-12 text-xl bg-[#262723]">
-                <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當一個</p>
+              <div class="w-fit mt-12 text-xl">
+                <p class="bg-[#262723]" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當一個</p>
               </div>
-              <div class="w-fit mt-3 text-xl bg-[#262723]">
-                <p class="" style="font-family: arial-reg">可以與你密切溝通，且能始終如一交付高品質成果的夥伴</p>
+              <div class="w-fit mt-3 text-xl">
+                <p class="bg-[#262723]" style="font-family: arial-reg">可以與你密切溝通，且能始終如一交付高品質成果的夥伴</p>
               </div>
             </div>
           </div>

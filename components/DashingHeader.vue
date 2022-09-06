@@ -35,10 +35,10 @@ onMounted(() => {
       <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing{{ fps }}</p>
     </NuxtLink>
 
-    <button class="w-10 h-10 relative text-white self-end" @click="onClickToggle">
-      <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{ 'rotate-45': isMenuOpen, ' -translate-y-1.5': !isMenuOpen }"></span>
-      <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{ 'opacity-0': isMenuOpen }"></span>
-      <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{ '-rotate-45': isMenuOpen, ' translate-y-1.5': !isMenuOpen }"></span>
+    <button class="w-6 h-4 relative text-white self-end" @click="onClickToggle">
+      <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ 'rotate-45': isMenuOpen, ' -translate-y-1.5': !isMenuOpen }"></span>
+      <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ 'opacity-0': isMenuOpen }"></span>
+      <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ '-rotate-45': isMenuOpen, ' translate-y-1.5': !isMenuOpen }"></span>
     </button>
   </div>
 </template>
