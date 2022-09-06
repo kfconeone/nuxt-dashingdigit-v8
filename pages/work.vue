@@ -455,13 +455,13 @@ function animateText() {
               <div class="work-text3-3xl-trigger overflow-hidden">
                 <p class="text-[64px] 3xl:text-[100px] work-text-3xl translate-y-full">WE WORK WITH YOU</p>
               </div>
-              <div class="w-fit mt-6 text-xl bg-black">
+              <div class="w-fit mt-6 text-xl bg-[#262723]">
                 <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
               </div>
-              <div class="w-fit mt-12 text-xl bg-black">
+              <div class="w-fit mt-12 text-xl bg-[#262723]">
                 <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當一個</p>
               </div>
-              <div class="w-fit mt-3 text-xl bg-black">
+              <div class="w-fit mt-3 text-xl bg-[#262723]">
                 <p class="" style="font-family: arial-reg">可以與你密切溝通，且能始終如一交付高品質成果的夥伴</p>
               </div>
             </div>
@@ -525,7 +525,7 @@ function animateText() {
                   <div class="h-[275px] bg-[#262723] border-[5px] px-10 border-[#D3E741] rounded-[5px] flex justify-between -mt-1" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
                     <div class="py-6 w-full">
                       <div class="flex justify-between items-center w-full">
-                        <h1 class="text-[46px] w-fit" style="font-family: arial-bd">全國古蹟日</h1>
+                        <h1 class="text-[46px] w-fit font-bold" style="font-family: arial-bd">全國古蹟日</h1>
                         <div class="w-9">
                           <img src="~assets/imgs/work-ancient-tree.png" />
                         </div>
@@ -566,17 +566,17 @@ function animateText() {
                 <p class="text-5xl whitespace-nowrap leading-[1.5]">WE WORK WITH YOU</p>
               </div>
               <div class="mt-10 text-xl">
-                <div class="bg-black w-fit">
+                <div class="bg-[#262723] w-fit">
                   <p class="" style="font-family: arial-reg">達訊團隊以感同身受的角度了解你們，我們不為你們工作</p>
                 </div>
 
-                <div class="bg-black w-fit mt-12">
+                <div class="bg-[#262723] w-fit mt-12">
                   <p class="" style="font-family: arial-reg">我們與你們合作共同解決你們遭遇的所有問題與困難，當</p>
                 </div>
-                <div class="bg-black w-fit mt-3">
+                <div class="bg-[#262723] w-fit mt-3">
                   <p class="" style="font-family: arial-reg">一個可以與你密切溝通，且能始終如一交付高品質成果的</p>
                 </div>
-                <div class="bg-black w-fit mt-3">
+                <div class="bg-[#262723] w-fit mt-3">
                   <p class="" style="font-family: arial-reg">夥伴，你就擁有了顯著的競爭優勢</p>
                 </div>
               </div>
@@ -677,19 +677,19 @@ function animateText() {
               <p class="text-2xl leading-[2]">WE WORK WITH YOU</p>
 
               <div class="mt-10 text-xs" style="font-family: arial-reg">
-                <div class="bg-black w-fit">
+                <div class="bg-[#262723] w-fit">
                   <p>達訊團隊以感同身受的角度了解你們</p>
                 </div>
-                <div class="bg-black w-fit my-1.5">
+                <div class="bg-[#262723] w-fit my-1.5">
                   <p>我們不為你們工作</p>
                 </div>
-                <div class="bg-black w-fit my-1.5">
+                <div class="bg-[#262723] w-fit my-1.5">
                   <p>我們與你們合作共同解決你們遭遇的所有問題與困難</p>
                 </div>
-                <div class="bg-black w-fit my-1.5">
+                <div class="bg-[#262723] w-fit my-1.5">
                   <p>當一個可以與你密切溝通</p>
                 </div>
-                <div class="bg-black w-fit">
+                <div class="bg-[#262723] w-fit">
                   <p>且能始終如一交付高品質成果的</p>
                 </div>
               </div>
@@ -699,7 +699,7 @@ function animateText() {
           <div class="pb-12 relative z-10">
             <div class="flex text-white justify-center gap-12 px-6 sm-work-mia-tri">
               <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
-                <div class="bg-[#262723] group w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
+                <div class="bg-[#262723] group w-full max-w-[450px] border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
                   <div class="overflow-hidden relative">
                     <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-mia-sm.webp" />
                   </div>
@@ -727,7 +727,7 @@ function animateText() {
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-bella-tri">
               <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
-                <div class="bg-[#262723] group w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
+                <div class="bg-[#262723] group w-full max-w-[450px] border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
                   <div class="overflow-hidden relative">
                     <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-bella-sm.webp" />
                   </div>
@@ -756,7 +756,7 @@ function animateText() {
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-ancient-tri">
               <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
-                <div class="bg-[#262723] group w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
+                <div class="bg-[#262723] group w-full max-w-[450px] border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
                   <div class="overflow-hidden relative">
                     <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-ancient-sm.jpg" />
                   </div>

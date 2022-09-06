@@ -482,7 +482,7 @@ function scrollToPageFooter() {
                   <path class="svg-git-circle-path" d="M10.8714 22.7274L18.7217 14.1808L20.9357 16.1954L16.0201 21.5462L17.6668 23.0449L22.2267 18.0817L24.3426 20.0078L19.7827 24.9679L21.8281 26.8268L26.8847 21.3203L29.2337 23.457L21.2393 32.1623L10.8714 22.7274Z" fill="white" />
                   <path class="svg-git-circle-path" d="M23.113 11.2414L26.6548 9.05286L28.3414 11.7603L31.0491 17.6209L28.8596 18.973L24.7996 13.9458L23.113 11.2414ZM28.829 20.136L32.1347 18.094L33.95 21.0029L30.6443 23.0449L28.829 20.136Z" fill="white" />
                 </svg>
-                <div class="pointer-detected absolute w-full h-full opacity-0 unicorn flex justify-center items-center">
+                <div class="pointer-detected absolute w-full h-full opacity-0 unicorn flex justify-center items-center pb-2">
                   <div>
                     <div class="w-5 mx-auto">
                       <img class="w-full" w src="~assets/imgs/unicorn.png" />

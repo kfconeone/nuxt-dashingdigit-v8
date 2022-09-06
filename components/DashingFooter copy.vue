@@ -3,15 +3,7 @@ import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
-useHead({
-  title: "Services",
-  // or, instead:
-  // titleTemplate: (title) => `My App - ${title}`,
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  charset: "utf-8",
-  meta: [{ name: "description", content: "達訊數位提供的服務" }],
-  script: [{ src: "https://unpkg.com/spacingjs", async: true }],
-});
+
 const scrollbar: any = inject("scrollbarRef");
 
 const isLtsgtwSvgPcShow = ref(false);
@@ -188,8 +180,8 @@ function scrollToPageTop() {
         </div>
       </div>
 
-      <div class="pl-14 pr-16 text-[#262723] mt-[137px] font-bold">
-        <p class="text-base 3xl:text-xl">
+      <div class="pl-14 pr-16 text-[#262723] mt-28 font-bold">
+        <p class="text-base 3xl:text-xl mt-[1.6rem] 3xl:mt-0">
           請填寫下列表單詢問案件<br />
           我們會以Email回覆或是電話聯絡
         </p>
@@ -243,7 +235,7 @@ function scrollToPageTop() {
         </div>
       </div>
       <div>
-        <div class="flex justify-center gap-20 mt-8 items-end">
+        <div class="flex justify-center gap-20 mt-8">
           <p class="font-black text-[24px] text-[#41443B] whitespace-nowrap" style="font-family: arial-black">
             JUST CALL ME <br />
             WE’VE GOT YOUR BACK!
