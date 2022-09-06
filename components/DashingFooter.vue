@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import emailjs from "@emailjs/browser";
 
 gsap.registerPlugin(ScrollToPlugin);
 useHead({
@@ -23,11 +24,22 @@ const props = defineProps({
   },
 });
 
+const form = ref();
+
 onMounted(() => {
   animateSwipeBtn();
   animateFooterLtsgtwSvgPc();
 });
-
+function sendEmail() {
+  emailjs.sendForm("service_k8zdy2j", "template_939p7pi", form.value, "DNs0jDKtU8ghbZyMt").then(
+    (result) => {
+      console.log("SUCCESS!", result.text);
+    },
+    (error) => {
+      console.log("FAILED...", error.text);
+    }
+  );
+}
 function animateFooterLtsgtwSvgPc() {
   footerLtsgtwSvgPc.value.addEventListener("mouseleave", (e) => {
     gsap.to(".svg-ltsgtw-circle-tip", {
@@ -195,25 +207,27 @@ function scrollToPageTop() {
         </p>
 
         <div class="mt-36 text-xl 3xl:text-2xl text-[#262723]">
-          <div class="flex gap-12">
-            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
-            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
-          </div>
-          <div class="flex gap-12 mt-16">
-            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
-            <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
-          </div>
-          <div class="mt-16">
-            <input :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
-          </div>
-          <div class="mt-32 flex justify-end w-full">
-            <button ref="footerBtnSendPc" class="text-black footerBtnSendPc relative overflow-hidden border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest w-fit h-fit">
-              <div class="relative z-10 flex items-center gap-2.5">
-                <p class="footer-swipe-text text-base 3xl:text-xl">送~出~</p>
-              </div>
-              <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
-            </button>
-          </div>
+          <form ref="form" @submit.prevent="sendEmail">
+            <div class="flex gap-12">
+              <input name="from_com" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
+              <input name="from_email" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+            </div>
+            <div class="flex gap-12 mt-16">
+              <input name="from_name" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
+              <input name="from_phone" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+            </div>
+            <div class="mt-16">
+              <input name="message" :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
+            </div>
+            <div class="mt-32 flex justify-end w-full">
+              <button type="submit" value="Send" ref="footerBtnSendPc" class="text-black footerBtnSendPc relative overflow-hidden border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest w-fit h-fit">
+                <div class="relative z-10 flex items-center gap-2.5">
+                  <p class="footer-swipe-text text-base 3xl:text-xl">送~出~</p>
+                </div>
+                <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="swipe-span w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
+              </button>
+            </div>
+          </form>
           <div class="mt-24 flex justify-end w-full">
             <p class="underline underline-offset-[7px] leading-[58px] font-normal text-[32px] 3xl:text-[40px] text-[#41443B] tracking-tighter" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
           </div>
@@ -260,22 +274,24 @@ function scrollToPageTop() {
             <img class="absolute w-16 right-[35%] top-0" src="~assets/imgs/letsgtw.png" />
             <img class="w-44" src="~assets/imgs/ufo.gif" />
           </div>
-          <div class="text-xs">
-            <div class="flex gap-12">
-              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
-              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+          <form ref="form" @submit.prevent="sendEmail">
+            <div class="text-xs">
+              <div class="flex gap-12">
+                <input name="from_com" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
+                <input name="from_email" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
+              </div>
+              <div class="flex gap-12 mt-12">
+                <input name="from_name" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
+                <input name="from_phone" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+              </div>
+              <div class="mt-12">
+                <input name="message" :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
+              </div>
+              <div class="mt-12 flex justify-end w-full">
+                <button type="submit" value="Send" class="text-black border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest">送~出~</button>
+              </div>
             </div>
-            <div class="flex gap-12 mt-12">
-              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
-              <input :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
-            </div>
-            <div class="mt-12">
-              <input :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
-            </div>
-            <div class="mt-12 flex justify-end w-full">
-              <button class="text-black border-[1px] border-[#262723] rounded-[35px] px-20 py-1 tracking-widest" type="button">送~出~</button>
-            </div>
-          </div>
+          </form>
         </div>
 
         <div class="flex justify-between items-end mt-24">
@@ -332,19 +348,22 @@ function scrollToPageTop() {
         </div>
 
         <p class="mt-4 text-xs">請填寫下列表單詢問案件<br />我們會以Email回覆或是電話聯絡</p>
-        <div class="mt-12 text-xs">
-          <input :style="`background-color:${props.color}`" class="w-32 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="公司名稱" />
-          <br />
-          <input :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="EMAIL" />
-          <br />
-          <input :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="聯絡人(先生/小姐)" />
-          <br />
-          <input :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="聯絡電話" />
-          <br />
-          <input :style="`background-color:${props.color}`" class="w-52 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
-          <br />
-          <button class="text-black mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest" type="button">送~出~</button>
-        </div>
+
+        <form ref="form" @submit.prevent="sendEmail">
+          <div class="mt-12 text-xs">
+            <input name="from_com" :style="`background-color:${props.color}`" class="w-32 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="公司名稱" />
+            <br />
+            <input name="from_email" :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="EMAIL" />
+            <br />
+            <input name="from_name" :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="聯絡人(先生/小姐)" />
+            <br />
+            <input name="from_phone" :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="聯絡電話" />
+            <br />
+            <input name="message" :style="`background-color:${props.color}`" class="w-52 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
+            <br />
+            <button type="submit" value="Send" class="text-black mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest">送~出~</button>
+          </div>
+        </form>
 
         <div class="mt-32 text-[#41443B]">
           <p class="text-[18px] underline underline-offset-[7px] leading-[27px]" style="font-family: dgo">SERVICE@<br />DASHINGDIGIT.COM</p>
