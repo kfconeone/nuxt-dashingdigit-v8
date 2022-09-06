@@ -33,10 +33,11 @@ onMounted(() => {
 function sendEmail() {
   emailjs.sendForm("service_k8zdy2j", "template_939p7pi", form.value, "DNs0jDKtU8ghbZyMt").then(
     (result) => {
-      console.log("SUCCESS!", result.text);
+      alert("寄送郵件成功");
     },
     (error) => {
-      console.log("FAILED...", error.text);
+      // console.log("FAILED...", error.text);
+      alert("寄送郵件失敗");
     }
   );
 }
