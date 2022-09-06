@@ -126,7 +126,14 @@ function emojiBackground() {
     antialias: true,
   });
   renderer.setSize(sizes.width, sizes.height);
-
+  // const handTexture = textureLoader.load("/hand.png");
+  // const purplePlanetTexture = textureLoader.load("/purple-planet.png");
+  // const etsmileTexture = textureLoader.load("/etsmile.png");
+  // const starTexture = textureLoader.load("/star.png");
+  var textures = [handTexture, purplePlanetTexture, etsmileTexture, starTexture];
+  textures.forEach((t) => {
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  });
   // Animate
   const tick = () => {
     // Render
