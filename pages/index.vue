@@ -900,7 +900,7 @@ function scrollToPageFooter() {
                       <img class="w-full relative z-0" src="~assets/imgs/btn-bella.png" />
                     </div>
                     <div class="overflow-hidden relative">
-                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[250ms]" src="~assets/imgs/project1.webp" />
+                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/project1.webp" />
                     </div>
                     <br />
                     <br />
@@ -917,7 +917,7 @@ function scrollToPageFooter() {
                       <img class="w-full relative z-0" src="~assets/imgs/btn-miatreasure.png" />
                     </div>
                     <div class="overflow-hidden relative">
-                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[250ms]" src="~assets/imgs/project2.png" />
+                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/project2.png" />
                     </div>
                     <br />
                     <br />
@@ -934,7 +934,7 @@ function scrollToPageFooter() {
                       <img class="w-full relative z-0" src="~assets/imgs/btn-ancient.png" />
                     </div>
                     <div class="overflow-hidden relative">
-                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[250ms]" src="~assets/imgs/project3-320.webp" />
+                      <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/project3-320.webp" />
                     </div>
 
                     <br />

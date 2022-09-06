@@ -699,8 +699,10 @@ function animateText() {
           <div class="pb-12 relative z-10">
             <div class="flex text-white justify-center gap-12 px-6 sm-work-mia-tri">
               <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
-                <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
-                  <img class="w-full" src="~assets/imgs/work-mia-sm.webp" />
+                <div class="bg-[#262723] group w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
+                  <div class="overflow-hidden relative">
+                    <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-mia-sm.webp" />
+                  </div>
                   <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                     <div class="">
                       <h1 class="text-2xl" style="font-family: arial-bd">MIA TREASURE</h1>
@@ -725,8 +727,10 @@ function animateText() {
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-bella-tri">
               <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
-                <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
-                  <img class="w-full" src="~assets/imgs/work-bella-sm.webp" />
+                <div class="bg-[#262723] group w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
+                  <div class="overflow-hidden relative">
+                    <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-bella-sm.webp" />
+                  </div>
                   <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                     <div class="">
                       <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
@@ -752,8 +756,11 @@ function animateText() {
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-ancient-tri">
               <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
-                <div class="bg-[#262723] w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
-                  <img class="w-full" src="~assets/imgs/work-ancient-sm.jpg" />
+                <div class="bg-[#262723] group w-full border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
+                  <div class="overflow-hidden relative">
+                    <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-ancient-sm.jpg" />
+                  </div>
+
                   <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                     <div class="">
                       <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>
