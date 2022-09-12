@@ -576,7 +576,7 @@ function scrollToPageFooter() {
 
                       <div class="w-[335px] 3xl:w-[505px] mt-5">
                         <p>
-                          bella 品牌識別再造<br />
+                          BELLA UNO 品牌識別再造<br />
                           我們規劃了新的品牌定位，協助整體品牌在台灣地區傳遞其核心價值及新形象。
                         </p>
                       </div>
