@@ -96,80 +96,6 @@ function bounceFrameForMobile() {
   });
 }
 
-function bounceFrameForTablet() {
-  gsap.from(".md-work-mia", {
-    y: 200,
-    x: "random(-50,50)",
-    duration: 1.5,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".md-work-mia-tri",
-      start: "20% bottom",
-    },
-  });
-  gsap.from(".md-work-bella", {
-    y: 200,
-    x: "random(-50,50)",
-    duration: 1.5,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".md-work-bella-tri",
-      start: "20% bottom",
-    },
-  });
-
-  gsap.from(".md-work-ancient", {
-    y: 200,
-    x: "random(-50,50)",
-    duration: 1.5,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".md-work-ancient-tri",
-      start: "20% bottom",
-    },
-  });
-}
-
-function bounceFrameForDesktopAndLaptop() {
-  gsap.from(".work-mia-pc", {
-    y: 400,
-    x: "random(-100,100)",
-    duration: 1,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".work-mia-pc-tri",
-      start: "20% bottom",
-    },
-  });
-  gsap.from(".work-bella-pc", {
-    y: 400,
-    x: "random(-100,100)",
-    duration: 1,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".work-bella-pc-tri",
-      start: "20% bottom",
-    },
-  });
-
-  gsap.from(".work-ancient-pc", {
-    y: 400,
-    x: "random(-100,100)",
-    duration: 1,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".work-ancient-pc-tri",
-      start: "20% bottom",
-    },
-  });
-}
-
 function initSmoothScrollbarForDesktopAndLaptop() {
   //smooth scrollbar//
   const workScroller: any = document.querySelector(".work-scroll");
@@ -365,6 +291,16 @@ function animateWiggle() {
   }
 }
 
+function animateText() {
+  let tl = gsap.timeline();
+  tl.to([".work-text-3xl", ".work-greeting"], {
+    duration: 1.5,
+    y: 0,
+    ease: "power4",
+    stagger: 0.3,
+  });
+}
+
 function wiggleImgsForMobile() {
   let animatedArray = [".sm-work-mia", ".sm-work-bella", ".sm-work-ancient"];
   for (let i = 0; i < animatedArray.length; i++) {
@@ -420,13 +356,77 @@ function wiggleImgsForTablet() {
   }
 }
 
-function animateText() {
-  let tl = gsap.timeline();
-  tl.to([".work-text-3xl", ".work-greeting"], {
+function bounceFrameForTablet() {
+  gsap.from(".md-work-mia", {
+    y: 200,
+    x: "random(-50,50)",
     duration: 1.5,
-    y: 0,
-    ease: "power4",
-    stagger: 0.3,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".md-work-mia-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".md-work-bella", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".md-work-bella-tri",
+      start: "20% bottom",
+    },
+  });
+
+  gsap.from(".md-work-ancient", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".md-work-ancient-tri",
+      start: "20% bottom",
+    },
+  });
+}
+
+function bounceFrameForDesktopAndLaptop() {
+  gsap.from(".work-mia-pc", {
+    y: 400,
+    x: "random(-100,100)",
+    duration: 1,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".work-mia-pc-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".work-bella-pc", {
+    y: 400,
+    x: "random(-100,100)",
+    duration: 1,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".work-bella-pc-tri",
+      start: "20% bottom",
+    },
+  });
+
+  gsap.from(".work-ancient-pc", {
+    y: 400,
+    x: "random(-100,100)",
+    duration: 1,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".work-ancient-pc-tri",
+      start: "20% bottom",
+    },
   });
 }
 </script>
@@ -483,7 +483,7 @@ function animateText() {
                           <img src="~assets/imgs/work-mia-diamond.png" />
                         </div>
                       </div>
-                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
+                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 品牌設計，結合品牌網站設計及社群行銷，將歐美飾品潮流作為其特色。</p>
                     </div>
                   </div>
                 </div>
@@ -505,7 +505,7 @@ function animateText() {
                             <img src="~assets/imgs/work-bella-bee.png" />
                           </div>
                         </div>
-                        <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
+                        <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">BELLA UNO 品牌識別再造，我們規劃了新的品牌定位，協助整體品牌在台灣地區傳遞其核心價值及新形象。</p>
                       </div>
                     </div>
                   </div>
@@ -530,7 +530,7 @@ function animateText() {
                           <img src="~assets/imgs/work-ancient-tree.png" />
                         </div>
                       </div>
-                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">MIA TREASURE 是來自紐約的精選飾品，品牌致力於提供多元，精緻且高品質的飾品。</p>
+                      <p class="mt-4 text-base 3xl:text-xl w-[300px] 3xl:w-[400px] leading-[1.5]">全國古蹟日 視覺設計，榮幸受邀替 2021 全國古蹟日主視覺設計，透過親民活潑的視覺提高民眾認識文化資產保存與文化認同。</p>
                     </div>
                   </div>
                 </div>
@@ -599,7 +599,7 @@ function animateText() {
                               <img src="~assets/imgs/work-mia-diamond.png" />
                             </div>
                           </div>
-                          <p class="mt-4 text-sm">MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p>
+                          <p class="mt-4 text-sm">MIA TREASURE 品牌設計，結合品牌網站設計及社群行銷，將歐美飾品潮流作為其特色。</p>
                         </div>
                       </div>
                     </div>
@@ -620,7 +620,7 @@ function animateText() {
                               <img src="~assets/imgs/work-bella-bee.png" />
                             </div>
                           </div>
-                          <p class="mt-4 text-sm">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌。</p>
+                          <p class="mt-4 text-sm">BELLA UNO 品牌識別再造，我們規劃了新的品牌定位，協助整體品牌在台灣地區傳遞其核心價值及新形象。</p>
                         </div>
                       </div>
                     </div>
@@ -642,7 +642,7 @@ function animateText() {
                             <img src="~assets/imgs/work-ancient-tree.png" />
                           </div>
                         </div>
-                        <p class="mt-4 text-sm">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
+                        <p class="mt-4 text-sm">全國古蹟日 視覺設計，榮幸受邀替 2021 全國古蹟日主視覺設計，透過親民活潑的視覺提高民眾認識文化資產保存與文化認同。</p>
                       </div>
                     </div>
                   </div>
@@ -734,7 +734,7 @@ function animateText() {
                   <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                     <div class="">
                       <h1 class="text-2xl" style="font-family: arial-bd">BELLA UNO</h1>
-                      <p class="mt-4 text-xs w-[220px]">Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p>
+                      <p class="mt-4 text-xs w-[220px]">BELLA UNO 品牌識別再造，我們規劃了新的品牌定位，協助整體品牌在台灣地區傳遞其核心價值及新形象。</p>
                     </div>
                     <img class="self-start w-7" src="~assets/imgs/work-bella-bee.png" />
                   </div>
@@ -764,7 +764,7 @@ function animateText() {
                   <div class="border-t-[2.5px] border-[#D3E741] px-3 pt-5 flex justify-between">
                     <div class="">
                       <h1 class="text-[28px] font-bold" style="font-family: arial-bd">全國古蹟日</h1>
-                      <p class="mt-4 text-xs w-[220px]">全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p>
+                      <p class="mt-4 text-xs w-[220px]">全國古蹟日 視覺設計，榮幸受邀替 2021 全國古蹟日主視覺設計，透過親民活潑的視覺提高民眾認識文化資產保存與文化認同。</p>
                     </div>
                     <img class="self-start w-7" src="~assets/imgs/work-ancient-tree.png" />
                   </div>

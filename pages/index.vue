@@ -1,6 +1,7 @@
 <script setup lang="ts">
 //swiper
 import { Swiper, SwiperSlide } from "swiper/vue";
+
 import { EffectCoverflow, Pagination } from "swiper";
 // Import Swiper styles
 import "swiper/css";
@@ -26,7 +27,6 @@ const btnSwipe = ref();
 const svgGit = ref();
 const svgGitSm = ref();
 const onLoadedEvents: any = inject("onLoadedEvents");
-
 const scrollbarRef = ref();
 
 provide("scrollbarRef", scrollbarRef);
@@ -38,51 +38,111 @@ useHead({
   meta: [{ name: "description", content: "達訊數位" }],
 });
 
-var currentWindowSize: WindowSize = WindowSize.Mobile;
-
 onMounted(() => {
-  currentWindowSize = getCurrentWindowSize();
-  window.addEventListener("resize", () => (currentWindowSize = getCurrentWindowSize()));
+  var currentWindowSize = getCurrentWindowSize();
+  addResizeEventListener(() => (currentWindowSize = getCurrentWindowSize()));
+  setIndexOnloadEvent(currentWindowSize);
+});
+
+function onSwiperNextClicked() {
+  const swiper = (getHtmlElement("#myPcSwiper") as any).swiper;
+  swiper.slideNext();
+}
+function onSwiperPrevClicked() {
+  const swiper = (getHtmlElement("#myPcSwiper") as any).swiper;
+  swiper.slidePrev();
+}
+
+function setIndexOnloadEvent(currentWindowSize) {
   onLoadedEvents.value["index"] = () => {
     switch (currentWindowSize) {
       case WindowSize.Desktop:
       case WindowSize.Laptop:
         initSmoothScrollbarForDeskTopAndLapTop();
-        shrinkCenterForDesktopAndLaptop();
-        marqueeForDesktopAndLaptop();
-        revealTitle();
+        initShrinkCenterAnimationForDesktopAndLaptop();
+        initMarqueeAnimationForDesktopAndLaptop();
+        initRevealTitleAnimationForDesktopAndLaptop();
+
         break;
       case WindowSize.Tablet:
       case WindowSize.Mobile:
         initSmoothScrollbarForMobileAndTablet();
-        shrinkCenterForMobileAndTablet();
-        marqueeForMobileAndTablet();
-        revealTitleForMobile();
+        initShrinkCenterAnimationForMobileAndTablet();
+        initMarqueeAnimationForMobileAndTablet();
+        initRevealTitleAnimationForMobileAndTablet();
         break;
       default:
         break;
     }
 
-    animateSwipeBtn();
-
-    animtePolygon();
-
-    addListenerOnSvgCircle();
+    addSwiperButtonEventListener();
+    rotatePolygon();
+    addSvgCircleEventsListener();
   };
-});
-
-function slideNextSwiper() {
-  const swiper = document.getElementById("myPcSwiper").swiper;
-
-  swiper.slideNext();
-}
-function slidePrevSwiper() {
-  const swiper = document.getElementById("myPcSwiper").swiper;
-
-  swiper.slidePrev();
 }
 
-function shrinkCenterForDesktopAndLaptop() {
+function addResizeEventListener(event) {
+  window.addEventListener("resize", event);
+}
+
+function initSmoothScrollbarForDeskTopAndLapTop() {
+  try {
+    let indexScrollElement = getHtmlElement(".index-scroll");
+    initIndexScrollbar(indexScrollElement);
+    setIndexScrollerProxy(indexScrollElement);
+    setScrollbarEventListener("#bg-hero");
+  } catch {
+    console.error("no index-scroll");
+  }
+}
+
+function initIndexScrollbar(indexScroller) {
+  scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+}
+
+function setIndexScrollerProxy(indexScroller) {
+  ScrollTrigger.scrollerProxy(indexScroller, {
+    scrollTop(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollTop = value;
+      }
+      return scrollbarRef.value.scrollTop;
+    },
+    scrollLeft(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollLeft = value; // setter
+      }
+      return scrollbarRef.value.scrollLeft; // getter
+    },
+  });
+  ScrollTrigger.defaults({ scroller: indexScroller });
+}
+
+function initSmoothScrollbarForMobileAndTablet() {
+  if (document.querySelector(".sm-index-scroll")) {
+    try {
+      let indexScrollElement = getHtmlElement(".sm-index-scroll");
+      initIndexScrollbar(indexScrollElement);
+      setIndexScrollerProxy(indexScrollElement);
+      setScrollbarEventListener("#bg-hero-sm");
+    } catch {
+      console.error("no index-scroll");
+    }
+  }
+}
+const getHtmlElement = (selector: string) => document.querySelector(selector) as HTMLElement;
+
+function setScrollbarEventListener(fixedElemSelector: string) {
+  scrollbarRef.value.addListener(({ offset }) => {
+    var fixedElem: HTMLElement = getHtmlElement(fixedElemSelector);
+
+    ScrollTrigger.update();
+    fixedElem.style.top = offset.y + "px";
+    fixedElem.style.left = offset.x + "px";
+  });
+}
+
+function initShrinkCenterAnimationForDesktopAndLaptop() {
   gsap.to(".pc-index-center", {
     scrollTrigger: {
       trigger: ".index-footer-tri-pc",
@@ -108,7 +168,7 @@ function shrinkCenterForDesktopAndLaptop() {
   });
 }
 
-function shrinkCenterForMobileAndTablet() {
+function initShrinkCenterAnimationForMobileAndTablet() {
   gsap.to(".sm-index-center", {
     scrollTrigger: {
       trigger: ".index-footer-tri-sm",
@@ -134,69 +194,7 @@ function shrinkCenterForMobileAndTablet() {
   });
 }
 
-function initSmoothScrollbarForDeskTopAndLapTop() {
-  if (document.querySelector(".index-scroll")) {
-    const indexScroller: any = document.querySelector(".index-scroll");
-    scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
-
-    ScrollTrigger.scrollerProxy(".index-scroll", {
-      scrollTop(value) {
-        if (arguments.length) {
-          scrollbarRef.value.scrollTop = value;
-        }
-        return scrollbarRef.value.scrollTop;
-      },
-      scrollLeft(value) {
-        if (arguments.length) {
-          scrollbarRef.value.scrollLeft = value; // setter
-        }
-        return scrollbarRef.value.scrollLeft; // getter
-      },
-    });
-
-    scrollbarRef.value.addListener(({ offset }) => {
-      var fixedElem = document.getElementById("bg-hero");
-
-      ScrollTrigger.update();
-      fixedElem.style.top = offset.y + "px";
-      fixedElem.style.left = offset.x + "px";
-    });
-    ScrollTrigger.defaults({ scroller: indexScroller });
-  }
-}
-
-function initSmoothScrollbarForMobileAndTablet() {
-  if (document.querySelector(".sm-index-scroll")) {
-    const indexScroller: any = document.querySelector(".sm-index-scroll");
-    scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
-
-    ScrollTrigger.scrollerProxy(".sm-index-scroll", {
-      scrollTop(value) {
-        if (arguments.length) {
-          scrollbarRef.value.scrollTop = value;
-        }
-        return scrollbarRef.value.scrollTop;
-      },
-      scrollLeft(value) {
-        if (arguments.length) {
-          scrollbarRef.value.scrollLeft = value; // setter
-        }
-        return scrollbarRef.value.scrollLeft; // getter
-      },
-    });
-
-    scrollbarRef.value.addListener(({ offset }) => {
-      var fixedElem = document.getElementById("bg-hero-sm");
-
-      ScrollTrigger.update();
-      fixedElem.style.top = offset.y + "px";
-      fixedElem.style.left = offset.x + "px";
-    });
-    ScrollTrigger.defaults({ scroller: indexScroller });
-  }
-}
-
-function revealTitle() {
+function initRevealTitleAnimationForDesktopAndLaptop() {
   gsap.from(".pc-wecreate", {
     yPercent: 100,
     ease: "Power4.easeOut",
@@ -204,7 +202,7 @@ function revealTitle() {
     duration: 1.5,
   });
 }
-function revealTitleForMobile() {
+function initRevealTitleAnimationForMobileAndTablet() {
   gsap.from(".sm-wecreate", {
     yPercent: 100,
     ease: "Power4.easeOut",
@@ -213,7 +211,7 @@ function revealTitleForMobile() {
   });
 }
 
-function addListenerOnSvgCircle() {
+function addSvgCircleEventsListener() {
   svgGit.value.addEventListener("mouseenter", () => {
     gsap.set(".svg-git-circle", {
       fill: "#D3E741",
@@ -269,7 +267,7 @@ function addListenerOnSvgCircle() {
   });
 }
 
-function animateSwipeBtn() {
+function addSwiperButtonEventListener() {
   btnSwipe.value.addEventListener("mouseleave", (e) => {
     gsap.to(".swipe-span", {
       scaleX: 0,
@@ -309,9 +307,7 @@ function animateSwipeBtn() {
   });
 }
 
-function onSlideChange() {}
-
-function marqueeForDesktopAndLaptop() {
+function initMarqueeAnimationForDesktopAndLaptop() {
   gsap.to(".front", {
     x: -1000,
     ease: "Power2.easeInOut",
@@ -336,7 +332,7 @@ function marqueeForDesktopAndLaptop() {
   });
 }
 
-function marqueeForMobileAndTablet() {
+function initMarqueeAnimationForMobileAndTablet() {
   gsap.to(".front-sm", {
     x: -400,
     ease: "Power2.easeInOut",
@@ -361,7 +357,7 @@ function marqueeForMobileAndTablet() {
   });
 }
 
-function animtePolygon() {
+function rotatePolygon() {
   gsap.to(".polygon-star", {
     rotate: 36000,
     duration: 9999,
@@ -404,11 +400,7 @@ function animtePolygon() {
 }
 
 function scrollToPageFooter() {
-  try {
-    scrollbarRef.value.scrollTo(0, scrollbarRef.value.limit.y, 600);
-  } catch (error) {
-    console.log("error:", error);
-  }
+  scrollbarRef.value.scrollTo(0, scrollbarRef.value.limit.y, 600);
 }
 </script>
 <template>
@@ -499,8 +491,8 @@ function scrollToPageFooter() {
           <div class="w-full h-screen flex justify-center items-center relative z-10 min-h-[800px]">
             <div>
               <div class="relative w-[900px] 3xl:w-[1350px] text-white text-sm leading-7">
-                <div @click="slidePrevSwiper" class="r absolute left-0 top-24 z-10 text-4xl w-32 h-60 3xl:w-48 3xl:h-72"></div>
-                <div @click="slideNextSwiper" class="r absolute right-0 top-24 z-10 text-4xl w-32 h-60 3xl:w-48 3xl:h-72"></div>
+                <div @click="onSwiperPrevClicked" class="r absolute left-0 top-24 z-10 text-4xl w-32 h-60 3xl:w-48 3xl:h-72"></div>
+                <div @click="onSwiperNextClicked" class="r absolute right-0 top-24 z-10 text-4xl w-32 h-60 3xl:w-48 3xl:h-72"></div>
                 <swiper
                   :effect="'coverflow'"
                   :grabCursor="true"
@@ -516,7 +508,6 @@ function scrollToPageFooter() {
                   :loop="true"
                   :modules="[EffectCoverflow, Pagination]"
                   id="myPcSwiper"
-                  @slideChange="onSlideChange()"
                 >
                   <swiper-slide>
                     <div class="relative">
@@ -533,7 +524,9 @@ function scrollToPageFooter() {
                           </div>
                         </div>
                       </NuxtLink>
-                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>MIA TREASURE 是來自紐約的精選飾品，歐美風格的款式主打俐落、陽光的都會女性。飾品分別有純K金、純銀兩種類型，鑲鑽飾品皆使用高度工藝製作的蘇聯鑽，品牌致力於提供多元，精緻且高品質的飾品。</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5">
+                        <p>MIA TREASURE 品牌設計<br />結合品牌網站設計及社群行銷，將歐美飾品潮流作為其特色</p>
+                      </div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
@@ -552,7 +545,12 @@ function scrollToPageFooter() {
                         </div>
                       </NuxtLink>
 
-                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>Bella Uno 是來自紐約並富含創作理念的女性團隊所設計的品牌，他們追求休閒時尚並兼具環境保護的理念，每個飾品皆獨一無二並至少含有25%的回收金屬，是一家支持環境永續的飾品品牌</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5">
+                        <p>
+                          bella 品牌識別再造<br />
+                          我們規劃了新的品牌定位，協助整體品牌在台灣地區傳遞其核心價值及新形象。
+                        </p>
+                      </div>
                     </div>
                   </swiper-slide>
                   <swiper-slide>
@@ -571,7 +569,9 @@ function scrollToPageFooter() {
                         </div>
                       </NuxtLink>
 
-                      <div class="w-[335px] 3xl:w-[505px] mt-5"><p>全國古蹟日為全台灣各縣市在每年9月都會共同響應的一個活動，主要目的在提高民眾認識文化資產保存與文化認同等行為並舉辦各式講座、走讀、劇場表演、手作課程等多元方式吸引民眾使其達到寓教於樂的推廣方式。</p></div>
+                      <div class="w-[335px] 3xl:w-[505px] mt-5">
+                        <p>全國古蹟日 視覺設計<br />榮幸受邀替2021全國古蹟日主視覺設計，透過親民活潑的視覺提高民眾認識文化資產保存與文化認同</p>
+                      </div>
                     </div>
                   </swiper-slide>
                 </swiper>

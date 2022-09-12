@@ -12,27 +12,27 @@ function onClickToggle() {
   }
   isMenuOpen.value = !isMenuOpen.value;
 }
-const fps = ref(0);
+// const fps = ref(0);
 
 onMounted(() => {
   let requestTime;
 
-  function loop(time) {
-    if (requestTime) {
-      fps.value = Math.round(1000 / (performance.now() - requestTime));
-    }
+  // function loop(time) {
+  //   if (requestTime) {
+  //     fps.value = Math.round(1000 / (performance.now() - requestTime));
+  //   }
 
-    requestTime = time;
-    window.requestAnimationFrame((timeRes) => loop(timeRes));
-  }
+  //   requestTime = time;
+  //   window.requestAnimationFrame((timeRes) => loop(timeRes));
+  // }
 
-  window.requestAnimationFrame((timeRes) => loop(timeRes));
+  // window.requestAnimationFrame((timeRes) => loop(timeRes));
 });
 </script>
 <template>
   <div class="w-full flex justify-between px-5 xl:px-20 fixed top-0 z-50" style="mix-blend-mode: difference">
     <NuxtLink to="/" target="_top">
-      <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing{{ fps }}</p>
+      <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing</p>
     </NuxtLink>
 
     <button class="w-6 h-4 relative text-white self-end" @click="onClickToggle">

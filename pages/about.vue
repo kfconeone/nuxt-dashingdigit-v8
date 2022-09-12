@@ -75,7 +75,7 @@ onMounted(() => {
           shrinkCenterForDesktopAndLaptop();
           break;
         case WindowSize.Tablet:
-          itSmoothScrollbarForMobileAndTablet();
+          initSmoothScrollbarForMobileAndTablet();
 
           slideSharkForTablet();
           ScrollTrigger.create({
@@ -114,7 +114,7 @@ onMounted(() => {
 
           break;
         case WindowSize.Mobile:
-          itSmoothScrollbarForMobileAndTablet();
+          initSmoothScrollbarForMobileAndTablet();
           slideSharkForMobile();
           ScrollTrigger.create({
             trigger: ".sm-whitebg-tri",
@@ -157,6 +157,172 @@ onMounted(() => {
     });
   };
 });
+
+function initHorizontalScrollForDesktopAndLaptop() {
+  gsap.to(".trait", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait",
+      start: "top top",
+      end: () => innerWidth,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+}
+function initHorizontalScrollForMobile() {
+  gsap.to(".trait-sm", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-sm",
+      start: "top top",
+      end: () => innerWidth * 3,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+}
+function initHorizontalScrollForTablet() {
+  gsap.to(".trait-md", {
+    xPercent: -100,
+    x: () => innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".trait-md",
+      start: "top top",
+      end: () => innerWidth * 3,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+    },
+  });
+}
+
+function initSmoothScrollbarForMobileAndTablet() {
+  console.log("initSmoothScrollbarForDesktopAndLaptop", currentWindowSize.value, getCurrentWindowSize());
+
+  //smooth scrollbar//
+  const indexScroller: any = document.querySelector(".sm-about-scroll");
+  scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+
+  ScrollTrigger.scrollerProxy(".sm-about-scroll", {
+    scrollTop(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollTop = value;
+      }
+      return scrollbarRef.value.scrollTop;
+    },
+    scrollLeft(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollLeft = value; // setter
+      }
+      return scrollbarRef.value.scrollLeft; // getter
+    },
+  });
+  scrollbarRef.value.addListener(({ offset }) => {
+    // var fixedElem = document.getElementById("bg-hero");
+
+    ScrollTrigger.update();
+    // fixedElem.style.top = offset.y + "px";
+    // fixedElem.style.left = offset.x + "px";
+  });
+  ScrollTrigger.defaults({ scroller: indexScroller });
+  //smooth scrollbar//
+}
+
+function initSmoothScrollbarForDesktopAndLaptop() {
+  //smooth scrollbar//
+  console.log("initSmoothScrollbarForDesktopAndLaptop", currentWindowSize.value, getCurrentWindowSize());
+  const indexScroller: any = document.querySelector(".about-scroll");
+  console.log("indexScroller:", document.querySelector(".about-scroll"));
+  scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+
+  ScrollTrigger.scrollerProxy(".about-scroll", {
+    scrollTop(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollTop = value;
+      }
+      return scrollbarRef.value.scrollTop;
+    },
+    scrollLeft(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollLeft = value; // setter
+      }
+      return scrollbarRef.value.scrollLeft; // getter
+    },
+  });
+  scrollbarRef.value.addListener(({ offset }) => {
+    // var fixedElem = document.getElementById("bg-hero");
+
+    ScrollTrigger.update();
+    // fixedElem.style.top = offset.y + "px";
+    // fixedElem.style.left = offset.x + "px";
+  });
+  ScrollTrigger.defaults({ scroller: indexScroller });
+  //smooth scrollbar//
+}
+
+function shrinkCenterForDesktopAndLaptop() {
+  gsap.to(".pc-about-center", {
+    scrollTrigger: {
+      trigger: ".about-footer-tri-pc",
+      start: "20% bottom",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.5,
+    borderRadius: "30px",
+    ease: "power4.easeOut",
+    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+  });
+  gsap.to(".pc-about-center", {
+    transformOrigin: "center center",
+    scale: 0.95,
+    ease: "Power2.easeIn",
+    scrollTrigger: {
+      trigger: ".about-footer-tri-pc",
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: 1,
+      pin: ".pc-about-center",
+    },
+  });
+}
+function shrinkCenterForMobileAndTablet() {
+  gsap.to(".sm-about-center", {
+    scrollTrigger: {
+      trigger: ".about-footer-tri-sm",
+      start: "20% bottom",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.5,
+    borderRadius: "30px",
+    ease: "power4.easeOut",
+    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+  });
+  gsap.to(".sm-about-center", {
+    transformOrigin: "center center",
+    scale: 0.95,
+    ease: "Power2.easeIn",
+    scrollTrigger: {
+      trigger: ".about-footer-tri-sm",
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: 1,
+      pin: ".sm-about-center",
+    },
+  });
+}
 
 function slideSharkForDesktopAndLaptop() {
   gsap.to(".pc-about-shark", {
@@ -203,6 +369,7 @@ function slideSharkForDesktopAndLaptop() {
     },
   });
 }
+
 function slideSharkForTablet() {
   gsap.to(".sm-about-shark", {
     x: -125,
@@ -294,171 +461,6 @@ function slideSharkForMobile() {
       start: "25% top",
       end: "30% top",
       scrub: true,
-    },
-  });
-}
-
-function initHorizontalScrollForDesktopAndLaptop() {
-  gsap.to(".trait", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait",
-      start: "top top",
-      end: () => innerWidth,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
-}
-function initHorizontalScrollForMobile() {
-  gsap.to(".trait-sm", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait-sm",
-      start: "top top",
-      end: () => innerWidth * 3,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
-}
-function initHorizontalScrollForTablet() {
-  gsap.to(".trait-md", {
-    xPercent: -100,
-    x: () => innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".trait-md",
-      start: "top top",
-      end: () => innerWidth * 3,
-      scrub: true,
-      pin: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
-}
-
-function itSmoothScrollbarForMobileAndTablet() {
-  console.log("initSmoothScrollbarForDesktopAndLaptop", currentWindowSize.value, getCurrentWindowSize());
-
-  //smooth scrollbar//
-  const indexScroller: any = document.querySelector(".sm-about-scroll");
-  scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
-
-  ScrollTrigger.scrollerProxy(".sm-about-scroll", {
-    scrollTop(value) {
-      if (arguments.length) {
-        scrollbarRef.value.scrollTop = value;
-      }
-      return scrollbarRef.value.scrollTop;
-    },
-    scrollLeft(value) {
-      if (arguments.length) {
-        scrollbarRef.value.scrollLeft = value; // setter
-      }
-      return scrollbarRef.value.scrollLeft; // getter
-    },
-  });
-  scrollbarRef.value.addListener(({ offset }) => {
-    // var fixedElem = document.getElementById("bg-hero");
-
-    ScrollTrigger.update();
-    // fixedElem.style.top = offset.y + "px";
-    // fixedElem.style.left = offset.x + "px";
-  });
-  ScrollTrigger.defaults({ scroller: indexScroller });
-  //smooth scrollbar//
-}
-function initSmoothScrollbarForDesktopAndLaptop() {
-  //smooth scrollbar//
-  console.log("initSmoothScrollbarForDesktopAndLaptop", currentWindowSize.value, getCurrentWindowSize());
-  const indexScroller: any = document.querySelector(".about-scroll");
-  console.log("indexScroller:", document.querySelector(".about-scroll"));
-  scrollbarRef.value = Scrollbar.init(indexScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
-
-  ScrollTrigger.scrollerProxy(".about-scroll", {
-    scrollTop(value) {
-      if (arguments.length) {
-        scrollbarRef.value.scrollTop = value;
-      }
-      return scrollbarRef.value.scrollTop;
-    },
-    scrollLeft(value) {
-      if (arguments.length) {
-        scrollbarRef.value.scrollLeft = value; // setter
-      }
-      return scrollbarRef.value.scrollLeft; // getter
-    },
-  });
-  scrollbarRef.value.addListener(({ offset }) => {
-    // var fixedElem = document.getElementById("bg-hero");
-
-    ScrollTrigger.update();
-    // fixedElem.style.top = offset.y + "px";
-    // fixedElem.style.left = offset.x + "px";
-  });
-  ScrollTrigger.defaults({ scroller: indexScroller });
-  //smooth scrollbar//
-}
-
-function shrinkCenterForDesktopAndLaptop() {
-  gsap.to(".pc-about-center", {
-    scrollTrigger: {
-      trigger: ".about-footer-tri-pc",
-      start: "20% bottom",
-      end: "bottom bottom",
-      toggleActions: "play none none reverse",
-    },
-    duration: 0.5,
-    borderRadius: "30px",
-    ease: "power4.easeOut",
-    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-  });
-  gsap.to(".pc-about-center", {
-    transformOrigin: "center center",
-    scale: 0.95,
-    ease: "Power2.easeIn",
-    scrollTrigger: {
-      trigger: ".about-footer-tri-pc",
-      start: "top bottom",
-      end: "bottom bottom",
-      scrub: 1,
-      pin: ".pc-about-center",
-    },
-  });
-}
-function shrinkCenterForMobileAndTablet() {
-  gsap.to(".sm-about-center", {
-    scrollTrigger: {
-      trigger: ".about-footer-tri-sm",
-      start: "20% bottom",
-      end: "bottom bottom",
-      toggleActions: "play none none reverse",
-    },
-    duration: 0.5,
-    borderRadius: "30px",
-    ease: "power4.easeOut",
-    // "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-  });
-  gsap.to(".sm-about-center", {
-    transformOrigin: "center center",
-    scale: 0.95,
-    ease: "Power2.easeIn",
-    scrollTrigger: {
-      trigger: ".about-footer-tri-sm",
-      start: "top bottom",
-      end: "bottom bottom",
-      scrub: 1,
-      pin: ".sm-about-center",
     },
   });
 }

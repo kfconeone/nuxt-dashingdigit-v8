@@ -46,53 +46,6 @@ onMounted(() => {
   };
 });
 
-function bounceFrameForMobile() {
-  gsap.from(".sm-bounce-webdesign", {
-    y: 200,
-    x: "random(-50,50)",
-    duration: 1.5,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".sm-bounce-webdesign-tri",
-      start: "20% bottom",
-    },
-  });
-  gsap.from(".sm-bounce-landing", {
-    y: 200,
-    x: "random(-50,50)",
-    duration: 1.5,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".sm-bounce-landing-tri",
-      start: "20% bottom",
-    },
-  });
-  gsap.from(".sm-bounce-motion", {
-    y: 200,
-    x: "random(-50,50)",
-    duration: 1.5,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".sm-bounce-motion-tri",
-      start: "20% bottom",
-    },
-  });
-  gsap.from(".sm-bounce-webapp", {
-    y: 200,
-    x: "random(-50,50)",
-    duration: 1.5,
-    scale: 0,
-    ease: "Power2.easeOut",
-    scrollTrigger: {
-      trigger: ".sm-bounce-webapp-tri",
-      start: "20% bottom",
-    },
-  });
-}
-
 function initGsapParallaxForDesktopAndLaptop() {
   gsap.to(".pc-text-wedesign", {
     y: -300,
@@ -222,6 +175,7 @@ function initGsapParallaxForDesktopAndLaptop() {
     },
   });
 }
+
 function initGsapParallaxForMobileAndTablet() {
   gsap.to(".sm-text-wedesign", {
     y: -300,
@@ -352,6 +306,54 @@ function initGsapParallaxForMobileAndTablet() {
   });
 }
 
+function initSmoothScrollbarForDesktopAndLaptop() {
+  //smooth scrollbar//
+  const workScroller: any = document.querySelector(".service-scroll");
+  scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+
+  ScrollTrigger.scrollerProxy(".service-scroll", {
+    scrollTop(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollTop = value;
+      }
+      return scrollbarRef.value.scrollTop;
+    },
+  });
+  scrollbarRef.value.addListener(({ offset }) => {
+    var fixedElem = document.getElementById("bg-services-pc");
+
+    fixedElem.style.top = offset.y + "px";
+    fixedElem.style.left = offset.x + "px";
+    ScrollTrigger.update();
+  });
+  ScrollTrigger.defaults({ scroller: workScroller });
+  //smooth scrollbar//
+}
+
+function initSmoothScrollbarForMobileAndTablet() {
+  //smooth scrollbar//
+  const workScroller: any = document.querySelector(".sm-service-scroll");
+  scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
+
+  ScrollTrigger.scrollerProxy(".sm-service-scroll", {
+    scrollTop(value) {
+      if (arguments.length) {
+        scrollbarRef.value.scrollTop = value;
+      }
+      return scrollbarRef.value.scrollTop;
+    },
+  });
+  scrollbarRef.value.addListener(({ offset }) => {
+    var fixedElem = document.getElementById("bg-services-sm");
+
+    fixedElem.style.top = offset.y + "px";
+    fixedElem.style.left = offset.x + "px";
+    ScrollTrigger.update();
+  });
+  ScrollTrigger.defaults({ scroller: workScroller });
+  //smooth scrollbar//
+}
+
 function shrinkCenterForDesktopAndLaptop() {
   gsap.to(".pc-service-center", {
     scrollTrigger: {
@@ -379,6 +381,7 @@ function shrinkCenterForDesktopAndLaptop() {
     },
   });
 }
+
 function shrinkCenterForMobileAndTablet() {
   gsap.to(".sm-service-center", {
     scrollTrigger: {
@@ -407,51 +410,51 @@ function shrinkCenterForMobileAndTablet() {
   });
 }
 
-function initSmoothScrollbarForDesktopAndLaptop() {
-  //smooth scrollbar//
-  const workScroller: any = document.querySelector(".service-scroll");
-  scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
-
-  ScrollTrigger.scrollerProxy(".service-scroll", {
-    scrollTop(value) {
-      if (arguments.length) {
-        scrollbarRef.value.scrollTop = value;
-      }
-      return scrollbarRef.value.scrollTop;
+function bounceFrameForMobile() {
+  gsap.from(".sm-bounce-webdesign", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-webdesign-tri",
+      start: "20% bottom",
     },
   });
-  scrollbarRef.value.addListener(({ offset }) => {
-    var fixedElem = document.getElementById("bg-services-pc");
-
-    fixedElem.style.top = offset.y + "px";
-    fixedElem.style.left = offset.x + "px";
-    ScrollTrigger.update();
-  });
-  ScrollTrigger.defaults({ scroller: workScroller });
-  //smooth scrollbar//
-}
-function initSmoothScrollbarForMobileAndTablet() {
-  //smooth scrollbar//
-  const workScroller: any = document.querySelector(".sm-service-scroll");
-  scrollbarRef.value = Scrollbar.init(workScroller, { damping: 0.15, thumbMinSize: 100, delegateTo: document, alwaysShowTracks: false });
-
-  ScrollTrigger.scrollerProxy(".sm-service-scroll", {
-    scrollTop(value) {
-      if (arguments.length) {
-        scrollbarRef.value.scrollTop = value;
-      }
-      return scrollbarRef.value.scrollTop;
+  gsap.from(".sm-bounce-landing", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-landing-tri",
+      start: "20% bottom",
     },
   });
-  scrollbarRef.value.addListener(({ offset }) => {
-    var fixedElem = document.getElementById("bg-services-sm");
-
-    fixedElem.style.top = offset.y + "px";
-    fixedElem.style.left = offset.x + "px";
-    ScrollTrigger.update();
+  gsap.from(".sm-bounce-motion", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-motion-tri",
+      start: "20% bottom",
+    },
   });
-  ScrollTrigger.defaults({ scroller: workScroller });
-  //smooth scrollbar//
+  gsap.from(".sm-bounce-webapp", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".sm-bounce-webapp-tri",
+      start: "20% bottom",
+    },
+  });
 }
 </script>
 <template>
