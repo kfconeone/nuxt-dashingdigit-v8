@@ -948,9 +948,9 @@ function scrollToPageFooter() {
           <div class="flex justify-center mt-16 text-[#D3E741] text-xs font-bold mb-20" style="font-family: arial-bd">
             <NuxtLink to="/work" target="_top">
               <button class="overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-1.5 px-5 relative w-fit h-fit">
-                <div class="relative z-10 flex items-center gap-1">
-                  <p class="tracking-[0.13em]">MORE</p>
-                  <div class="w-2 flex h-full items-center">
+                <div class="relative z-10 flex items-center gap-1 group">
+                  <p class="tracking-[0.13em] group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]">MORE</p>
+                  <div class="w-2 flex h-full items-center group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]">
                     <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <line class="stroke-[#D3E741]" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
                       <line class="stroke-[#D3E741]" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />

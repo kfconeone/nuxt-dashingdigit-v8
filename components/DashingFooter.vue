@@ -374,7 +374,7 @@ function scrollToPageTop() {
             <br />
             <input name="message" :style="`background-color:${props.color}`" class="w-52 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
             <br />
-            <button type="submit" value="Send" class="text-black mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest">送~出~</button>
+            <button type="submit" value="Send" class="text-black mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest group"><p class="group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]">送~出~</p></button>
           </div>
         </form>
 
