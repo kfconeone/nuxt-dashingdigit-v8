@@ -15,7 +15,6 @@ useHead({
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
   meta: [{ name: "description", content: "達訊數位提供的服務" }],
-  script: [{ src: "https://unpkg.com/spacingjs", async: true }],
 });
 const onLoadedEvents: any = inject("onLoadedEvents");
 var currentWindowSize: WindowSize = WindowSize.Mobile;
