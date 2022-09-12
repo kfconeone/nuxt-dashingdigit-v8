@@ -24,22 +24,34 @@ const props = defineProps({
   },
 });
 
-const form = ref();
+const formForXl = ref();
+const formForMd = ref();
+const formForSm = ref();
 
 onMounted(() => {
   animateSwipeBtn();
   animateFooterLtsgtwSvgPc();
 });
-function sendEmail() {
-  emailjs.sendForm("service_k8zdy2j", "template_939p7pi", form.value, "DNs0jDKtU8ghbZyMt").then(
-    (result) => {
-      alert("寄送郵件成功");
-    },
-    (error) => {
-      // console.log("FAILED...", error.text);
-      alert("寄送郵件失敗");
-    }
-  );
+function sendEmail(form) {
+  //Regular expression Testing
+  var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+  var phoneRule = /^[0-9]{10}$/g;
+  console.log("from_phone", form.from_phone.value.search(phoneRule) != -1);
+
+  if (form.from_com.value != "" && form.from_email.value.search(emailRule) != -1 && form.from_name.value != "" && form.from_phone.value != "" && form.message.value != "") {
+    emailjs.sendForm("service_1eg4y0l", "template_939p7pi", form, "DNs0jDKtU8ghbZyMt").then(
+      (result) => {
+        console.log("");
+        alert("寄送郵件成功");
+      },
+      (error) => {
+        // console.log("FAILED...", error.text);
+        alert("寄送郵件失敗");
+      }
+    );
+  } else {
+    alert("請填寫正確內容");
+  }
 }
 function animateFooterLtsgtwSvgPc() {
   footerLtsgtwSvgPc.value.addEventListener("mouseleave", (e) => {
@@ -208,14 +220,14 @@ function scrollToPageTop() {
         </p>
 
         <div class="mt-36 text-xl 3xl:text-2xl text-[#262723]">
-          <form ref="form" @submit.prevent="sendEmail">
+          <form ref="formForXl" @submit.prevent="sendEmail(formForXl)">
             <div class="flex gap-12">
               <input name="from_com" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
               <input name="from_email" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="EMAIL" />
             </div>
             <div class="flex gap-12 mt-16">
               <input name="from_name" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
-              <input name="from_phone" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+              <input name="from_phone" :style="`background-color:${props.color}`" class="w-full p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" maxlength="10" size="10" placeholder="聯絡電話" />
             </div>
             <div class="mt-16">
               <input name="message" :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
@@ -275,7 +287,7 @@ function scrollToPageTop() {
             <img class="absolute w-16 right-[35%] top-0" src="~assets/imgs/letsgtw.png" />
             <img class="w-44" src="~assets/imgs/ufo.gif" />
           </div>
-          <form ref="form" @submit.prevent="sendEmail">
+          <form ref="formForMd" @submit.prevent="sendEmail(formForMd)">
             <div class="text-xs">
               <div class="flex gap-12">
                 <input name="from_com" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="公司名稱" />
@@ -283,7 +295,7 @@ function scrollToPageTop() {
               </div>
               <div class="flex gap-12 mt-12">
                 <input name="from_name" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡人(先生/小姐)" />
-                <input name="from_phone" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="聯絡電話" />
+                <input name="from_phone" :style="`background-color:${props.color}`" class="p-1.5 placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" maxlength="10" size="10" placeholder="聯絡電話" />
               </div>
               <div class="mt-12">
                 <input name="message" :style="`background-color:${props.color}`" class="p-1.5 w-full placeholder-[#262723] border-b-[#262723] border-b-[0.5px]" type="text" placeholder="專案說明(請用幾句話描述您的需求)" />
@@ -350,7 +362,7 @@ function scrollToPageTop() {
 
         <p class="mt-4 text-xs">請填寫下列表單詢問案件<br />我們會以Email回覆或是電話聯絡</p>
 
-        <form ref="form" @submit.prevent="sendEmail">
+        <form ref="formForSm" @submit.prevent="sendEmail(formForSm)">
           <div class="mt-12 text-xs">
             <input name="from_com" :style="`background-color:${props.color}`" class="w-32 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="公司名稱" />
             <br />
@@ -358,7 +370,7 @@ function scrollToPageTop() {
             <br />
             <input name="from_name" :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="聯絡人(先生/小姐)" />
             <br />
-            <input name="from_phone" :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="聯絡電話" />
+            <input name="from_phone" :style="`background-color:${props.color}`" class="w-32 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" maxlength="10" size="10" placeholder="聯絡電話" />
             <br />
             <input name="message" :style="`background-color:${props.color}`" class="w-52 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
             <br />
