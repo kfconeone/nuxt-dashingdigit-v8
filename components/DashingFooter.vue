@@ -34,29 +34,28 @@ onMounted(() => {
 });
 function sendEmail(form) {
   //Regular expression Testing
-  var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-  var phoneRule = /^[0-9]{10}$/g;
-  console.log("from_phone", form.from_phone.value.search(phoneRule) != -1);
-
-  if (form.from_com.value != "" && form.from_email.value.search(emailRule) != -1 && form.from_name.value != "" && form.from_phone.value != "" && form.message.value != "") {
-    emailjs.sendForm("service_1eg4y0l", "template_939p7pi", form, "DNs0jDKtU8ghbZyMt").then(
-      (result) => {
-        console.log("");
-        alert("寄送郵件成功");
-      },
-      (error) => {
-        // console.log("FAILED...", error.text);
-        alert("寄送郵件失敗");
-      }
-    );
-  } else {
-    alert("請填寫正確內容");
-  }
+  // var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+  // var phoneRule = /^[0-9]{10}$/g;
+  // console.log("from_phone", form.from_phone.value.search(phoneRule) != -1);
+  // if (form.from_com.value != "" && form.from_email.value.search(emailRule) != -1 && form.from_name.value != "" && form.from_phone.value != "" && form.message.value != "") {
+  //   emailjs.sendForm("service_1eg4y0l", "template_939p7pi", form, "DNs0jDKtU8ghbZyMt").then(
+  //     (result) => {
+  //       console.log("");
+  //       alert("寄送郵件成功");
+  //     },
+  //     (error) => {
+  //       // console.log("FAILED...", error.text);
+  //       alert("寄送郵件失敗");
+  //     }
+  //   );
+  // } else {
+  //   alert("請填寫正確內容");
+  // }
 }
 function animateFooterLtsgtwSvgPc() {
   footerLtsgtwSvgPc.value.addEventListener("mouseleave", (e) => {
     gsap.to(".svg-ltsgtw-circle-tip", {
-      ease: "Power2.InOut",
+      ease: "Power2.easeInOut",
       "--bg": "white",
       duration: 0.4,
     });
@@ -67,9 +66,28 @@ function animateFooterLtsgtwSvgPc() {
     gsap.to(".svg-ltsgtw-circle-tip", {
       "--bg": "#6372c6",
       duration: 0.4,
-      ease: "Power2.InOut",
+      ease: "Power2.easeInOut",
     });
     isLtsgtwSvgPcShow.value = true;
+  });
+}
+
+function onTouchSwipeBtnSm() {
+  console.log("onTouchSwipeBtnSm");
+  gsap.to(".footer-swipe-span-sm", {
+    scaleX: 1,
+    duration: 0.4,
+    ease: "Power2.easeInOut",
+  });
+
+  gsap.to(".footer-swipe-text-sm", {
+    duration: 0.4,
+    ease: "Power2.easeInOut",
+    color: "white",
+  });
+
+  gsap.set(".footerBtnSendSm", {
+    borderColor: props.color,
   });
 }
 function animateSwipeBtn() {
@@ -77,12 +95,12 @@ function animateSwipeBtn() {
     gsap.to(".swipe-span", {
       scaleX: 0,
       duration: 0.4,
-      ease: "Power2.InOut",
+      ease: "Power2.easeInOut",
     });
 
     gsap.to(".footer-swipe-text", {
       duration: 0.4,
-      ease: "Power2.InOut",
+      ease: "Power2.easeInOut",
       color: "black",
     });
 
@@ -95,12 +113,12 @@ function animateSwipeBtn() {
     gsap.to(".swipe-span", {
       scaleX: 1,
       duration: 0.4,
-      ease: "Power2.InOut",
+      ease: "Power2.easeInOut",
     });
 
     gsap.to(".footer-swipe-text", {
       duration: 0.4,
-      ease: "Power2.InOut",
+      ease: "Power2.easeInOut",
       color: "white",
     });
 
@@ -374,7 +392,12 @@ function scrollToPageTop() {
             <br />
             <input name="message" :style="`background-color:${props.color}`" class="w-52 mt-5 p-1.5 placeholder-black border-b-black border-b-[1px] rounded-none" type="text" placeholder="專案說明 (請用幾句話描述您的需求)" />
             <br />
-            <button type="submit" value="Send" class="text-black mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest group"><p class="group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]">送~出~</p></button>
+            <button @touchstart="onTouchSwipeBtnSm" type="submit" value="Send" class="footerBtnSendSm overflow-hidden relative text-black mt-8 border-[1px] border-[#262723] rounded-[35px] px-12 py-1 tracking-widest">
+              <div class="relative z-10 flex items-center">
+                <p class="footer-swipe-text-sm">送~出~</p>
+              </div>
+              <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="footer-swipe-span-sm w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
+            </button>
           </div>
         </form>
 
