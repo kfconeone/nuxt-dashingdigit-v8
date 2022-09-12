@@ -4,15 +4,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import emailjs from "@emailjs/browser";
 
 gsap.registerPlugin(ScrollToPlugin);
-useHead({
-  title: "Services",
-  // or, instead:
-  // titleTemplate: (title) => `My App - ${title}`,
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  charset: "utf-8",
-  meta: [{ name: "description", content: "達訊數位提供的服務" }],
-  script: [{ src: "https://unpkg.com/spacingjs", async: true }],
-});
+
 const scrollbar: any = inject("scrollbarRef");
 
 const isLtsgtwSvgPcShow = ref(false);
