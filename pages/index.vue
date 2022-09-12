@@ -969,7 +969,7 @@ function scrollToPageFooter() {
           <div class="flex justify-center mt-16 text-[#D3E741] text-xs font-bold mb-20" style="font-family: arial-bd">
             <NuxtLink to="/work" target="_top">
               <button ref="btnSwipeForMobile" @touchstart="onTouchBtnSwipeSm" class="btnSwipe-sm overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-1.5 px-5 relative w-fit h-fit">
-                <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="swipe-span-sm w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
+                <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="rounded-[44px] swipe-span-sm w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
                 <div class="relative z-10 flex items-center gap-1">
                   <p class="index-swipe-text-sm tracking-[0.13em]">MORE</p>
                   <div class="w-2">

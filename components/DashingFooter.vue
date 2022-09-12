@@ -396,7 +396,7 @@ function scrollToPageTop() {
               <div class="relative z-10 flex items-center">
                 <p class="footer-swipe-text-sm">送~出~</p>
               </div>
-              <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="footer-swipe-span-sm w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
+              <span style="background: linear-gradient(90deg, #6372c6 0%, #ffffff 100%)" class="footer-swipe-span-sm w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left rounded-[35px]"></span>
             </button>
           </div>
         </form>
