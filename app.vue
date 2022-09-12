@@ -44,11 +44,13 @@ onMounted(() => {
     gsap.to(".mouse-normal", {
       x: event.clientX - 25,
       y: event.clientY - 10,
+      duration: 0.25,
     });
     gsap.to(".mouse-default", {
       x: event.clientX - 15,
       y: event.clientY,
       ease: "Power4.easeOut",
+      duration: 0.25,
     });
   });
 

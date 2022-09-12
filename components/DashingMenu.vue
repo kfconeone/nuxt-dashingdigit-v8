@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
-const isMenuOpen = inject("isMenuOpen");
+const isMenuOpen: any = inject("isMenuOpen");
 
 onMounted(() => {
   if (document.querySelector(".menu-vertical-track")) {
@@ -50,8 +50,8 @@ function onClickToggle() {
         </NuxtLink>
       </div>
 
-      <div class="bg-white fixed top-0 w-fit h-full whitespace-nowrap overflow-hidden py-3 sm:py-5">
-        <p class="text-[#D3E741] text-base sm:text-4xl menu-vertical-track" style="writing-mode: vertical-lr">
+      <div class="bg-white fixed top-0 h-full whitespace-nowrap overflow-hidden py-3 sm:py-5">
+        <p class="leading-[2] tracking-widest text-[#D3E741] text-base sm:text-[32px] menu-vertical-track" style="font-family: arial-bd; writing-mode: vertical-lr">
           Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right
           reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all
           right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright
@@ -103,7 +103,7 @@ function onClickToggle() {
         </div>
       </div>
       <div class="bg-white fixed bottom-0 w-full whitespace-nowrap overflow-hidden py-3 sm:py-5">
-        <p class="text-[#D3E741] text-base sm:text-4xl menu-horizontal-track">
+        <p class="text-[#D3E741] text-base sm:text-4xl menu-horizontal-track tracking-widest" style="font-family: arial-bd">
           Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right
           reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all
           right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright all right reserved.Dashing digit ©2022 copyright
