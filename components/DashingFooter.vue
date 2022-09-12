@@ -32,24 +32,33 @@ onMounted(() => {
   animateSwipeBtn();
   animateFooterLtsgtwSvgPc();
 });
+const isDisabled = ref(false);
 function sendEmail(form) {
   //Regular expression Testing
   var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
   var phoneRule = /^[0-9]{10}$/g;
-  console.log("from_phone", form.from_phone.value.search(phoneRule) != -1);
-  if (form.from_com.value != "" && form.from_email.value.search(emailRule) != -1 && form.from_name.value != "" && form.from_phone.value != "" && form.message.value != "") {
-    emailjs.sendForm("service_1eg4y0l", "template_939p7pi", form, "DNs0jDKtU8ghbZyMt").then(
-      (result) => {
-        console.log("");
-        alert("寄送郵件成功");
-      },
-      (error) => {
-        // console.log("FAILED...", error.text);
-        alert("寄送郵件失敗");
-      }
-    );
-  } else {
-    alert("請填寫正確內容");
+  if (!isDisabled.value) {
+    if (form.from_com.value != "" && form.from_email.value.search(emailRule) != -1 && form.from_name.value != "" && form.from_phone.value.search(phoneRule) != -1 && form.message.value != "") {
+      isDisabled.value = true;
+      emailjs.sendForm("service_1eg4y0l", "template_939p7pi", form, "DNs0jDKtU8ghbZyMt").then(
+        (result) => {
+          alert("寄送郵件成功");
+          form.from_com.value;
+          form.from_email.value = "";
+          form.from_name.value = "";
+          form.from_phone.value = "";
+          form.message.value = "";
+          isDisabled.value = false;
+        },
+        (error) => {
+          // console.log("FAILED...", error.text);
+          alert("寄送郵件失敗");
+          isDisabled.value = false;
+        }
+      );
+    } else {
+      alert("請填寫正確內容");
+    }
   }
 }
 function animateFooterLtsgtwSvgPc() {
