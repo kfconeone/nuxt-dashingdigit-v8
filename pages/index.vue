@@ -29,6 +29,7 @@ const svgGit = ref();
 const svgGitSm = ref();
 const onLoadedEvents: any = inject("onLoadedEvents");
 const scrollbarRef = ref();
+const router = useRouter();
 
 provide("scrollbarRef", scrollbarRef);
 
@@ -99,6 +100,13 @@ function onTouchBtnSwipeSm() {
     duration: 0.4,
     ease: "Power2.InOut",
     borderColor: "black",
+    onComplete: () => {
+      const route = router.resolve({
+        name: "work",
+      });
+
+      window.open(route.href, "_top");
+    },
   });
 }
 
@@ -967,21 +975,19 @@ function scrollToPageFooter() {
           </div>
 
           <div class="flex justify-center mt-16 text-[#D3E741] text-xs font-bold mb-20" style="font-family: arial-bd">
-            <NuxtLink to="/work" target="_top">
-              <button ref="btnSwipeForMobile" @touchstart="onTouchBtnSwipeSm" class="btnSwipe-sm overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-1.5 px-5 relative w-fit h-fit">
-                <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="rounded-[44px] swipe-span-sm w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
-                <div class="relative z-10 flex items-center gap-1">
-                  <p class="index-swipe-text-sm tracking-[0.13em]">MORE</p>
-                  <div class="w-2">
-                    <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <line class="stroke-[#D3E741] index-swipe-text-sm" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
-                      <line class="stroke-[#D3E741] index-swipe-text-sm" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
-                      <line class="stroke-[#D3E741] index-swipe-text-sm" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
-                    </svg>
-                  </div>
+            <button ref="btnSwipeForMobile" @touchstart="onTouchBtnSwipeSm" class="btnSwipe-sm overflow-hidden text-[#D3E741] rounded-[44px] border-2 flex flex-nowrap items-center justify-center border-[#D3E741] py-1.5 px-5 relative w-fit h-fit">
+              <span style="background: linear-gradient(90deg, #d3e741 2.04%, #ffffff 96.94%)" class="rounded-[44px] swipe-span-sm w-[110%] h-[110%] absolute scale-x-0 top-0 left-0 origin-left"></span>
+              <div class="relative z-10 flex items-center gap-1">
+                <p class="index-swipe-text-sm tracking-[0.13em]">MORE</p>
+                <div class="w-2">
+                  <svg viewBox="0 0 10 11" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line class="stroke-[#D3E741] index-swipe-text-sm" x1="1.29289" y1="10.1818" x2="9.29289" y2="2.18181" stroke-width="2" />
+                    <line class="stroke-[#D3E741] index-swipe-text-sm" x1="2.88892" y1="1.88892" x2="10" y2="1.88892" stroke-width="2" />
+                    <line class="stroke-[#D3E741] index-swipe-text-sm" x1="9" y1="2" x2="9" y2="9.11111" stroke-width="2" />
+                  </svg>
                 </div>
-              </button>
-            </NuxtLink>
+              </div>
+            </button>
           </div>
 
           <div class="text-[33px] md:text-4xl leading-[1] 3xl:text-8xl w-full h-fit overflow-hidden mar-tri-sm text-white skew-y-[4.9deg] bg-[#30312D]" style="font-family: dgo">
