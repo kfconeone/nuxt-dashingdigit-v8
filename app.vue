@@ -14,6 +14,15 @@ provide("isPointer", isPointer);
 provide("isMenuOpen", isMenuOpen);
 provide("onLoadedEvents", onLoadedEvents);
 
+useHead({
+  title: "達訊數位股份有限公司",
+  // or, instead:
+  // titleTemplate: (title) => `My App - ${title}`,
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  charset: "utf-8",
+  meta: [{ name: "description", content: "達訊團隊專長於數位設計，致力於將新奇的互動元素帶進網頁設計、品牌設計、系統開發 ，提供品牌創造高流量的數位體驗。" }],
+});
+
 onMounted(() => {
   if ("ontouchstart" in document.documentElement) {
     console.log("mobile");
