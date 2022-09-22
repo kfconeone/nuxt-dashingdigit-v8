@@ -23,7 +23,7 @@ useHead({
   meta: [{ name: "description", content: "達訊團隊專長於數位設計，致力於將新奇的互動元素帶進網頁設計、品牌設計、系統開發 ，提供品牌創造高流量的數位體驗。" }],
 });
 
-onMounted(() => {
+function loaded() {
   if ("ontouchstart" in document.documentElement) {
     console.log("mobile");
     isMobile.value = true;
@@ -73,6 +73,17 @@ onMounted(() => {
       ScrollTrigger.refresh();
     });
   }, 1000);
+}
+
+onMounted(async () => {
+  if (document.readyState == "complete") {
+    loaded();
+  }
+  while (document.readyState != "complete") {
+    loaded();
+    console.log(document.readyState);
+    await WaitMilliseconds(100);
+  }
 });
 </script>
 
