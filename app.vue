@@ -76,14 +76,14 @@ function loaded() {
 }
 
 onMounted(async () => {
-  if (document.readyState == "complete") {
-    loaded();
-  }
-  while (document.readyState != "complete") {
-    loaded();
-    console.log(document.readyState);
+  let imgs: HTMLImageElement[] = Array.from(document.querySelectorAll("img"));
+  console.log("imgs.filter((img) => img.complete == false).length", imgs.filter((img) => img.complete == false).length);
+  while (imgs.filter((img) => img.complete == false).length > 0) {
+    console.log("imgs.filter((img) => img.complete == false).length ", imgs.filter((img) => img.complete == false).length);
     await WaitMilliseconds(100);
   }
+
+  loaded();
 });
 </script>
 
