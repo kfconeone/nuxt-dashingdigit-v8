@@ -77,9 +77,7 @@ function loaded() {
 
 onMounted(async () => {
   let imgs: HTMLImageElement[] = Array.from(document.querySelectorAll("img"));
-  console.log("imgs.filter((img) => img.complete == false).length", imgs.filter((img) => img.complete == false).length);
   while (imgs.filter((img) => img.complete == false).length > 0) {
-    console.log("imgs.filter((img) => img.complete == false).length ", imgs.filter((img) => img.complete == false).length);
     await WaitMilliseconds(100);
   }
 
