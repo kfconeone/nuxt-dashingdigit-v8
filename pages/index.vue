@@ -33,13 +33,6 @@ const router = useRouter();
 
 provide("scrollbarRef", scrollbarRef);
 
-useHead({
-  title: "Dashing",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  charset: "utf-8",
-  meta: [{ name: "description", content: "達訊數位" }],
-});
-
 onMounted(() => {
   var currentWindowSize = getCurrentWindowSize();
   addResizeEventListener(() => (currentWindowSize = getCurrentWindowSize()));

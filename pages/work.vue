@@ -15,7 +15,24 @@ useHead({
   title: "Work",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
-  meta: [{ name: "description", content: "達訊數位專案" }],
+  meta: [
+    {
+      name: "description",
+      content: "我們不為你們工作，我們與你們合作，並共同解決你們遭遇的所有問題與困難，當一個可以與你密切溝通，且能始終如一交付高品質成果的夥伴。",
+    },
+    {
+      property: "og:title",
+      content: "Work",
+    },
+    {
+      property: "og:description",
+      content: "我們不為你們工作，我們與你們合作，並共同解決你們遭遇的所有問題與困難，當一個可以與你密切溝通，且能始終如一交付高品質成果的夥伴。",
+    },
+    {
+      itemprop: "description",
+      content: "我們不為你們工作，我們與你們合作，並共同解決你們遭遇的所有問題與困難，當一個可以與你密切溝通，且能始終如一交付高品質成果的夥伴。",
+    },
+  ],
 });
 const onLoadedEvents: any = inject("onLoadedEvents");
 var currentWindowSize: WindowSize = WindowSize.Mobile;

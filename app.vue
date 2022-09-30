@@ -13,16 +13,49 @@ const isPointer = ref(false);
 provide("isPointer", isPointer);
 provide("isMenuOpen", isMenuOpen);
 provide("onLoadedEvents", onLoadedEvents);
-
 useHead({
-  title: "達訊數位股份有限公司",
-  // or, instead:
-  // titleTemplate: (title) => `My App - ${title}`,
+  title: "達訊數位 Dashing Digit",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
-  meta: [{ name: "description", content: "達訊團隊專長於數位設計，致力於將新奇的互動元素帶進網頁設計、品牌設計、系統開發 ，提供品牌創造高流量的數位體驗。" }],
+  meta: [
+    {
+      name: "description",
+      content: "達訊團隊專長於數位設計，致力於將新奇的互動元素帶進網頁設計、品牌設計、系統開發 ，提供品牌創造高流量的數位體驗。",
+    },
+    {
+      property: "og:locale",
+      content: "zh_TW",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:title",
+      content: "達訊數位 Dashing Digit",
+    },
+    {
+      property: "og:description",
+      content: "達訊團隊專長於數位設計，致力於將新奇的互動元素帶進網頁設計、品牌設計、系統開發 ，提供品牌創造高流量的數位體驗。",
+    },
+    {
+      property: "og:url",
+      content: "https://dashingdigit.com/",
+    },
+    {
+      property: "og:site_name",
+      content: "達訊數位 Dashing Digit",
+    },
+    {
+      itemprop: "name",
+      content: "達訊數位 Dashing Digit",
+    },
+    {
+      itemprop: "description",
+      content: "達訊團隊專長於數位設計，致力於將新奇的互動元素帶進網頁設計、品牌設計、系統開發 ，提供品牌創造高流量的數位體驗。",
+    },
+  ],
 });
-
 function loaded() {
   if ("ontouchstart" in document.documentElement) {
     console.log("mobile");

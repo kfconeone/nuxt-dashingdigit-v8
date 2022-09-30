@@ -14,11 +14,26 @@ const onLoadedEvents: any = inject("onLoadedEvents");
 
 useHead({
   title: "About",
-  // or, instead:
-  // titleTemplate: (title) => `My App - ${title}`,
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
-  meta: [{ name: "description", content: "關於達訊數位" }],
+  meta: [
+    {
+      name: "description",
+      content: "達訊團隊擁有反骨的個性，我們脱離羊群，尋找藍海，想著“如果不一樣，是不是更好”。",
+    },
+    {
+      property: "og:title",
+      content: "About",
+    },
+    {
+      property: "og:description",
+      content: "達訊團隊擁有反骨的個性，我們脱離羊群，尋找藍海，想著“如果不一樣，是不是更好”。",
+    },
+    {
+      itemprop: "description",
+      content: "達訊團隊擁有反骨的個性，我們脱離羊群，尋找藍海，想著“如果不一樣，是不是更好”。",
+    },
+  ],
 });
 // linear-gradient(180deg, #6372c6 0%, #8b90ff 69.03%, #ffffff 88.36%), #6372c6
 var currentWindowSize: Ref<WindowSize> = ref(WindowSize.Desktop);

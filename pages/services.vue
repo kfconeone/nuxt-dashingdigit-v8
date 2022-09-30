@@ -10,11 +10,26 @@ gsap.registerPlugin(ScrollTrigger);
 
 useHead({
   title: "Services",
-  // or, instead:
-  // titleTemplate: (title) => `My App - ${title}`,
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
-  meta: [{ name: "description", content: "達訊數位提供的服務" }],
+  meta: [
+    {
+      name: "description",
+      content: "我們負責創造各式 SEXY IDEAS 並積極實現，目的是使你的品牌充滿新奇、趣味、優雅的互動體驗。",
+    },
+    {
+      property: "og:title",
+      content: "Services",
+    },
+    {
+      property: "og:description",
+      content: "我們負責創造各式 SEXY IDEAS 並積極實現，目的是使你的品牌充滿新奇、趣味、優雅的互動體驗。",
+    },
+    {
+      itemprop: "description",
+      content: "我們負責創造各式 SEXY IDEAS 並積極實現，目的是使你的品牌充滿新奇、趣味、優雅的互動體驗。",
+    },
+  ],
 });
 const onLoadedEvents: any = inject("onLoadedEvents");
 var currentWindowSize: WindowSize = WindowSize.Mobile;
