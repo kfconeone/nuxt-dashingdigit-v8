@@ -23,6 +23,10 @@ useHead({
       content: "達訊團隊專長於數位設計，致力於將新奇的互動元素帶進網頁設計、品牌設計、系統開發 ，提供品牌創造高流量的數位體驗。",
     },
     {
+      name: "google-site-verification",
+      content: "sUG0Wj9zbWOq0jbJfAdskrQaHMd4YKUkq_Jm3LeMm5o",
+    },
+    {
       property: "og:locale",
       content: "zh_TW",
     },
