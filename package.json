@@ -7,19 +7,21 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.3.1",
-    "nuxt": "^3.0.0-rc.8"
+    "nuxt": "^3.0.0"
   },
   "dependencies": {
     "@emailjs/browser": "^3.7.0",
     "@types/three": "^0.143.1",
+    "autoprefixer": "^10.4.13",
     "cannon-es": "^0.20.0",
     "firebase": "^9.9.3",
     "flag-waiter": "^1.0.5",
     "gsap": "npm:@gsap/shockingly@^3.11.0",
     "lil-gui": "^0.17.0",
+    "postcss": "^8.4.20",
     "smooth-scrollbar": "^8.7.5",
     "swiper": "^8.3.2",
+    "tailwindcss": "^3.2.4",
     "three": "^0.143.0"
   }
 }
