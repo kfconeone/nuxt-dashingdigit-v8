@@ -28,8 +28,8 @@ const btnSwipeForMobile = ref();
 const svgGit = ref();
 const svgGitSm = ref();
 const onLoadedEvents: any = inject("onLoadedEvents");
-const scrollbarRef = ref();
 const router = useRouter();
+const scrollbarRef = ref();
 
 provide("scrollbarRef", scrollbarRef);
 

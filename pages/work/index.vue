@@ -131,8 +131,10 @@ function initSmoothScrollbarForDesktopAndLaptop() {
     var fixedElem = document.getElementById("bg-work-pc");
 
     ScrollTrigger.update();
-    fixedElem!.style.top = offset.y + "px";
-    fixedElem!.style.left = offset.x + "px";
+    if (fixedElem) {
+      fixedElem!.style.top = offset.y + "px";
+      fixedElem!.style.left = offset.x + "px";
+    }
   });
   ScrollTrigger.defaults({ scroller: workScroller });
   //smooth scrollbar//
@@ -187,7 +189,7 @@ function initSmoothScrollbarForMobile() {
   });
   scrollbarRef.value.addListener(({ offset }: any) => {
     var fixedElem = document.getElementById("bg-work-sm");
-
+    if (!fixedElem) return;
     ScrollTrigger.update();
     fixedElem!.style.top = offset.y + "px";
     fixedElem!.style.left = offset.x + "px";
@@ -482,7 +484,7 @@ function bounceFrameForDesktopAndLaptop() {
 
           <div class="flex text-white justify-center mt-96 gap-12">
             <div class="work-mia-pc-tri">
-              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+              <NuxtLink class="pointer" href="/work/miatreasure">
                 <div class="w-[500px] 3xl:w-[650px] h-fit relative work-mia-pc group">
                   <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                     <img class="w-full object-cover hero-mia-pc group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-mia-pc.webp" />
@@ -504,7 +506,7 @@ function bounceFrameForDesktopAndLaptop() {
             </div>
             <div class="mt-48">
               <div class="work-bella-pc-tri">
-                <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                <NuxtLink class="pointer" href="/work/bellauno">
                   <div class="w-[500px] 3xl:w-[650px] h-fit relative work-bella-pc group">
                     <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                       <img class="w-full object-cover hero-mia-pc group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-bella-pc.webp" />
@@ -529,7 +531,7 @@ function bounceFrameForDesktopAndLaptop() {
 
           <div class="flex text-white justify-center gap-12 mt-5 pb-64">
             <div class="work-ancient-pc-tri">
-              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+              <NuxtLink class="pointer" href="/work/ancient">
                 <div class="w-[500px] 3xl:w-[650px] h-fit relative work-ancient-pc group">
                   <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full overflow-hidden" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                     <img class="w-full object-cover hero-mia-pc group-hover:scale-[1.2] transition-all ease-in-out duration-[250ms]" src="~assets/imgs/hero-ancient-pc.webp" />
@@ -599,7 +601,7 @@ function bounceFrameForDesktopAndLaptop() {
             <div class="">
               <div class="flex gap-3">
                 <div class="md-work-mia-tri">
-                  <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                  <NuxtLink class="pointer" href="/work/miatreasure">
                     <div class="w-[320px] h-fit relative md-work-mia">
                       <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                         <img class="w-full" w src="~assets/imgs/work-mia-sm.webp" />
@@ -620,7 +622,7 @@ function bounceFrameForDesktopAndLaptop() {
                 </div>
 
                 <div class="md-work-bella-tri">
-                  <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                  <NuxtLink class="pointer" href="/work/bellauno">
                     <div class="w-[320px] h-fit relative mt-64 md-work-bella">
                       <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                         <img class="w-full" w src="~assets/imgs/work-bella-sm.webp" />
@@ -641,7 +643,7 @@ function bounceFrameForDesktopAndLaptop() {
                 </div>
               </div>
               <div class="md-work-ancient-tri">
-                <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                <NuxtLink class="pointer" href="/work/ancient" target="_blank">
                   <div class="w-[320px] h-fit mx-auto relative mt-3 md-work-ancient">
                     <div class="border-[5px] border-[#D3E741] rounded-[5px] w-full" style="filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.25))">
                       <img class="w-full" w src="~assets/imgs/work-ancient-sm.jpg" />
@@ -711,7 +713,7 @@ function bounceFrameForDesktopAndLaptop() {
 
           <div class="pb-12 relative z-10">
             <div class="flex text-white justify-center gap-12 px-6 sm-work-mia-tri">
-              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+              <NuxtLink class="pointer" href="/work/miatreasure">
                 <div class="bg-[#262723] group w-full max-w-[450px] border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-mia">
                   <div class="overflow-hidden relative">
                     <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-mia-sm.webp" />
@@ -739,7 +741,7 @@ function bounceFrameForDesktopAndLaptop() {
               </NuxtLink>
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-bella-tri">
-              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+              <NuxtLink class="pointer" href="/work/bellauno">
                 <div class="bg-[#262723] group w-full max-w-[450px] border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-bella">
                   <div class="overflow-hidden relative">
                     <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-bella-sm.webp" />
@@ -768,7 +770,7 @@ function bounceFrameForDesktopAndLaptop() {
               </NuxtLink>
             </div>
             <div class="flex text-white justify-center gap-12 px-6 mt-20 sm-work-ancient-tri">
-              <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+              <NuxtLink class="pointer" href="/work/ancient">
                 <div class="bg-[#262723] group w-full max-w-[450px] border-[2.5px] border-[#D3E741] rounded-[5px] h-fit sm-work-ancient">
                   <div class="overflow-hidden relative">
                     <img class="object-cover group-hover:scale-[1.2] transition-all ease-[cubic-bezier(.68,-.55,.265,1.55)] duration-[500ms]" src="~assets/imgs/work-ancient-sm.jpg" />
