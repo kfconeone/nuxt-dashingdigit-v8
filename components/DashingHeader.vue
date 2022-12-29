@@ -31,13 +31,17 @@ onMounted(() => {
 </script>
 <template>
   <div class="w-full flex justify-between px-5 xl:px-20 fixed top-0 xl:top-10 z-50" style="mix-blend-mode: difference">
-    <NuxtLink to="/" target="_top">
-      <p class="text-xl italic font-bold leading-6 tracking-[0.005em] mt-8 text-white" style="font-family: corbel-bold-italic">Dashing</p>
-    </NuxtLink>
-    <button class="w-6 h-4 relative text-white self-end" @click="onClickToggle">
-      <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ 'rotate-45': isMenuOpen, ' -translate-y-1.5': !isMenuOpen }"></span>
-      <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ 'opacity-0': isMenuOpen }"></span>
-      <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ '-rotate-45': isMenuOpen, ' translate-y-1.5': !isMenuOpen }"></span>
-    </button>
+    <div class="h-fit">
+      <NuxtLink to="/" target="_top">
+        <p class="text-xl italic font-bold leading-6 tracking-[0.005em] text-white" style="font-family: corbel-bold-italic">Dashing</p>
+      </NuxtLink>
+    </div>
+    <div class="w-16 h-10 flex justify-center items-center pointer-detected" @click="onClickToggle">
+      <button class="w-6 h-4 relative text-white">
+        <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ 'rotate-45': isMenuOpen, ' -translate-y-1.5': !isMenuOpen }"></span>
+        <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ 'opacity-0': isMenuOpen }"></span>
+        <span aria-hidden="true" class="block absolute h-0.5 w-6 bg-current transform transition duration-500 ease-in-out" :class="{ '-rotate-45': isMenuOpen, ' translate-y-1.5': !isMenuOpen }"></span>
+      </button>
+    </div>
   </div>
 </template>
