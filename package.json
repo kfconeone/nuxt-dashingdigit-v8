@@ -14,6 +14,7 @@
     "@types/three": "^0.143.1",
     "autoprefixer": "^10.4.13",
     "cannon-es": "^0.20.0",
+    "daisyui": "^2.46.0",
     "firebase": "^9.9.3",
     "flag-waiter": "^1.0.5",
     "gsap": "^3.11.4",
