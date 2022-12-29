@@ -533,7 +533,7 @@ function scrollToPageFooter() {
                 >
                   <swiper-slide>
                     <div class="relative">
-                      <NuxtLink class="pointer" href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                      <NuxtLink class="pointer" href="/work/miatreasure" target="_blank">
                         <div class="relative">
                           <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
                             <div class="w-10 absolute right-5 -top-14 z-10">
@@ -553,7 +553,7 @@ function scrollToPageFooter() {
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
-                      <NuxtLink class="pointer" href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                      <NuxtLink class="pointer" href="/work/bellauno" target="_blank">
                         <div class="relative">
                           <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
                             <div class="w-10 absolute right-5 -top-14 z-10">
@@ -577,7 +577,7 @@ function scrollToPageFooter() {
                   </swiper-slide>
                   <swiper-slide>
                     <div class="relative">
-                      <NuxtLink class="pointer" href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                      <NuxtLink class="pointer" href="/work/ancient" target="_blank">
                         <div class="relative">
                           <div class="w-56 3xl:w-80 absolute -right-10 -bottom-20 z-10">
                             <div class="w-10 absolute right-5 -top-14 z-10">
@@ -913,7 +913,7 @@ function scrollToPageFooter() {
               class="mySwiper"
             >
               <swiper-slide>
-                <NuxtLink href="https://www.behance.net/gallery/134835097/Bella-Uno-visual-design" target="_blank">
+                <NuxtLink href="/work/bellauno" target="_blank">
                   <div class="relative group">
                     <div class="w-44 absolute -right-5 bottom-0 z-10">
                       <div class="w-8 absolute right-0 -top-10 z-10">
@@ -930,7 +930,7 @@ function scrollToPageFooter() {
                 </NuxtLink>
               </swiper-slide>
               <swiper-slide>
-                <NuxtLink href="https://www.behance.net/gallery/134024959/MIA-TREASURE-web-design-visual-design" target="_blank">
+                <NuxtLink href="/work/miatreasure" target="_blank">
                   <div class="relative group">
                     <div class="w-44 absolute -right-5 bottom-0 z-10">
                       <div class="w-8 absolute right-0 -top-10 z-10">
@@ -947,7 +947,7 @@ function scrollToPageFooter() {
                 </NuxtLink>
               </swiper-slide>
               <swiper-slide>
-                <NuxtLink href="https://www.behance.net/gallery/134087187/2021-" target="_blank">
+                <NuxtLink href="/work/ancient" target="_blank">
                   <div class="relative group">
                     <div class="w-44 absolute -right-5 bottom-0 z-10">
                       <div class="w-8 absolute right-0 -top-10 z-10">
