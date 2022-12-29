@@ -356,7 +356,7 @@ function wiggleImgsForMobile() {
   }
 }
 function wiggleImgsForTablet() {
-  let animatedArray = [".md-work-mia", ".md-work-bella", ".md-work-ancient"];
+  let animatedArray = [".md-work-mia", ".md-work-bella", ".md-work-ancient", ".md-work-dashing-tee"];
   for (let i = 0; i < animatedArray.length; i++) {
     var radius = Math.floor(Math.random() * 70) + 30;
 
@@ -415,6 +415,17 @@ function bounceFrameForTablet() {
     ease: "Power2.easeOut",
     scrollTrigger: {
       trigger: ".md-work-ancient-tri",
+      start: "20% bottom",
+    },
+  });
+  gsap.from(".md-work-dashing-tee", {
+    y: 200,
+    x: "random(-50,50)",
+    duration: 1.5,
+    scale: 0,
+    ease: "Power2.easeOut",
+    scrollTrigger: {
+      trigger: ".md-work-dashing-tee-tri",
       start: "20% bottom",
     },
   });
